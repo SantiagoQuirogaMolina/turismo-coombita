@@ -1,0 +1,768 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Galería | Cómbita | Turismo de Naturaleza</title>
+    <meta name="description" content="Galería fotográfica de Cómbita: páramos, fauna, pinturas rupestres y paisajes únicos">
+    <script src="themekit/scripts/jquery.min.js"></script>
+    <script src="themekit/scripts/main.js"></script>
+    <link rel="stylesheet" href="themekit/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="themekit/css/style.css">
+    <link rel="stylesheet" href="themekit/css/glide.css">
+    <link rel="stylesheet" href="themekit/css/magnific-popup.css">
+    <link rel="stylesheet" href="themekit/css/content-box.css">
+    <link rel="stylesheet" href="themekit/css/media-box.css">
+    <link rel="stylesheet" href="themekit/css/contact-form.css">
+    <link rel="stylesheet" href="skin.css">
+    <link rel="icon" href="imagenes/favicon.png">
+    <style>
+        /* Estilos para galería mejorada */
+        .album-box {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .album-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .album-box .img-box {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .album-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .album-box:hover img {
+            transform: scale(1.05);
+        }
+
+        .album-box .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.7) 50%, transparent);
+            padding: 30px 20px 20px;
+            color: white;
+            min-height: 100px;
+        }
+
+        .album-box .caption h3 {
+            color: white;
+            margin: 0 0 8px 0;
+            font-size: 1.3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .album-box .caption p {
+            color: rgba(255,255,255,0.95);
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* Estilos para las miniaturas de la galería */
+        .grid-item .img-box {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Botón de compartir en lightbox */
+        .share-lightbox {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100000;
+            display: block !important;
+        }
+
+        .share-btn {
+            background: #FF7F00;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            color: white;
+            font-size: 20px;
+        }
+
+        .share-btn:hover {
+            background: #ff9933;
+            transform: scale(1.15);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        .share-btn i {
+            color: white !important;
+        }
+
+        /* Ocultar botones cuando no hay lightbox abierto */
+        body:not(.mfp-zoom-in) .share-lightbox {
+            display: none !important;
+        }
+
+        body.mfp-zoom-in .share-lightbox {
+            display: block !important;
+        }
+
+        /* Categorías con íconos */
+        .category-icon {
+            font-size: 1.2rem;
+            margin-right: 8px;
+        }
+
+    </style>
+</head>
+<body class="page-main">
+    <div id="preloader"></div>
+    <nav class="menu-classic menu-fixed align-right" data-menu-anima="fade-in">
+        <div class="container">
+            <div class="menu-brand">
+                <a href="index.html">
+                    <img class="logo-default scroll-hide" src="media/LOGO COLOR VECTORIZADO.png" alt="logo" />
+                    <img class="logo-retina scroll-hide" src="media/LOGO COLOR VECTORIZADO.png" alt="logo" />
+                    <img class="logo-default scroll-show" src="media/lgoo-dos.png" alt="logo" />
+                    <img class="logo-retina scroll-show" src="media/lgoo-dos.png" alt="logo" />
+                </a>
+            </div>
+            <i class="menu-btn"></i>
+            <div class="menu-cnt">
+                                <ul id="main-menu">
+                    <li class="dropdown">
+                        <a href="index.html">Inicio</a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#">Paginas</a>
+                        <ul>
+                            <li>
+                                <a href="about.html">Acerca de</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a>Imperdibles</a>
+                                <ul>
+                                    <li><a href="food.html">Restaurantes</a></li>
+                                    <li><a href="shelters.html">hospedajes</a></li>
+                                    <li><a href="events.html">Eventos</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a>Explora Más</a>
+                                <ul>
+                                    <li><a href="history.html">historia</a></li>
+                                    <li><a href="gallery.html">galeria</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="treks.html">Caminatas</a>
+                    </li>
+                    <li>
+                        <a href="blog.html">Blog</a>
+                    </li>
+                    <li>
+                        <a href="contacts.html">Contacto</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            </div>
+        </div>
+    </nav>
+    <header class="header-image ken-burn-center light" data-parallax="scroll" data-natural-height="1080" data-natural-width="1920" data-bleed="0" data-image-src="imagenes/favorita%20dos.jpg" data-offset="0">
+        <div class="container">
+            <h1>Galería Fotográfica</h1>
+            <h2>Descubre la magia de Cómbita a través de nuestras imágenes</h2>
+            <ol class="breadcrumb">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Páginas</a></li>
+                <li><a href="#">Galería</a></li>
+            </ol>
+        </div>
+    </header>
+    <main>
+        <section class="section-base ">
+            <div class="container">
+                <div class="album" data-album-anima="fade-bottom" data-columns-md="2" data-columns-sm="1">
+                    <!-- Galería dinámica del backend -->
+                    <div id="galeria-dinamica" class="album-list">
+                        <!-- Las categorías se cargarán aquí -->
+                    </div>
+
+                    <!-- Galería estática (backup) -->
+                    <div id="galeria-estatica" class="album-list" style="display: none;">
+                        <div class="album-box">
+                            <a href="#" class="img-box img-scale" data-album="paramos">
+                                <img src="imagenes/laguna ricaaa.jpg" alt="Páramos de Cómbita" />
+                            </a>
+                            <div class="caption">
+                                <h3>Páramos</h3>
+                                <p>Ecosistemas de alta montaña con frailejones</p>
+                            </div>
+                        </div>
+                        <div class="album-box">
+                            <a href="#" class="img-box img-scale" data-album="fauna">
+                                <img src="imagenes/colibrie verde descansa.jpg" alt="Fauna de Cómbita" />
+                            </a>
+                            <div class="caption">
+                                <h3>Fauna</h3>
+                                <p>Aves y animales nativos del ecosistema</p>
+                            </div>
+                        </div>
+                        <div class="album-box">
+                            <a href="#" class="img-box img-scale" data-album="rupestre">
+                                <img src="imagenes/tilin,pinturas.JPG" alt="Pinturas Rupestres" />
+                            </a>
+                            <div class="caption">
+                                <h3>Arte Rupestre</h3>
+                                <p>Pinturas precolombinas milenarias</p>
+                            </div>
+                        </div>
+                        <div class="album-box">
+                            <a href="#" class="img-box img-scale" data-album="patrimonio">
+                                <img src="imagenes/iglesia.jpg" alt="Patrimonio Cultural" />
+                            </a>
+                            <div class="caption">
+                                <h3>Patrimonio</h3>
+                                <p>Arquitectura colonial y tradiciones</p>
+                            </div>
+                        </div>
+                        <div class="album-box">
+                            <a href="#" class="img-box img-scale" data-album="formaciones">
+                                <img src="imagenes/La Peña.jpg" alt="Formaciones Rocosas" />
+                            </a>
+                            <div class="caption">
+                                <h3>Formaciones Rocosas</h3>
+                                <p>Estructuras geológicas únicas</p>
+                            </div>
+                        </div>
+                        <div class="album-box">
+                            <a href="#" class="img-box img-scale" data-album="paisajes">
+                                <img src="imagenes/montaña cordi.jpg" alt="Paisajes de Cómbita" />
+                            </a>
+                            <div class="caption">
+                                <h3>Paisajes</h3>
+                                <p>Vistas panorámicas espectaculares</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cnt-album-box">
+                        <p class="album-title"><span>📸</span> <a>Ver Álbumes</a></p>
+
+<!-- CÓDIGO HTML ACTUALIZADO PARA LA GALERÍA -->
+<!-- Copia este código en la sección correspondiente de gallery.html -->
+
+<!-- Primera categoría de álbum -->
+<div class="album-item">
+    <div class="grid-list list-gallery" data-lightbox-anima="fade-top" data-columns="3" data-columns-md="2">
+        <div class="grid-box">
+            <!-- Categoría: PÁRAMOS -->
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/paramos/foto laguna y planta.JPG" data-title="Foto Laguna Y Planta">
+                    <img src="imagenes/paramos/foto laguna y planta.JPG" alt="Foto Laguna Y Planta" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/paramos/frailejon en la laguna .jpg" data-title="Frailejon En La Laguna ">
+                    <img src="imagenes/paramos/frailejon en la laguna .jpg" alt="Frailejon En La Laguna " />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/paramos/freilejon grande.jpg" data-title="Freilejon Grande">
+                    <img src="imagenes/paramos/freilejon grande.jpg" alt="Freilejon Grande" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/paramos/laguna rica.jpg" data-title="Laguna Rica">
+                    <img src="imagenes/paramos/laguna rica.jpg" alt="Laguna Rica" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/paramos/laguna ricaaa.jpg" data-title="Laguna Ricaaa">
+                    <img src="imagenes/paramos/laguna ricaaa.jpg" alt="Laguna Ricaaa" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/paramos/plantas de la laguuna.JPG" data-title="Plantas De La Laguuna">
+                    <img src="imagenes/paramos/plantas de la laguuna.JPG" alt="Plantas De La Laguuna" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/paramos/tres frailejones.jpg" data-title="Tres Frailejones">
+                    <img src="imagenes/paramos/tres frailejones.jpg" alt="Tres Frailejones" />
+                </a>
+            </div>
+        </div>
+        <div class="list-pagination">
+            <ul class="pagination" data-page-items="6" data-pagination-anima="fade-right"></ul>
+        </div>
+    </div>
+</div>
+
+<div class="album-item">
+    <div class="grid-list list-gallery" data-lightbox-anima="fade-top" data-columns="3" data-columns-md="2">
+        <div class="grid-box">
+            <!-- Categoría: FAUNA -->
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/fauna/alcon sapero.JPG" data-title="Alcon Sapero">
+                    <img src="imagenes/fauna/alcon sapero.JPG" alt="Alcon Sapero" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/fauna/colibrie silueta alas abiertas.jpg" data-title="Colibrie Silueta Alas Abiertas">
+                    <img src="imagenes/fauna/colibrie silueta alas abiertas.jpg" alt="Colibrie Silueta Alas Abiertas" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/fauna/colibrie silueta.jpg" data-title="Colibrie Silueta">
+                    <img src="imagenes/fauna/colibrie silueta.jpg" alt="Colibrie Silueta" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/fauna/colibrie verde descansa.jpg" data-title="Colibrie Verde Descansa">
+                    <img src="imagenes/fauna/colibrie verde descansa.jpg" alt="Colibrie Verde Descansa" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/fauna/copeton.jpg" data-title="Copeton">
+                    <img src="imagenes/fauna/copeton.jpg" alt="Copeton" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/fauna/copeton2.jpg" data-title="Copeton2">
+                    <img src="imagenes/fauna/copeton2.jpg" alt="Copeton2" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/fauna/pajaro comiendo abeja.JPG" data-title="Pajaro Comiendo Abeja">
+                    <img src="imagenes/fauna/pajaro comiendo abeja.JPG" alt="Pajaro Comiendo Abeja" />
+                </a>
+            </div>
+        </div>
+        <div class="list-pagination">
+            <ul class="pagination" data-page-items="6" data-pagination-anima="fade-right"></ul>
+        </div>
+    </div>
+</div>
+
+<div class="album-item">
+    <div class="grid-list list-gallery" data-lightbox-anima="fade-top" data-columns="3" data-columns-md="2">
+        <div class="grid-box">
+            <!-- Categoría: ARTE RUPESTRE -->
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/rupestre/1300x800el tilin.JPG" data-title="1300X800El Tilin">
+                    <img src="imagenes/rupestre/1300x800el tilin.JPG" alt="1300X800El Tilin" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/rupestre/el tilin.JPG" data-title="El Tilin">
+                    <img src="imagenes/rupestre/el tilin.JPG" alt="El Tilin" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/rupestre/tilin,pinturas.JPG" data-title="Tilin,Pinturas">
+                    <img src="imagenes/rupestre/tilin,pinturas.JPG" alt="Tilin,Pinturas" />
+                </a>
+            </div>
+        </div>
+        <div class="list-pagination">
+            <ul class="pagination" data-page-items="6" data-pagination-anima="fade-right"></ul>
+        </div>
+    </div>
+</div>
+
+<div class="album-item">
+    <div class="grid-list list-gallery" data-lightbox-anima="fade-top" data-columns="3" data-columns-md="2">
+        <div class="grid-box">
+            <!-- Categoría: PATRIMONIO -->
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/patrimonio/1300x800iglesia.jpg" data-title="1300X800Iglesia">
+                    <img src="imagenes/patrimonio/1300x800iglesia.jpg" alt="1300X800Iglesia" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/patrimonio/iglesia.jpg" data-title="Iglesia">
+                    <img src="imagenes/patrimonio/iglesia.jpg" alt="Iglesia" />
+                </a>
+            </div>
+        </div>
+        <div class="list-pagination">
+            <ul class="pagination" data-page-items="6" data-pagination-anima="fade-right"></ul>
+        </div>
+    </div>
+</div>
+
+<div class="album-item">
+    <div class="grid-list list-gallery" data-lightbox-anima="fade-top" data-columns="3" data-columns-md="2">
+        <div class="grid-box">
+            <!-- Categoría: FORMACIONES ROCOSAS -->
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/formaciones/1300x800 peña desde la casa.JPG" data-title="1300X800 Peña Desde La Casa">
+                    <img src="imagenes/formaciones/1300x800 peña desde la casa.JPG" alt="1300X800 Peña Desde La Casa" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/formaciones/La Peña.jpg" data-title="La Peña">
+                    <img src="imagenes/formaciones/La Peña.jpg" alt="La Peña" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/formaciones/La peña2.jpg" data-title="La Peña2">
+                    <img src="imagenes/formaciones/La peña2.jpg" alt="La Peña2" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/formaciones/peña desde la casa.JPG" data-title="Peña Desde La Casa">
+                    <img src="imagenes/formaciones/peña desde la casa.JPG" alt="Peña Desde La Casa" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/formaciones/peña3.jpg" data-title="Peña3">
+                    <img src="imagenes/formaciones/peña3.jpg" alt="Peña3" />
+                </a>
+            </div>
+        </div>
+        <div class="list-pagination">
+            <ul class="pagination" data-page-items="6" data-pagination-anima="fade-right"></ul>
+        </div>
+    </div>
+</div>
+
+<div class="album-item">
+    <div class="grid-list list-gallery" data-lightbox-anima="fade-top" data-columns="3" data-columns-md="2">
+        <div class="grid-box">
+            <!-- Categoría: PAISAJES -->
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/paisajes/desde los altos.jpg" data-title="Desde Los Altos">
+                    <img src="imagenes/paisajes/desde los altos.jpg" alt="Desde Los Altos" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/paisajes/favorita dos.jpg" data-title="Favorita Dos">
+                    <img src="imagenes/paisajes/favorita dos.jpg" alt="Favorita Dos" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/paisajes/fraile en el valle.JPG" data-title="Fraile En El Valle">
+                    <img src="imagenes/paisajes/fraile en el valle.JPG" alt="Fraile En El Valle" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/paisajes/montallas.jpg" data-title="Montallas">
+                    <img src="imagenes/paisajes/montallas.jpg" alt="Montallas" />
+                </a>
+            </div>
+            <div class="grid-item">
+                <a class="img-box" href="imagenes/paisajes/montaña cordi.jpg" data-title="Montaña Cordi">
+                    <img src="imagenes/paisajes/montaña cordi.jpg" alt="Montaña Cordi" />
+                </a>
+            </div>
+        </div>
+        <div class="list-pagination">
+            <ul class="pagination" data-page-items="6" data-pagination-anima="fade-right"></ul>
+        </div>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </section>
+        <section class="section-base section-color">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="title">
+                            <h2>Videos</h2>
+                            <p>We live for the nature</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <ul class="slider" data-options="type:carousel,nav:true,perView:3,perViewSm:2,perViewXs:1,gap:30,controls:out,autoplay:3000">
+                            <li>
+                                <a class="img-box btn-video lightbox" href="https://www.youtube.com/watch?v=Lb4IcGF5iTQ" data-lightbox-anima="fade-top">
+                                    <img src="imagenes/tilin,pinturas.JPG" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a class="img-box btn-video lightbox" href="https://www.youtube.com/watch?v=Lb4IcGF5iTQ" data-lightbox-anima="fade-top">
+                                    <img src="imagenes/colibrie silueta.jpg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a class="img-box btn-video lightbox" href="https://www.youtube.com/watch?v=Lb4IcGF5iTQ" data-lightbox-anima="fade-top">
+                                    <img src="imagenes/colibrie silueta alas abiertas.jpg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a class="img-box btn-video lightbox" href="https://www.youtube.com/watch?v=Lb4IcGF5iTQ" data-lightbox-anima="fade-top">
+                                    <img src="imagenes/laguna rica.jpg" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <footer class="light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3>Cómbita</h3>
+                    <p>En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio
+                        de por qué subimos.</p>
+
+                </div>
+                <div class="col-lg-4">
+                    <h3>Contacto</h3>
+                    <ul class="icon-list icon-line">
+                        <li>Cómbita, Boyacá, Colombia</li>
+                        <li>alcaldia@combita-boyaca.gov.co</li>
+                        <li> 313 366232</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <div class="icon-links icon-social icon-links-grid social-colors">
+                        <a class="facebook"><i class="icon-facebook"></i></a>
+                        <a class="instagram"><i class="icon-instagram"></i></a>
+                        <a class="x"><i class="icon-twitter"></i></a> <!-- X represents the new Twitter -->
+                        <a class="youtube"><i class="icon-youtube"></i></a>
+                    </div>
+                    <hr class="space-sm" />
+                    <p>Siguenos en nuestras redes</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-bar">
+            <div class="container">
+                <span>© 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/"
+                        target="_blank">santiago-developer.com</a>.</span>
+                <span><a href="contacts.html">Contacto</a> | <a href="#">Privacy policy</a></span>
+            </div>
+        </div>
+    </footer>
+    <script src="themekit/scripts/parallax.min.js"></script>
+    <script src="themekit/scripts/glide.min.js"></script>
+    <script src="themekit/scripts/imagesloaded.min.js"></script>
+    <script src="themekit/scripts/isotope.min.js"></script>
+    <script src="themekit/scripts/magnific-popup.min.js"></script>
+
+    <!-- Script mejorado para galería con álbumes independientes -->
+    <script>
+        $(document).ready(function() {
+            // Inicializar cada álbum como una galería separada
+            $('.album-item').each(function(index) {
+                var albumId = 'album-' + index;
+                $(this).attr('data-album-id', albumId);
+
+                // Inicializar lightbox para este álbum específico
+                $(this).find('.list-gallery').magnificPopup({
+                    delegate: 'a.img-box',
+                    type: 'image',
+                    gallery: {
+                        enabled: true,
+                        navigateByImgClick: true,
+                        preload: [1, 2],
+                        tCounter: '%curr% de %total%'
+                    },
+                    image: {
+                        titleSrc: function(item) {
+                            return item.el.attr('data-title') || '';
+                        }
+                    },
+                    callbacks: {
+                        open: function() {
+                            // Añadir botones de compartir con texto
+                            var shareHTML = '<div class="share-lightbox" style="display:block !important;">' +
+                                '<div class="share-btn" onclick="shareOnFacebook()" title="Compartir en Facebook" style="background:#3b5998;">' +
+                                '<span style="color:white;font-weight:bold;">f</span>' +
+                                '</div>' +
+                                '<div class="share-btn" onclick="shareOnWhatsApp()" title="Compartir en WhatsApp" style="background:#25d366;">' +
+                                '<span style="color:white;font-weight:bold;">W</span>' +
+                                '</div>' +
+                                '<div class="share-btn" onclick="shareOnTwitter()" title="Compartir en Twitter" style="background:#1da1f2;">' +
+                                '<span style="color:white;font-weight:bold;">X</span>' +
+                                '</div>' +
+                                '</div>';
+                            if ($('.share-lightbox').length === 0) {
+                                $('body').append(shareHTML);
+                            }
+                        },
+                        close: function() {
+                            $('.share-lightbox').remove();
+                        }
+                    }
+                });
+            });
+
+            // Sistema mejorado de álbumes
+            $('.album-box a').on('click', function(e) {
+                e.preventDefault();
+                var albumIndex = $(this).closest('.album-box').index();
+                var $albumContent = $('.album-item').eq(albumIndex);
+
+                // Ocultar lista de álbumes y mostrar contenido del álbum
+                $('.album-list').fadeOut(300, function() {
+                    $albumContent.fadeIn(300);
+                    $('.album-title').fadeIn(300);
+                });
+
+                // Actualizar título del álbum
+                var albumTitle = $(this).closest('.album-box').find('h3').text();
+                $('.album-title a').text('← Volver a Álbumes | ' + albumTitle);
+            });
+
+            // Volver a la lista de álbumes
+            $('.album-title a').on('click', function(e) {
+                e.preventDefault();
+                $('.album-item').fadeOut(300);
+                $('.album-title').fadeOut(300, function() {
+                    $('.album-list').fadeIn(300);
+                });
+            });
+        });
+
+        // Funciones de compartir
+        function shareOnFacebook() {
+            var url = window.location.href;
+            window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank');
+        }
+
+        function shareOnWhatsApp() {
+            var url = window.location.href;
+            var text = 'Mira estas increíbles fotos de Cómbita: ';
+            window.open('https://wa.me/?text=' + encodeURIComponent(text + url), '_blank');
+        }
+
+        function shareOnTwitter() {
+            var url = window.location.href;
+            var text = 'Descubre la belleza de Cómbita en estas imágenes 📸';
+            window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text), '_blank');
+        }
+    </script>
+
+    <!-- Integración con Backend para Galería -->
+    <script src="api-config.js"></script>
+    <script>
+        // Cargar galería desde el backend
+        document.addEventListener('DOMContentLoaded', function() {
+            const API_URL = window.API_CONFIG ? window.API_CONFIG.API_URL : 'http://localhost:3000/api';
+
+            // Mostrar loading
+            const dinamica = document.getElementById('galeria-dinamica');
+            if (dinamica) {
+                dinamica.innerHTML = '<div style="text-align:center; padding:40px;"><i class="fas fa-spinner fa-spin" style="font-size:30px; color:#699073;"></i><p>Cargando galería...</p></div>';
+            }
+
+            // Cargar imágenes desde backend
+            fetch(`${API_URL}/galeria?activo=true`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success && data.data && data.data.length > 0) {
+                        // Agrupar imágenes por categoría
+                        const categorias = {};
+                        data.data.forEach(img => {
+                            const cat = img.categoria || 'Otras';
+                            if (!categorias[cat]) {
+                                categorias[cat] = [];
+                            }
+                            categorias[cat].push(img);
+                        });
+
+                        // Generar HTML de categorías
+                        let html = '';
+                        Object.keys(categorias).forEach(cat => {
+                            const primera = categorias[cat][0];
+                            html += `
+                                <div class="album-box">
+                                    <a href="#" class="img-box img-scale" data-album="${cat.toLowerCase()}">
+                                        <img src="${primera.imagen}" alt="${cat}" onerror="this.src='imagenes/default.jpg'"/>
+                                    </a>
+                                    <div class="caption">
+                                        <h3>${cat}</h3>
+                                        <p>${primera.descripcion || `${categorias[cat].length} imágenes`}</p>
+                                    </div>
+                                </div>
+                            `;
+                        });
+
+                        if (dinamica) {
+                            dinamica.innerHTML = html;
+                        }
+
+                        // Re-inicializar eventos de galería
+                        reinicializarGaleria();
+                    } else {
+                        mostrarGaleriaEstatica();
+                    }
+                })
+                .catch(error => {
+                    console.log('Usando galería estática:', error);
+                    mostrarGaleriaEstatica();
+                });
+        });
+
+        function mostrarGaleriaEstatica() {
+            const dinamica = document.getElementById('galeria-dinamica');
+            const estatica = document.getElementById('galeria-estatica');
+            if (dinamica) dinamica.style.display = 'none';
+            if (estatica) estatica.style.display = '';
+        }
+
+        function reinicializarGaleria() {
+            // Re-vincular eventos para los nuevos elementos
+            $('.album-box a').off('click').on('click', function(e) {
+                e.preventDefault();
+                var albumIndex = $(this).closest('.album-box').index();
+                var $albumContent = $('.album-item').eq(albumIndex);
+
+                $('.album-list').fadeOut(300, function() {
+                    $albumContent.fadeIn(300);
+                    $('.album-title').fadeIn(300);
+                });
+
+                var albumTitle = $(this).closest('.album-box').find('h3').text();
+                $('.album-title a').text('← Volver a Álbumes | ' + albumTitle);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+{
+  "generated": "2026-02-05T19:45:47.050270",
+  "albums": [
+    {
+      "id": "paramos",
+      "title": "Páramos",
+      "description": "Ecosistemas de alta montaña con frailejones",
+      "cover": "imagenes/laguna ricaaa.jpg",
+      "images": [
+        {
+          "filename": "foto laguna y planta.JPG",
+          "path": "imagenes/paramos/foto laguna y planta.JPG",
+          "title": "Foto Laguna Y Planta"
+        },
+        {
+          "filename": "frailejon en la laguna .jpg",
+          "path": "imagenes/paramos/frailejon en la laguna .jpg",
+          "title": "Frailejon En La Laguna "
+        },
+        {
+          "filename": "freilejon grande.jpg",
+          "path": "imagenes/paramos/freilejon grande.jpg",
+          "title": "Freilejon Grande"
+        },
+        {
+          "filename": "laguna rica.jpg",
+          "path": "imagenes/paramos/laguna rica.jpg",
+          "title": "Laguna Rica"
+        },
+        {
+          "filename": "laguna ricaaa.jpg",
+          "path": "imagenes/paramos/laguna ricaaa.jpg",
+          "title": "Laguna Ricaaa"
+        },
+        {
+          "filename": "plantas de la laguuna.JPG",
+          "path": "imagenes/paramos/plantas de la laguuna.JPG",
+          "title": "Plantas De La Laguuna"
+        },
+        {
+          "filename": "tres frailejones.jpg",
+          "path": "imagenes/paramos/tres frailejones.jpg",
+          "title": "Tres Frailejones"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "id": "fauna",
+      "title": "Fauna",
+      "description": "Aves y animales nativos del ecosistema",
+      "cover": "imagenes/colibrie verde descansa.jpg",
+      "images": [
+        {
+          "filename": "alcon sapero.JPG",
+          "path": "imagenes/fauna/alcon sapero.JPG",
+          "title": "Alcon Sapero"
+        },
+        {
+          "filename": "colibrie silueta alas abiertas.jpg",
+          "path": "imagenes/fauna/colibrie silueta alas abiertas.jpg",
+          "title": "Colibrie Silueta Alas Abiertas"
+        },
+        {
+          "filename": "colibrie silueta.jpg",
+          "path": "imagenes/fauna/colibrie silueta.jpg",
+          "title": "Colibrie Silueta"
+        },
+        {
+          "filename": "colibrie verde descansa.jpg",
+          "path": "imagenes/fauna/colibrie verde descansa.jpg",
+          "title": "Colibrie Verde Descansa"
+        },
+        {
+          "filename": "copeton.jpg",
+          "path": "imagenes/fauna/copeton.jpg",
+          "title": "Copeton"
+        },
+        {
+          "filename": "copeton2.jpg",
+          "path": "imagenes/fauna/copeton2.jpg",
+          "title": "Copeton2"
+        },
+        {
+          "filename": "pajaro comiendo abeja.JPG",
+          "path": "imagenes/fauna/pajaro comiendo abeja.JPG",
+          "title": "Pajaro Comiendo Abeja"
+        }
+      ],
+      "count": 7
+    },
+    {
+      "id": "rupestre",
+      "title": "Arte Rupestre",
+      "description": "Pinturas precolombinas milenarias",
+      "cover": "imagenes/tilin,pinturas.JPG",
+      "images": [
+        {
+          "filename": "1300x800el tilin.JPG",
+          "path": "imagenes/rupestre/1300x800el tilin.JPG",
+          "title": "1300X800El Tilin"
+        },
+        {
+          "filename": "el tilin.JPG",
+          "path": "imagenes/rupestre/el tilin.JPG",
+          "title": "El Tilin"
+        },
+        {
+          "filename": "tilin,pinturas.JPG",
+          "path": "imagenes/rupestre/tilin,pinturas.JPG",
+          "title": "Tilin,Pinturas"
+        }
+      ],
+      "count": 3
+    },
+    {
+      "id": "patrimonio",
+      "title": "Patrimonio",
+      "description": "Arquitectura colonial y tradiciones",
+      "cover": "imagenes/iglesia.jpg",
+      "images": [
+        {
+          "filename": "1300x800iglesia.jpg",
+          "path": "imagenes/patrimonio/1300x800iglesia.jpg",
+          "title": "1300X800Iglesia"
+        },
+        {
+          "filename": "iglesia.jpg",
+          "path": "imagenes/patrimonio/iglesia.jpg",
+          "title": "Iglesia"
+        }
+      ],
+      "count": 2
+    },
+    {
+      "id": "formaciones",
+      "title": "Formaciones Rocosas",
+      "description": "Estructuras geológicas únicas",
+      "cover": "imagenes/La Peña.jpg",
+      "images": [
+        {
+          "filename": "1300x800 peña desde la casa.JPG",
+          "path": "imagenes/formaciones/1300x800 peña desde la casa.JPG",
+          "title": "1300X800 Peña Desde La Casa"
+        },
+        {
+          "filename": "La Peña.jpg",
+          "path": "imagenes/formaciones/La Peña.jpg",
+          "title": "La Peña"
+        },
+        {
+          "filename": "La peña2.jpg",
+          "path": "imagenes/formaciones/La peña2.jpg",
+          "title": "La Peña2"
+        },
+        {
+          "filename": "peña desde la casa.JPG",
+          "path": "imagenes/formaciones/peña desde la casa.JPG",
+          "title": "Peña Desde La Casa"
+        },
+        {
+          "filename": "peña3.jpg",
+          "path": "imagenes/formaciones/peña3.jpg",
+          "title": "Peña3"
+        }
+      ],
+      "count": 5
+    },
+    {
+      "id": "paisajes",
+      "title": "Paisajes",
+      "description": "Vistas panorámicas espectaculares",
+      "cover": "imagenes/montaña cordi.jpg",
+      "images": [
+        {
+          "filename": "desde los altos.jpg",
+          "path": "imagenes/paisajes/desde los altos.jpg",
+          "title": "Desde Los Altos"
+        },
+        {
+          "filename": "favorita dos.jpg",
+          "path": "imagenes/paisajes/favorita dos.jpg",
+          "title": "Favorita Dos"
+        },
+        {
+          "filename": "fraile en el valle.JPG",
+          "path": "imagenes/paisajes/fraile en el valle.JPG",
+          "title": "Fraile En El Valle"
+        },
+        {
+          "filename": "montallas.jpg",
+          "path": "imagenes/paisajes/montallas.jpg",
+          "title": "Montallas"
+        },
+        {
+          "filename": "montaña cordi.jpg",
+          "path": "imagenes/paisajes/montaña cordi.jpg",
+          "title": "Montaña Cordi"
+        }
+      ],
+      "count": 5
+    }
+  ]
+}
