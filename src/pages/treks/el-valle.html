@@ -1,0 +1,465 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 10]> <html  lang="en" class="iex"> <![endif]-->
+<!--[if (gt IE 10)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cómbita, El valle</title>
+    <meta name="description" content="">
+    <script src="../../assets/js/vendor/jquery.min.js"></script>
+    <script src="../../assets/js/vendor/main.js"></script>
+    <link rel="stylesheet" href="../../assets/css/vendor/bootstrap-grid.css">
+    <link rel="stylesheet" href="../../assets/css/vendor/style.css">
+    <link rel="stylesheet" href="../../assets/css/vendor/glide.css">
+    <link rel="stylesheet" href="../../assets/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" href="../../assets/css/vendor/content-box.css">
+    <link rel="stylesheet" href="../../assets/css/vendor/media-box.css">
+    <link rel="stylesheet" href="../../assets/css/vendor/contact-form.css">
+        <link rel="stylesheet" href="../../assets/media/icons/fontawesome/all.css">
+<link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/frailejon-theme.css">
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <!-- Leaflet CSS para OpenStreetMap -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #map-container {
+            height: 400px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+
+<body class="page-main">
+    <div id="preloader"></div>
+    <nav class="menu-classic menu-fixed align-right" data-menu-anima="fade-in">
+        <div class="container">
+            <div class="menu-brand">
+                <a href="../index.html">
+                    <img class="logo-default scroll-hide" src="../../assets/images/icons/LOGO COLOR VECTORIZADO.png" alt="logo" />
+                    <img class="logo-retina scroll-hide" src="../../assets/images/icons/LOGO COLOR VECTORIZADO.png" alt="logo" />
+                    <img class="logo-default scroll-show" src="../../assets/images/icons/lgoo-dos.png" alt="logo" />
+                    <img class="logo-retina scroll-show" src="../../assets/images/icons/lgoo-dos.png" alt="logo" />
+                </a>
+            </div>
+            <i class="menu-btn"></i>
+            <div class="menu-cnt">
+                                <ul id="main-menu">
+                    <li class="dropdown">
+                        <a href="../index.html">Inicio</a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#">Paginas</a>
+                        <ul>
+                            <li>
+                                <a href="../about.html">Acerca de</a>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a>Imperdibles</a>
+                                <ul>
+                                    <li><a href="../food.html">Restaurantes</a></li>
+                                    <li><a href="../shelters.html">hospedajes</a></li>
+                                    <li><a href="../events.html">Eventos</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a>Explora Más</a>
+                                <ul>
+                                    <li><a href="../history.html">historia</a></li>
+                                    <li><a href="../gallery.html">galeria</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="./index.html">Caminatas</a>
+                    </li>
+                    <li>
+                        <a href="../blog.html">Blog</a>
+                    </li>
+                    <li>
+                        <a href="../contacts.html">Contacto</a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+    <header class="header-image ken-burn-center light" data-parallax="scroll" data-natural-height="1080"
+        data-natural-width="1920" data-bleed="0" data-image-src="../../assets/images/montaña cordi.jpg" data-offset="0">
+        <div class="container">
+            <h1>El valle</h1>
+            <h2>Un lugar imponente y majestuoso</h2>
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="./index.html">Rutas</a></li>
+                <li><a href="#">El Valle</a></li>
+            </ol>
+        </div>
+    </header>
+    <main>
+        <section class="section-base">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p>
+                            El Valle es un lugar imponente y majestuoso, rodeado por la mística neblina que envuelve su
+                            vasto paisaje. La caminata por este sendero de nivel medio-bajo ofrece una conexión única con la
+                            naturaleza. A lo largo del recorrido, los frailejones se elevan como guardianes del páramo,
+                            mientras que el aire fresco y la atmósfera tranquila invitan a sumergirse en la serenidad
+                            del lugar. La presencia de aves como los colibríes y la diversidad de flora andina, entre
+                            las que destacan las orquídeas, hacen de este lugar una joya natural. Cada paso por el valle
+                            es un recordatorio de la grandeza y la majestuosidad de la naturaleza en su estado más puro.
+                        </p>
+                        <hr class="space-sm" />
+                        <hr class="space-xs" />
+                        <!-- Botón de compartir -->
+                        <a href="#" class="btn btn-sm btn-circle btn-icon" id="shareButton">
+                            <i class="im-right-4"></i> Compartir
+                        </a>
+
+                        <!-- Popup de opciones de compartir -->
+                        <div id="shareMenu" class="share-popup">
+                            <ul>
+                                <li><a href="https://www.facebook.com/sharer/sharer.php?u={{http://127.0.0.1:5500/Template/treks-single-laguna-rica.html}}"
+                                        target="_blank"><i class="im-facebook"></i> Facebook</a></li>
+                                <li><a href="https://twitter.com/intent/tweet?http://127.0.0.1:5500/Template/treks-single-laguna-rica.html={{http://127.0.0.1:5500/Template/treks-single-laguna-rica.html}}"
+                                        target="_blank"><i class="im-twitter"></i> Twitter</a></li>
+                                <li><a href="https://api.whatsapp.com/send?text={{http://127.0.0.1:5500/Template/treks-single-laguna-rica.html}}"
+                                        target="_blank"><i class="im-whatsapp"></i> WhatsApp</a></li>
+                                <li><a href="mailto:?subject=Check this out&body={{http://127.0.0.1:5500/Template/treks-single-laguna-rica.html}}"
+                                        target="_blank"><i class="im-envelope"></i> Correo</a></li>
+                            </ul>
+                        </div>
+
+                        <style>
+                            /* Estilos para el popup */
+                            .share-popup {
+                                display: none;
+                                position: absolute;
+                                background-color: #fff;
+                                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                                border-radius: 8px;
+                                padding: 15px;
+                                width: 250px;
+                                z-index: 1000;
+                                transform: translateX(-50%);
+                                top: 40px;
+                                /* Ajusta la distancia desde el botón */
+                                left: 50%;
+                            }
+
+                            .share-popup ul {
+                                list-style: none;
+                                padding: 0;
+                                margin: 0;
+                            }
+
+                            .share-popup li {
+                                margin-bottom: 10px;
+                            }
+
+                            .share-popup a {
+                                text-decoration: none;
+                                color: #333;
+                                font-size: 16px;
+                                display: flex;
+                                align-items: center;
+                                padding: 10px;
+                                border-radius: 6px;
+                                transition: background-color 0.3s;
+                            }
+
+                            .share-popup a:hover {
+                                background-color: #f0f0f0;
+                            }
+
+                            .share-popup a i {
+                                margin-right: 10px;
+                                font-size: 18px;
+                            }
+                        </style>
+
+                        <script>
+                            // Mostrar el popup al hacer clic en el botón
+                            document.getElementById('shareButton').onclick = function (event) {
+                                event.preventDefault();
+                                var menu = document.getElementById('shareMenu');
+
+                                // Alterna la visibilidad del menú
+                                if (menu.style.display === "none" || menu.style.display === "") {
+                                    menu.style.display = "block";
+                                } else {
+                                    menu.style.display = "none";
+                                }
+                            };
+
+                            // Cerrar el popup si se hace clic fuera de él
+                            window.onclick = function (event) {
+                                if (!event.target.matches('#shareButton') && !event.target.closest('#shareMenu')) {
+                                    document.getElementById('shareMenu').style.display = "none";
+                                }
+                            };
+                        </script>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="cnt-box cnt-box-side">
+                            <a href="#" class="img-box"><img src="../../assets/images/favorita dos.jpg" alt="" /></a>
+                            <div class="caption">
+                                <h2>Guia de Montaña</h2>
+                                <span class="extra-field">Jhon Llano</span>
+                                <p>
+                                    Aca una breve presentacion del guia
+                                </p>
+                            </div>
+                        </div>
+                        <hr class="space-sm" />
+                        <table class="table table-grid table-border align-left text-bold table-10">
+                            <tbody>
+                                <tr>
+                                    <td>Nacionalidad<p>Colombia</p>
+                                    </td>
+                                    <td>Idioma<p>Español, Ingles</p>
+                                    </td>
+                                    <td>
+
+                                        <div class="icon-links icon-social icon-links-grid social-colors">
+                                            <a class="facebook"><i class="icon-facebook"></i></a>
+                                            <a class="twitter"><i class="icon-twitter"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-image light" data-parallax="scroll" data-bleed="100"
+            data-image-src="../../assets/images/montallas.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="counter counter-vertical counter-icon">
+                            <div>
+                                <h3>Dificultad</h3>
+                                <p class="text-50 text-black no-margin">Media-baja</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div>
+                            <h3>Distancia</h3>
+                            <p class="text-50 text-black no-margin">5 KM</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div>
+                            <h3>Horas</h3>
+                            <p class="text-50 text-black no-margin">6</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div>
+                            <h3>Desnivel</h3>
+                            <p class="text-50 text-black no-margin">500 mts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-base">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p>
+                            La caminata es de nivel medio-bajo y ofrece vistas impresionantes del valle.
+                            A lo largo del recorrido, se pueden apreciar frailejones, colibríes y orquídeas. El sendero,
+                            rodeado de flora andina, lleva a los visitantes a disfrutar de la tranquilidad del páramo y
+                            la majestuosidad de las montañas cercanas. Es una experiencia única para quienes buscan
+                            conectar con la naturaleza en su máxima expresión.
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="text-list text-list-line">
+                            <li><b>Montaña</b>
+                                <hr />
+                                <p>Cordillera Oriental</p>
+                            </li>
+                            <li><b>Ubicacion</b>
+                                <hr />
+                                <p>Sta Barbara, Divino Niño</p>
+                            </li>
+                            <li><b>Altitud</b>
+                                <hr />
+                                <p>3500 msnm</p>
+                            </li>
+                            <li><b>Area</b>
+                                <hr />
+                                <p>123.456 m2</p>
+                            </li>
+                            <li><b>Refugios</b>
+                                <hr />
+                                <p>15</p>
+                            </li>
+                            <li><b>Guias</b>
+                                <hr />
+                                <p>5</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <hr class="space" />
+            </div>
+        </section>
+        <section class="section-base section-color">
+            <div class="container">
+                <h2>Ubicación</h2>
+                <div id="map-container"></div>
+                <hr class="space-sm" />
+                <div class="row">
+                    <div class="col-lg-6">
+                        <table class="table table-columns">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="progress-circle light text-black" data-color="#FFB84D"
+                                            data-thickness="6" data-progress="100" data-size="85" data-size-md="85"
+                                            data-linecap="round"></div>
+                                    </td>
+                                    <td>
+                                        <h3>Dificultad media-baja</h3>
+                                        <p class="no-margin">Un recorrido de dificultad media-baja, ideal para quienes buscan
+                                            una caminata desafiante pero accesible, rodeados de impresionantes paisajes
+                                            naturales.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <hr class="space-sm" />
+                        <hr class="space-xs" />
+                        <a href="#" class="btn btn-sm btn-circle btn-icon"><i class=" im-right-4"></i>Compartir</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <table class="table table-border table-alpins">
+                            <thead>
+                                <tr>
+                                    <th>Participantes</th>
+                                    <th>Fecha</th>
+                                    <th>Tiempo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>8</td>
+                                    <td>28 / 08 / 2024</td>
+                                    <td>10 horas</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>05 / 11 / 2024</td>
+                                    <td>9 horas</td>
+
+                                </tr>
+                                <tr>
+                                    <td>15</td>
+                                    <td>31 / 10 / 2024</td>
+
+                                    <td>8 horas</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3>Cómbita</h3>
+                    <p>En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio
+                        de por qué subimos.</p>
+
+                </div>
+                <div class="col-lg-4">
+                    <h3>Contacto</h3>
+                    <ul class="icon-list icon-line">
+                        <li>Cómbita, Boyacá, Colombia</li>
+                        <li>alcaldia@combita-boyaca.gov.co</li>
+                        <li> 313 366232</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <div class="icon-links icon-social icon-links-grid social-colors">
+                        <a class="facebook"><i class="icon-facebook"></i></a>
+                        <a class="instagram"><i class="icon-instagram"></i></a>
+                        <a class="x"><i class="icon-twitter"></i></a> <!-- X represents the new Twitter -->
+                        <a class="youtube"><i class="icon-youtube"></i></a>
+                    </div>
+                    <hr class="space-sm" />
+                    <p>Siguenos en nuestras redes</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-bar">
+            <div class="container">
+                <span>© 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/"
+                        target="_blank">santiago-developer.com</a>.</span>
+                <span><a href="../contacts.html">Contacto</a> | <a href="#">Privacy policy</a></span>
+            </div>
+        </div>
+    </footer>    <script src="../../assets/js/vendor/parallax.min.js"></script>
+    <script src="../../assets/js/vendor/glide.min.js"></script>
+    <script src="../../assets/js/vendor/imagesloaded.min.js"></script>
+    <script src="../../assets/js/vendor/progress.js"></script>
+    <!-- Leaflet JS para OpenStreetMap -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Inicializar el mapa cuando la página cargue
+        document.addEventListener('DOMContentLoaded', function() {
+            // Coordenadas de El Valle
+            var lat = 5.648;
+            var lon = -73.341;
+
+            // Crear el mapa
+            var map = L.map('map-container').setView([lat, lon], 14);
+
+            // Añadir el tile layer de OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 18
+            }).addTo(map);
+
+            // Añadir marcador
+            var marker = L.marker([lat, lon]).addTo(map);
+            marker.bindPopup('<b>El Valle</b><br>Cómbita, Boyacá<br>3200 msnm').openPopup();
+
+            // Añadir círculo de área
+            var circle = L.circle([lat, lon], {
+                color: '#FF7F00',
+                fillColor: '#FF7F00',
+                fillOpacity: 0.2,
+                radius: 500
+            }).addTo(map);
+        });
+    </script>
+
+    
+    <script>
+        function initMap() {
+            // Función requerida por Google Maps API
+        }
+    </script>
+</body>
+</html>

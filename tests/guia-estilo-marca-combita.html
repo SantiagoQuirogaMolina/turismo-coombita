@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Guía de Estilo - Marca Turismo Cómbita | Manual de Identidad Visual</title>
+    <meta name="description" content="Manual de identidad visual y guía de estilo para la marca de Turismo Cómbita">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Fuente principal -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900" rel="stylesheet">
+
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #2d3e33;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header principal */
+        .header-brand {
+            background: linear-gradient(135deg, #699073 0%, #567760 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+        }
+
+        .header-brand h1 {
+            font-size: 48px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .header-brand p {
+            font-size: 18px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* Secciones */
+        .section {
+            background: white;
+            margin: 30px auto;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 3px 20px rgba(0,0,0,0.08);
+            max-width: 1200px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #2d3e33;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #DDA15E;
+            position: relative;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            font-weight: 700;
+            color: #699073;
+            margin: 30px 0 20px 0;
+        }
+
+        /* Grid de colores */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .color-box {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .color-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        }
+
+        .color-display {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .color-info {
+            padding: 15px;
+            background: #f8f9fa;
+        }
+
+        .color-info h4 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            color: #2d3e33;
+        }
+
+        .color-info p {
+            font-size: 12px;
+            color: #666;
+            margin: 3px 0;
+        }
+
+        /* Tipografía */
+        .typography-sample {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #699073;
+        }
+
+        .font-weight-400 { font-weight: 400; }
+        .font-weight-500 { font-weight: 500; }
+        .font-weight-600 { font-weight: 600; }
+        .font-weight-700 { font-weight: 700; }
+        .font-weight-800 { font-weight: 800; }
+        .font-weight-900 { font-weight: 900; }
+
+        /* Ejemplos de uso */
+        .usage-example {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px dashed #DDA15E;
+            border-radius: 8px;
+            background: #fffbf5;
+        }
+
+        .usage-example h5 {
+            color: #BC6C25;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        /* Logos */
+        .logo-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .logo-box {
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .logo-box.dark {
+            background: #2d3e33;
+        }
+
+        .logo-box.light {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Componentes */
+        .component-preview {
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .btn-preview {
+            display: inline-block;
+            padding: 12px 30px;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #699073;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #567760;
+        }
+
+        .btn-fraijon {
+            background: #DDA15E;
+            color: white;
+        }
+
+        .btn-fraijon:hover {
+            background: #BC6C25;
+        }
+
+        /* Patrones y texturas */
+        .pattern-box {
+            height: 150px;
+            border-radius: 8px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .gradient-1 {
+            background: linear-gradient(135deg, #699073 0%, #567760 100%);
+        }
+
+        .gradient-2 {
+            background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+        }
+
+        .gradient-3 {
+            background: linear-gradient(to right, #699073, #DDA15E, #BC6C25);
+        }
+
+        /* Tabla de especificaciones */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .specs-table th {
+            background: #699073;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .specs-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .specs-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        /* Notas importantes */
+        .important-note {
+            background: #fff3cd;
+            border-left: 4px solid #BC6C25;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+
+        .important-note h5 {
+            color: #BC6C25;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        .footer-info {
+            text-align: center;
+            padding: 30px;
+            background: #2d3e33;
+            color: white;
+            margin-top: 50px;
+        }
+
+        .footer-info p {
+            opacity: 0.8;
+        }
+
+        /* Código de colores para copiar */
+        .code-block {
+            background: #2d3e33;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+
+        /* Iconografía */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .icon-item {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .icon-item:hover {
+            background: #DDA15E;
+            color: white;
+        }
+
+        /* Separador decorativo */
+        .decorative-separator {
+            height: 3px;
+            background: linear-gradient(to right, #699073, #DDA15E, #BC6C25);
+            margin: 40px 0;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Principal -->
+    <div class="header-brand">
+        <div class="container">
+            <h1>Guía de Estilo</h1>
+            <p>Manual de Identidad Visual - Turismo Cómbita</p>
+        </div>
+    </div>
+
+    <!-- Información de la Marca -->
+    <div class="section">
+        <h2 class="section-title">1. IDENTIDAD DE MARCA</h2>
+
+        <div class="usage-example">
+            <h5>VISIÓN DE MARCA</h5>
+            <p><strong>Turismo Cómbita</strong> representa la conexión entre la naturaleza andina y la experiencia turística auténtica. Nuestra identidad visual refleja la riqueza natural de la región, con especial énfasis en el frailejón como símbolo icónico del páramo.</p>
+        </div>
+
+        <h3 class="section-subtitle">Valores de Marca</h3>
+        <ul style="line-height: 2; margin-left: 20px;">
+            <li><strong>Naturaleza:</strong> Conexión profunda con el ecosistema de páramo</li>
+            <li><strong>Autenticidad:</strong> Experiencias genuinas y locales</li>
+            <li><strong>Sostenibilidad:</strong> Turismo responsable y consciente</li>
+            <li><strong>Tradición:</strong> Respeto por la cultura y patrimonio local</li>
+            <li><strong>Aventura:</strong> Exploración de paisajes únicos de montaña</li>
+        </ul>
+
+        <h3 class="section-subtitle">Personalidad de Marca</h3>
+        <p>Amigable, auténtica, aventurera, responsable, inspiradora, conectada con la naturaleza.</p>
+    </div>
+
+    <!-- Paleta de Colores -->
+    <div class="section">
+        <h2 class="section-title">2. PALETA DE COLORES</h2>
+
+        <p style="margin-bottom: 30px;">Nuestra paleta combina los verdes del paisaje andino con los tonos dorados y marrones del frailejón, creando una identidad visual única que representa la flora característica del páramo de Cómbita.</p>
+
+        <h3 class="section-subtitle">Colores Principales</h3>
+        <div class="color-grid">
+            <div class="color-box">
+                <div class="color-display" style="background: #699073;">#699073</div>
+                <div class="color-info">
+                    <h4>Verde Principal</h4>
+                    <p>RGB: 105, 144, 115</p>
+                    <p>CMYK: 59, 23, 51, 8</p>
+                    <p>Uso: Elementos principales, botones, títulos</p>
+                </div>
+            </div>
+
+            <div class="color-box">
+                <div class="color-display" style="background: #567760;">#567760</div>
+                <div class="color-info">
+                    <h4>Verde Oscuro</h4>
+                    <p>RGB: 86, 119, 96</p>
+                    <p>CMYK: 65, 33, 56, 20</p>
+                    <p>Uso: Estados hover, énfasis</p>
+                </div>
+            </div>
+
+            <div class="color-box">
+                <div class="color-display" style="background: #2d3e33;">#2d3e33</div>
+                <div class="color-info">
+                    <h4>Verde Profundo</h4>
+                    <p>RGB: 45, 62, 51</p>
+                    <p>CMYK: 72, 52, 63, 48</p>
+                    <p>Uso: Textos, fondos oscuros</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="section-subtitle">Colores del Frailejón (Acentos)</h3>
+        <div class="color-grid">
+            <div class="color-box">
+                <div class="color-display" style="background: #DDA15E;">#DDA15E</div>
+                <div class="color-info">
+                    <h4>Dorado Frailejón</h4>
+                    <p>RGB: 221, 161, 94</p>
+                    <p>CMYK: 13, 35, 66, 1</p>
+                    <p>Uso: Acentos, detalles, hover</p>
+                </div>
+            </div>
+
+            <div class="color-box">
+                <div class="color-display" style="background: #BC6C25;">#BC6C25</div>
+                <div class="color-info">
+                    <h4>Marrón Frailejón</h4>
+                    <p>RGB: 188, 108, 37</p>
+                    <p>CMYK: 20, 58, 89, 8</p>
+                    <p>Uso: Énfasis, CTA especiales</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="section-subtitle">Colores de Apoyo</h3>
+        <div class="color-grid">
+            <div class="color-box">
+                <div class="color-display" style="background: #FFFFFF; color: #333;">FFFFFF</div>
+                <div class="color-info">
+                    <h4>Blanco</h4>
+                    <p>RGB: 255, 255, 255</p>
+                    <p>Uso: Fondos, espacios negativos</p>
+                </div>
+            </div>
+
+            <div class="color-box">
+                <div class="color-display" style="background: #F8F9FA; color: #333;">F8F9FA</div>
+                <div class="color-info">
+                    <h4>Gris Claro</h4>
+                    <p>RGB: 248, 249, 250</p>
+                    <p>Uso: Fondos secundarios</p>
+                </div>
+            </div>
+
+            <div class="color-box">
+                <div class="color-display" style="background: #53626F;">#53626F</div>
+                <div class="color-info">
+                    <h4>Gris Medio</h4>
+                    <p>RGB: 83, 98, 111</p>
+                    <p>Uso: Textos secundarios</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="decorative-separator"></div>
+
+        <h3 class="section-subtitle">Gradientes Oficiales</h3>
+        <div class="pattern-box gradient-1">Gradiente Verde Principal</div>
+        <div class="code-block">background: linear-gradient(135deg, #699073 0%, #567760 100%);</div>
+
+        <div class="pattern-box gradient-2">Gradiente Frailejón</div>
+        <div class="code-block">background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);</div>
+
+        <div class="pattern-box gradient-3">Gradiente Completo</div>
+        <div class="code-block">background: linear-gradient(to right, #699073, #DDA15E, #BC6C25);</div>
+    </div>
+
+    <!-- Tipografía -->
+    <div class="section">
+        <h2 class="section-title">3. TIPOGRAFÍA</h2>
+
+        <div class="important-note">
+            <h5>FUENTE PRINCIPAL</h5>
+            <p><strong>Montserrat</strong> - Una tipografía moderna y legible que transmite profesionalismo y claridad. Inspirada en los carteles tradicionales del barrio de Montserrat en Buenos Aires.</p>
+        </div>
+
+        <h3 class="section-subtitle">Familia Tipográfica</h3>
+
+        <div class="typography-sample">
+            <h1 class="font-weight-900" style="font-size: 48px;">Montserrat Black (900)</h1>
+            <p>Uso: Títulos principales, headers hero</p>
+        </div>
+
+        <div class="typography-sample">
+            <h2 class="font-weight-800" style="font-size: 36px;">Montserrat Extra Bold (800)</h2>
+            <p>Uso: Subtítulos, títulos de sección</p>
+        </div>
+
+        <div class="typography-sample">
+            <h3 class="font-weight-700" style="font-size: 28px;">Montserrat Bold (700)</h3>
+            <p>Uso: Títulos de artículos, botones</p>
+        </div>
+
+        <div class="typography-sample">
+            <h4 class="font-weight-600" style="font-size: 20px;">Montserrat Semi Bold (600)</h4>
+            <p>Uso: Subtítulos menores, enlaces importantes</p>
+        </div>
+
+        <div class="typography-sample">
+            <p class="font-weight-500" style="font-size: 16px;">Montserrat Medium (500)</p>
+            <p>Uso: Texto de párrafos, contenido principal</p>
+        </div>
+
+        <div class="typography-sample">
+            <p class="font-weight-400" style="font-size: 14px;">Montserrat Regular (400)</p>
+            <p>Uso: Textos secundarios, descripciones</p>
+        </div>
+
+        <h3 class="section-subtitle">Tamaños y Jerarquía</h3>
+        <table class="specs-table">
+            <thead>
+                <tr>
+                    <th>Elemento</th>
+                    <th>Tamaño Desktop</th>
+                    <th>Tamaño Mobile</th>
+                    <th>Peso</th>
+                    <th>Line Height</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>H1 - Hero</td>
+                    <td>65px</td>
+                    <td>35px</td>
+                    <td>900</td>
+                    <td>1.3</td>
+                </tr>
+                <tr>
+                    <td>H2 - Títulos</td>
+                    <td>30px</td>
+                    <td>24px</td>
+                    <td>800</td>
+                    <td>1.5</td>
+                </tr>
+                <tr>
+                    <td>H3 - Subtítulos</td>
+                    <td>22px</td>
+                    <td>20px</td>
+                    <td>700</td>
+                    <td>1.5</td>
+                </tr>
+                <tr>
+                    <td>H4 - Cards</td>
+                    <td>18px</td>
+                    <td>16px</td>
+                    <td>600</td>
+                    <td>1.5</td>
+                </tr>
+                <tr>
+                    <td>Body - Párrafos</td>
+                    <td>14px</td>
+                    <td>14px</td>
+                    <td>500</td>
+                    <td>1.8</td>
+                </tr>
+                <tr>
+                    <td>Small - Captions</td>
+                    <td>12px</td>
+                    <td>11px</td>
+                    <td>500</td>
+                    <td>1.6</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="code-block">
+/* Importación de la fuente */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900');
+
+/* Aplicación */
+font-family: 'Montserrat', sans-serif;
+        </div>
+    </div>
+
+    <!-- Componentes UI -->
+    <div class="section">
+        <h2 class="section-title">4. COMPONENTES DE INTERFAZ</h2>
+
+        <h3 class="section-subtitle">Botones</h3>
+        <div class="component-preview">
+            <a href="#" class="btn-preview btn-primary">Botón Principal</a>
+            <a href="#" class="btn-preview btn-fraijon">Botón Frailejón</a>
+            <p style="margin-top: 20px;"><strong>Especificaciones:</strong></p>
+            <ul>
+                <li>Padding: 12px 30px</li>
+                <li>Border Radius: 5px (normal) / 25px (pill)</li>
+                <li>Font Weight: 600</li>
+                <li>Transición: all 0.3s ease</li>
+                <li>Hover: Scale 0.95 + cambio de color</li>
+            </ul>
+        </div>
+
+        <h3 class="section-subtitle">Espaciado</h3>
+        <table class="specs-table">
+            <thead>
+                <tr>
+                    <th>Elemento</th>
+                    <th>Margin/Padding</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sección</td>
+                    <td>Padding vertical</td>
+                    <td>80px</td>
+                </tr>
+                <tr>
+                    <td>Container</td>
+                    <td>Max-width</td>
+                    <td>1200px</td>
+                </tr>
+                <tr>
+                    <td>Cards</td>
+                    <td>Padding interno</td>
+                    <td>30px</td>
+                </tr>
+                <tr>
+                    <td>Grid gap</td>
+                    <td>Espacio entre elementos</td>
+                    <td>30px</td>
+                </tr>
+                <tr>
+                    <td>Párrafos</td>
+                    <td>Margin bottom</td>
+                    <td>20px</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Estilo Fotográfico -->
+    <div class="section">
+        <h2 class="section-title">5. ESTILO FOTOGRÁFICO</h2>
+
+        <h3 class="section-subtitle">Directrices para Imágenes</h3>
+        <ul style="line-height: 2; margin-left: 20px;">
+            <li><strong>Temática:</strong> Paisajes de páramo, frailejones, montañas andinas</li>
+            <li><strong>Colores:</strong> Tonos naturales con predominancia de verdes y dorados</li>
+            <li><strong>Iluminación:</strong> Luz natural, preferiblemente dorada (amanecer/atardecer)</li>
+            <li><strong>Composición:</strong> Amplitud, horizontes despejados, sensación de inmensidad</li>
+            <li><strong>Personas:</strong> Cuando aparezcan, mostrar interacción genuina con la naturaleza</li>
+            <li><strong>Filtros:</strong> Mínimos, mantener autenticidad del paisaje</li>
+        </ul>
+
+        <div class="important-note">
+            <h5>TRATAMIENTO DE IMÁGENES</h5>
+            <p>• Overlay oscuro (0-35% opacidad) para texto sobre imágenes<br>
+            • Border radius: 3-8px según contexto<br>
+            • Sombras: 0 10px 60px -12px rgba(39,79,117,.25)</p>
+        </div>
+    </div>
+
+    <!-- Aplicaciones -->
+    <div class="section">
+        <h2 class="section-title">6. APLICACIONES PRÁCTICAS</h2>
+
+        <h3 class="section-subtitle">Uso en Revista Impresa</h3>
+        <div class="usage-example">
+            <h5>PORTADA</h5>
+            <p>• Título principal: Montserrat 900, color blanco sobre imagen<br>
+            • Subtítulos: Montserrat 600, #DDA15E<br>
+            • Fondo: Fotografía de paisaje con overlay verde 20%</p>
+        </div>
+
+        <div class="usage-example">
+            <h5>PÁGINAS INTERIORES</h5>
+            <p>• Títulos de artículo: Montserrat 800, #2d3e33, 36pt<br>
+            • Subtítulos: Montserrat 700, #699073, 24pt<br>
+            • Cuerpo de texto: Montserrat 500, #2d3e33, 11pt<br>
+            • Destacados: Fondo #DDA15E con texto blanco<br>
+            • Pies de foto: Montserrat 400, #53626F, 9pt</p>
+        </div>
+
+        <div class="usage-example">
+            <h5>ELEMENTOS GRÁFICOS</h5>
+            <p>• Líneas decorativas: #DDA15E, 3pt<br>
+            • Cajas de información: Borde #699073, fondo #F8F9FA<br>
+            • Quotes: Borde izquierdo 4pt #DDA15E<br>
+            • Números de página: Montserrat 600, #BC6C25</p>
+        </div>
+
+        <h3 class="section-subtitle">Jerarquía Visual para Revista</h3>
+        <table class="specs-table">
+            <thead>
+                <tr>
+                    <th>Nivel</th>
+                    <th>Elemento</th>
+                    <th>Tratamiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Título principal</td>
+                    <td>Mayor tamaño + color verde principal + peso 900</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Imágenes hero</td>
+                    <td>Página completa o 2/3 de página</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Subtítulos</td>
+                    <td>Color frailejón + peso 700</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Destacados/Quotes</td>
+                    <td>Cajas con color de acento</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Texto corrido</td>
+                    <td>Negro suave + interlineado generoso</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Reglas y Restricciones -->
+    <div class="section">
+        <h2 class="section-title">7. REGLAS DE USO</h2>
+
+        <h3 class="section-subtitle">✅ Uso Correcto</h3>
+        <ul style="line-height: 2; margin-left: 20px; color: #699073;">
+            <li>Mantener proporciones de logo</li>
+            <li>Respetar espacios mínimos de seguridad</li>
+            <li>Usar colores oficiales de la paleta</li>
+            <li>Aplicar pesos tipográficos según jerarquía</li>
+            <li>Mantener contraste adecuado (WCAG AA mínimo)</li>
+        </ul>
+
+        <h3 class="section-subtitle">❌ Uso Incorrecto</h3>
+        <ul style="line-height: 2; margin-left: 20px; color: #BC6C25;">
+            <li>No distorsionar logos o tipografías</li>
+            <li>No usar colores fuera de la paleta oficial</li>
+            <li>No aplicar efectos excesivos (sombras, biseles)</li>
+            <li>No usar fondos que comprometan legibilidad</li>
+            <li>No mezclar más de 3 colores principales en una composición</li>
+        </ul>
+    </div>
+
+    <!-- Recursos y Especificaciones Técnicas -->
+    <div class="section">
+        <h2 class="section-title">8. ESPECIFICACIONES TÉCNICAS</h2>
+
+        <h3 class="section-subtitle">Para Impresión</h3>
+        <table class="specs-table">
+            <thead>
+                <tr>
+                    <th>Parámetro</th>
+                    <th>Especificación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Resolución mínima</td>
+                    <td>300 DPI</td>
+                </tr>
+                <tr>
+                    <td>Modo de color</td>
+                    <td>CMYK</td>
+                </tr>
+                <tr>
+                    <td>Formato de archivo</td>
+                    <td>PDF/X-1a o PDF/X-4</td>
+                </tr>
+                <tr>
+                    <td>Sangrado (bleed)</td>
+                    <td>3mm en todos los lados</td>
+                </tr>
+                <tr>
+                    <td>Marcas de corte</td>
+                    <td>Incluir con offset de 3mm</td>
+                </tr>
+                <tr>
+                    <td>Perfil de color</td>
+                    <td>Coated FOGRA39 (ISO 12647-2:2004)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="section-subtitle">Para Digital/Web</h3>
+        <table class="specs-table">
+            <thead>
+                <tr>
+                    <th>Parámetro</th>
+                    <th>Especificación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Resolución</td>
+                    <td>72 DPI (pantalla) / 150 DPI (tablets)</td>
+                </tr>
+                <tr>
+                    <td>Modo de color</td>
+                    <td>RGB / sRGB</td>
+                </tr>
+                <tr>
+                    <td>Formato de imagen</td>
+                    <td>JPG (fotos), PNG (logos), SVG (iconos)</td>
+                </tr>
+                <tr>
+                    <td>Optimización</td>
+                    <td>Comprimir sin pérdida visible de calidad</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Contacto y Notas Finales -->
+    <div class="section">
+        <h2 class="section-title">9. NOTAS FINALES</h2>
+
+        <div class="important-note">
+            <h5>IMPORTANTE PARA EL DISEÑADOR</h5>
+            <p>Esta guía de estilo debe aplicarse consistentemente en todos los materiales de comunicación. Los colores del frailejón (#DDA15E y #BC6C25) deben usarse con moderación como acentos, manteniendo el verde (#699073) como color dominante para preservar la identidad de marca.</p>
+        </div>
+
+        <h3 class="section-subtitle">Inspiración y Concepto</h3>
+        <p>El diseño se inspira en el ecosistema único del páramo de Cómbita, donde el frailejón (Espeletia) es el protagonista. Esta planta icónica, con sus hojas plateadas y flores doradas, representa la resistencia y belleza de la alta montaña andina. Los colores elegidos reflejan directamente esta paleta natural:</p>
+
+        <ul style="margin: 20px 0; line-height: 2;">
+            <li><strong>Verdes:</strong> La vegetación del páramo y los valles</li>
+            <li><strong>Dorados:</strong> Las flores del frailejón y la luz del amanecer</li>
+            <li><strong>Marrones:</strong> La tierra y las hojas secas del frailejón</li>
+        </ul>
+
+        <h3 class="section-subtitle">Coherencia Visual</h3>
+        <p>Para mantener coherencia entre medios digitales e impresos:</p>
+        <ol style="margin: 20px 0; line-height: 2;">
+            <li>Usar siempre las mismas proporciones tipográficas</li>
+            <li>Mantener la jerarquía de colores establecida</li>
+            <li>Aplicar los mismos principios de espaciado (adaptados al medio)</li>
+            <li>Conservar el estilo fotográfico definido</li>
+            <li>Respetar las zonas de seguridad en todos los layouts</li>
+        </ol>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-info">
+        <p><strong>Guía de Estilo - Turismo Cómbita</strong></p>
+        <p>Documento de uso interno para diseño editorial</p>
+        <p style="margin-top: 10px; font-size: 12px;">Última actualización: Febrero 2026</p>
+        <p style="margin-top: 5px; font-size: 11px; opacity: 0.6;">Este documento es confidencial y de uso exclusivo para el equipo de diseño</p>
+    </div>
+
+</body>
+</html>

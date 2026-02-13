@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico de Recursos - Turismo Combitá</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            background: #1e1e1e;
+            color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .resource-check {
+            background: #2d2d2d;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #666;
+        }
+        .resource-check.success {
+            border-left-color: #4CAF50;
+        }
+        .resource-check.error {
+            border-left-color: #f44336;
+        }
+        .resource-check.warning {
+            border-left-color: #ff9800;
+        }
+        .status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .status.ok {
+            background: #4CAF50;
+        }
+        .status.fail {
+            background: #f44336;
+        }
+        .status.warning {
+            background: #ff9800;
+        }
+        .path {
+            color: #64B5F6;
+            font-family: monospace;
+            background: #1a1a1a;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .icon-test {
+            font-size: 24px;
+            padding: 10px;
+            background: #333;
+            display: inline-block;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        pre {
+            background: #1a1a1a;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .fix-command {
+            background: #263238;
+            padding: 10px;
+            border-left: 3px solid #4CAF50;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Diagnóstico de Recursos</h1>
+
+        <h2>📁 Verificación de Archivos de Fuentes</h2>
+        <div id="font-checks"></div>
+
+        <h2>🖼️ Verificación de Imágenes</h2>
+        <div id="image-checks"></div>
+
+        <h2>📜 Verificación de Scripts</h2>
+        <div id="script-checks"></div>
+
+        <h2>🎨 Verificación de CSS</h2>
+        <div id="css-checks"></div>
+
+        <h2>🔤 Test de Iconos</h2>
+        <div id="icon-test">
+            <div class="resource-check">
+                <p>Iconos personalizados (font-family: "Icons"):</p>
+                <div class="icon-test" style="font-family: 'Icons';">g</div>
+                <div class="icon-test" style="font-family: 'Icons';">h</div>
+                <p>Si ves letras "g" y "h" en lugar de flechas, las fuentes no están cargando.</p>
+            </div>
+        </div>
+
+        <h2>🛠️ Comandos de Solución</h2>
+        <div id="fix-commands"></div>
+
+        <h2>📊 Resumen</h2>
+        <div id="summary"></div>
+    </div>
+
+    <script>
+        const resources = {
+            fonts: [
+                'src/media/icons/icons.woff',
+                'src/media/icons/icons.ttf',
+                'src/media/icons/icons.eot',
+                'src/media/icons/icons.svg',
+                'src/assets/media/icons/icons.woff',
+                'src/assets/media/icons/icons.ttf',
+                'src/assets/media/icons/icons.eot',
+                'src/assets/media/icons/icons.svg'
+            ],
+            images: [
+                'src/media/loader.svg',
+                'src/assets/media/loader.svg',
+                'src/assets/images/favicon.png',
+                'src/assets/images/icons/lgoo-dos.png'
+            ],
+            scripts: [
+                'src/pages/api-config.js',
+                'src/assets/js/vendor/jquery.min.js',
+                'src/assets/js/vendor/main.js',
+                'src/assets/js/modules/auth.js'
+            ],
+            css: [
+                'src/assets/css/vendor/style.css',
+                'src/assets/css/vendor/magnific-popup.css',
+                'src/assets/css/main.css',
+                'src/assets/media/icons/fontawesome/all.css'
+            ]
+        };
+
+        let successCount = 0;
+        let errorCount = 0;
+
+        function checkResource(url, container, type) {
+            const div = document.createElement('div');
+            div.className = 'resource-check';
+
+            if (type === 'css' || type === 'script') {
+                // Para CSS y JS, usar método diferente
+                const element = type === 'css' ?
+                    document.createElement('link') :
+                    document.createElement('script');
+
+                if (type === 'css') {
+                    element.rel = 'stylesheet';
+                    element.href = url;
+                } else {
+                    element.src = url;
+                }
+
+                element.onload = () => {
+                    div.className += ' success';
+                    div.innerHTML = `✅ <span class="path">${url}</span> <span class="status ok">OK</span>`;
+                    successCount++;
+                    updateSummary();
+                };
+
+                element.onerror = () => {
+                    div.className += ' error';
+                    div.innerHTML = `❌ <span class="path">${url}</span> <span class="status fail">404</span>`;
+                    errorCount++;
+                    updateSummary();
+                    addFixCommand(url);
+                };
+
+                document.head.appendChild(element);
+            } else {
+                // Para imágenes y fuentes
+                fetch(url, { method: 'HEAD' })
+                    .then(response => {
+                        if (response.ok) {
+                            div.className += ' success';
+                            div.innerHTML = `✅ <span class="path">${url}</span> <span class="status ok">OK</span>`;
+                            successCount++;
+                        } else {
+                            div.className += ' error';
+                            div.innerHTML = `❌ <span class="path">${url}</span> <span class="status fail">${response.status}</span>`;
+                            errorCount++;
+                            addFixCommand(url);
+                        }
+                        updateSummary();
+                    })
+                    .catch(error => {
+                        div.className += ' error';
+                        div.innerHTML = `❌ <span class="path">${url}</span> <span class="status fail">ERROR</span>`;
+                        errorCount++;
+                        updateSummary();
+                        addFixCommand(url);
+                    });
+            }
+
+            container.appendChild(div);
+        }
+
+        function addFixCommand(url) {
+            const commands = document.getElementById('fix-commands');
+            const div = document.createElement('div');
+            div.className = 'fix-command';
+
+            if (url.includes('icons.')) {
+                div.innerHTML = `
+                    <strong>Arreglar fuentes de iconos:</strong>
+                    <pre>cp themekit/media/icons/icons.* src/media/icons/</pre>
+                `;
+            } else if (url.includes('loader.svg')) {
+                div.innerHTML = `
+                    <strong>Arreglar loader.svg:</strong>
+                    <pre>cp themekit/media/loader.svg src/media/</pre>
+                `;
+            } else if (url.includes('api-config')) {
+                div.innerHTML = `
+                    <strong>Crear api-config.js:</strong>
+                    <pre>python scripts/fix_api_references.py</pre>
+                `;
+            }
+
+            if (div.innerHTML && !commands.innerHTML.includes(div.innerHTML)) {
+                commands.appendChild(div);
+            }
+        }
+
+        function updateSummary() {
+            const summary = document.getElementById('summary');
+            const total = successCount + errorCount;
+            const percentage = total > 0 ? Math.round((successCount / total) * 100) : 0;
+
+            summary.innerHTML = `
+                <div class="resource-check ${percentage === 100 ? 'success' : percentage > 50 ? 'warning' : 'error'}">
+                    <h3>Estado General: ${percentage}% Funcionando</h3>
+                    <p>✅ Recursos OK: ${successCount}</p>
+                    <p>❌ Recursos con error: ${errorCount}</p>
+                    ${errorCount > 0 ? '<p>⚠️ Ejecuta los comandos de solución arriba para arreglar los errores.</p>' : '<p>🎉 ¡Todo está funcionando correctamente!</p>'}
+                </div>
+            `;
+        }
+
+        // Ejecutar verificaciones
+        document.addEventListener('DOMContentLoaded', function() {
+            const fontContainer = document.getElementById('font-checks');
+            const imageContainer = document.getElementById('image-checks');
+            const scriptContainer = document.getElementById('script-checks');
+            const cssContainer = document.getElementById('css-checks');
+
+            resources.fonts.forEach(url => checkResource(url, fontContainer, 'font'));
+            resources.images.forEach(url => checkResource(url, imageContainer, 'image'));
+            resources.scripts.forEach(url => checkResource(url, scriptContainer, 'script'));
+            resources.css.forEach(url => checkResource(url, cssContainer, 'css'));
+
+            setTimeout(updateSummary, 2000);
+        });
+
+        // Test de @font-face
+        setTimeout(() => {
+            const testDiv = document.createElement('div');
+            testDiv.style.fontFamily = 'Icons';
+            testDiv.innerHTML = 'test';
+            testDiv.style.position = 'absolute';
+            testDiv.style.visibility = 'hidden';
+            document.body.appendChild(testDiv);
+
+            const width = testDiv.offsetWidth;
+            testDiv.style.fontFamily = 'monospace';
+            const defaultWidth = testDiv.offsetWidth;
+
+            if (width !== defaultWidth) {
+                console.log('✅ Fuente "Icons" cargada correctamente');
+            } else {
+                console.log('❌ Fuente "Icons" NO cargada');
+            }
+
+            document.body.removeChild(testDiv);
+        }, 1000);
+    </script>
+</body>
+</html>

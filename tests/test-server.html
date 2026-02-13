@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Estructura - Turismo Combitá</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .success {
+            background: #4caf50;
+            color: white;
+        }
+        .info {
+            background: #2196f3;
+            color: white;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+        .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .links a {
+            display: block;
+            padding: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s;
+        }
+        .links a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        .structure {
+            background: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        .check {
+            color: #4caf50;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏗️ Nueva Estructura del Proyecto <span class="status success">ACTIVA</span></h1>
+
+        <div class="section">
+            <h2>✅ Migración Completada</h2>
+            <ul>
+                <li><span class="check">✓</span> Estructura de carpetas creada</li>
+                <li><span class="check">✓</span> 20 archivos HTML migrados</li>
+                <li><span class="check">✓</span> Assets reorganizados</li>
+                <li><span class="check">✓</span> Rutas actualizadas</li>
+                <li><span class="check">✓</span> Configuración centralizada</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>📁 Nueva Estructura</h2>
+            <div class="structure">
+<pre>turismo-combita/
+├── src/
+│   ├── pages/         ✅ HTML organizados
+│   ├── assets/        ✅ CSS, JS, imágenes
+│   ├── components/    ✅ Componentes reutilizables
+│   └── config/        ✅ Configuración central
+├── public/            ✅ Archivos públicos
+├── docs/              ✅ Documentación
+├── scripts/           ✅ Utilidades
+└── backend/           🔜 En desarrollo</pre>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔗 Páginas del Sitio (Nueva Ubicación)</h2>
+            <div class="links">
+                <a href="src/pages/index.html">🏠 Inicio</a>
+                <a href="src/pages/about.html">ℹ️ Acerca de</a>
+                <a href="src/pages/history.html">📜 Historia</a>
+                <a href="src/pages/gallery.html">🖼️ Galería</a>
+                <a href="src/pages/events.html">📅 Eventos</a>
+                <a href="src/pages/food.html">🍽️ Gastronomía</a>
+                <a href="src/pages/shelters.html">🏨 Hospedajes</a>
+                <a href="src/pages/prices.html">💰 Precios</a>
+                <a href="src/pages/team.html">👥 Equipo</a>
+                <a href="src/pages/contacts.html">📞 Contactos</a>
+                <a href="src/pages/blog.html">📝 Blog</a>
+                <a href="src/pages/login.html">🔐 Login</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🥾 Rutas de Senderismo</h2>
+            <div class="links">
+                <a href="src/pages/treks/index.html">🗺️ Todas las Rutas</a>
+                <a href="src/pages/treks/el-valle.html">🌄 El Valle</a>
+                <a href="src/pages/treks/laguna-rica.html">💧 Laguna Rica</a>
+                <a href="src/pages/treks/la-pena.html">🪨 La Peña</a>
+                <a href="src/pages/treks/tilin.html">🎨 El Tilín</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📄 Documentación</h2>
+            <div class="links">
+                <a href="README.md">📖 README Principal</a>
+                <a href="docs/ARQUITECTURA-FRONTEND.md">🏗️ Arquitectura Frontend</a>
+                <a href="MIGRATION_STATUS.md">✅ Estado de Migración</a>
+                <a href="package.json">📦 package.json</a>
+            </div>
+        </div>
+
+        <div class="section" style="background: #e8f5e9;">
+            <h2>✨ Próximos Pasos</h2>
+            <ol>
+                <li>Verificar que todas las páginas cargan correctamente</li>
+                <li>Instalar dependencias con <code>npm install</code> (opcional)</li>
+                <li>Iniciar servidor de desarrollo con <code>npm run dev</code></li>
+                <li>Configurar el backend cuando estés listo</li>
+                <li>Eliminar archivos duplicados en la raíz (después de verificar)</li>
+            </ol>
+        </div>
+
+        <div class="section" style="background: #fff3e0;">
+            <h2>⚠️ Nota Importante</h2>
+            <p><strong>Los archivos originales siguen en la raíz como respaldo.</strong> Una vez verifiques que todo funciona correctamente con la nueva estructura, puedes eliminarlos para mantener el proyecto limpio.</p>
+        </div>
+    </div>
+</body>
+</html>
