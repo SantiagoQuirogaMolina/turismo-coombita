@@ -36,6 +36,8 @@ function setupEventListeners() {
     document.getElementById('formImagen').addEventListener('submit', handleImagenSubmit);
     document.getElementById('formEditarImagen').addEventListener('submit', handleEditarImagenSubmit);
     document.getElementById('formBlog').addEventListener('submit', handleBlogSubmit);
+    document.getElementById('formArtesano').addEventListener('submit', handleArtesanoSubmit);
+    document.getElementById('formGuia').addEventListener('submit', handleGuiaSubmit);
     document.getElementById('formPassword').addEventListener('submit', handlePasswordChange);
 
     // Close modals on outside click
@@ -156,6 +158,8 @@ function showSection(sectionId) {
         eventos: 'Eventos',
         galeria: 'Galería',
         blog: 'Blog',
+        artesanos: 'Artesanos',
+        guias: 'Guías Turísticos',
         mensajes: 'Mensajes',
         config: 'Configuración'
     };
@@ -168,6 +172,8 @@ function showSection(sectionId) {
     if (sectionId === 'eventos') loadEventos();
     if (sectionId === 'galeria') loadGaleria();
     if (sectionId === 'blog') loadBlog();
+    if (sectionId === 'artesanos') loadArtesanos();
+    if (sectionId === 'guias') loadGuias();
     if (sectionId === 'mensajes') loadMensajes();
 }
 
@@ -628,6 +634,8 @@ function openModal(type) {
         imagen: 'modalImagen',
         editarImagen: 'modalEditarImagen',
         blog: 'modalBlog',
+        artesano: 'modalArtesano',
+        guia: 'modalGuia',
         confirm: 'modalConfirm'
     };
 
@@ -647,7 +655,9 @@ function openModal(type) {
                     hotel: 'Agregar Hospedaje',
                     evento: 'Agregar Evento',
                     album: 'Nuevo Álbum',
-                    imagen: 'Subir Imagen'
+                    imagen: 'Subir Imagen',
+                    artesano: 'Agregar Artesano',
+                    guia: 'Agregar Guía'
                 };
                 if (titles[type]) title.textContent = titles[type];
             }
@@ -664,7 +674,9 @@ function openModal(type) {
                 restaurante: 'restauranteImagenPreview',
                 album: 'albumPortadaPreview',
                 imagen: 'imagenUploadPreview',
-                blog: 'blogImagenPreview'
+                blog: 'blogImagenPreview',
+                artesano: 'artesanoImagenPreview',
+                guia: 'guiaImagenPreview'
             };
             const previewId = previewMap[type];
             if (previewId) {
@@ -688,6 +700,8 @@ function closeModal(type) {
         imagen: 'modalImagen',
         editarImagen: 'modalEditarImagen',
         blog: 'modalBlog',
+        artesano: 'modalArtesano',
+        guia: 'modalGuia',
         confirm: 'modalConfirm'
     };
 
@@ -715,7 +729,9 @@ function closeModal(type) {
             album: 'albumPortadaPreview',
             imagen: 'imagenUploadPreview',
             editarImagen: 'editarImagenPreview',
-            blog: 'blogImagenPreview'
+            blog: 'blogImagenPreview',
+            artesano: 'artesanoImagenPreview',
+            guia: 'guiaImagenPreview'
         };
         const previewId = previewMap[type];
         if (previewId) {
@@ -746,7 +762,9 @@ function confirmDelete(type, id, name) {
                     hotel: 'hoteles',
                     evento: 'eventos',
                     album: 'galeria',
-                    blog: 'blog'
+                    blog: 'blog',
+                    artesano: 'artesanos',
+                    guia: 'guias'
                 };
                 deleteUrl = `${API_URL}/${endpoints[type]}/${id}`;
             }
@@ -769,6 +787,8 @@ function confirmDelete(type, id, name) {
                 if (type === 'album') loadGaleria();
                 if (type === 'imagen' && currentAlbumId) verAlbum(currentAlbumId);
                 if (type === 'blog') loadBlog();
+                if (type === 'artesano') loadArtesanos();
+                if (type === 'guia') loadGuias();
                 loadDashboard();
             } else {
                 showToast(data.error || 'Error al eliminar', 'error');
@@ -1178,6 +1198,208 @@ async function editBlog(id) {
         openModal('blog');
     } catch (error) {
         showToast('Error cargando publicación', 'error');
+    }
+}
+
+// ==================== ARTESANOS ====================
+
+async function loadArtesanos() {
+    try {
+        const res = await fetch(`${API_URL}/artesanos`);
+        const artesanos = await res.json();
+
+        const tbody = document.querySelector('#tablaArtesanos tbody');
+        tbody.innerHTML = artesanos.map(a => `
+            <tr>
+                <td>
+                    <div class="tabla-imagen">
+                        ${a.imagen ? `<img src="${a.imagen}" alt="${a.nombre}" onerror="this.parentElement.innerHTML='<span class=\\'sin-imagen\\'><i class=\\'fas fa-user\\'></i></span>'">` : '<span class="sin-imagen"><i class="fas fa-user"></i></span>'}
+                    </div>
+                </td>
+                <td><strong>${a.nombre}</strong></td>
+                <td>${a.especialidad || '-'}</td>
+                <td>${a.ubicacion || '-'}</td>
+                <td>${a.telefono || '-'}</td>
+                <td><span class="badge-status ${a.activo ? 'activo' : 'borrador'}">${a.activo ? 'Activo' : 'Inactivo'}</span></td>
+                <td class="actions">
+                    <button class="btn-edit" onclick="editArtesano('${a.id}')">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn-delete" onclick="confirmDelete('artesano', '${a.id}', '${a.nombre.replace(/'/g, "\\'")}')">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        `).join('');
+
+    } catch (error) {
+        console.error('Error loading artesanos:', error);
+        showToast('Error cargando artesanos', 'error');
+    }
+}
+
+async function handleArtesanoSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const id = formData.get('id');
+
+    const url = id ? `${API_URL}/artesanos/${id}` : `${API_URL}/artesanos`;
+    const method = id ? 'PUT' : 'POST';
+
+    try {
+        const res = await fetch(url, {
+            method,
+            headers: getAuthHeaders(),
+            body: formData
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+            closeModal('artesano');
+            loadArtesanos();
+            loadDashboard();
+            showToast(id ? 'Artesano actualizado' : 'Artesano creado', 'success');
+            form.reset();
+        } else {
+            showToast(data.error || 'Error al guardar', 'error');
+        }
+    } catch (error) {
+        showToast('Error de conexión', 'error');
+    }
+}
+
+async function editArtesano(id) {
+    try {
+        const res = await fetch(`${API_URL}/artesanos/${id}`);
+        const artesano = await res.json();
+
+        const form = document.getElementById('formArtesano');
+        form.id.value = artesano.id;
+        form.nombre.value = artesano.nombre || '';
+        form.especialidad.value = artesano.especialidad || '';
+        form.descripcion.value = artesano.descripcion || '';
+        form.ubicacion.value = artesano.ubicacion || '';
+        form.telefono.value = artesano.telefono || '';
+        form.whatsapp.value = artesano.whatsapp || '';
+        form.email.value = artesano.email || '';
+        form.activo.value = artesano.activo ? 'true' : 'false';
+
+        form.facebook.value = artesano.redes_sociales?.facebook || '';
+        form.instagram.value = artesano.redes_sociales?.instagram || '';
+        form.tiktok.value = artesano.redes_sociales?.tiktok || '';
+        form.youtube.value = artesano.redes_sociales?.youtube || '';
+
+        showCurrentImage('artesanoImagenPreview', artesano.imagen);
+
+        document.getElementById('modalArtesanoTitle').textContent = 'Editar Artesano';
+        openModal('artesano');
+    } catch (error) {
+        showToast('Error cargando datos', 'error');
+    }
+}
+
+// ==================== GUÍAS ====================
+
+async function loadGuias() {
+    try {
+        const res = await fetch(`${API_URL}/guias`);
+        const guias = await res.json();
+
+        const tbody = document.querySelector('#tablaGuias tbody');
+        tbody.innerHTML = guias.map(g => `
+            <tr>
+                <td>
+                    <div class="tabla-imagen">
+                        ${g.imagen ? `<img src="${g.imagen}" alt="${g.nombre}" onerror="this.parentElement.innerHTML='<span class=\\'sin-imagen\\'><i class=\\'fas fa-user\\'></i></span>'">` : '<span class="sin-imagen"><i class="fas fa-user"></i></span>'}
+                    </div>
+                </td>
+                <td><strong>${g.nombre}</strong></td>
+                <td>${g.especialidad || '-'}</td>
+                <td>${g.experiencia || '-'}</td>
+                <td>${g.rutas_conocidas ? (g.rutas_conocidas.length > 40 ? g.rutas_conocidas.substring(0, 40) + '...' : g.rutas_conocidas) : '-'}</td>
+                <td><span class="badge-status ${g.activo ? 'activo' : 'borrador'}">${g.activo ? 'Activo' : 'Inactivo'}</span></td>
+                <td class="actions">
+                    <button class="btn-edit" onclick="editGuia('${g.id}')">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn-delete" onclick="confirmDelete('guia', '${g.id}', '${g.nombre.replace(/'/g, "\\'")}')">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        `).join('');
+
+    } catch (error) {
+        console.error('Error loading guias:', error);
+        showToast('Error cargando guías', 'error');
+    }
+}
+
+async function handleGuiaSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const id = formData.get('id');
+
+    const url = id ? `${API_URL}/guias/${id}` : `${API_URL}/guias`;
+    const method = id ? 'PUT' : 'POST';
+
+    try {
+        const res = await fetch(url, {
+            method,
+            headers: getAuthHeaders(),
+            body: formData
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+            closeModal('guia');
+            loadGuias();
+            loadDashboard();
+            showToast(id ? 'Guía actualizado' : 'Guía creado', 'success');
+            form.reset();
+        } else {
+            showToast(data.error || 'Error al guardar', 'error');
+        }
+    } catch (error) {
+        showToast('Error de conexión', 'error');
+    }
+}
+
+async function editGuia(id) {
+    try {
+        const res = await fetch(`${API_URL}/guias/${id}`);
+        const guia = await res.json();
+
+        const form = document.getElementById('formGuia');
+        form.id.value = guia.id;
+        form.nombre.value = guia.nombre || '';
+        form.especialidad.value = guia.especialidad || '';
+        form.descripcion.value = guia.descripcion || '';
+        form.experiencia.value = guia.experiencia || '';
+        form.idiomas.value = guia.idiomas || '';
+        form.certificaciones.value = guia.certificaciones || '';
+        form.rutas_conocidas.value = guia.rutas_conocidas || '';
+        form.ubicacion.value = guia.ubicacion || 'Cómbita, Boyacá';
+        form.telefono.value = guia.telefono || '';
+        form.whatsapp.value = guia.whatsapp || '';
+        form.email.value = guia.email || '';
+        form.activo.value = guia.activo ? 'true' : 'false';
+
+        form.facebook.value = guia.redes_sociales?.facebook || '';
+        form.instagram.value = guia.redes_sociales?.instagram || '';
+        form.tiktok.value = guia.redes_sociales?.tiktok || '';
+        form.youtube.value = guia.redes_sociales?.youtube || '';
+
+        showCurrentImage('guiaImagenPreview', guia.imagen);
+
+        document.getElementById('modalGuiaTitle').textContent = 'Editar Guía';
+        openModal('guia');
+    } catch (error) {
+        showToast('Error cargando datos', 'error');
     }
 }
 

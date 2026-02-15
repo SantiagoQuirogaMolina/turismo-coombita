@@ -696,5 +696,112 @@
       "leido": true,
       "creado": "2026-02-15T17:36:32.865Z"
     }
+  ],
+  "artesanos": [
+    {
+      "id": "art001",
+      "nombre": "María Elena Rodríguez",
+      "especialidad": "Tejidos en lana virgen",
+      "descripcion": "Artesana con más de 30 años de experiencia en tejidos tradicionales boyacenses. Elabora ruanas, bufandas, gorros y cobijas con técnicas ancestrales heredadas de su familia.",
+      "telefono": "312 456 7890",
+      "whatsapp": "312 456 7890",
+      "email": "",
+      "ubicacion": "Vereda San Onofre, Cómbita",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-15T12:00:00.000Z"
+    },
+    {
+      "id": "art002",
+      "nombre": "José Antonio Pérez",
+      "especialidad": "Talla en madera y cestería",
+      "descripcion": "Maestro tallador que transforma la madera nativa en piezas únicas. Especializado en utensilios de cocina, figuras decorativas y cestas artesanales en mimbre y fique.",
+      "telefono": "315 789 0123",
+      "whatsapp": "315 789 0123",
+      "email": "",
+      "ubicacion": "Centro, Cómbita",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-15T12:00:00.000Z"
+    },
+    {
+      "id": "art003",
+      "nombre": "Rosa María Figueredo",
+      "especialidad": "Cerámica y alfarería tradicional",
+      "descripcion": "Ceramista que preserva las técnicas muiscas de alfarería. Crea vasijas, platos decorativos y figuras inspiradas en la fauna y flora del páramo combitense.",
+      "telefono": "318 234 5678",
+      "whatsapp": "318 234 5678",
+      "email": "",
+      "ubicacion": "Vereda El Barne, Cómbita",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-15T12:00:00.000Z"
+    }
+  ],
+  "guias": [
+    {
+      "id": "guia001",
+      "nombre": "Carlos Andrés Quiroga",
+      "especialidad": "Senderismo y naturaleza",
+      "descripcion": "Guía certificado con amplio conocimiento de las rutas de Cómbita. Apasionado por la conservación del páramo y la educación ambiental. Ofrece recorridos seguros y enriquecedores.",
+      "telefono": "310 567 8901",
+      "whatsapp": "310 567 8901",
+      "email": "carlos.guia@gmail.com",
+      "experiencia": "8 años",
+      "idiomas": "Español",
+      "certificaciones": "Guía de turismo certificado SENA",
+      "rutas_conocidas": "Laguna Rica, La Peña, El Tilín, El Valle de los Frailejones",
+      "ubicacion": "Cómbita, Boyacá",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-15T12:00:00.000Z"
+    },
+    {
+      "id": "guia002",
+      "nombre": "Diana Marcela Torres",
+      "especialidad": "Historia y cultura local",
+      "descripcion": "Historiadora local con profundo conocimiento de las tradiciones, leyendas y patrimonio cultural de Cómbita. Guía recorridos por sitios históricos y culturales del municipio.",
+      "telefono": "314 890 1234",
+      "whatsapp": "314 890 1234",
+      "email": "diana.tours@gmail.com",
+      "experiencia": "5 años",
+      "idiomas": "Español, Inglés básico",
+      "certificaciones": "Licenciada en Ciencias Sociales",
+      "rutas_conocidas": "Centro histórico, Iglesia, Caminos ancestrales",
+      "ubicacion": "Cómbita, Boyacá",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-15T12:00:00.000Z"
+    }
   ]
 }

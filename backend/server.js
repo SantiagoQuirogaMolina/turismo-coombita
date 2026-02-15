@@ -32,6 +32,8 @@ app.use('/api/estadisticas', require('./routes/estadisticas'));
 app.use('/api/galeria', require('./routes/galeria'));
 app.use('/api/blog', require('./routes/blog'));
 app.use('/api/contacto', require('./routes/contacto'));
+app.use('/api/artesanos', require('./routes/artesanos'));
+app.use('/api/guias', require('./routes/guias'));
 
 // ===== PÁGINAS PÚBLICAS =====
 

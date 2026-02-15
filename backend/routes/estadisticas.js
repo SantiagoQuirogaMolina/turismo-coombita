@@ -71,10 +71,16 @@ router.get('/dashboard', (req, res) => {
                 color: '#E07A5F'
             },
             {
-                titulo: 'Capacidad Total',
-                valor: (data.hoteles || []).reduce((sum, h) => sum + (h.capacidad || 0), 0),
-                icono: 'users',
-                color: '#2d3e33'
+                titulo: 'Artesanos',
+                valor: data.artesanos?.length || 0,
+                icono: 'palette',
+                color: '#8D6E63'
+            },
+            {
+                titulo: 'Guías',
+                valor: data.guias?.length || 0,
+                icono: 'hiking',
+                color: '#5C6BC0'
             }
         ],
         ultimosAgregados: {

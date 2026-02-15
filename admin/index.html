@@ -41,6 +41,14 @@
                 <i class="fas fa-newspaper"></i>
                 <span>Blog</span>
             </a>
+            <a href="#" class="nav-item" data-section="artesanos">
+                <i class="fas fa-palette"></i>
+                <span>Artesanos</span>
+            </a>
+            <a href="#" class="nav-item" data-section="guias">
+                <i class="fas fa-hiking"></i>
+                <span>Guías</span>
+            </a>
             <a href="#" class="nav-item" data-section="mensajes">
                 <i class="fas fa-envelope"></i>
                 <span>Mensajes</span>
@@ -118,6 +126,12 @@
                                 </button>
                                 <button class="btn btn-block" style="background:#E07A5F;color:white;" onclick="showSection('blog'); openModal('blog')">
                                     <i class="fas fa-plus"></i> Nueva Publicación
+                                </button>
+                                <button class="btn btn-block" style="background:#8D6E63;color:white;" onclick="showSection('artesanos'); openModal('artesano')">
+                                    <i class="fas fa-plus"></i> Nuevo Artesano
+                                </button>
+                                <button class="btn btn-block" style="background:#5C6BC0;color:white;" onclick="showSection('guias'); openModal('guia')">
+                                    <i class="fas fa-plus"></i> Nuevo Guía
                                 </button>
                             </div>
                         </div>
@@ -278,6 +292,66 @@
                                 <tbody>
                                     <!-- Data loaded via JS -->
                                 </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Artesanos Section -->
+            <section class="section" id="section-artesanos">
+                <div class="section-header">
+                    <h2>Gestión de Artesanos</h2>
+                    <button class="btn btn-primary" onclick="openModal('artesano')">
+                        <i class="fas fa-plus"></i> Agregar Artesano
+                    </button>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="tablaArtesanos">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Especialidad</th>
+                                        <th>Ubicación</th>
+                                        <th>Teléfono</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Guías Section -->
+            <section class="section" id="section-guias">
+                <div class="section-header">
+                    <h2>Gestión de Guías Turísticos</h2>
+                    <button class="btn btn-primary" onclick="openModal('guia')">
+                        <i class="fas fa-plus"></i> Agregar Guía
+                    </button>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="tablaGuias">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Especialidad</th>
+                                        <th>Experiencia</th>
+                                        <th>Rutas</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
                             </table>
                         </div>
                     </div>
@@ -904,6 +978,216 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline" onclick="closeModal('blog')">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Publicar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Artesano -->
+    <div class="modal" id="modalArtesano">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3 id="modalArtesanoTitle">Agregar Artesano</h3>
+                <button class="modal-close" onclick="closeModal('artesano')">&times;</button>
+            </div>
+            <form id="formArtesano" enctype="multipart/form-data">
+                <input type="hidden" name="id" id="artesanoId">
+                <div class="modal-body">
+                    <h4 class="form-section-title">Información Personal</h4>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label>Nombre Completo *</label>
+                            <input type="text" name="nombre" class="form-control" required placeholder="Ej: María Elena Rodríguez">
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Especialidad *</label>
+                            <input type="text" name="especialidad" class="form-control" required placeholder="Ej: Tejidos en lana virgen">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <textarea name="descripcion" class="form-control" rows="3" placeholder="Descripción del artesano, su trabajo y trayectoria..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Ubicación</label>
+                        <input type="text" name="ubicacion" class="form-control" placeholder="Ej: Vereda San Onofre, Cómbita">
+                    </div>
+
+                    <h4 class="form-section-title">Contacto</h4>
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label>Teléfono</label>
+                            <input type="text" name="telefono" class="form-control" placeholder="312 456 7890">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>WhatsApp</label>
+                            <input type="text" name="whatsapp" class="form-control" placeholder="312 456 7890">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Correo</label>
+                            <input type="email" name="email" class="form-control" placeholder="email@ejemplo.com">
+                        </div>
+                    </div>
+
+                    <h4 class="form-section-title">Redes Sociales</h4>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-facebook"></i> Facebook</label>
+                            <input type="text" name="facebook" class="form-control" placeholder="Nombre de página o URL">
+                        </div>
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-instagram"></i> Instagram</label>
+                            <input type="text" name="instagram" class="form-control" placeholder="@usuario">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-tiktok"></i> TikTok</label>
+                            <input type="text" name="tiktok" class="form-control" placeholder="@usuario">
+                        </div>
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-youtube"></i> YouTube</label>
+                            <input type="text" name="youtube" class="form-control" placeholder="Canal o URL">
+                        </div>
+                    </div>
+
+                    <h4 class="form-section-title">Imagen</h4>
+                    <div class="form-group">
+                        <div id="artesanoImagenPreview" class="imagen-preview">
+                            <span class="no-imagen">Sin imagen</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" name="imagen" class="form-control" accept="image/*" onchange="previewImage(this, 'artesanoImagenPreview')">
+                        <small class="form-text">Foto del artesano o de su trabajo. Formatos: JPG, PNG. Tamaño recomendado: 800x800px.</small>
+                    </div>
+
+                    <h4 class="form-section-title">Estado</h4>
+                    <div class="form-group">
+                        <select name="activo" class="form-control">
+                            <option value="true">Activo (visible en el sitio)</option>
+                            <option value="false">Inactivo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('artesano')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Guía -->
+    <div class="modal" id="modalGuia">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3 id="modalGuiaTitle">Agregar Guía</h3>
+                <button class="modal-close" onclick="closeModal('guia')">&times;</button>
+            </div>
+            <form id="formGuia" enctype="multipart/form-data">
+                <input type="hidden" name="id" id="guiaId">
+                <div class="modal-body">
+                    <h4 class="form-section-title">Información Personal</h4>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label>Nombre Completo *</label>
+                            <input type="text" name="nombre" class="form-control" required placeholder="Ej: Carlos Andrés Quiroga">
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Especialidad *</label>
+                            <input type="text" name="especialidad" class="form-control" required placeholder="Ej: Senderismo y naturaleza">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <textarea name="descripcion" class="form-control" rows="3" placeholder="Descripción del guía, su experiencia y estilo de recorridos..."></textarea>
+                    </div>
+
+                    <h4 class="form-section-title">Experiencia Profesional</h4>
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label>Experiencia</label>
+                            <input type="text" name="experiencia" class="form-control" placeholder="Ej: 5 años">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Idiomas</label>
+                            <input type="text" name="idiomas" class="form-control" placeholder="Ej: Español, Inglés">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Certificaciones</label>
+                            <input type="text" name="certificaciones" class="form-control" placeholder="Ej: Guía SENA">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Rutas Conocidas</label>
+                        <input type="text" name="rutas_conocidas" class="form-control" placeholder="Ej: Laguna Rica, La Peña, El Tilín">
+                    </div>
+                    <div class="form-group">
+                        <label>Ubicación</label>
+                        <input type="text" name="ubicacion" class="form-control" value="Cómbita, Boyacá">
+                    </div>
+
+                    <h4 class="form-section-title">Contacto</h4>
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label>Teléfono</label>
+                            <input type="text" name="telefono" class="form-control" placeholder="310 567 8901">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>WhatsApp</label>
+                            <input type="text" name="whatsapp" class="form-control" placeholder="310 567 8901">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Correo</label>
+                            <input type="email" name="email" class="form-control" placeholder="email@ejemplo.com">
+                        </div>
+                    </div>
+
+                    <h4 class="form-section-title">Redes Sociales</h4>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-facebook"></i> Facebook</label>
+                            <input type="text" name="facebook" class="form-control" placeholder="Nombre de página o URL">
+                        </div>
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-instagram"></i> Instagram</label>
+                            <input type="text" name="instagram" class="form-control" placeholder="@usuario">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-tiktok"></i> TikTok</label>
+                            <input type="text" name="tiktok" class="form-control" placeholder="@usuario">
+                        </div>
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-youtube"></i> YouTube</label>
+                            <input type="text" name="youtube" class="form-control" placeholder="Canal o URL">
+                        </div>
+                    </div>
+
+                    <h4 class="form-section-title">Imagen</h4>
+                    <div class="form-group">
+                        <div id="guiaImagenPreview" class="imagen-preview">
+                            <span class="no-imagen">Sin imagen</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" name="imagen" class="form-control" accept="image/*" onchange="previewImage(this, 'guiaImagenPreview')">
+                        <small class="form-text">Foto del guía. Formatos: JPG, PNG. Tamaño recomendado: 800x800px.</small>
+                    </div>
+
+                    <h4 class="form-section-title">Estado</h4>
+                    <div class="form-group">
+                        <select name="activo" class="form-control">
+                            <option value="true">Activo (visible en el sitio)</option>
+                            <option value="false">Inactivo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('guia')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
             </form>
         </div>

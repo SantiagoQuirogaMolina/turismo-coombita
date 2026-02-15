@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tips del Viajero | Turismo Cómbita - Información Práctica</title>
+    <meta name="description" content="Información práctica para visitar Cómbita: clima, qué llevar, mejor época, altitud, seguridad y recomendaciones para disfrutar tu viaje.">
+    <script src="../assets/js/vendor/jquery.min.js"></script>
+    <script src="../assets/js/vendor/main.js"></script>
+    <link rel="stylesheet" href="../assets/css/vendor/bootstrap-grid.css">
+    <link rel="stylesheet" href="../assets/css/vendor/style.css">
+    <link rel="stylesheet" href="../assets/css/vendor/glide.css">
+    <link rel="stylesheet" href="../assets/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" href="../assets/css/vendor/content-box.css">
+    <link rel="stylesheet" href="../assets/css/vendor/media-box.css">
+    <link rel="stylesheet" href="../assets/media/icons/fontawesome/all.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/frailejon-theme.css">
+    <link rel="icon" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .tip-section { padding: 70px 0; }
+        .tip-section:nth-child(even) { background: #f8fdf9; }
+
+        .tip-section-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+        .tip-section-header h2 {
+            font-size: 32px;
+            color: #2d3e33;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .tip-section-header .tip-line {
+            width: 50px;
+            height: 3px;
+            background: #DDA15E;
+            margin: 12px auto;
+            border-radius: 2px;
+        }
+        .tip-section-header p {
+            color: #6c757d;
+            font-size: 16px;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        /* Hero data */
+        .tip-hero {
+            background: #f8fdf9;
+            padding: 50px 0;
+            border-bottom: 1px solid #e0e8e1;
+        }
+        .tip-hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .tip-hero-item {
+            padding: 25px 15px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+            transition: transform 0.2s;
+        }
+        .tip-hero-item:hover { transform: translateY(-3px); }
+        .tip-hero-item i {
+            font-size: 28px;
+            color: #699073;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .tip-hero-item h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2d3e33;
+            margin-bottom: 4px;
+        }
+        .tip-hero-item p { font-size: 13px; color: #888; }
+
+        /* Tarjetas de clima por mes */
+        .tip-climate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+        }
+        .tip-month {
+            background: white;
+            border-radius: 10px;
+            padding: 18px 12px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        .tip-month:hover { transform: translateY(-3px); }
+        .tip-month .month-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2d3e33;
+            margin-bottom: 8px;
+        }
+        .tip-month .month-temp {
+            font-size: 22px;
+            font-weight: 700;
+            color: #699073;
+        }
+        .tip-month .month-rain {
+            font-size: 11px;
+            color: #888;
+            margin-top: 4px;
+        }
+        .tip-month.best {
+            border: 2px solid #DDA15E;
+            background: #fffdf8;
+        }
+        .tip-month.best .month-name::after {
+            content: ' ★';
+            color: #DDA15E;
+        }
+
+        /* Checklist qué llevar */
+        .tip-checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .tip-check-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+        }
+        .tip-check-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 17px;
+            color: #2d3e33;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .tip-check-card h3 i {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #699073, #4a6b52);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+        }
+        .tip-check-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .tip-check-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 14px;
+            color: #444;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .tip-check-list li:last-child { border-bottom: none; }
+        .tip-check-list li::before {
+            content: '✓';
+            color: #699073;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        /* Alertas/avisos importantes */
+        .tip-alerts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .tip-alert {
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+        }
+        .tip-alert.green { background: #e8f5e9; border-left: 4px solid #4caf50; }
+        .tip-alert.orange { background: #fff3e0; border-left: 4px solid #ff9800; }
+        .tip-alert.blue { background: #e3f2fd; border-left: 4px solid #2196f3; }
+        .tip-alert.red { background: #ffebee; border-left: 4px solid #f44336; }
+        .tip-alert-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .tip-alert.green .tip-alert-icon { background: #4caf50; color: white; }
+        .tip-alert.orange .tip-alert-icon { background: #ff9800; color: white; }
+        .tip-alert.blue .tip-alert-icon { background: #2196f3; color: white; }
+        .tip-alert.red .tip-alert-icon { background: #f44336; color: white; }
+        .tip-alert h4 { font-size: 15px; color: #2d3e33; margin-bottom: 4px; }
+        .tip-alert p { font-size: 13px; color: #555; line-height: 1.6; margin: 0; }
+
+        /* Gastronomía */
+        .tip-food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .tip-food {
+            background: white;
+            border-radius: 12px;
+            padding: 22px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.2s;
+        }
+        .tip-food:hover { transform: translateY(-3px); }
+        .tip-food i {
+            font-size: 36px;
+            color: #BC6C25;
+            margin-bottom: 12px;
+        }
+        .tip-food h4 {
+            font-size: 16px;
+            color: #2d3e33;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .tip-food p { font-size: 13px; color: #666; line-height: 1.5; margin: 0; }
+
+        /* CTA final */
+        .tip-cta {
+            background: linear-gradient(135deg, #699073 0%, #4a6b52 100%);
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+        .tip-cta h3 { font-size: 28px; font-weight: 700; margin-bottom: 10px; }
+        .tip-cta p { font-size: 15px; opacity: 0.9; margin-bottom: 25px; }
+        .tip-cta-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .tip-cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .tip-cta-link.primary { background: #DDA15E; color: #2d3e33 !important; }
+        .tip-cta-link.primary:hover { background: #c9913e; }
+        .tip-cta-link.outline { background: transparent; border: 2px solid rgba(255,255,255,0.5); color: white !important; }
+        .tip-cta-link.outline:hover { background: rgba(255,255,255,0.15); border-color: white; }
+
+        @media (max-width: 768px) {
+            .tip-section { padding: 50px 0; }
+            .tip-section-header h2 { font-size: 26px; }
+            .tip-climate-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body class="page-main">
+    <div id="preloader"></div>
+    <nav class="menu-classic menu-fixed align-right" data-menu-anima="fade-in">
+        <div class="container">
+            <div class="menu-brand">
+                <a href="./index.html">
+                    <img class="logo-default scroll-hide" src="../assets/images/icons/LOGO COLOR VECTORIZADO.png" alt="logo" />
+                    <img class="logo-retina scroll-hide" src="../assets/images/icons/LOGO COLOR VECTORIZADO.png" alt="logo" />
+                    <img class="logo-default scroll-show" src="../assets/images/icons/lgoo-dos.png" alt="logo" />
+                    <img class="logo-retina scroll-show" src="../assets/images/icons/lgoo-dos.png" alt="logo" />
+                </a>
+            </div>
+            <i class="menu-btn"></i>
+            <div class="menu-cnt">
+                <ul id="main-menu">
+                    <li class="dropdown"><a href="./index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#">Descubre</a>
+                        <ul>
+                            <li><a href="./about.html">Acerca de</a></li>
+                            <li class="dropdown-submenu">
+                                <a>Imperdibles</a>
+                                <ul>
+                                    <li><a href="./food.html">Restaurantes</a></li>
+                                    <li><a href="./shelters.html">Hospedajes</a></li>
+                                    <li><a href="./events.html">Eventos</a></li>
+                                    <li><a href="./artesanos-guias.html">Artesanos y Guías</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a>Explora Más</a>
+                                <ul>
+                                    <li><a href="./history.html">Historia</a></li>
+                                    <li><a href="./gallery.html">Galería</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="./treks/index.html">Caminatas</a></li>
+                    <li class="dropdown">
+                        <a href="#">Planifica</a>
+                        <ul>
+                            <li><a href="./transporte.html">Cómo Llegar</a></li>
+                            <li><a href="./mapa.html">Mapa</a></li>
+                            <li><a href="./tips.html">Tips del Viajero</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./blog.html">Blog</a></li>
+                    <li><a href="./contacts.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header-image ken-burn-center light" data-parallax="true" data-natural-height="1080" data-natural-width="1920" data-bleed="0" data-image-src="../assets/images/La Peña.jpg" data-offset="0">
+        <div class="container">
+            <h1>Tips del Viajero</h1>
+            <h2>Todo lo que necesitas saber para disfrutar al máximo tu visita</h2>
+            <ol class="breadcrumb">
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="#">Planifica</a></li>
+                <li><a href="#">Tips del Viajero</a></li>
+            </ol>
+        </div>
+    </header>
+
+    <main>
+        <!-- Datos rápidos -->
+        <div class="tip-hero">
+            <div class="container">
+                <div class="tip-hero-grid">
+                    <div class="tip-hero-item">
+                        <i class="fas fa-mountain"></i>
+                        <h3>2.820 m</h3>
+                        <p>Altitud promedio</p>
+                    </div>
+                    <div class="tip-hero-item">
+                        <i class="fas fa-thermometer-half"></i>
+                        <h3>10° - 16°C</h3>
+                        <p>Rango de temperatura</p>
+                    </div>
+                    <div class="tip-hero-item">
+                        <i class="fas fa-cloud-rain"></i>
+                        <h3>800 mm</h3>
+                        <p>Precipitación anual</p>
+                    </div>
+                    <div class="tip-hero-item">
+                        <i class="fas fa-sun"></i>
+                        <h3>Dic - Mar</h3>
+                        <p>Mejor época para visitar</p>
+                    </div>
+                    <div class="tip-hero-item">
+                        <i class="fas fa-users"></i>
+                        <h3>~15.000</h3>
+                        <p>Habitantes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clima por meses -->
+        <section class="tip-section">
+            <div class="container">
+                <div class="tip-section-header">
+                    <h2>Clima por Temporada</h2>
+                    <div class="tip-line"></div>
+                    <p>Cómbita tiene un clima frío de montaña. Los meses marcados con ★ son los mejores para visitar.</p>
+                </div>
+                <div class="tip-climate-grid">
+                    <div class="tip-month best">
+                        <div class="month-name">Enero</div>
+                        <div class="month-temp">14°</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> Baja</div>
+                    </div>
+                    <div class="tip-month best">
+                        <div class="month-name">Febrero</div>
+                        <div class="month-temp">14°</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> Baja</div>
+                    </div>
+                    <div class="tip-month best">
+                        <div class="month-name">Marzo</div>
+                        <div class="month-temp">14°</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> Moderada</div>
+                    </div>
+                    <div class="tip-month">
+                        <div class="month-name">Abril</div>
+                        <div class="month-temp">13°</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> Alta</div>
+                    </div>
+                    <div class="tip-month">
+                        <div class="month-name">Mayo</div>
+                        <div class="month-temp">13°</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> Alta</div>
+                    </div>
+                    <div class="tip-month">
+                        <div class="month-name">Junio</div>
+                        <div class="month-temp">12°</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> Moderada</div>
+                    </div>
+                    <div class="tip-month">
+                        <div class="month-name">Julio</div>
+                        <div class="month-temp">12°</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> Moderada</div>
+                    </div>
+                    <div class="tip-month">
+                        <div class="month-name">Agosto</div>
+                        <div class="month-temp">12°</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> Moderada</div>
+                    </div>
+                    <div class="tip-month">
+                        <div class="month-name">Septiembre</div>
+                        <div class="month-temp">13°</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> Alta</div>
+                    </div>
+                    <div class="tip-month">
+                        <div class="month-name">Octubre</div>
+                        <div class="month-temp">13°</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> Alta</div>
+                    </div>
+                    <div class="tip-month">
+                        <div class="month-name">Noviembre</div>
+                        <div class="month-temp">13°</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> Alta</div>
+                    </div>
+                    <div class="tip-month best">
+                        <div class="month-name">Diciembre</div>
+                        <div class="month-temp">13°</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> Baja</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Qué llevar -->
+        <section class="tip-section">
+            <div class="container">
+                <div class="tip-section-header">
+                    <h2>¿Qué Llevar?</h2>
+                    <div class="tip-line"></div>
+                    <p>Empaca inteligente para disfrutar al máximo tu experiencia en el páramo boyacense.</p>
+                </div>
+                <div class="tip-checklist">
+                    <div class="tip-check-card">
+                        <h3><i class="fas fa-tshirt"></i> Ropa y Abrigo</h3>
+                        <ul class="tip-check-list">
+                            <li>Chaqueta impermeable y cortavientos</li>
+                            <li>Ropa térmica o en capas</li>
+                            <li>Bufanda, gorro y guantes</li>
+                            <li>Botas de senderismo impermeables</li>
+                            <li>Pantalón largo cómodo</li>
+                            <li>Ropa de cambio (puede llover)</li>
+                        </ul>
+                    </div>
+                    <div class="tip-check-card">
+                        <h3><i class="fas fa-first-aid"></i> Salud y Protección</h3>
+                        <ul class="tip-check-list">
+                            <li>Bloqueador solar SPF 50+</li>
+                            <li>Gafas de sol con protección UV</li>
+                            <li>Botiquín básico</li>
+                            <li>Medicamento para el soroche (mal de altura)</li>
+                            <li>Repelente de insectos</li>
+                            <li>Hidratación constante</li>
+                        </ul>
+                    </div>
+                    <div class="tip-check-card">
+                        <h3><i class="fas fa-backpack"></i> Accesorios Útiles</h3>
+                        <ul class="tip-check-list">
+                            <li>Mochila pequeña para caminatas</li>
+                            <li>Botella de agua reutilizable</li>
+                            <li>Cámara fotográfica</li>
+                            <li>Cargador portátil (powerbank)</li>
+                            <li>Snacks energéticos</li>
+                            <li>Dinero en efectivo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recomendaciones importantes -->
+        <section class="tip-section">
+            <div class="container">
+                <div class="tip-section-header">
+                    <h2>Recomendaciones Importantes</h2>
+                    <div class="tip-line"></div>
+                </div>
+                <div class="tip-alerts">
+                    <div class="tip-alert green">
+                        <div class="tip-alert-icon"><i class="fas fa-leaf"></i></div>
+                        <div>
+                            <h4>Respeta la naturaleza</h4>
+                            <p>No dejes basura en los senderos. Los frailejones tardan más de 100 años en crecer, no los arranques ni los toques. Respeta la fauna silvestre.</p>
+                        </div>
+                    </div>
+                    <div class="tip-alert orange">
+                        <div class="tip-alert-icon"><i class="fas fa-mountain"></i></div>
+                        <div>
+                            <h4>Aclimatación a la altura</h4>
+                            <p>Estamos a más de 2.800 metros. Si vienes de tierra caliente, tómate el primer día con calma. Hidrátate bien y evita esfuerzos intensos las primeras horas.</p>
+                        </div>
+                    </div>
+                    <div class="tip-alert blue">
+                        <div class="tip-alert-icon"><i class="fas fa-user-shield"></i></div>
+                        <div>
+                            <h4>Contrata un guía local</h4>
+                            <p>Para las caminatas de páramo es recomendable ir con un guía certificado. Conocen las rutas, el clima y pueden hacer tu experiencia mucho más enriquecedora.</p>
+                        </div>
+                    </div>
+                    <div class="tip-alert red">
+                        <div class="tip-alert-icon"><i class="fas fa-cloud-sun-rain"></i></div>
+                        <div>
+                            <h4>Clima impredecible</h4>
+                            <p>En el páramo el clima cambia rápidamente. Puede estar soleado y en minutos llover. Lleva siempre una capa impermeable, incluso en temporada seca.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gastronomía imperdible -->
+        <section class="tip-section">
+            <div class="container">
+                <div class="tip-section-header">
+                    <h2>Gastronomía que Debes Probar</h2>
+                    <div class="tip-line"></div>
+                    <p>La cocina boyacense es rica en sabores de la tierra. No te vayas sin probar estos platos.</p>
+                </div>
+                <div class="tip-food-grid">
+                    <div class="tip-food">
+                        <i class="fas fa-bowl-food"></i>
+                        <h4>Mute Boyacense</h4>
+                        <p>Sopa espesa con maíz, frijol, papa, arveja, carne de cerdo y res. El plato insignia de la región.</p>
+                    </div>
+                    <div class="tip-food">
+                        <i class="fas fa-bread-slice"></i>
+                        <h4>Arepa Boyacense</h4>
+                        <p>Dulce, con queso y panela. Se cocina en horno de leña y tiene un sabor único e inconfundible.</p>
+                    </div>
+                    <div class="tip-food">
+                        <i class="fas fa-drumstick-bite"></i>
+                        <h4>Cocido Boyacense</h4>
+                        <p>Variedad de tubérculos, habas, mazorca y carnes cocidos lentamente. Reconfortante y abundante.</p>
+                    </div>
+                    <div class="tip-food">
+                        <i class="fas fa-mug-hot"></i>
+                        <h4>Aguapanela con Queso</h4>
+                        <p>Bebida caliente de panela con trozos de queso campesino. Perfecta para el frío del páramo.</p>
+                    </div>
+                    <div class="tip-food">
+                        <i class="fas fa-fish"></i>
+                        <h4>Trucha del Páramo</h4>
+                        <p>Trucha fresca de los ríos de montaña, preparada a la plancha o al ajillo. Delicada y deliciosa.</p>
+                    </div>
+                    <div class="tip-food">
+                        <i class="fas fa-cookie"></i>
+                        <h4>Almojábanas</h4>
+                        <p>Panecillos de queso con almidón de yuca. Crujientes por fuera, suaves por dentro. Ideales con chocolate.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA final -->
+        <section class="tip-cta">
+            <div class="container">
+                <h3>¿Listo para la aventura?</h3>
+                <p>Planifica tu viaje a Cómbita y descubre la magia del páramo boyacense.</p>
+                <div class="tip-cta-links">
+                    <a href="./transporte.html" class="tip-cta-link primary">
+                        <i class="fas fa-route"></i> Cómo Llegar
+                    </a>
+                    <a href="./artesanos-guias.html" class="tip-cta-link outline">
+                        <i class="fas fa-hiking"></i> Buscar un Guía
+                    </a>
+                    <a href="./contacts.html" class="tip-cta-link outline">
+                        <i class="fas fa-envelope"></i> Contacto
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3>Cómbita</h3>
+                    <p>En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio de por qué subimos.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h3>Contacto</h3>
+                    <ul class="icon-list icon-line">
+                        <li>Cómbita, Boyacá, Colombia</li>
+                        <li>alcaldia@combita-boyaca.gov.co</li>
+                        <li>313 366232</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <div class="icon-links icon-social icon-links-grid social-colors">
+                        <a class="facebook"><i class="icon-facebook"></i></a>
+                        <a class="instagram"><i class="icon-instagram"></i></a>
+                        <a class="x"><i class="icon-twitter"></i></a>
+                        <a class="youtube"><i class="icon-youtube"></i></a>
+                    </div>
+                    <hr class="space-sm" />
+                    <p>Síguenos en nuestras redes</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bar">
+            <div class="container">
+                <span>&copy; 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/" target="_blank">santiago-developer.com</a>.</span>
+                <span><a href="./contacts.html">Contacto</a> | <a href="#">Política de privacidad</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/vendor/parallax.min.js"></script>
+    <script src="../assets/js/vendor/glide.min.js"></script>
+    <script src="../assets/js/vendor/imagesloaded.min.js"></script>
+</body>
+</html>
