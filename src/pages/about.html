@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About | Alpins | Mountain And Trekking Template</title>
-    <meta name="description" content="">
+    <title>Acerca de Cómbita | Turismo Cómbita</title>
+    <meta name="description" content="Conoce Cómbita, Boyacá: un municipio lleno de historia, naturaleza, cultura y tradición en el corazón de los Andes colombianos.">
     <script src="../assets/js/vendor/jquery.min.js"></script>
     <script src="../assets/js/vendor/main.js"></script>
     <link rel="stylesheet" href="../assets/css/vendor/bootstrap-grid.css">
@@ -14,11 +14,115 @@
     <link rel="stylesheet" href="../assets/css/vendor/magnific-popup.css">
     <link rel="stylesheet" href="../assets/css/vendor/content-box.css">
     <link rel="stylesheet" href="../assets/css/vendor/media-box.css">
-    <link rel="stylesheet" href="../assets/css/vendor/contact-form.css">
-        <link rel="stylesheet" href="../assets/media/icons/fontawesome/all.css">
-<link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/media/icons/fontawesome/all.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/frailejon-theme.css">
     <link rel="icon" href="../assets/images/favicon.png">
+    <style>
+        .about-intro {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #444;
+        }
+        .about-intro p {
+            margin-bottom: 18px;
+        }
+        .dato-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+        .dato-card i {
+            font-size: 32px;
+            color: #699073;
+            margin-bottom: 12px;
+        }
+        .dato-card h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2d3e33;
+            margin-bottom: 5px;
+        }
+        .dato-card p {
+            font-size: 14px;
+            color: #888;
+            margin: 0;
+        }
+        .section-valores .cnt-box-top-icon {
+            text-align: center;
+        }
+        .section-valores .cnt-box-top-icon i {
+            font-size: 36px;
+            color: #699073;
+            margin-bottom: 15px;
+        }
+        .section-valores .cnt-box-top-icon h2 {
+            font-size: 18px;
+            color: #2d3e33;
+            margin-bottom: 8px;
+        }
+        .section-valores .cnt-box-top-icon p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+        .img-rounded {
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            object-fit: cover;
+        }
+        .cta-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .cta-section h2 {
+            font-size: 28px;
+            color: #2d3e33;
+            margin-bottom: 10px;
+        }
+        .cta-section p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-buttons a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .cta-buttons a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        .cta-btn-primary {
+            background: #699073;
+            color: #fff !important;
+        }
+        .cta-btn-secondary {
+            background: #fff;
+            color: #2d3e33 !important;
+            border: 2px solid #699073;
+        }
+    </style>
 </head>
 <body class="page-main">
     <div id="preloader"></div>
@@ -34,22 +138,19 @@
             </div>
             <i class="menu-btn"></i>
             <div class="menu-cnt">
-                                <ul id="main-menu">
+                <ul id="main-menu">
                     <li class="dropdown">
                         <a href="./index.html">Inicio</a>
                     </li>
-
                     <li class="dropdown">
-                        <a href="#">Paginas</a>
+                        <a href="#">Descubre</a>
                         <ul>
-                            <li>
-                                <a href="./about.html">Acerca de</a>
-                            </li>
+                            <li><a href="./about.html">Acerca de</a></li>
                             <li class="dropdown-submenu">
                                 <a>Imperdibles</a>
                                 <ul>
                                     <li><a href="./food.html">Restaurantes</a></li>
-                                    <li><a href="./shelters.html">hospedajes</a></li>
+                                    <li><a href="./shelters.html">Hospedajes</a></li>
                                     <li><a href="./events.html">Eventos</a></li>
                                     <li><a href="./artesanos-guias.html">Artesanos y Guías</a></li>
                                 </ul>
@@ -57,15 +158,13 @@
                             <li class="dropdown-submenu">
                                 <a>Explora Más</a>
                                 <ul>
-                                    <li><a href="./history.html">historia</a></li>
-                                    <li><a href="./gallery.html">galeria</a></li>
+                                    <li><a href="./history.html">Historia</a></li>
+                                    <li><a href="./gallery.html">Galería</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="./treks/index.html">Caminatas</a>
-                    </li>
+                    <li><a href="./treks/index.html">Caminatas</a></li>
                     <li class="dropdown">
                         <a href="#">Planifica</a>
                         <ul>
@@ -74,206 +173,234 @@
                             <li><a href="./tips.html">Tips del Viajero</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="./blog.html">Blog</a>
-                    </li>
-                    <li>
-                        <a href="./contacts.html">Contacto</a>
-                    </li>
+                    <li><a href="./blog.html">Blog</a></li>
+                    <li><a href="./contacts.html">Contacto</a></li>
                 </ul>
-
             </div>
-
         </div>
     </nav>
-    <header class="header-image ken-burn-center light" data-parallax="true" data-natural-height="1080" data-natural-width="1920" data-bleed="0" data-image-src="../assets/images/laguna rica.jpg" data-offset="0">
+
+    <header class="header-image ken-burn-center light" data-parallax="true" data-natural-height="1080" data-natural-width="1920" data-bleed="0" data-image-src="../assets/images/favorita dos.jpg" data-offset="0">
         <div class="container">
-            <h1>About us</h1>
-            <h2>The harder will you fall the heavier will your heart</h2>
+            <h1>Acerca de Cómbita</h1>
+            <h2>Un rincón de los Andes donde la naturaleza y la tradición se encuentran</h2>
             <ol class="breadcrumb">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">About us</a></li>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="#">Acerca de</a></li>
             </ol>
         </div>
     </header>
-    <main>
-        <section class="section-base ">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt utlabore et dolore magna aliqua.
-                            Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip erud exercitation ullamco. Exiquip ex  ea commodo con
-                            sequat sit amet consectetur adipiscing elitsed do eiusmode.
-                        </p>
-                    </div>
-                    <div class="col-lg-4 no-margin-md">
-                        <p>
-                            Loluptate velit esse cillum doloreorem ipsu idunt utlabore et dolore magna aliqua.
-                            Utenim ad minim veniam quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod
-                            tempor incididunt uta labore incita ipsum dolor sitscing elitsed do eiusmode.ud exercitation ullamco. Lore mise.
-                        </p>
-                    </div>
-                    <div class="col-lg-4">
-                        <hr class="space-xs height-10" />
-                        <ul class="slider" data-options="type:slider,perView:1,autoplay:3000">
-                            <li>
-                                <div class="cnt-box cnt-box-testimonials-bubble">
-                                    <p>
-                                        Alpins team is the most exprienced and friendly team I ever meet. I will join again and again!
-                                    </p>
-                                    <div class="thumb-bar">
-                                        <img src="../assets/images/La Peña.jpg" alt="" />
-                                        <p>
-                                            <span>Alex Brenson</span>
-                                            <span>Alpinist</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cnt-box cnt-box-testimonials-bubble">
-                                    <p>
-                                        The Alpins is something new tha will surprise you with every trip. You will surely enjoy it.
-                                    </p>
-                                    <div class="thumb-bar">
-                                        <img src="../assets/images/montaña cordi.jpg" alt="" />
-                                        <p>
-                                            <span>Richard Pitt</span>
-                                            <span>Climber</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="section-base section-color">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="title">
-                            <h2>Discover us</h2>
-                            <p>Our main services</p>
-                        </div>
-                        <hr class="space-lg hidden-md" />
-                        <p>
-                            Lorem ipsum dolor sit  e dolor in reprehenderit
-                            in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        </p>
-                        <a href="#" class="  btn-text">Contact us</a>
-                    </div>
-                    <div class="col-lg-9">
-                        <ul class="slider arrows-left" data-options="type:carousel,perView:3,perViewSm:1,focusAt:center,gap:30,arrows:true,controls:out,autoplay:3000">
-                            <li>
-                                <div class="cnt-box cnt-box-top boxed">
-                                    <a href="#" class="img-box"><img src="../assets/images/iglesia.jpg" alt="" /></a>
-                                    <div class="caption">
-                                        <h2>Treks</h2>
-                                        <p>
-                                            We have the most amazing and secret treks of our country. View the photos.
-                                        </p>
-                                        <a class="btn-text" href="#">Take a look</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cnt-box cnt-box-top boxed">
-                                    <a href="#" class="img-box"><img src="../assets/images/el tilin.JPG" alt="" /></a>
-                                    <div class="caption">
-                                        <h2>Family</h2>
-                                        <p>
-                                            Enjoy a day with the whole family with our simple easy treks thought for kids.
-                                        </p>
-                                        <a class="btn-text" href="#">Take a look</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cnt-box cnt-box-top boxed">
-                                    <a href="#" class="img-box"><img src="../assets/images/favorita dos.jpg" alt="" /></a>
-                                    <div class="caption">
-                                        <h2>Animals</h2>
-                                        <p>
-                                            Make new friends while treking, the mountains are full of tiny friendly animals.
-                                        </p>
-                                        <a class="btn-text" href="#">Take a look</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cnt-box cnt-box-top boxed">
-                                    <a href="#" class="img-box"><img src="../assets/images/colibrie verde descansa.jpg" alt="" /></a>
-                                    <div class="caption">
-                                        <h2>Mountains</h2>
-                                        <p>
-                                            Be amazed by some of the best mountains of the world with our secret trips.
-                                        </p>
-                                        <a class="btn-text" href="#">Take a look</a>
-                                    </div>
-                                </div>
-                            </li>
 
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <main>
+        <!-- Introducción -->
         <section class="section-base">
             <div class="container">
-                <ul class="slider" data-options="type:slider,perView:2,perViewMd:1,gap:40,nav:true,controls:out">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="about-intro">
+                            <p>
+                                <strong>Cómbita</strong> es un municipio ubicado en el departamento de Boyacá, Colombia,
+                                a tan solo 10 kilómetros de la ciudad de Tunja. Enclavado en el altiplano cundiboyacense
+                                a una altitud promedio de 2.825 metros sobre el nivel del mar, este territorio ofrece
+                                paisajes de páramo, valles verdes y montañas que quitan el aliento.
+                            </p>
+                            <p>
+                                Con una historia que se remonta a la época precolombina y una rica herencia muisca,
+                                Cómbita conserva tradiciones ancestrales que se mezclan con la calidez de su gente.
+                                Desde la administración de los padres Agustinos en 1586 hasta la valiente participación
+                                de Clara Tocarrucho en la independencia de 1810, cada rincón del municipio cuenta una historia.
+                            </p>
+                            <p>
+                                Hoy, Cómbita se abre al mundo como destino turístico, invitando a quienes buscan
+                                experiencias auténticas en contacto con la naturaleza, la cultura campesina boyacense
+                                y la gastronomía tradicional de la región.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="../assets/images/iglesia.jpg" alt="Iglesia de Cómbita" class="img-rounded" style="height: 400px;" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Datos clave -->
+        <section class="section-base section-color">
+            <div class="container">
+                <div class="title align-center">
+                    <h2>Cómbita en cifras</h2>
+                    <p>Datos que hacen especial a nuestro municipio</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="dato-card">
+                            <i class="fas fa-mountain"></i>
+                            <h3>2.825 m</h3>
+                            <p>Altitud promedio</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="dato-card">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <h3>10 km</h3>
+                            <p>Distancia a Tunja</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="dato-card">
+                            <i class="fas fa-water"></i>
+                            <h3>7</h3>
+                            <p>Ríos y quebradas principales</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="dato-card">
+                            <i class="fas fa-thermometer-half"></i>
+                            <h3>13 °C</h3>
+                            <p>Temperatura promedio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Qué ofrece -->
+        <section class="section-base section-valores">
+            <div class="container">
+                <div class="title align-center">
+                    <h2>Lo que nos hace únicos</h2>
+                    <p>Razones para visitar Cómbita</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="cnt-box cnt-box-top-icon boxed">
+                            <i class="fas fa-leaf"></i>
+                            <div class="caption">
+                                <h2>Naturaleza de Páramo</h2>
+                                <p>
+                                    Ecosistemas de páramo con frailejones, lagunas cristalinas como la Laguna Rica,
+                                    y senderos que atraviesan paisajes de montaña a más de 3.000 metros de altitud.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="cnt-box cnt-box-top-icon boxed">
+                            <i class="fas fa-landmark"></i>
+                            <div class="caption">
+                                <h2>Historia y Cultura</h2>
+                                <p>
+                                    Herencia muisca, arquitectura colonial, tradiciones campesinas vivas
+                                    y la historia de valentía de la independencia que se respira en cada vereda.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="cnt-box cnt-box-top-icon boxed">
+                            <i class="fas fa-utensils"></i>
+                            <div class="caption">
+                                <h2>Gastronomía Boyacense</h2>
+                                <p>
+                                    Sabores auténticos de la cocina campesina: cocido boyacense, mazamorra,
+                                    arepas de maíz, cuchuco y postres tradicionales preparados con recetas de generaciones.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="space" />
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="cnt-box cnt-box-top-icon boxed">
+                            <i class="fas fa-hiking"></i>
+                            <div class="caption">
+                                <h2>Senderismo y Aventura</h2>
+                                <p>
+                                    Rutas como La Peña, El Valle, el Cerro Tilín y la Laguna Rica ofrecen
+                                    caminatas para todos los niveles rodeadas de flora y fauna nativa.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="cnt-box cnt-box-top-icon boxed">
+                            <i class="fas fa-hands-helping"></i>
+                            <div class="caption">
+                                <h2>Artesanías Locales</h2>
+                                <p>
+                                    Tejidos en lana, cerámica, trabajos en fique y madera elaborados por
+                                    artesanos que mantienen vivas las técnicas ancestrales de la región.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="cnt-box cnt-box-top-icon boxed">
+                            <i class="fas fa-heart"></i>
+                            <div class="caption">
+                                <h2>Calidez Humana</h2>
+                                <p>
+                                    La hospitalidad de la gente de Cómbita es legendaria. Aquí cada visitante
+                                    es recibido como parte de la familia, con una sonrisa y un tinto caliente.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galería rápida -->
+        <section class="section-base section-color">
+            <div class="container">
+                <div class="title align-center">
+                    <h2>Paisajes de Cómbita</h2>
+                    <p>Imágenes que hablan por sí solas</p>
+                </div>
+                <ul class="slider arrows-left" data-options="type:carousel,perView:3,perViewSm:1,focusAt:center,gap:20,arrows:true,controls:out,autoplay:4000">
                     <li>
-                        <div class="timeline">
-                            <div class="inverted">
-                                <div class="badge"><p>1985</p><span>Foundation</span></div>
-                                <div class="panel">
-                                    <h3 class="timeline-title">Group fondation</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempore.
-                                    </p>
-                                </div>
+                        <div class="cnt-box cnt-box-top boxed">
+                            <a href="./gallery.html" class="img-box"><img src="../assets/images/laguna rica.jpg" alt="Laguna Rica" /></a>
+                            <div class="caption">
+                                <h2>Laguna Rica</h2>
+                                <p>Espejo de agua cristalino en medio del páramo, hogar de frailejones centenarios.</p>
                             </div>
                         </div>
                     </li>
                     <li>
-                        <div class="timeline">
-                            <div class="inverted">
-                                <div class="badge"><p>1990</p><span>Association</span></div>
-                                <div class="panel">
-                                    <h3 class="timeline-title">Join of country association</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consected do eiusmod tempore martllo artnesiano orte.
-                                    </p>
-                                </div>
+                        <div class="cnt-box cnt-box-top boxed">
+                            <a href="./treks/la-pena.html" class="img-box"><img src="../assets/images/La Peña.jpg" alt="La Peña" /></a>
+                            <div class="caption">
+                                <h2>La Peña</h2>
+                                <p>Formación rocosa imponente con vistas panorámicas del altiplano boyacense.</p>
                             </div>
                         </div>
                     </li>
                     <li>
-                        <div class="timeline">
-                            <div class="inverted">
-                                <div class="badge"><p>2002</p><span>Exapansion</span></div>
-                                <div class="panel">
-                                    <h3 class="timeline-title">We are bigger</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consected do eiusmod tempore martllo artnesiano orte.
-                                    </p>
-                                </div>
+                        <div class="cnt-box cnt-box-top boxed">
+                            <a href="./gallery.html" class="img-box"><img src="../assets/images/frailejon en la laguna .jpg" alt="Frailejones" /></a>
+                            <div class="caption">
+                                <h2>Frailejones</h2>
+                                <p>Guardianes del páramo que crecen apenas un centímetro por año.</p>
                             </div>
                         </div>
                     </li>
                     <li>
-                        <div class="timeline">
-                            <div class="inverted">
-                                <div class="badge"><p>2010</p><span>Online</span></div>
-                                <div class="panel">
-                                    <h3 class="timeline-title">We are online!</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consected do eiusmod tempore martllo artnesiano orte.
-                                    </p>
-                                </div>
+                        <div class="cnt-box cnt-box-top boxed">
+                            <a href="./treks/el-valle.html" class="img-box"><img src="../assets/images/desde los altos.jpg" alt="El Valle" /></a>
+                            <div class="caption">
+                                <h2>El Valle</h2>
+                                <p>Valles verdes rodeados de montañas, ideales para caminatas tranquilas.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cnt-box cnt-box-top boxed">
+                            <a href="./gallery.html" class="img-box"><img src="../assets/images/colibrie verde descansa.jpg" alt="Fauna local" /></a>
+                            <div class="caption">
+                                <h2>Fauna Nativa</h2>
+                                <p>Colibríes, copetones y aves endémicas que habitan los ecosistemas de Cómbita.</p>
                             </div>
                         </div>
                     </li>
@@ -281,7 +408,22 @@
             </div>
         </section>
 
+        <!-- CTA -->
+        <section class="section-base">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Planifica tu visita a Cómbita</h2>
+                    <p>Descubre cómo llegar, dónde hospedarte y qué experiencias te esperan en este rincón mágico de Boyacá.</p>
+                    <div class="cta-buttons">
+                        <a href="./transporte.html" class="cta-btn-primary"><i class="fas fa-route"></i> Cómo Llegar</a>
+                        <a href="./shelters.html" class="cta-btn-secondary"><i class="fas fa-bed"></i> Hospedajes</a>
+                        <a href="./treks/index.html" class="cta-btn-secondary"><i class="fas fa-hiking"></i> Caminatas</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
     <footer class="light">
         <div class="container">
             <div class="row">
@@ -289,39 +431,38 @@
                     <h3>Cómbita</h3>
                     <p>En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio
                         de por qué subimos.</p>
-
                 </div>
                 <div class="col-lg-4">
                     <h3>Contacto</h3>
                     <ul class="icon-list icon-line">
                         <li>Cómbita, Boyacá, Colombia</li>
                         <li>alcaldia@combita-boyaca.gov.co</li>
-                        <li> 313 366232</li>
+                        <li>313 366 2322</li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
                     <div class="icon-links icon-social icon-links-grid social-colors">
                         <a class="facebook"><i class="icon-facebook"></i></a>
                         <a class="instagram"><i class="icon-instagram"></i></a>
-                        <a class="x"><i class="icon-twitter"></i></a> <!-- X represents the new Twitter -->
+                        <a class="x"><i class="icon-twitter"></i></a>
                         <a class="youtube"><i class="icon-youtube"></i></a>
                     </div>
                     <hr class="space-sm" />
                     <p>Siguenos en nuestras redes</p>
                 </div>
-
             </div>
         </div>
         <div class="footer-bar">
             <div class="container">
-                <span>© 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/"
-                        target="_blank">santiago-developer.com</a>.</span>
-                <span><a href="./contacts.html">Contacto</a> | <a href="#">Privacy policy</a></span>
+                <span>&copy; 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/" target="_blank">santiago-developer.com</a>.</span>
+                <span><a href="./contacts.html">Contacto</a> | <a href="./privacidad.html">Política de privacidad</a></span>
             </div>
         </div>
     </footer>
     <script src="../assets/js/vendor/parallax.min.js"></script>
     <script src="../assets/js/vendor/glide.min.js"></script>
+    <script src="../assets/js/vendor/magnific-popup.min.js"></script>
     <script src="../assets/js/vendor/imagesloaded.min.js"></script>
+    <script src="../assets/js/vendor/custom.js"></script>
 </body>
 </html>

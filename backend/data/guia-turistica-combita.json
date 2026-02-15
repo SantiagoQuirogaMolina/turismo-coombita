@@ -695,6 +695,16 @@
       "mensaje": "Hola, quisiera información sobre los senderos disponibles en Cómbita.",
       "leido": true,
       "creado": "2026-02-15T17:36:32.865Z"
+    },
+    {
+      "id": "mlobuv58lsnfy2oyagm",
+      "nombre": "SANTIAGO QUIROGA",
+      "email": "santiagoquirogamolina1999@gmail.com",
+      "telefono": "",
+      "asunto": "Suscripción - Novedades de Cómbita",
+      "mensaje": "Solicitud de suscripción a novedades desde el formulario de inicio.",
+      "leido": false,
+      "creado": "2026-02-15T22:39:03.212Z"
     }
   ],
   "artesanos": [

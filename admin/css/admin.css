@@ -320,29 +320,49 @@ body {
 /* Tables */
 .table-responsive {
     overflow-x: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-light);
 }
 
 .table {
     width: 100%;
     border-collapse: collapse;
+    min-width: 600px;
 }
 
 .table th,
 .table td {
-    padding: 12px 15px;
+    padding: 14px 18px;
     text-align: left;
     border-bottom: 1px solid var(--gray-light);
+    vertical-align: middle;
 }
 
 .table th {
     font-weight: 600;
     color: var(--gray);
-    font-size: 13px;
+    font-size: 12px;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--light);
+    border-bottom: 2px solid var(--gray-light);
+}
+
+.table tbody tr {
+    transition: background 0.15s ease;
 }
 
 .table tbody tr:hover {
-    background: var(--light);
+    background: #f0f7f2;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table td strong {
+    color: var(--dark);
+    font-weight: 600;
 }
 
 .table .actions {
@@ -350,12 +370,19 @@ body {
 }
 
 .table .actions button {
-    padding: 5px 10px;
+    padding: 6px 12px;
     margin-right: 5px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 12px;
+    font-weight: 500;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.table .actions button:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
 }
 
 .table .actions .btn-edit {
@@ -611,12 +638,13 @@ body {
 .tabla-imagen {
     width: 60px;
     height: 45px;
-    border-radius: 5px;
+    border-radius: 6px;
     overflow: hidden;
     background: var(--light);
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid var(--gray-light);
 }
 
 .tabla-imagen img {
@@ -625,9 +653,15 @@ body {
     object-fit: cover;
 }
 
-.tabla-imagen .sin-imagen {
-    color: var(--gray-light);
+.tabla-imagen .sin-imagen,
+.sin-imagen {
+    color: var(--gray);
     font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 /* Badges de categoría */
@@ -657,6 +691,18 @@ body {
 .badge-categoria.camping {
     background: #e8f5e9;
     color: #2e7d32;
+}
+
+/* Badges de tipo (eventos) */
+.badge-tipo {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: capitalize;
+    background: #ede7f6;
+    color: #5e35b1;
 }
 
 .modal-header {
@@ -1301,6 +1347,34 @@ body {
     background: var(--danger);
     color: white;
     border-color: var(--danger);
+}
+
+/* Loading overlay */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: var(--radius);
+}
+
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary);
+    font-size: 14px;
+}
+
+.loading-spinner i {
+    font-size: 28px;
 }
 
 /* Responsive */

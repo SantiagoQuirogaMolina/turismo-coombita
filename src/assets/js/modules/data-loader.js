@@ -3,7 +3,7 @@
  * Conecta el frontend con la API del backend
  */
 
-const DATA_API = 'http://localhost:3001/api';
+const DATA_API = window.location.origin + '/api';
 
 // ==================== RESTAURANTES ====================
 

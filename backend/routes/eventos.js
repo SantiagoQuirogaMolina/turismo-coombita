@@ -7,6 +7,8 @@ const multer = require('multer');
 const path = require('path');
 const { verifyToken } = require('../middleware/auth');
 const { readData, writeData, generateId, updateStats } = require('../utils/dataManager');
+const { validateEvento } = require('../utils/validation');
+const { deleteOldImage } = require('../utils/imageCleanup');
 
 const router = express.Router();
 
@@ -47,7 +49,30 @@ router.get('/', (req, res) => {
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
     }
-    res.json(data.eventos || []);
+
+    let items = data.eventos || [];
+
+    // Búsqueda por texto
+    if (req.query.search) {
+        const s = req.query.search.toLowerCase();
+        items = items.filter(e =>
+            (e.nombre || '').toLowerCase().includes(s) ||
+            (e.tipo || '').toLowerCase().includes(s) ||
+            (e.ubicacion || '').toLowerCase().includes(s)
+        );
+    }
+
+    // Paginación
+    const total = items.length;
+    if (req.query.page && req.query.limit) {
+        const page = Math.max(1, parseInt(req.query.page) || 1);
+        const limit = Math.min(100, Math.max(1, parseInt(req.query.limit) || 10));
+        const start = (page - 1) * limit;
+        items = items.slice(start, start + limit);
+        return res.json({ data: items, total, page, limit, pages: Math.ceil(total / limit) });
+    }
+
+    res.json(items);
 });
 
 // GET /api/eventos/:id - Obtener uno
@@ -70,6 +95,11 @@ router.post('/', verifyToken, upload.single('imagen'), (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
+    }
+
+    const errors = validateEvento(req.body);
+    if (errors.length) {
+        return res.status(400).json({ error: errors.join('. ') });
     }
 
     const nuevoEvento = {
@@ -111,6 +141,11 @@ router.put('/:id', verifyToken, upload.single('imagen'), (req, res) => {
 
     const eventoActual = data.eventos[index];
 
+    const errors = validateEvento(req.body, true);
+    if (errors.length) {
+        return res.status(400).json({ error: errors.join('. ') });
+    }
+
     data.eventos[index] = {
         ...eventoActual,
         nombre: req.body.nombre || eventoActual.nombre,
@@ -125,6 +160,10 @@ router.put('/:id', verifyToken, upload.single('imagen'), (req, res) => {
         destacado: req.body.destacado !== undefined ? req.body.destacado === 'true' : eventoActual.destacado,
         actualizado: new Date().toISOString()
     };
+
+    if (req.file && eventoActual.imagen) {
+        deleteOldImage(eventoActual.imagen);
+    }
 
     updateStats(data);
 
@@ -148,6 +187,7 @@ router.delete('/:id', verifyToken, (req, res) => {
     }
 
     const eliminado = data.eventos.splice(index, 1)[0];
+    deleteOldImage(eliminado.imagen);
     updateStats(data);
 
     if (writeData(data)) {

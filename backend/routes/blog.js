@@ -6,8 +6,34 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const sanitizeHtml = require('sanitize-html');
 const { verifyToken } = require('../middleware/auth');
 const { readData, writeData, generateId } = require('../utils/dataManager');
+const { validateBlog } = require('../utils/validation');
+const { deleteOldImage } = require('../utils/imageCleanup');
+
+// Opciones de sanitización para contenido del blog
+const sanitizeOptions = {
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'h1', 'h2', 'h3', 'span', 'br', 'hr']),
+    allowedAttributes: {
+        ...sanitizeHtml.defaults.allowedAttributes,
+        'img': ['src', 'alt', 'width', 'height', 'style'],
+        'a': ['href', 'name', 'target', 'rel'],
+        'span': ['style'],
+        'p': ['style'],
+        '*': ['class']
+    },
+    allowedSchemes: ['http', 'https', 'mailto'],
+    allowedStyles: {
+        '*': {
+            'color': [/.*/],
+            'text-align': [/.*/],
+            'font-size': [/.*/],
+            'font-weight': [/.*/],
+            'text-decoration': [/.*/]
+        }
+    }
+};
 
 const router = express.Router();
 
@@ -100,11 +126,16 @@ router.post('/', verifyToken, upload.single('imagen'), (req, res) => {
 
     if (!data.blog) data.blog = [];
 
+    const errors = validateBlog(req.body);
+    if (errors.length) {
+        return res.status(400).json({ error: errors.join('. ') });
+    }
+
     const nuevoPost = {
         id: generateId(),
         titulo: req.body.titulo,
         extracto: req.body.extracto || '',
-        contenido: req.body.contenido || '',
+        contenido: req.body.contenido ? sanitizeHtml(req.body.contenido, sanitizeOptions) : '',
         imagen: req.file ? `/uploads/blog/${req.file.filename}` : '',
         categoria: req.body.categoria || 'general',
         autor: req.body.autor || 'Admin',
@@ -139,11 +170,16 @@ router.put('/:id', verifyToken, upload.single('imagen'), (req, res) => {
 
     const postActual = data.blog[index];
 
+    const errors = validateBlog(req.body, true);
+    if (errors.length) {
+        return res.status(400).json({ error: errors.join('. ') });
+    }
+
     data.blog[index] = {
         ...postActual,
         titulo: req.body.titulo || postActual.titulo,
         extracto: req.body.extracto ?? postActual.extracto,
-        contenido: req.body.contenido ?? postActual.contenido,
+        contenido: req.body.contenido ? sanitizeHtml(req.body.contenido, sanitizeOptions) : postActual.contenido,
         imagen: req.file ? `/uploads/blog/${req.file.filename}` : postActual.imagen,
         categoria: req.body.categoria || postActual.categoria,
         autor: req.body.autor || postActual.autor,
@@ -152,6 +188,10 @@ router.put('/:id', verifyToken, upload.single('imagen'), (req, res) => {
         activo: req.body.activo !== undefined ? req.body.activo === 'true' : postActual.activo,
         actualizado: new Date().toISOString()
     };
+
+    if (req.file && postActual.imagen) {
+        deleteOldImage(postActual.imagen);
+    }
 
     if (writeData(data)) {
         res.json({ success: true, post: data.blog[index] });
@@ -174,6 +214,7 @@ router.delete('/:id', verifyToken, (req, res) => {
     }
 
     const eliminado = data.blog.splice(index, 1)[0];
+    deleteOldImage(eliminado.imagen);
 
     if (writeData(data)) {
         res.json({ success: true, eliminado });

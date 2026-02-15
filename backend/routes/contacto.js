@@ -4,6 +4,8 @@
 
 const express = require('express');
 const { readData, writeData, generateId } = require('../utils/dataManager');
+const { verifyToken } = require('../middleware/auth');
+const { validateContacto } = require('../utils/validation');
 
 const router = express.Router();
 
@@ -11,8 +13,9 @@ const router = express.Router();
 router.post('/', (req, res) => {
     const { nombre, email, telefono, asunto, mensaje } = req.body;
 
-    if (!nombre || !email || !mensaje) {
-        return res.status(400).json({ error: 'Nombre, email y mensaje son obligatorios' });
+    const errors = validateContacto(req.body);
+    if (errors.length) {
+        return res.status(400).json({ error: errors.join('. ') });
     }
 
     const data = readData();
@@ -43,7 +46,7 @@ router.post('/', (req, res) => {
 });
 
 // GET /api/contacto - Listar mensajes (solo admin)
-router.get('/', (req, res) => {
+router.get('/', verifyToken, (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
@@ -54,7 +57,7 @@ router.get('/', (req, res) => {
 });
 
 // PUT /api/contacto/:id/leido - Marcar mensaje como leído
-router.put('/:id/leido', (req, res) => {
+router.put('/:id/leido', verifyToken, (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
@@ -77,7 +80,7 @@ router.put('/:id/leido', (req, res) => {
 });
 
 // DELETE /api/contacto/:id - Eliminar mensaje
-router.delete('/:id', (req, res) => {
+router.delete('/:id', verifyToken, (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });

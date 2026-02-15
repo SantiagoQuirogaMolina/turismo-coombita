@@ -7,6 +7,8 @@ const multer = require('multer');
 const path = require('path');
 const { verifyToken } = require('../middleware/auth');
 const { readData, writeData, generateId, updateStats } = require('../utils/dataManager');
+const { validateArtesano } = require('../utils/validation');
+const { deleteOldImage } = require('../utils/imageCleanup');
 
 const router = express.Router();
 
@@ -47,7 +49,29 @@ router.get('/', (req, res) => {
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
     }
-    res.json(data.artesanos || []);
+
+    let items = data.artesanos || [];
+
+    // Búsqueda por texto
+    if (req.query.search) {
+        const s = req.query.search.toLowerCase();
+        items = items.filter(a =>
+            (a.nombre || '').toLowerCase().includes(s) ||
+            (a.especialidad || '').toLowerCase().includes(s)
+        );
+    }
+
+    // Paginación
+    const total = items.length;
+    if (req.query.page && req.query.limit) {
+        const page = Math.max(1, parseInt(req.query.page) || 1);
+        const limit = Math.min(100, Math.max(1, parseInt(req.query.limit) || 10));
+        const start = (page - 1) * limit;
+        items = items.slice(start, start + limit);
+        return res.json({ data: items, total, page, limit, pages: Math.ceil(total / limit) });
+    }
+
+    res.json(items);
 });
 
 // GET /api/artesanos/:id - Obtener uno
@@ -57,7 +81,7 @@ router.get('/:id', (req, res) => {
         return res.status(500).json({ error: 'Error leyendo datos' });
     }
 
-    const artesano = data.artesanos.find(a => a.id === req.params.id);
+    const artesano = (data.artesanos || []).find(a => a.id === req.params.id);
     if (!artesano) {
         return res.status(404).json({ error: 'Artesano no encontrado' });
     }
@@ -70,6 +94,15 @@ router.post('/', verifyToken, upload.single('imagen'), (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
+    }
+
+    if (!data.artesanos) {
+        data.artesanos = [];
+    }
+
+    const errors = validateArtesano(req.body);
+    if (errors.length) {
+        return res.status(400).json({ error: errors.join('. ') });
     }
 
     const nuevoArtesano = {
@@ -91,10 +124,6 @@ router.post('/', verifyToken, upload.single('imagen'), (req, res) => {
         activo: true,
         creado: new Date().toISOString()
     };
-
-    if (!data.artesanos) {
-        data.artesanos = [];
-    }
 
     data.artesanos.push(nuevoArtesano);
     updateStats(data);
@@ -120,6 +149,11 @@ router.put('/:id', verifyToken, upload.single('imagen'), (req, res) => {
 
     const artesanoActual = data.artesanos[index];
 
+    const errors = validateArtesano(req.body, true);
+    if (errors.length) {
+        return res.status(400).json({ error: errors.join('. ') });
+    }
+
     // Construir redes sociales
     const redes_sociales = {
         facebook: req.body.facebook ?? artesanoActual.redes_sociales?.facebook ?? '',
@@ -143,6 +177,10 @@ router.put('/:id', verifyToken, upload.single('imagen'), (req, res) => {
         actualizado: new Date().toISOString()
     };
 
+    if (req.file && artesanoActual.imagen) {
+        deleteOldImage(artesanoActual.imagen);
+    }
+
     updateStats(data);
 
     if (writeData(data)) {
@@ -165,6 +203,7 @@ router.delete('/:id', verifyToken, (req, res) => {
     }
 
     const eliminado = data.artesanos.splice(index, 1)[0];
+    deleteOldImage(eliminado.imagen);
     updateStats(data);
 
     if (writeData(data)) {

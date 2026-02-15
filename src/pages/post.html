@@ -57,17 +57,16 @@
                     <li class="dropdown">
                         <a href="./index.html">Inicio</a>
                     </li>
+                    <li class="dropdown"><a href="./index.html">Inicio</a></li>
                     <li class="dropdown">
-                        <a href="#">Paginas</a>
+                        <a href="#">Descubre</a>
                         <ul>
-                            <li>
-                                <a href="./about.html">Acerca de</a>
-                            </li>
+                            <li><a href="./about.html">Acerca de</a></li>
                             <li class="dropdown-submenu">
                                 <a>Imperdibles</a>
                                 <ul>
                                     <li><a href="./food.html">Restaurantes</a></li>
-                                    <li><a href="./shelters.html">hospedajes</a></li>
+                                    <li><a href="./shelters.html">Hospedajes</a></li>
                                     <li><a href="./events.html">Eventos</a></li>
                                     <li><a href="./artesanos-guias.html">Artesanos y Guías</a></li>
                                 </ul>
@@ -75,15 +74,13 @@
                             <li class="dropdown-submenu">
                                 <a>Explora Más</a>
                                 <ul>
-                                    <li><a href="./history.html">historia</a></li>
-                                    <li><a href="./gallery.html">galeria</a></li>
+                                    <li><a href="./history.html">Historia</a></li>
+                                    <li><a href="./gallery.html">Galería</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="./treks/index.html">Caminatas</a>
-                    </li>
+                    <li><a href="./treks/index.html">Caminatas</a></li>
                     <li class="dropdown">
                         <a href="#">Planifica</a>
                         <ul>
@@ -92,12 +89,8 @@
                             <li><a href="./tips.html">Tips del Viajero</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="./blog.html">Blog</a>
-                    </li>
-                    <li>
-                        <a href="./contacts.html">Contacto</a>
-                    </li>
+                    <li><a href="./blog.html">Blog</a></li>
+                    <li><a href="./contacts.html">Contacto</a></li>
                 </ul>
             </div>
         </div>
@@ -181,15 +174,13 @@
         <div class="footer-bar">
             <div class="container">
                 <span>&copy; 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/" target="_blank">santiago-developer.com</a>.</span>
-                <span><a href="./contacts.html">Contacto</a> | <a href="#">Privacy policy</a></span>
+                <span><a href="./contacts.html">Contacto</a> | <a href="./privacidad.html">Política de privacidad</a></span>
             </div>
         </div>
     </footer>
 
     <script>
-        const API_BASE = window.location.port === '3001'
-            ? 'http://localhost:3001/api'
-            : '/api';
+        const API_BASE = window.location.origin + '/api';
 
         document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);

@@ -7,6 +7,8 @@ const multer = require('multer');
 const path = require('path');
 const { verifyToken } = require('../middleware/auth');
 const { readData, writeData, generateId, updateStats } = require('../utils/dataManager');
+const { validateHotel } = require('../utils/validation');
+const { deleteOldImage } = require('../utils/imageCleanup');
 
 const router = express.Router();
 
@@ -47,7 +49,30 @@ router.get('/', (req, res) => {
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
     }
-    res.json(data.hoteles || []);
+
+    let items = data.hoteles || [];
+
+    // Búsqueda por texto
+    if (req.query.search) {
+        const s = req.query.search.toLowerCase();
+        items = items.filter(h =>
+            (h.nombre || '').toLowerCase().includes(s) ||
+            (h.tipo || '').toLowerCase().includes(s) ||
+            (h.categoria || '').toLowerCase().includes(s)
+        );
+    }
+
+    // Paginación
+    const total = items.length;
+    if (req.query.page && req.query.limit) {
+        const page = Math.max(1, parseInt(req.query.page) || 1);
+        const limit = Math.min(100, Math.max(1, parseInt(req.query.limit) || 10));
+        const start = (page - 1) * limit;
+        items = items.slice(start, start + limit);
+        return res.json({ data: items, total, page, limit, pages: Math.ceil(total / limit) });
+    }
+
+    res.json(items);
 });
 
 // GET /api/hoteles/:id - Obtener uno
@@ -70,6 +95,11 @@ router.post('/', verifyToken, upload.single('imagen'), (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
+    }
+
+    const errors = validateHotel(req.body);
+    if (errors.length) {
+        return res.status(400).json({ error: errors.join('. ') });
     }
 
     // Construir array de servicios desde checkboxes
@@ -142,6 +172,11 @@ router.put('/:id', verifyToken, upload.single('imagen'), (req, res) => {
 
     const hotelActual = data.hoteles[index];
 
+    const errors = validateHotel(req.body, true);
+    if (errors.length) {
+        return res.status(400).json({ error: errors.join('. ') });
+    }
+
     // Construir array de servicios desde checkboxes
     let servicios = hotelActual.servicios || [];
     const hasServiceFields = req.body.servicio_wifi !== undefined ||
@@ -197,6 +232,10 @@ router.put('/:id', verifyToken, upload.single('imagen'), (req, res) => {
         actualizado: new Date().toISOString()
     };
 
+    if (req.file && hotelActual.imagen) {
+        deleteOldImage(hotelActual.imagen);
+    }
+
     updateStats(data);
 
     if (writeData(data)) {
@@ -219,6 +258,7 @@ router.delete('/:id', verifyToken, (req, res) => {
     }
 
     const eliminado = data.hoteles.splice(index, 1)[0];
+    deleteOldImage(eliminado.imagen);
     updateStats(data);
 
     if (writeData(data)) {

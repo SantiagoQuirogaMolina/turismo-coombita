@@ -7,6 +7,8 @@ const multer = require('multer');
 const path = require('path');
 const { verifyToken } = require('../middleware/auth');
 const { readData, writeData, generateId, updateStats } = require('../utils/dataManager');
+const { validateRestaurante } = require('../utils/validation');
+const { deleteOldImage } = require('../utils/imageCleanup');
 
 const router = express.Router();
 
@@ -47,7 +49,30 @@ router.get('/', (req, res) => {
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
     }
-    res.json(data.restaurantes || []);
+
+    let items = data.restaurantes || [];
+
+    // Búsqueda por texto
+    if (req.query.search) {
+        const s = req.query.search.toLowerCase();
+        items = items.filter(r =>
+            (r.nombre || '').toLowerCase().includes(s) ||
+            (r.especialidad || '').toLowerCase().includes(s) ||
+            (r.tipo_cocina || '').toLowerCase().includes(s)
+        );
+    }
+
+    // Paginación
+    const total = items.length;
+    if (req.query.page && req.query.limit) {
+        const page = Math.max(1, parseInt(req.query.page) || 1);
+        const limit = Math.min(100, Math.max(1, parseInt(req.query.limit) || 10));
+        const start = (page - 1) * limit;
+        items = items.slice(start, start + limit);
+        return res.json({ data: items, total, page, limit, pages: Math.ceil(total / limit) });
+    }
+
+    res.json(items);
 });
 
 // GET /api/restaurantes/:id - Obtener uno
@@ -70,6 +95,11 @@ router.post('/', verifyToken, upload.single('imagen'), (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
+    }
+
+    const errors = validateRestaurante(req.body);
+    if (errors.length) {
+        return res.status(400).json({ error: errors.join('. ') });
     }
 
     const nuevoRestaurante = {
@@ -119,6 +149,11 @@ router.put('/:id', verifyToken, upload.single('imagen'), (req, res) => {
         return res.status(404).json({ error: 'Restaurante no encontrado' });
     }
 
+    const errors = validateRestaurante(req.body, true);
+    if (errors.length) {
+        return res.status(400).json({ error: errors.join('. ') });
+    }
+
     const restauranteActual = data.restaurantes[index];
 
     // Construir redes sociales
@@ -149,6 +184,11 @@ router.put('/:id', verifyToken, upload.single('imagen'), (req, res) => {
         actualizado: new Date().toISOString()
     };
 
+    // Limpiar imagen anterior si se subió una nueva
+    if (req.file && restauranteActual.imagen) {
+        deleteOldImage(restauranteActual.imagen);
+    }
+
     updateStats(data);
 
     if (writeData(data)) {
@@ -171,6 +211,7 @@ router.delete('/:id', verifyToken, (req, res) => {
     }
 
     const eliminado = data.restaurantes.splice(index, 1)[0];
+    deleteOldImage(eliminado.imagen);
     updateStats(data);
 
     if (writeData(data)) {

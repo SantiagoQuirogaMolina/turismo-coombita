@@ -37,7 +37,7 @@
                         <a href="./index.html">Inicio</a>
                     </li>
                     <li class="dropdown">
-                        <a href="#">Paginas</a>
+                        <a href="#">Descubre</a>
                         <ul>
                             <li>
                                 <a href="./about.html">Acerca de</a>
@@ -46,7 +46,7 @@
                                 <a>Imperdibles</a>
                                 <ul>
                                     <li><a href="./food.html">Restaurantes</a></li>
-                                    <li><a href="./shelters.html">hospedajes</a></li>
+                                    <li><a href="./shelters.html">Hospedajes</a></li>
                                     <li><a href="./events.html">Eventos</a></li>
                                     <li><a href="./artesanos-guias.html">Artesanos y Guías</a></li>
                                 </ul>
@@ -54,8 +54,8 @@
                             <li class="dropdown-submenu">
                                 <a>Explora Más</a>
                                 <ul>
-                                    <li><a href="./history.html">historia</a></li>
-                                    <li><a href="./gallery.html">galeria</a></li>
+                                    <li><a href="./history.html">Historia</a></li>
+                                    <li><a href="./gallery.html">Galería</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -161,7 +161,7 @@
         <div class="footer-bar">
             <div class="container">
                 <span>&copy; 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/" target="_blank">santiago-developer.com</a>.</span>
-                <span><a href="./contacts.html">Contacto</a> | <a href="#">Privacy policy</a></span>
+                <span><a href="./contacts.html">Contacto</a> | <a href="./privacidad.html">Política de privacidad</a></span>
             </div>
         </div>
     </footer>
@@ -170,9 +170,7 @@
     <script src="../assets/js/vendor/imagesloaded.min.js"></script>
 
     <script>
-        const API_BASE = window.location.port === '3001'
-            ? 'http://localhost:3001/api'
-            : '/api';
+        const API_BASE = window.location.origin + '/api';
 
         let allPosts = [];
 
@@ -217,7 +215,7 @@
                 const fechaTexto = `${dia} / ${(fecha.getMonth() + 1).toString().padStart(2, '0')} / ${año}`;
 
                 html += `
-                    <div class="grid-item">
+                    <div class="grid-item grid-item-blog">
                         <div class="cnt-box cnt-box-blog-side boxed" data-href="./post.html?id=${post.id}">
                             <a href="./post.html?id=${post.id}" class="img-box">
                                 <div class="blog-date">

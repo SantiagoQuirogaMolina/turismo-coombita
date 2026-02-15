@@ -8,6 +8,7 @@ const path = require('path');
 const fs = require('fs');
 const { verifyToken } = require('../middleware/auth');
 const { readData, writeData, generateId } = require('../utils/dataManager');
+const { deleteOldImage } = require('../utils/imageCleanup');
 
 const router = express.Router();
 
@@ -133,6 +134,10 @@ router.put('/:id', verifyToken, upload.single('portada'), (req, res) => {
         actualizado: new Date().toISOString()
     };
 
+    if (req.file && albumActual.portada) {
+        deleteOldImage(albumActual.portada);
+    }
+
     if (writeData(data)) {
         res.json({ success: true, album: data.galeria[index] });
     } else {
@@ -154,6 +159,9 @@ router.delete('/:id', verifyToken, (req, res) => {
     }
 
     const eliminado = data.galeria.splice(index, 1)[0];
+    // Limpiar portada e imágenes del álbum
+    deleteOldImage(eliminado.portada);
+    (eliminado.imagenes || []).forEach(img => deleteOldImage(img.archivo));
 
     if (writeData(data)) {
         res.json({ success: true, eliminado });
@@ -255,6 +263,7 @@ router.delete('/:albumId/imagenes/:imgId', verifyToken, (req, res) => {
     }
 
     const eliminada = album.imagenes.splice(imgIndex, 1)[0];
+    deleteOldImage(eliminada.archivo);
 
     if (writeData(data)) {
         res.json({ success: true, eliminada });

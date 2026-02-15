@@ -3,10 +3,19 @@
  * JavaScript Principal
  */
 
-const API_URL = 'http://localhost:3001/api';
+const API_URL = window.location.origin + '/api';
 let currentUser = null;
 let deleteCallback = null;
 let currentAlbumId = null; // Álbum seleccionado en galería
+
+// Estado de paginación y búsqueda
+const paginationState = {
+    restaurantes: { page: 1, limit: 10, search: '' },
+    hoteles: { page: 1, limit: 10, search: '' },
+    eventos: { page: 1, limit: 10, search: '' },
+    artesanos: { page: 1, limit: 10, search: '' },
+    guias: { page: 1, limit: 10, search: '' }
+};
 
 // ==================== INICIALIZACIÓN ====================
 
@@ -235,35 +244,126 @@ async function loadDashboard() {
     }
 }
 
+// ==================== BÚSQUEDA Y PAGINACIÓN ====================
+
+// Generar barra de búsqueda
+function renderSearchBar(entity, placeholder) {
+    return `
+        <div class="search-bar" style="margin-bottom: 1rem; display: flex; gap: 0.5rem;">
+            <input type="text" id="search-${entity}" class="form-control"
+                   placeholder="${placeholder}"
+                   value="${paginationState[entity].search}"
+                   style="flex: 1; padding: 0.6rem 1rem; border: 1px solid #ddd; border-radius: 8px;">
+            <button onclick="searchEntity('${entity}')" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 8px; background: var(--primary); border: none; color: white; cursor: pointer;">
+                <i class="fas fa-search"></i>
+            </button>
+            ${paginationState[entity].search ? `<button onclick="clearSearch('${entity}')" class="btn btn-secondary" style="padding: 0.6rem 1.2rem; border-radius: 8px; border: 1px solid #ddd; background: #f5f5f5; cursor: pointer;">
+                <i class="fas fa-times"></i>
+            </button>` : ''}
+        </div>
+    `;
+}
+
+function renderPagination(entity, total, page, pages) {
+    if (pages <= 1) return '';
+    let html = '<div class="pagination" style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-top: 1rem;">';
+    html += `<button onclick="goToPage('${entity}', ${page - 1})" ${page <= 1 ? 'disabled' : ''} style="padding: 0.4rem 0.8rem; border: 1px solid #ddd; border-radius: 6px; background: ${page <= 1 ? '#f5f5f5' : 'white'}; cursor: ${page <= 1 ? 'default' : 'pointer'};">&laquo;</button>`;
+
+    for (let i = 1; i <= pages; i++) {
+        if (i === 1 || i === pages || (i >= page - 1 && i <= page + 1)) {
+            html += `<button onclick="goToPage('${entity}', ${i})" style="padding: 0.4rem 0.8rem; border: 1px solid ${i === page ? 'var(--primary)' : '#ddd'}; border-radius: 6px; background: ${i === page ? 'var(--primary)' : 'white'}; color: ${i === page ? 'white' : '#333'}; cursor: pointer;">${i}</button>`;
+        } else if (i === page - 2 || i === page + 2) {
+            html += '<span style="padding: 0 0.3rem;">...</span>';
+        }
+    }
+
+    html += `<button onclick="goToPage('${entity}', ${page + 1})" ${page >= pages ? 'disabled' : ''} style="padding: 0.4rem 0.8rem; border: 1px solid #ddd; border-radius: 6px; background: ${page >= pages ? '#f5f5f5' : 'white'}; cursor: ${page >= pages ? 'default' : 'pointer'};">&raquo;</button>`;
+    html += `<span style="margin-left: 0.5rem; color: #666; font-size: 0.85rem;">${total} resultados</span>`;
+    html += '</div>';
+    return html;
+}
+
+function searchEntity(entity) {
+    const input = document.getElementById(`search-${entity}`);
+    paginationState[entity].search = input.value.trim();
+    paginationState[entity].page = 1;
+    const loaders = { restaurantes: loadRestaurantes, hoteles: loadHoteles, eventos: loadEventos, artesanos: loadArtesanos, guias: loadGuias };
+    loaders[entity]();
+}
+
+function clearSearch(entity) {
+    paginationState[entity].search = '';
+    paginationState[entity].page = 1;
+    const loaders = { restaurantes: loadRestaurantes, hoteles: loadHoteles, eventos: loadEventos, artesanos: loadArtesanos, guias: loadGuias };
+    loaders[entity]();
+}
+
+function goToPage(entity, page) {
+    paginationState[entity].page = page;
+    const loaders = { restaurantes: loadRestaurantes, hoteles: loadHoteles, eventos: loadEventos, artesanos: loadArtesanos, guias: loadGuias };
+    loaders[entity]();
+}
+
+document.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && e.target.id && e.target.id.startsWith('search-')) {
+        const entity = e.target.id.replace('search-', '');
+        searchEntity(entity);
+    }
+});
+
 // ==================== RESTAURANTES ====================
 
 async function loadRestaurantes() {
     try {
-        const res = await fetch(`${API_URL}/restaurantes`);
-        const restaurantes = await res.json();
+        const state = paginationState.restaurantes;
+        const params = new URLSearchParams({ page: state.page, limit: state.limit });
+        if (state.search) params.append('search', state.search);
+        const res = await fetch(`${API_URL}/restaurantes?${params}`);
+        const data = await res.json();
 
-        const tbody = document.querySelector('#tablaRestaurantes tbody');
-        tbody.innerHTML = restaurantes.map(r => `
-            <tr>
-                <td>
-                    <div class="tabla-imagen">
-                        ${r.imagen ? `<img src="${r.imagen}" alt="${r.nombre}" onerror="this.src='/assets/images/restaurantes/placeholder-restaurant.svg'">` : '<span class="sin-imagen"><i class="fas fa-image"></i></span>'}
-                    </div>
-                </td>
-                <td><strong>${r.nombre}</strong></td>
-                <td>${r.especialidad ? (r.especialidad.length > 40 ? r.especialidad.substring(0, 40) + '...' : r.especialidad) : '-'}</td>
-                <td>${r.aforo || '-'}</td>
-                <td>${r.telefono || '-'}</td>
-                <td class="actions">
-                    <button class="btn-edit" onclick="editRestaurante('${r.id}')">
-                        <i class="fas fa-edit"></i> Editar
-                    </button>
-                    <button class="btn-delete" onclick="confirmDelete('restaurante', '${r.id}', '${r.nombre}')">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </td>
-            </tr>
-        `).join('');
+        const restaurantes = Array.isArray(data) ? data : data.data;
+        const paginationHtml = data.pages ? renderPagination('restaurantes', data.total, data.page, data.pages) : '';
+
+        const container = document.querySelector('#section-restaurantes .card-body');
+        const searchBarHtml = renderSearchBar('restaurantes', 'Buscar restaurantes...');
+
+        const tableHtml = `<div class="table-responsive"><table id="tablaRestaurantes" class="table">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Especialidad</th>
+                    <th>Aforo</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${restaurantes.map(r => `
+                <tr>
+                    <td>
+                        <div class="tabla-imagen">
+                            ${r.imagen ? `<img src="${r.imagen}" alt="${r.nombre}" onerror="this.src='/assets/images/restaurantes/placeholder-restaurant.svg'">` : '<span class="sin-imagen"><i class="fas fa-image"></i></span>'}
+                        </div>
+                    </td>
+                    <td><strong>${r.nombre}</strong></td>
+                    <td>${r.especialidad ? (r.especialidad.length > 40 ? r.especialidad.substring(0, 40) + '...' : r.especialidad) : '-'}</td>
+                    <td>${r.aforo || '-'}</td>
+                    <td>${r.telefono || '-'}</td>
+                    <td class="actions">
+                        <button class="btn-edit" onclick="editRestaurante('${r.id}')">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                        <button class="btn-delete" onclick="confirmDelete('restaurante', '${r.id}', '${r.nombre}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                `).join('')}
+            </tbody>
+        </table></div>`;
+
+        container.innerHTML = searchBarHtml + tableHtml + paginationHtml;
 
     } catch (error) {
         console.error('Error loading restaurantes:', error);
@@ -276,6 +376,8 @@ async function handleRestauranteSubmit(e) {
     const form = e.target;
     const formData = new FormData(form);
     const id = formData.get('id');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    setBtnLoading(submitBtn, true);
 
     const url = id ? `${API_URL}/restaurantes/${id}` : `${API_URL}/restaurantes`;
     const method = id ? 'PUT' : 'POST';
@@ -300,6 +402,8 @@ async function handleRestauranteSubmit(e) {
         }
     } catch (error) {
         showToast('Error de conexión', 'error');
+    } finally {
+        setBtnLoading(submitBtn, false);
     }
 }
 
@@ -343,39 +447,63 @@ async function editRestaurante(id) {
 
 async function loadHoteles() {
     try {
-        const res = await fetch(`${API_URL}/hoteles`);
-        const hoteles = await res.json();
+        const state = paginationState.hoteles;
+        const params = new URLSearchParams({ page: state.page, limit: state.limit });
+        if (state.search) params.append('search', state.search);
+        const res = await fetch(`${API_URL}/hoteles?${params}`);
+        const data = await res.json();
+
+        const hoteles = Array.isArray(data) ? data : data.data;
+        const paginationHtml = data.pages ? renderPagination('hoteles', data.total, data.page, data.pages) : '';
 
         // Mapeo de categorías para mostrar
-        const categoriasNombres = {
+        const categoriasHotelesNombres = {
             'hotel': 'Hotel',
             'posada': 'Posada',
             'glamping': 'Glamping',
             'camping': 'Camping'
         };
 
-        const tbody = document.querySelector('#tablaHoteles tbody');
-        tbody.innerHTML = hoteles.map(h => `
-            <tr>
-                <td>
-                    <div class="tabla-imagen">
-                        ${h.imagen ? `<img src="${h.imagen}" alt="${h.nombre}" onerror="this.src='/assets/images/hospedajes/placeholder-hotel.svg'">` : '<span class="sin-imagen"><i class="fas fa-image"></i></span>'}
-                    </div>
-                </td>
-                <td><strong>${h.nombre}</strong></td>
-                <td><span class="badge-categoria ${h.categoria || 'hotel'}">${categoriasNombres[h.categoria] || h.tipo || 'Hotel'}</span></td>
-                <td>${h.habitaciones || '-'}</td>
-                <td>${h.capacidad || '-'}</td>
-                <td class="actions">
-                    <button class="btn-edit" onclick="editHotel('${h.id}')">
-                        <i class="fas fa-edit"></i> Editar
-                    </button>
-                    <button class="btn-delete" onclick="confirmDelete('hotel', '${h.id}', '${h.nombre}')">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </td>
-            </tr>
-        `).join('');
+        const container = document.querySelector('#section-hoteles .card-body');
+        const searchBarHtml = renderSearchBar('hoteles', 'Buscar hospedajes...');
+
+        const tableHtml = `<div class="table-responsive"><table id="tablaHoteles" class="table">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Habitaciones</th>
+                    <th>Capacidad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${hoteles.map(h => `
+                <tr>
+                    <td>
+                        <div class="tabla-imagen">
+                            ${h.imagen ? `<img src="${h.imagen}" alt="${h.nombre}" onerror="this.src='/assets/images/hospedajes/placeholder-hotel.svg'">` : '<span class="sin-imagen"><i class="fas fa-image"></i></span>'}
+                        </div>
+                    </td>
+                    <td><strong>${h.nombre}</strong></td>
+                    <td><span class="badge-categoria ${h.categoria || 'hotel'}">${categoriasHotelesNombres[h.categoria] || h.tipo || 'Hotel'}</span></td>
+                    <td>${h.habitaciones || '-'}</td>
+                    <td>${h.capacidad || '-'}</td>
+                    <td class="actions">
+                        <button class="btn-edit" onclick="editHotel('${h.id}')">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                        <button class="btn-delete" onclick="confirmDelete('hotel', '${h.id}', '${h.nombre}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                `).join('')}
+            </tbody>
+        </table></div>`;
+
+        container.innerHTML = searchBarHtml + tableHtml + paginationHtml;
 
     } catch (error) {
         console.error('Error loading hoteles:', error);
@@ -388,6 +516,8 @@ async function handleHotelSubmit(e) {
     const form = e.target;
     const formData = new FormData(form);
     const id = formData.get('id');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    setBtnLoading(submitBtn, true);
 
     const url = id ? `${API_URL}/hoteles/${id}` : `${API_URL}/hoteles`;
     const method = id ? 'PUT' : 'POST';
@@ -412,6 +542,8 @@ async function handleHotelSubmit(e) {
         }
     } catch (error) {
         showToast('Error de conexión', 'error');
+    } finally {
+        setBtnLoading(submitBtn, false);
     }
 }
 
@@ -505,26 +637,49 @@ function previewImage(input, containerId) {
 
 async function loadEventos() {
     try {
-        const res = await fetch(`${API_URL}/eventos`);
-        const eventos = await res.json();
+        const state = paginationState.eventos;
+        const params = new URLSearchParams({ page: state.page, limit: state.limit });
+        if (state.search) params.append('search', state.search);
+        const res = await fetch(`${API_URL}/eventos?${params}`);
+        const data = await res.json();
 
-        const tbody = document.querySelector('#tablaEventos tbody');
-        tbody.innerHTML = eventos.map(e => `
-            <tr>
-                <td><strong>${e.nombre}</strong></td>
-                <td>${e.fecha || '-'}</td>
-                <td><span class="badge-tipo">${e.tipo || 'cultural'}</span></td>
-                <td>${e.ubicacion || 'Cómbita'}</td>
-                <td class="actions">
-                    <button class="btn-edit" onclick="editEvento('${e.id}')">
-                        <i class="fas fa-edit"></i> Editar
-                    </button>
-                    <button class="btn-delete" onclick="confirmDelete('evento', '${e.id}', '${e.nombre}')">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </td>
-            </tr>
-        `).join('');
+        const eventos = Array.isArray(data) ? data : data.data;
+        const paginationHtml = data.pages ? renderPagination('eventos', data.total, data.page, data.pages) : '';
+
+        const container = document.querySelector('#section-eventos .card-body');
+        const searchBarHtml = renderSearchBar('eventos', 'Buscar eventos...');
+
+        const tableHtml = `<div class="table-responsive"><table id="tablaEventos" class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
+                    <th>Ubicación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${eventos.map(e => `
+                <tr>
+                    <td><strong>${e.nombre}</strong></td>
+                    <td>${e.fecha || '-'}</td>
+                    <td><span class="badge-tipo">${e.tipo || 'cultural'}</span></td>
+                    <td>${e.ubicacion || 'Cómbita'}</td>
+                    <td class="actions">
+                        <button class="btn-edit" onclick="editEvento('${e.id}')">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                        <button class="btn-delete" onclick="confirmDelete('evento', '${e.id}', '${e.nombre}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                `).join('')}
+            </tbody>
+        </table></div>`;
+
+        container.innerHTML = searchBarHtml + tableHtml + paginationHtml;
 
     } catch (error) {
         console.error('Error loading eventos:', error);
@@ -537,6 +692,8 @@ async function handleEventoSubmit(e) {
     const form = e.target;
     const formData = new FormData(form);
     const id = formData.get('id');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    setBtnLoading(submitBtn, true);
 
     const url = id ? `${API_URL}/eventos/${id}` : `${API_URL}/eventos`;
     const method = id ? 'PUT' : 'POST';
@@ -561,6 +718,8 @@ async function handleEventoSubmit(e) {
         }
     } catch (error) {
         showToast('Error de conexión', 'error');
+    } finally {
+        setBtnLoading(submitBtn, false);
     }
 }
 
@@ -1144,6 +1303,8 @@ async function handleBlogSubmit(e) {
 
     const formData = new FormData(form);
     const id = formData.get('id');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    setBtnLoading(submitBtn, true);
 
     const url = id ? `${API_URL}/blog/${id}` : `${API_URL}/blog`;
     const method = id ? 'PUT' : 'POST';
@@ -1169,6 +1330,8 @@ async function handleBlogSubmit(e) {
         }
     } catch (error) {
         showToast('Error de conexión', 'error');
+    } finally {
+        setBtnLoading(submitBtn, false);
     }
 }
 
@@ -1205,32 +1368,57 @@ async function editBlog(id) {
 
 async function loadArtesanos() {
     try {
-        const res = await fetch(`${API_URL}/artesanos`);
-        const artesanos = await res.json();
+        const state = paginationState.artesanos;
+        const params = new URLSearchParams({ page: state.page, limit: state.limit });
+        if (state.search) params.append('search', state.search);
+        const res = await fetch(`${API_URL}/artesanos?${params}`);
+        const data = await res.json();
 
-        const tbody = document.querySelector('#tablaArtesanos tbody');
-        tbody.innerHTML = artesanos.map(a => `
-            <tr>
-                <td>
-                    <div class="tabla-imagen">
-                        ${a.imagen ? `<img src="${a.imagen}" alt="${a.nombre}" onerror="this.parentElement.innerHTML='<span class=\\'sin-imagen\\'><i class=\\'fas fa-user\\'></i></span>'">` : '<span class="sin-imagen"><i class="fas fa-user"></i></span>'}
-                    </div>
-                </td>
-                <td><strong>${a.nombre}</strong></td>
-                <td>${a.especialidad || '-'}</td>
-                <td>${a.ubicacion || '-'}</td>
-                <td>${a.telefono || '-'}</td>
-                <td><span class="badge-status ${a.activo ? 'activo' : 'borrador'}">${a.activo ? 'Activo' : 'Inactivo'}</span></td>
-                <td class="actions">
-                    <button class="btn-edit" onclick="editArtesano('${a.id}')">
-                        <i class="fas fa-edit"></i> Editar
-                    </button>
-                    <button class="btn-delete" onclick="confirmDelete('artesano', '${a.id}', '${a.nombre.replace(/'/g, "\\'")}')">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </td>
-            </tr>
-        `).join('');
+        const artesanos = Array.isArray(data) ? data : data.data;
+        const paginationHtml = data.pages ? renderPagination('artesanos', data.total, data.page, data.pages) : '';
+
+        const container = document.querySelector('#section-artesanos .card-body');
+        const searchBarHtml = renderSearchBar('artesanos', 'Buscar artesanos...');
+
+        const tableHtml = `<div class="table-responsive"><table id="tablaArtesanos" class="table">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Especialidad</th>
+                    <th>Ubicación</th>
+                    <th>Teléfono</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${artesanos.map(a => `
+                <tr>
+                    <td>
+                        <div class="tabla-imagen">
+                            ${a.imagen ? `<img src="${a.imagen}" alt="${a.nombre}" onerror="this.parentElement.innerHTML='<span class=\\'sin-imagen\\'><i class=\\'fas fa-user\\'></i></span>'">` : '<span class="sin-imagen"><i class="fas fa-user"></i></span>'}
+                        </div>
+                    </td>
+                    <td><strong>${a.nombre}</strong></td>
+                    <td>${a.especialidad || '-'}</td>
+                    <td>${a.ubicacion || '-'}</td>
+                    <td>${a.telefono || '-'}</td>
+                    <td><span class="badge-status ${a.activo ? 'activo' : 'borrador'}">${a.activo ? 'Activo' : 'Inactivo'}</span></td>
+                    <td class="actions">
+                        <button class="btn-edit" onclick="editArtesano('${a.id}')">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                        <button class="btn-delete" onclick="confirmDelete('artesano', '${a.id}', '${a.nombre.replace(/'/g, "\\'")}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                `).join('')}
+            </tbody>
+        </table></div>`;
+
+        container.innerHTML = searchBarHtml + tableHtml + paginationHtml;
 
     } catch (error) {
         console.error('Error loading artesanos:', error);
@@ -1243,6 +1431,8 @@ async function handleArtesanoSubmit(e) {
     const form = e.target;
     const formData = new FormData(form);
     const id = formData.get('id');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    setBtnLoading(submitBtn, true);
 
     const url = id ? `${API_URL}/artesanos/${id}` : `${API_URL}/artesanos`;
     const method = id ? 'PUT' : 'POST';
@@ -1267,6 +1457,8 @@ async function handleArtesanoSubmit(e) {
         }
     } catch (error) {
         showToast('Error de conexión', 'error');
+    } finally {
+        setBtnLoading(submitBtn, false);
     }
 }
 
@@ -1304,32 +1496,57 @@ async function editArtesano(id) {
 
 async function loadGuias() {
     try {
-        const res = await fetch(`${API_URL}/guias`);
-        const guias = await res.json();
+        const state = paginationState.guias;
+        const params = new URLSearchParams({ page: state.page, limit: state.limit });
+        if (state.search) params.append('search', state.search);
+        const res = await fetch(`${API_URL}/guias?${params}`);
+        const data = await res.json();
 
-        const tbody = document.querySelector('#tablaGuias tbody');
-        tbody.innerHTML = guias.map(g => `
-            <tr>
-                <td>
-                    <div class="tabla-imagen">
-                        ${g.imagen ? `<img src="${g.imagen}" alt="${g.nombre}" onerror="this.parentElement.innerHTML='<span class=\\'sin-imagen\\'><i class=\\'fas fa-user\\'></i></span>'">` : '<span class="sin-imagen"><i class="fas fa-user"></i></span>'}
-                    </div>
-                </td>
-                <td><strong>${g.nombre}</strong></td>
-                <td>${g.especialidad || '-'}</td>
-                <td>${g.experiencia || '-'}</td>
-                <td>${g.rutas_conocidas ? (g.rutas_conocidas.length > 40 ? g.rutas_conocidas.substring(0, 40) + '...' : g.rutas_conocidas) : '-'}</td>
-                <td><span class="badge-status ${g.activo ? 'activo' : 'borrador'}">${g.activo ? 'Activo' : 'Inactivo'}</span></td>
-                <td class="actions">
-                    <button class="btn-edit" onclick="editGuia('${g.id}')">
-                        <i class="fas fa-edit"></i> Editar
-                    </button>
-                    <button class="btn-delete" onclick="confirmDelete('guia', '${g.id}', '${g.nombre.replace(/'/g, "\\'")}')">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </td>
-            </tr>
-        `).join('');
+        const guias = Array.isArray(data) ? data : data.data;
+        const paginationHtml = data.pages ? renderPagination('guias', data.total, data.page, data.pages) : '';
+
+        const container = document.querySelector('#section-guias .card-body');
+        const searchBarHtml = renderSearchBar('guias', 'Buscar guías...');
+
+        const tableHtml = `<div class="table-responsive"><table id="tablaGuias" class="table">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Especialidad</th>
+                    <th>Experiencia</th>
+                    <th>Rutas</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${guias.map(g => `
+                <tr>
+                    <td>
+                        <div class="tabla-imagen">
+                            ${g.imagen ? `<img src="${g.imagen}" alt="${g.nombre}" onerror="this.parentElement.innerHTML='<span class=\\'sin-imagen\\'><i class=\\'fas fa-user\\'></i></span>'">` : '<span class="sin-imagen"><i class="fas fa-user"></i></span>'}
+                        </div>
+                    </td>
+                    <td><strong>${g.nombre}</strong></td>
+                    <td>${g.especialidad || '-'}</td>
+                    <td>${g.experiencia || '-'}</td>
+                    <td>${g.rutas_conocidas ? (g.rutas_conocidas.length > 40 ? g.rutas_conocidas.substring(0, 40) + '...' : g.rutas_conocidas) : '-'}</td>
+                    <td><span class="badge-status ${g.activo ? 'activo' : 'borrador'}">${g.activo ? 'Activo' : 'Inactivo'}</span></td>
+                    <td class="actions">
+                        <button class="btn-edit" onclick="editGuia('${g.id}')">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                        <button class="btn-delete" onclick="confirmDelete('guia', '${g.id}', '${g.nombre.replace(/'/g, "\\'")}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                `).join('')}
+            </tbody>
+        </table></div>`;
+
+        container.innerHTML = searchBarHtml + tableHtml + paginationHtml;
 
     } catch (error) {
         console.error('Error loading guias:', error);
@@ -1342,6 +1559,8 @@ async function handleGuiaSubmit(e) {
     const form = e.target;
     const formData = new FormData(form);
     const id = formData.get('id');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    setBtnLoading(submitBtn, true);
 
     const url = id ? `${API_URL}/guias/${id}` : `${API_URL}/guias`;
     const method = id ? 'PUT' : 'POST';
@@ -1366,6 +1585,8 @@ async function handleGuiaSubmit(e) {
         }
     } catch (error) {
         showToast('Error de conexión', 'error');
+    } finally {
+        setBtnLoading(submitBtn, false);
     }
 }
 
@@ -1534,6 +1755,37 @@ function insertEditorLink() {
     if (url) {
         document.execCommand('createLink', false, url);
         document.getElementById('blogEditor').focus();
+    }
+}
+
+// ==================== LOADING STATES ====================
+
+function showLoading(container) {
+    if (typeof container === 'string') container = document.getElementById(container);
+    if (!container) return;
+    const overlay = document.createElement('div');
+    overlay.className = 'loading-overlay';
+    overlay.innerHTML = '<div class="loading-spinner"><i class="fas fa-spinner fa-spin"></i><span>Cargando...</span></div>';
+    container.style.position = 'relative';
+    container.appendChild(overlay);
+}
+
+function hideLoading(container) {
+    if (typeof container === 'string') container = document.getElementById(container);
+    if (!container) return;
+    const overlay = container.querySelector('.loading-overlay');
+    if (overlay) overlay.remove();
+}
+
+function setBtnLoading(btn, loading) {
+    if (!btn) return;
+    if (loading) {
+        btn.dataset.originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Guardando...';
+        btn.disabled = true;
+    } else {
+        btn.innerHTML = btn.dataset.originalText || 'Guardar';
+        btn.disabled = false;
     }
 }
 

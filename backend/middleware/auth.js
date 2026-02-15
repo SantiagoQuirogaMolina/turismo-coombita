@@ -4,7 +4,7 @@
 
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'combita-turismo-secret-2024';
+const JWT_SECRET = process.env.JWT_SECRET || 'combita-turismo-secret-2024-dev';
 
 // Verificar token JWT
 function verifyToken(req, res, next) {

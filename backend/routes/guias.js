@@ -7,6 +7,8 @@ const multer = require('multer');
 const path = require('path');
 const { verifyToken } = require('../middleware/auth');
 const { readData, writeData, generateId, updateStats } = require('../utils/dataManager');
+const { validateGuia } = require('../utils/validation');
+const { deleteOldImage } = require('../utils/imageCleanup');
 
 const router = express.Router();
 
@@ -47,7 +49,30 @@ router.get('/', (req, res) => {
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
     }
-    res.json(data.guias || []);
+
+    let items = data.guias || [];
+
+    // Búsqueda por texto
+    if (req.query.search) {
+        const s = req.query.search.toLowerCase();
+        items = items.filter(g =>
+            (g.nombre || '').toLowerCase().includes(s) ||
+            (g.especialidad || '').toLowerCase().includes(s) ||
+            (g.idiomas || '').toLowerCase().includes(s)
+        );
+    }
+
+    // Paginación
+    const total = items.length;
+    if (req.query.page && req.query.limit) {
+        const page = Math.max(1, parseInt(req.query.page) || 1);
+        const limit = Math.min(100, Math.max(1, parseInt(req.query.limit) || 10));
+        const start = (page - 1) * limit;
+        items = items.slice(start, start + limit);
+        return res.json({ data: items, total, page, limit, pages: Math.ceil(total / limit) });
+    }
+
+    res.json(items);
 });
 
 // GET /api/guias/:id - Obtener uno
@@ -57,7 +82,7 @@ router.get('/:id', (req, res) => {
         return res.status(500).json({ error: 'Error leyendo datos' });
     }
 
-    const guia = data.guias.find(g => g.id === req.params.id);
+    const guia = (data.guias || []).find(g => g.id === req.params.id);
     if (!guia) {
         return res.status(404).json({ error: 'Guía no encontrado' });
     }
@@ -70,6 +95,15 @@ router.post('/', verifyToken, upload.single('imagen'), (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
+    }
+
+    if (!data.guias) {
+        data.guias = [];
+    }
+
+    const errors = validateGuia(req.body);
+    if (errors.length) {
+        return res.status(400).json({ error: errors.join('. ') });
     }
 
     const nuevoGuia = {
@@ -96,10 +130,6 @@ router.post('/', verifyToken, upload.single('imagen'), (req, res) => {
         creado: new Date().toISOString()
     };
 
-    if (!data.guias) {
-        data.guias = [];
-    }
-
     data.guias.push(nuevoGuia);
     updateStats(data);
 
@@ -123,6 +153,11 @@ router.put('/:id', verifyToken, upload.single('imagen'), (req, res) => {
     }
 
     const guiaActual = data.guias[index];
+
+    const errors = validateGuia(req.body, true);
+    if (errors.length) {
+        return res.status(400).json({ error: errors.join('. ') });
+    }
 
     // Construir redes sociales
     const redes_sociales = {
@@ -151,6 +186,10 @@ router.put('/:id', verifyToken, upload.single('imagen'), (req, res) => {
         actualizado: new Date().toISOString()
     };
 
+    if (req.file && guiaActual.imagen) {
+        deleteOldImage(guiaActual.imagen);
+    }
+
     updateStats(data);
 
     if (writeData(data)) {
@@ -173,6 +212,7 @@ router.delete('/:id', verifyToken, (req, res) => {
     }
 
     const eliminado = data.guias.splice(index, 1)[0];
+    deleteOldImage(eliminado.imagen);
     updateStats(data);
 
     if (writeData(data)) {

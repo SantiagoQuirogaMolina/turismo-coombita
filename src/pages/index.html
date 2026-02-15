@@ -27,7 +27,7 @@
     <nav class="menu-classic menu-fixed menu-transparent light align-right" data-menu-anima="fade-in">
         <div class="container">
             <div class="menu-brand">
-                <a href="#">
+                <a href="./index.html">
                     <img class="logo-default scroll-hide" src="../assets/images/icons/lgoo-dos.png" alt="logo" />
                     <img class="logo-retina scroll-hide" src="../assets/images/icons/lgoo-dos.png" alt="logo" />
                     <img class="logo-default scroll-show" src="../assets/images/icons/lgoo-dos.png" alt="logo" />
@@ -42,7 +42,7 @@
                     </li>
 
                     <li class="dropdown">
-                        <a href="#">Paginas</a>
+                        <a href="#">Descubre</a>
                         <ul>
                             <li>
                                 <a href="./about.html">Acerca de</a>
@@ -51,7 +51,7 @@
                                 <a>Imperdibles</a>
                                 <ul>
                                     <li><a href="./food.html">Restaurantes</a></li>
-                                    <li><a href="./shelters.html">hospedajes</a></li>
+                                    <li><a href="./shelters.html">Hospedajes</a></li>
                                     <li><a href="./events.html">Eventos</a></li>
                                     <li><a href="./artesanos-guias.html">Artesanos y Guías</a></li>
                                 </ul>
@@ -59,8 +59,8 @@
                             <li class="dropdown-submenu">
                                 <a>Explora Más</a>
                                 <ul>
-                                    <li><a href="./history.html">historia</a></li>
-                                    <li><a href="./gallery.html">galeria</a></li>
+                                    <li><a href="./history.html">Historia</a></li>
+                                    <li><a href="./gallery.html">Galería</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -83,16 +83,6 @@
                         <a href="./contacts.html">Contacto</a>
                     </li>
                 </ul>
-                <!-- Botón de inicio de sesión - Acceso al panel admin -->
-                <div class="auth-btn-container">
-                    <a href="/admin" class="btn-login-paramo" id="btnLogin">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        <span id="btnLoginText">Admin</span>
-                    </a>
-                </div>
             </div>
         </div>
     </nav>
@@ -540,36 +530,27 @@
                 <div class="title align-center">
                     <h2>Contáctanos</h2>
                     <p>Déjanos tus datos y recibe las últimas novedades de Cómbita</p>
-
                 </div>
-                <form data-anima="fade-in" data-time="1000" action="HTWF/scripts/php/contact-form.php"
-                    class="form-box form-ajax form-inline align-center" method="post" data-email="example@domain.com">
+                <form id="formContactoIndex" data-anima="fade-in" data-time="1000"
+                    class="form-box form-inline align-center">
                     <div class="row">
                         <div class="col-lg-4">
-                            <input id="name" name="name" placeholder="Nombre" type="text" class="input-text" required>
+                            <input id="idx-nombre" name="nombre" placeholder="Nombre" type="text" class="input-text" required>
                         </div>
                         <div class="col-lg-4">
-                            <input id="email" name="email" placeholder="Correo" type="email" class="input-text"
-                                required>
+                            <input id="idx-email" name="email" placeholder="Correo" type="email" class="input-text" required>
                         </div>
                         <div class="col-lg-4">
-                            <button class="btn btn-sm" type="submit">Enviar</button>
+                            <button class="btn btn-sm" type="submit" id="btnEnviarIndex">Enviar</button>
                         </div>
                         <div class="col-lg-12">
                             <div class="form-checkbox">
                                 <input type="checkbox" id="check" name="check" value="check" required>
-                                <label for="check">Al suscribirte, aceptas nuestros términos de servicio y política de
-                                    privacidad.</label>
-
+                                <label for="check">Al suscribirte, aceptas nuestros términos de servicio y <a href="./privacidad.html">política de privacidad</a>.</label>
                             </div>
                         </div>
                     </div>
-                    <div class="success-box">
-                        <div class="alert alert-success">Congratulations. You're now a subscriber!</div>
-                    </div>
-                    <div class="error-box">
-                        <div class="alert alert-warning">Error, please retry. Your message has not been sent.</div>
-                    </div>
+                    <div id="indexContactoResultado" style="display:none;margin-top:15px;padding:12px 20px;border-radius:8px;text-align:center;"></div>
                 </form>
             </div>
         </section>
@@ -608,7 +589,7 @@
             <div class="container">
                 <span>© 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/"
                         target="_blank">santiago-developer.com</a>.</span>
-                <span><a href="./contacts.html">Contacto</a> | <a href="#">Privacy policy</a></span>
+                <span><a href="./contacts.html">Contacto</a> | <a href="./privacidad.html">Política de privacidad</a></span>
             </div>
         </div>
         <link rel="stylesheet" href="../assets/images/icons/icons/iconsmind/line-icons.min.css">
@@ -625,6 +606,61 @@
         <!-- Sistema de Autenticación -->
         <script src="../assets/js/modules/auth.js"></script>
     </footer>
+    <script>
+        document.getElementById('formContactoIndex').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btnEnviarIndex');
+            const resultado = document.getElementById('indexContactoResultado');
+            const form = this;
+
+            if (!form.check.checked) {
+                resultado.style.display = 'block';
+                resultado.style.background = '#fff3e0';
+                resultado.style.color = '#ef6c00';
+                resultado.textContent = 'Debes aceptar la política de privacidad.';
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = 'Enviando...';
+
+            try {
+                const API_BASE = window.location.origin + '/api';
+                const res = await fetch(`${API_BASE}/contacto`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        nombre: form.nombre.value.trim(),
+                        email: form.email.value.trim(),
+                        asunto: 'Suscripción - Novedades de Cómbita',
+                        mensaje: 'Solicitud de suscripción a novedades desde el formulario de inicio.'
+                    })
+                });
+                const data = await res.json();
+
+                resultado.style.display = 'block';
+                if (data.success) {
+                    resultado.style.background = '#e8f5e9';
+                    resultado.style.color = '#2e7d32';
+                    resultado.textContent = '¡Registro exitoso! Te mantendremos informado.';
+                    form.reset();
+                } else {
+                    resultado.style.background = '#ffebee';
+                    resultado.style.color = '#c62828';
+                    resultado.textContent = data.error || 'Error al enviar. Intenta de nuevo.';
+                }
+            } catch (error) {
+                resultado.style.display = 'block';
+                resultado.style.background = '#ffebee';
+                resultado.style.color = '#c62828';
+                resultado.textContent = 'Error de conexión. Intenta de nuevo.';
+            }
+
+            btn.disabled = false;
+            btn.textContent = 'Enviar';
+            setTimeout(() => { resultado.style.display = 'none'; }, 8000);
+        });
+    </script>
 </body>
 
 </html>
