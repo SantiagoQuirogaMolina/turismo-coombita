@@ -46,5 +46,11 @@ out/
 # Claude Code
 .claude/
 
+# Uploads (imágenes subidas por usuarios)
+backend/uploads/
+
+# Datos sensibles
+backend/data/users.json
+
 # Archivos del sistema
 nul

@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin | Turismo Cómbita</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="/assets/images/icons/lgoo-dos.png" alt="Logo" class="logo">
+            <h2>Turismo Cómbita</h2>
+            <span class="badge">Admin</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-section="dashboard">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item" data-section="restaurantes">
+                <i class="fas fa-utensils"></i>
+                <span>Restaurantes</span>
+            </a>
+            <a href="#" class="nav-item" data-section="hoteles">
+                <i class="fas fa-bed"></i>
+                <span>Hospedajes</span>
+            </a>
+            <a href="#" class="nav-item" data-section="eventos">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Eventos</span>
+            </a>
+            <a href="#" class="nav-item" data-section="galeria">
+                <i class="fas fa-images"></i>
+                <span>Galería</span>
+            </a>
+            <a href="#" class="nav-item" data-section="blog">
+                <i class="fas fa-newspaper"></i>
+                <span>Blog</span>
+            </a>
+            <a href="#" class="nav-item" data-section="mensajes">
+                <i class="fas fa-envelope"></i>
+                <span>Mensajes</span>
+                <span class="nav-badge" id="mensajesBadge" style="display:none;">0</span>
+            </a>
+            <div class="nav-divider"></div>
+            <a href="#" class="nav-item" data-section="config">
+                <i class="fas fa-cog"></i>
+                <span>Configuración</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">A</div>
+                <div class="user-details">
+                    <span class="user-name" id="userName">Admin</span>
+                    <span class="user-role" id="userRole">Administrador</span>
+                </div>
+            </div>
+            <button class="btn-logout" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <button class="menu-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 class="page-title" id="pageTitle">Dashboard</h1>
+            <div class="header-actions">
+                <a href="/" target="_blank" class="btn btn-outline">
+                    <i class="fas fa-external-link-alt"></i> Ver Sitio
+                </a>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content" id="content">
+            <!-- Dashboard Section -->
+            <section class="section active" id="section-dashboard">
+                <div class="stats-grid" id="statsGrid">
+                    <!-- Stats cards will be loaded here -->
+                </div>
+
+                <div class="row">
+                    <div class="col-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Actividad Reciente</h3>
+                            </div>
+                            <div class="card-body" id="recentActivity">
+                                <p class="text-muted">Cargando...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Acciones Rápidas</h3>
+                            </div>
+                            <div class="card-body">
+                                <button class="btn btn-block btn-primary" onclick="showSection('restaurantes'); openModal('restaurante')">
+                                    <i class="fas fa-plus"></i> Nuevo Restaurante
+                                </button>
+                                <button class="btn btn-block btn-secondary" onclick="showSection('hoteles'); openModal('hotel')">
+                                    <i class="fas fa-plus"></i> Nuevo Hospedaje
+                                </button>
+                                <button class="btn btn-block btn-accent" onclick="showSection('eventos'); openModal('evento')">
+                                    <i class="fas fa-plus"></i> Nuevo Evento
+                                </button>
+                                <button class="btn btn-block" style="background:#E07A5F;color:white;" onclick="showSection('blog'); openModal('blog')">
+                                    <i class="fas fa-plus"></i> Nueva Publicación
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Restaurantes Section -->
+            <section class="section" id="section-restaurantes">
+                <div class="section-header">
+                    <h2>Gestión de Restaurantes</h2>
+                    <button class="btn btn-primary" onclick="openModal('restaurante')">
+                        <i class="fas fa-plus"></i> Agregar Restaurante
+                    </button>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="tablaRestaurantes">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Especialidad</th>
+                                        <th>Aforo</th>
+                                        <th>Teléfono</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Data loaded via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hoteles Section -->
+            <section class="section" id="section-hoteles">
+                <div class="section-header">
+                    <h2>Gestión de Hospedajes</h2>
+                    <button class="btn btn-primary" onclick="openModal('hotel')">
+                        <i class="fas fa-plus"></i> Agregar Hospedaje
+                    </button>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="tablaHoteles">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Categoría</th>
+                                        <th>Habitaciones</th>
+                                        <th>Capacidad</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Data loaded via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Eventos Section -->
+            <section class="section" id="section-eventos">
+                <div class="section-header">
+                    <h2>Gestión de Eventos</h2>
+                    <button class="btn btn-primary" onclick="openModal('evento')">
+                        <i class="fas fa-plus"></i> Agregar Evento
+                    </button>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="tablaEventos">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Fecha</th>
+                                        <th>Tipo</th>
+                                        <th>Ubicación</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Data loaded via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Galería Section -->
+            <section class="section" id="section-galeria">
+                <div class="section-header">
+                    <h2>Gestión de Galería</h2>
+                    <button class="btn btn-primary" onclick="openModal('album')">
+                        <i class="fas fa-plus"></i> Nuevo Álbum
+                    </button>
+                </div>
+
+                <!-- Vista de Álbumes -->
+                <div id="vistaAlbumes">
+                    <div class="galeria-grid" id="galeriaGrid">
+                        <!-- Albums loaded via JS -->
+                    </div>
+                </div>
+
+                <!-- Vista de Imágenes de un Álbum -->
+                <div id="vistaImagenes" style="display:none;">
+                    <div class="section-header" style="margin-bottom: 15px;">
+                        <div style="display:flex;align-items:center;gap:12px;">
+                            <button class="btn btn-outline btn-sm" onclick="volverAlbumes()">
+                                <i class="fas fa-arrow-left"></i> Volver
+                            </button>
+                            <h3 id="albumTituloActual">Álbum</h3>
+                            <span class="badge-count" id="albumImagenCount">0 fotos</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="openModal('imagen')">
+                            <i class="fas fa-upload"></i> Subir Imagen
+                        </button>
+                    </div>
+                    <div class="imagenes-grid" id="imagenesGrid">
+                        <!-- Images loaded via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Section -->
+            <section class="section" id="section-blog">
+                <div class="section-header">
+                    <h2>Gestión de Blog</h2>
+                    <button class="btn btn-primary" onclick="openModal('blog')">
+                        <i class="fas fa-plus"></i> Nueva Publicación
+                    </button>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="tablaBlog">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Título</th>
+                                        <th>Categoría</th>
+                                        <th>Fecha</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Data loaded via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mensajes Section -->
+            <section class="section" id="section-mensajes">
+                <div class="section-header">
+                    <h2>Mensajes de Contacto</h2>
+                    <span class="badge-count" id="mensajesTotal">0 mensajes</span>
+                </div>
+                <div class="card">
+                    <div class="card-body" id="mensajesContainer">
+                        <p class="text-muted">Cargando mensajes...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Config Section -->
+            <section class="section" id="section-config">
+                <div class="section-header">
+                    <h2>Configuración</h2>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Cambiar Contraseña</h3>
+                            </div>
+                            <div class="card-body">
+                                <form id="formPassword">
+                                    <div class="form-group">
+                                        <label>Contraseña Actual</label>
+                                        <input type="password" name="passwordActual" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nueva Contraseña</label>
+                                        <input type="password" name="passwordNueva" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Confirmar Contraseña</label>
+                                        <input type="password" name="passwordConfirm" class="form-control" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Cambiar Contraseña</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal Restaurante -->
+    <div class="modal" id="modalRestaurante">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3 id="modalRestauranteTitle">Agregar Restaurante</h3>
+                <button class="modal-close" onclick="closeModal('restaurante')">&times;</button>
+            </div>
+            <form id="formRestaurante" enctype="multipart/form-data">
+                <input type="hidden" name="id" id="restauranteId">
+                <div class="modal-body">
+                    <!-- Información Básica -->
+                    <h4 class="form-section-title">Información Básica</h4>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label>Nombre *</label>
+                            <input type="text" name="nombre" class="form-control" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Tipo de Cocina</label>
+                            <select name="tipo_cocina" class="form-control">
+                                <option value="Típica Boyacense">Típica Boyacense</option>
+                                <option value="Asadero">Asadero</option>
+                                <option value="Piqueteadero">Piqueteadero</option>
+                                <option value="Cafetería">Cafetería</option>
+                                <option value="Panadería">Panadería</option>
+                                <option value="Postres y Repostería">Postres y Repostería</option>
+                                <option value="Comida Casera">Comida Casera</option>
+                                <option value="Comida Rápida">Comida Rápida</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Especialidad</label>
+                        <textarea name="especialidad" class="form-control" rows="2" placeholder="Ej: Mute de mazorca, costilla de cerdo, arepas..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label>Dirección</label>
+                            <input type="text" name="direccion" class="form-control" placeholder="Ej: Calle 2 # 6-08">
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Ubicación (Badge)</label>
+                            <input type="text" name="ubicacion" class="form-control" placeholder="Ej: Centro, Vereda San Francisco">
+                        </div>
+                    </div>
+
+                    <!-- Capacidad y Horario -->
+                    <h4 class="form-section-title">Capacidad y Horario</h4>
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label>Aforo (personas)</label>
+                            <input type="number" name="aforo" class="form-control" min="0">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Precio Promedio</label>
+                            <input type="number" name="precio_promedio" class="form-control" min="0" placeholder="25000">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Propietario</label>
+                            <input type="text" name="propietario" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Horario</label>
+                        <input type="text" name="horario" class="form-control" placeholder="Ej: L-D 8:00am - 6:00pm">
+                    </div>
+
+                    <!-- Contacto -->
+                    <h4 class="form-section-title">Información de Contacto</h4>
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label>Teléfono</label>
+                            <input type="text" name="telefono" class="form-control" placeholder="320 475 3479">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>WhatsApp</label>
+                            <input type="text" name="whatsapp" class="form-control" placeholder="320 475 3479">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Correo</label>
+                            <input type="email" name="correo" class="form-control" placeholder="email@ejemplo.com">
+                        </div>
+                    </div>
+
+                    <!-- Redes Sociales -->
+                    <h4 class="form-section-title">Redes Sociales</h4>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-facebook"></i> Facebook</label>
+                            <input type="text" name="facebook" class="form-control" placeholder="Nombre de página o URL">
+                        </div>
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-instagram"></i> Instagram</label>
+                            <input type="text" name="instagram" class="form-control" placeholder="@usuario">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-tiktok"></i> TikTok</label>
+                            <input type="text" name="tiktok" class="form-control" placeholder="@usuario">
+                        </div>
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-youtube"></i> YouTube</label>
+                            <input type="text" name="youtube" class="form-control" placeholder="Canal o URL">
+                        </div>
+                    </div>
+
+                    <!-- Imagen -->
+                    <h4 class="form-section-title">Imagen</h4>
+                    <div class="form-group">
+                        <label>Imagen Actual</label>
+                        <div id="restauranteImagenPreview" class="imagen-preview">
+                            <span class="no-imagen">Sin imagen</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Cambiar Imagen</label>
+                        <input type="file" name="imagen" class="form-control" accept="image/*" onchange="previewImage(this, 'restauranteImagenPreview')">
+                        <small class="form-text">Formatos: JPG, PNG. Tamaño recomendado: 800x600px. Dejar vacío para mantener la actual.</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('restaurante')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Hotel -->
+    <div class="modal" id="modalHotel">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3 id="modalHotelTitle">Agregar Hospedaje</h3>
+                <button class="modal-close" onclick="closeModal('hotel')">&times;</button>
+            </div>
+            <form id="formHotel" enctype="multipart/form-data">
+                <input type="hidden" name="id" id="hotelId">
+                <div class="modal-body">
+                    <!-- Información Básica -->
+                    <h4 class="form-section-title">Información Básica</h4>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label>Nombre *</label>
+                            <input type="text" name="nombre" class="form-control" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Tipo de Hospedaje</label>
+                            <select name="tipo" class="form-control">
+                                <option value="Hotel">Hotel</option>
+                                <option value="Posada Rural">Posada Rural</option>
+                                <option value="Aparta Hotel">Aparta Hotel</option>
+                                <option value="Hospedaje Campestre">Hospedaje Campestre</option>
+                                <option value="Apartaestudio">Apartaestudio</option>
+                                <option value="Glamping">Glamping</option>
+                                <option value="Camping">Camping</option>
+                                <option value="Cabaña">Cabaña</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Dirección</label>
+                        <input type="text" name="direccion" class="form-control" placeholder="Ej: Calle 5 No. 1-95">
+                    </div>
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <textarea name="descripcion" class="form-control" rows="2" placeholder="Descripción del hospedaje..."></textarea>
+                    </div>
+
+                    <!-- Capacidad y Tarifas -->
+                    <h4 class="form-section-title">Capacidad y Tarifas</h4>
+                    <div class="form-row">
+                        <div class="form-group col-3">
+                            <label>Habitaciones</label>
+                            <input type="number" name="habitaciones" class="form-control" min="0">
+                        </div>
+                        <div class="form-group col-3">
+                            <label>Capacidad</label>
+                            <input type="number" name="capacidad" class="form-control" min="0">
+                        </div>
+                        <div class="form-group col-3">
+                            <label>Calificación</label>
+                            <select name="calificacion" class="form-control">
+                                <option value="5.0">5.0 - Excepcional</option>
+                                <option value="4.5">4.5 - Excelente</option>
+                                <option value="4.0" selected>4.0 - Muy bueno</option>
+                                <option value="3.5">3.5 - Bueno</option>
+                                <option value="3.0">3.0 - Aceptable</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-3">
+                            <label>Precio Badge</label>
+                            <select name="precio_badge" class="form-control">
+                                <option value="Económico">Económico</option>
+                                <option value="Estándar" selected>Estándar</option>
+                                <option value="Premium">Premium</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Tarifas (texto)</label>
+                        <input type="text" name="tarifas_texto" class="form-control" placeholder="Ej: $40.000 - $80.000 por noche">
+                    </div>
+
+                    <!-- Contacto -->
+                    <h4 class="form-section-title">Información de Contacto</h4>
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label>Teléfono</label>
+                            <input type="text" name="telefono" class="form-control" placeholder="314 489 4536">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>WhatsApp</label>
+                            <input type="text" name="whatsapp" class="form-control" placeholder="314 489 4536">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Correo</label>
+                            <input type="email" name="correo" class="form-control" placeholder="email@ejemplo.com">
+                        </div>
+                    </div>
+
+                    <!-- Redes Sociales -->
+                    <h4 class="form-section-title">Redes Sociales</h4>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-facebook"></i> Facebook</label>
+                            <input type="text" name="facebook" class="form-control" placeholder="Nombre de página o URL">
+                        </div>
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-instagram"></i> Instagram</label>
+                            <input type="text" name="instagram" class="form-control" placeholder="@usuario">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-tiktok"></i> TikTok</label>
+                            <input type="text" name="tiktok" class="form-control" placeholder="@usuario">
+                        </div>
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-youtube"></i> YouTube</label>
+                            <input type="text" name="youtube" class="form-control" placeholder="Canal o URL">
+                        </div>
+                    </div>
+
+                    <!-- Servicios -->
+                    <h4 class="form-section-title">Servicios Disponibles</h4>
+                    <div class="services-checkboxes">
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_wifi" value="WiFi"> WiFi</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_tv" value="TV Cable"> TV Cable</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_parking" value="Parqueadero"> Parqueadero</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_agua_caliente" value="Agua caliente"> Agua caliente</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_cocina" value="Cocina"> Cocina</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_jardin" value="Jardín"> Jardín</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_desayuno" value="Desayuno"> Desayuno</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_spa" value="Spa"> Spa</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_jacuzzi" value="Jacuzzi"> Jacuzzi</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_chimenea" value="Chimenea"> Chimenea</label>
+                    </div>
+                    <div class="form-group" style="margin-top: 15px;">
+                        <label>Otros servicios</label>
+                        <input type="text" name="servicios_otros" class="form-control" placeholder="Separados por coma">
+                    </div>
+
+                    <!-- Categoría para filtros -->
+                    <h4 class="form-section-title">Categoría (para filtros del sitio)</h4>
+                    <div class="form-group">
+                        <label>Categoría</label>
+                        <select name="categoria" class="form-control">
+                            <option value="hotel">Hoteles</option>
+                            <option value="posada">Posadas</option>
+                            <option value="glamping">Glamping</option>
+                            <option value="camping">Camping</option>
+                        </select>
+                        <small class="form-text">Esta categoría determina en qué pestaña aparece el hospedaje en el sitio público</small>
+                    </div>
+
+                    <!-- Imagen -->
+                    <h4 class="form-section-title">Imagen</h4>
+                    <div class="form-group">
+                        <label>Imagen Actual</label>
+                        <div id="hotelImagenPreview" class="imagen-preview">
+                            <span class="no-imagen">Sin imagen</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Cambiar Imagen</label>
+                        <input type="file" name="imagen" class="form-control" accept="image/*" onchange="previewImage(this, 'hotelImagenPreview')">
+                        <small class="form-text">Formatos: JPG, PNG. Tamaño recomendado: 800x600px. Dejar vacío para mantener la actual.</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('hotel')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Evento -->
+    <div class="modal" id="modalEvento">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalEventoTitle">Agregar Evento</h3>
+                <button class="modal-close" onclick="closeModal('evento')">&times;</button>
+            </div>
+            <form id="formEvento" enctype="multipart/form-data">
+                <input type="hidden" name="id" id="eventoId">
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group col-8">
+                            <label>Nombre *</label>
+                            <input type="text" name="nombre" class="form-control" required>
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Tipo</label>
+                            <select name="tipo" class="form-control">
+                                <option value="cultural">Cultural</option>
+                                <option value="religioso">Religioso</option>
+                                <option value="deportivo">Deportivo</option>
+                                <option value="gastronomico">Gastronómico</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Fecha (descripción)</label>
+                        <input type="text" name="fecha" class="form-control" placeholder="Ej: Último fin de semana de febrero">
+                    </div>
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <textarea name="descripcion" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label>Ubicación</label>
+                            <input type="text" name="ubicacion" class="form-control" value="Cómbita, Boyacá">
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Imagen</label>
+                            <input type="file" name="imagen" class="form-control" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="destacado" value="true">
+                            <span>Evento destacado</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('evento')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Álbum -->
+    <div class="modal" id="modalAlbum">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalAlbumTitle">Nuevo Álbum</h3>
+                <button class="modal-close" onclick="closeModal('album')">&times;</button>
+            </div>
+            <form id="formAlbum" enctype="multipart/form-data">
+                <input type="hidden" name="id" id="albumId">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Título del Álbum *</label>
+                        <input type="text" name="titulo" class="form-control" required placeholder="Ej: Páramos, Fauna, Paisajes...">
+                    </div>
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <textarea name="descripcion" class="form-control" rows="2" placeholder="Breve descripción del álbum"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label>Orden</label>
+                            <input type="number" name="orden" class="form-control" min="1" placeholder="1">
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Estado</label>
+                            <select name="activo" class="form-control">
+                                <option value="true">Activo</option>
+                                <option value="false">Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Imagen de Portada</label>
+                        <div id="albumPortadaPreview" class="imagen-preview">
+                            <span class="no-imagen">Sin portada</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Cambiar Portada</label>
+                        <input type="file" name="portada" class="form-control" accept="image/*" onchange="previewImage(this, 'albumPortadaPreview')">
+                        <small class="form-text">Se usará como imagen de portada del álbum. Dejar vacío para mantener la actual.</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('album')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Álbum</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Subir Imagen -->
+    <div class="modal" id="modalImagen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Subir Imagen</h3>
+                <button class="modal-close" onclick="closeModal('imagen')">&times;</button>
+            </div>
+            <form id="formImagen" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Título de la Imagen *</label>
+                        <input type="text" name="titulo" class="form-control" required placeholder="Ej: Laguna Rica, Frailejón...">
+                    </div>
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <textarea name="descripcion" class="form-control" rows="2" placeholder="Descripción opcional"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Imagen *</label>
+                        <div id="imagenUploadPreview" class="imagen-preview">
+                            <span class="no-imagen">Selecciona una imagen</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" name="imagen" class="form-control" accept="image/*" required onchange="previewImage(this, 'imagenUploadPreview')">
+                        <small class="form-text">Formatos: JPG, PNG, WebP, GIF. Máximo 10MB.</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('imagen')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Subir Imagen</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Editar Imagen -->
+    <div class="modal" id="modalEditarImagen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Editar Imagen</h3>
+                <button class="modal-close" onclick="closeModal('editarImagen')">&times;</button>
+            </div>
+            <form id="formEditarImagen">
+                <input type="hidden" name="imgId" id="editarImagenId">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Vista previa</label>
+                        <div id="editarImagenPreview" class="imagen-preview"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Título</label>
+                        <input type="text" name="titulo" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <textarea name="descripcion" class="form-control" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('editarImagen')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Blog -->
+    <div class="modal" id="modalBlog">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3 id="modalBlogTitle">Nueva Publicación</h3>
+                <button class="modal-close" onclick="closeModal('blog')">&times;</button>
+            </div>
+            <form id="formBlog" enctype="multipart/form-data">
+                <input type="hidden" name="id" id="blogId">
+                <div class="modal-body">
+                    <!-- Información Básica -->
+                    <h4 class="form-section-title">Información Básica</h4>
+                    <div class="form-group">
+                        <label>Título *</label>
+                        <input type="text" name="titulo" class="form-control" required placeholder="Título de la publicación">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label>Categoría</label>
+                            <select name="categoria" class="form-control">
+                                <option value="general">General</option>
+                                <option value="naturaleza">Naturaleza</option>
+                                <option value="cultura">Cultura</option>
+                                <option value="gastronomia">Gastronomía</option>
+                                <option value="senderismo">Senderismo</option>
+                                <option value="historia">Historia</option>
+                                <option value="eventos">Eventos</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Autor</label>
+                            <input type="text" name="autor" class="form-control" placeholder="Admin" value="Admin">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Extracto (resumen corto)</label>
+                        <textarea name="extracto" class="form-control" rows="2" placeholder="Breve resumen que aparecerá en el listado del blog"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Etiquetas</label>
+                        <input type="text" name="tags" class="form-control" placeholder="Separadas por coma: naturaleza, senderismo, páramo">
+                    </div>
+
+                    <!-- Contenido -->
+                    <h4 class="form-section-title">Contenido del Artículo</h4>
+                    <div class="form-group">
+                        <div class="editor-toolbar">
+                            <button type="button" onclick="execCmd('bold')" title="Negrita"><i class="fas fa-bold"></i></button>
+                            <button type="button" onclick="execCmd('italic')" title="Cursiva"><i class="fas fa-italic"></i></button>
+                            <button type="button" onclick="execCmd('underline')" title="Subrayado"><i class="fas fa-underline"></i></button>
+                            <span class="toolbar-separator"></span>
+                            <button type="button" onclick="execCmd('formatBlock', 'H2')" title="Título H2">H2</button>
+                            <button type="button" onclick="execCmd('formatBlock', 'H3')" title="Subtítulo H3">H3</button>
+                            <button type="button" onclick="execCmd('formatBlock', 'P')" title="Párrafo">P</button>
+                            <span class="toolbar-separator"></span>
+                            <button type="button" onclick="execCmd('insertUnorderedList')" title="Lista"><i class="fas fa-list-ul"></i></button>
+                            <button type="button" onclick="execCmd('insertOrderedList')" title="Lista numerada"><i class="fas fa-list-ol"></i></button>
+                            <span class="toolbar-separator"></span>
+                            <button type="button" onclick="insertEditorLink()" title="Enlace"><i class="fas fa-link"></i></button>
+                            <button type="button" onclick="execCmd('removeFormat')" title="Limpiar formato"><i class="fas fa-eraser"></i></button>
+                        </div>
+                        <div contenteditable="true" id="blogEditor" class="blog-editor" placeholder="Escribe el contenido del artículo aquí..."></div>
+                        <textarea name="contenido" id="blogContenido" style="display:none;"></textarea>
+                    </div>
+
+                    <!-- Imagen y opciones -->
+                    <h4 class="form-section-title">Imagen de Portada</h4>
+                    <div class="form-group">
+                        <div id="blogImagenPreview" class="imagen-preview">
+                            <span class="no-imagen">Sin imagen</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" name="imagen" class="form-control" accept="image/*" onchange="previewImage(this, 'blogImagenPreview')">
+                        <small class="form-text">Imagen principal del artículo. Formatos: JPG, PNG, WebP. Máx 10MB.</small>
+                    </div>
+
+                    <h4 class="form-section-title">Opciones</h4>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="destacado" value="true">
+                                <span>Publicación destacada</span>
+                            </label>
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Estado</label>
+                            <select name="activo" class="form-control">
+                                <option value="true">Publicado</option>
+                                <option value="false">Borrador</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('blog')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Publicar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Confirmación -->
+    <div class="modal" id="modalConfirm">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h3>Confirmar Eliminación</h3>
+                <button class="modal-close" onclick="closeModal('confirm')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que deseas eliminar este elemento? Esta acción no se puede deshacer.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeModal('confirm')">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="btnConfirmDelete">Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Login Modal (shown if not authenticated) -->
+    <div class="modal modal-login active" id="modalLogin">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h3>Iniciar Sesión</h3>
+            </div>
+            <form id="formLogin">
+                <div class="modal-body">
+                    <div class="login-logo">
+                        <i class="fas fa-mountain"></i>
+                        <h2>Turismo Cómbita</h2>
+                        <p>Panel de Administración</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control" required value="admin@turismocombita.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="password" name="password" class="form-control" required value="admin123">
+                    </div>
+                    <div class="alert alert-info">
+                        <small>Usuario por defecto: admin@turismocombita.com / admin123</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

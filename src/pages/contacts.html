@@ -1,12 +1,12 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contacts | Alpins | Mountain And Trekking Template</title>
-    <meta name="description" content="">
+    <title>Contacto | Turismo Cómbita - Información y Atención</title>
+    <meta name="description" content="Contacta con la oficina de turismo de Cómbita, Boyacá. Envíanos tus preguntas, sugerencias o solicita información.">
     <script src="../assets/js/vendor/jquery.min.js"></script>
     <script src="../assets/js/vendor/main.js"></script>
     <link rel="stylesheet" href="../assets/css/vendor/bootstrap-grid.css">
@@ -15,11 +15,279 @@
     <link rel="stylesheet" href="../assets/css/vendor/magnific-popup.css">
     <link rel="stylesheet" href="../assets/css/vendor/content-box.css">
     <link rel="stylesheet" href="../assets/css/vendor/media-box.css">
-    <link rel="stylesheet" href="../assets/css/vendor/contact-form.css">
-        <link rel="stylesheet" href="../assets/media/icons/fontawesome/all.css">
-<link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/media/icons/fontawesome/all.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/frailejon-theme.css">
     <link rel="icon" href="../assets/images/favicon.png">
+    <style>
+        /* ===== Mapa ===== */
+        .mapa-container {
+            width: 100%;
+            height: 350px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
+        }
+        .mapa-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ===== Formulario ===== */
+        .contacto-form {
+            background: #fff;
+            border-radius: 10px;
+            padding: 35px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+        }
+        .contacto-form h2 {
+            font-size: 26px;
+            color: #2d3e33;
+            margin-bottom: 5px;
+        }
+        .contacto-form > p {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        .campo-grupo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .campo {
+            display: flex;
+            flex-direction: column;
+        }
+        .campo.full {
+            grid-column: 1 / -1;
+        }
+        .campo label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2d3e33;
+            margin-bottom: 6px;
+        }
+        .campo label span {
+            color: #c62828;
+        }
+        .campo input,
+        .campo select,
+        .campo textarea {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            color: #333;
+            background: #fafafa;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .campo input:focus,
+        .campo select:focus,
+        .campo textarea:focus {
+            outline: none;
+            border-color: #699073;
+            box-shadow: 0 0 0 3px rgba(105,144,115,0.12);
+            background: #fff;
+        }
+        .campo textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+        .campo select {
+            height: 44px;
+            cursor: pointer;
+        }
+        .campo input::placeholder,
+        .campo textarea::placeholder {
+            color: #bbb;
+        }
+
+        /* Checkbox */
+        .check-privacidad {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0 25px;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+        .check-privacidad input {
+            width: 18px;
+            height: 18px;
+            margin-top: 1px;
+            flex-shrink: 0;
+            cursor: pointer;
+            accent-color: #699073;
+        }
+
+        /* Botón */
+        .btn-enviar {
+            background: #699073;
+            color: white;
+            border: none;
+            padding: 13px 32px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-enviar:hover {
+            background: #4a6b52;
+            transform: translateY(-1px);
+        }
+        .btn-enviar:disabled {
+            background: #aaa;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Resultado */
+        .contacto-resultado {
+            display: none;
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin-top: 18px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .contacto-resultado.exito {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #a5d6a7;
+        }
+        .contacto-resultado.error-msg {
+            background: #ffebee;
+            color: #c62828;
+            border: 1px solid #ef9a9a;
+        }
+        .contacto-resultado i { margin-right: 8px; }
+
+        /* ===== Info lateral ===== */
+        .contacto-info {
+            background: #2d3e33;
+            border-radius: 10px;
+            padding: 35px;
+            color: #fff;
+            height: 100%;
+        }
+        .contacto-info h2 {
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        .contacto-info > p {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+        .info-item .info-icono {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .info-item .info-icono i {
+            font-size: 16px;
+            color: #DDA15E;
+        }
+        .info-item .info-texto h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.55);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+        .info-item .info-texto p {
+            font-size: 14px;
+            color: #fff;
+            margin: 0;
+            line-height: 1.5;
+        }
+        .info-item .info-texto a {
+            color: #DDA15E;
+            text-decoration: none;
+        }
+        .info-item .info-texto a:hover {
+            text-decoration: underline;
+        }
+
+        /* Separador */
+        .info-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            margin: 25px 0;
+        }
+
+        /* Redes */
+        .info-redes h4 {
+            font-size: 13px;
+            color: rgba(255,255,255,0.55);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        .redes-links {
+            display: flex;
+            gap: 10px;
+        }
+        .redes-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .redes-links a:hover {
+            background: #DDA15E;
+            color: #2d3e33;
+        }
+
+        /* ===== Layout principal ===== */
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 30px;
+            align-items: start;
+        }
+
+        @media (max-width: 992px) {
+            .contacto-grid {
+                grid-template-columns: 1fr;
+            }
+            .campo-grupo {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body class="page-main">
@@ -36,17 +304,14 @@
             </div>
             <i class="menu-btn"></i>
             <div class="menu-cnt">
-                                <ul id="main-menu">
+                <ul id="main-menu">
                     <li class="dropdown">
                         <a href="./index.html">Inicio</a>
                     </li>
-
                     <li class="dropdown">
                         <a href="#">Paginas</a>
                         <ul>
-                            <li>
-                                <a href="./about.html">Acerca de</a>
-                            </li>
+                            <li><a href="./about.html">Acerca de</a></li>
                             <li class="dropdown-submenu">
                                 <a>Imperdibles</a>
                                 <ul>
@@ -64,104 +329,146 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="./treks/index.html">Caminatas</a>
-                    </li>
-                    <li>
-                        <a href="./blog.html">Blog</a>
-                    </li>
-                    <li>
-                        <a href="./contacts.html">Contacto</a>
-                    </li>
+                    <li><a href="./treks/index.html">Caminatas</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
+                    <li><a href="./contacts.html">Contacto</a></li>
                 </ul>
-
             </div>
-
         </div>
     </nav>
+
     <main>
-        <section class="section-base">
+        <section style="padding: 120px 0 60px;">
             <div class="container">
-                <div class="google-map" data-marker="media/marker.png"
-                    data-coords="46.01049736894874,11.22314543457037"></div>
-                <hr class="space" />
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="title">
-                            <h2>Write us</h2>
-                            <p>Contact us from here</p>
-                        </div>
-                        <form action="themekit/scripts/contact-form/contact-form.php" class="form-box form-ajax"
-                            method="post" data-email="example@domain.com">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <p>Name</p>
-                                    <input id="name" name="name" placeholder="Name" type="text" class="input-text"
-                                        required>
+                <!-- Mapa -->
+                <div class="mapa-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15893.02!2d-73.3297!3d5.6272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6a7f2d9b4c7e1d%3A0x3c9d6e8f2a1b5c7d!2sC%C3%B3mbita%2C%20Boyac%C3%A1!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco"
+                        allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <!-- Contenido -->
+                <div class="contacto-grid">
+                    <!-- Formulario -->
+                    <div class="contacto-form">
+                        <h2>Escríbenos</h2>
+                        <p>¿Tienes preguntas sobre turismo en Cómbita? ¿Necesitas información sobre hospedajes, restaurantes o caminatas? Envíanos tu mensaje y te responderemos pronto.</p>
+
+                        <form id="formContacto">
+                            <div class="campo-grupo">
+                                <div class="campo">
+                                    <label>Nombre <span>*</span></label>
+                                    <input name="nombre" placeholder="Tu nombre completo" type="text" required>
                                 </div>
-                                <div class="col-lg-6">
-                                    <p>Email</p>
-                                    <input id="email" name="email" placeholder="Email" type="email" class="input-text"
-                                        required>
-                                </div>
-                            </div>
-                            <p>Messagge</p>
-                            <textarea id="messagge" name="messagge" class="input-textarea"
-                                placeholder="Write something ..." required></textarea>
-                            <div class="form-checkbox">
-                                <input type="checkbox" id="check" name="check" value="check" required>
-                                <label for="check">You accept the terms of service and the privacy policy</label>
-                            </div>
-                            <button class="btn btn-sm" type="submit">Send messagge</button>
-                            <div class="success-box">
-                                <div class="alert alert-success">Congratulations. Your message has been sent
-                                    successfully</div>
-                            </div>
-                            <div class="error-box">
-                                <div class="alert alert-warning">Error, please retry. Your message has not been sent
+                                <div class="campo">
+                                    <label>Correo electrónico <span>*</span></label>
+                                    <input name="email" placeholder="correo@ejemplo.com" type="email" required>
                                 </div>
                             </div>
+
+                            <div class="campo-grupo">
+                                <div class="campo">
+                                    <label>Teléfono</label>
+                                    <input name="telefono" placeholder="300 123 4567" type="tel">
+                                </div>
+                                <div class="campo">
+                                    <label>Asunto</label>
+                                    <select name="asunto">
+                                        <option value="Información general">Información general</option>
+                                        <option value="Hospedajes">Hospedajes</option>
+                                        <option value="Restaurantes">Restaurantes</option>
+                                        <option value="Caminatas y senderismo">Caminatas y senderismo</option>
+                                        <option value="Eventos">Eventos</option>
+                                        <option value="Sugerencia">Sugerencia</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="campo-grupo">
+                                <div class="campo full">
+                                    <label>Mensaje <span>*</span></label>
+                                    <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="check-privacidad">
+                                <input type="checkbox" id="check" name="check" required>
+                                <label for="check">Acepto la política de privacidad y el tratamiento de mis datos personales</label>
+                            </div>
+
+                            <button class="btn-enviar" type="submit" id="btnEnviar">
+                                <i class="fas fa-paper-plane"></i> Enviar mensaje
+                            </button>
+
+                            <div class="contacto-resultado" id="contactoResultado"></div>
                         </form>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="title">
-                            <h2>Contacts</h2>
-                            <p>Information</p>
+
+                    <!-- Info lateral -->
+                    <div class="contacto-info">
+                        <h2>Información de Contacto</h2>
+                        <p>Encuéntranos o comunícate con nosotros</p>
+
+                        <div class="info-item">
+                            <div class="info-icono"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="info-texto">
+                                <h4>Dirección</h4>
+                                <p>Parque Principal, Cómbita,<br>Boyacá, Colombia</p>
+                            </div>
                         </div>
-                        <ul class="text-list text-list-line">
-                            <li><b>Address</b>
-                                <hr />
-                                <p>Pellegrino, Veneto, Italy</p>
-                            </li>
-                            <li><b>Web</b>
-                                <hr />
-                                <p>domain.com</p>
-                            </li>
-                            <li><b>Email</b>
-                                <hr />
-                                <p>info@domain.com</p>
-                            </li>
-                            <li><b>Phone</b>
-                                <hr />
-                                <p>(02) 123 456 789999</p>
-                            </li>
-                            <li><b>Skype</b>
-                                <hr />
-                                <p>example.name</p>
-                            </li>
-                        </ul>
-                        <hr class="space-sm" />
-                        <div class="icon-links icon-social icon-links-grid social-colors-hover">
-                            <a class="facebook"><i class="icon-facebook"></i></a>
-                            <a class="twitter"><i class="icon-twitter"></i></a>
-                            <a class="instagram"><i class="icon-instagram"></i></a>
-                            <a class="google"><i class="icon-google"></i></a>
+
+                        <div class="info-item">
+                            <div class="info-icono"><i class="fas fa-phone-alt"></i></div>
+                            <div class="info-texto">
+                                <h4>Teléfono</h4>
+                                <p><a href="tel:+573133662322">313 366 2322</a></p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icono"><i class="fas fa-envelope"></i></div>
+                            <div class="info-texto">
+                                <h4>Correo electrónico</h4>
+                                <p><a href="mailto:alcaldia@combita-boyaca.gov.co">alcaldia@combita-boyaca.gov.co</a></p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icono"><i class="fas fa-globe"></i></div>
+                            <div class="info-texto">
+                                <h4>Sitio web</h4>
+                                <p><a href="http://combita-boyaca.gov.co" target="_blank">combita-boyaca.gov.co</a></p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icono"><i class="fas fa-clock"></i></div>
+                            <div class="info-texto">
+                                <h4>Horario de atención</h4>
+                                <p>Lunes a Viernes: 8:00 AM - 5:00 PM<br>Sábados y Festivos: Cerrado</p>
+                            </div>
+                        </div>
+
+                        <div class="info-divider"></div>
+
+                        <div class="info-redes">
+                            <h4>Síguenos en redes</h4>
+                            <div class="redes-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-tiktok"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
     <footer class="light">
         <div class="container">
             <div class="row">
@@ -169,36 +476,95 @@
                     <h3>Cómbita</h3>
                     <p>En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio
                         de por qué subimos.</p>
-
                 </div>
                 <div class="col-lg-4">
                     <h3>Contacto</h3>
                     <ul class="icon-list icon-line">
                         <li>Cómbita, Boyacá, Colombia</li>
                         <li>alcaldia@combita-boyaca.gov.co</li>
-                        <li> 313 366232</li>
+                        <li>313 366 2322</li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
                     <div class="icon-links icon-social icon-links-grid social-colors">
                         <a class="facebook"><i class="icon-facebook"></i></a>
                         <a class="instagram"><i class="icon-instagram"></i></a>
-                        <a class="x"><i class="icon-twitter"></i></a> <!-- X represents the new Twitter -->
+                        <a class="x"><i class="icon-twitter"></i></a>
                         <a class="youtube"><i class="icon-youtube"></i></a>
                     </div>
                     <hr class="space-sm" />
                     <p>Siguenos en nuestras redes</p>
                 </div>
-
             </div>
         </div>
         <div class="footer-bar">
             <div class="container">
-                <span>© 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/"
-                        target="_blank">santiago-developer.com</a>.</span>
-                <span><a href="./contacts.html">Contacto</a> | <a href="#">Privacy policy</a></span>
+                <span>&copy; 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/" target="_blank">santiago-developer.com</a>.</span>
+                <span><a href="./contacts.html">Contacto</a> | <a href="#">Política de privacidad</a></span>
             </div>
         </div>
     </footer>
+
+    <script>
+        const API_BASE = window.location.port === '3001'
+            ? 'http://localhost:3001/api'
+            : '/api';
+
+        document.getElementById('formContacto').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const btn = document.getElementById('btnEnviar');
+            const resultado = document.getElementById('contactoResultado');
+            const form = this;
+
+            if (!form.check.checked) {
+                resultado.className = 'contacto-resultado error-msg';
+                resultado.innerHTML = '<i class="fas fa-exclamation-circle"></i> Debes aceptar la política de privacidad';
+                resultado.style.display = 'block';
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+            const datos = {
+                nombre: form.nombre.value.trim(),
+                email: form.email.value.trim(),
+                telefono: form.telefono.value.trim(),
+                asunto: form.asunto.value,
+                mensaje: form.mensaje.value.trim()
+            };
+
+            try {
+                const res = await fetch(`${API_BASE}/contacto`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(datos)
+                });
+
+                const data = await res.json();
+
+                if (data.success) {
+                    resultado.className = 'contacto-resultado exito';
+                    resultado.innerHTML = '<i class="fas fa-check-circle"></i> ¡Mensaje enviado correctamente! Te responderemos pronto.';
+                    resultado.style.display = 'block';
+                    form.reset();
+                } else {
+                    resultado.className = 'contacto-resultado error-msg';
+                    resultado.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + (data.error || 'Error al enviar el mensaje.');
+                    resultado.style.display = 'block';
+                }
+            } catch (error) {
+                resultado.className = 'contacto-resultado error-msg';
+                resultado.innerHTML = '<i class="fas fa-exclamation-circle"></i> Error de conexión. Intenta de nuevo.';
+                resultado.style.display = 'block';
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar mensaje';
+
+            setTimeout(() => { resultado.style.display = 'none'; }, 8000);
+        });
+    </script>
 </body>
 </html>

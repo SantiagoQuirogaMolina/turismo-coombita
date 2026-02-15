@@ -686,55 +686,110 @@
     <script>
         // Cargar galería desde el backend
         document.addEventListener('DOMContentLoaded', function() {
-            const API_URL = window.API_CONFIG ? window.API_CONFIG.API_URL : 'http://localhost:3000/api';
+            const API_URL = window.API_CONFIG ? window.API_CONFIG.API_URL : 'http://localhost:3001/api';
 
-            // Mostrar loading
             const dinamica = document.getElementById('galeria-dinamica');
             if (dinamica) {
                 dinamica.innerHTML = '<div style="text-align:center; padding:40px;"><i class="fas fa-spinner fa-spin" style="font-size:30px; color:#699073;"></i><p>Cargando galería...</p></div>';
             }
 
-            // Cargar imágenes desde backend
             fetch(`${API_URL}/galeria?activo=true`)
                 .then(response => response.json())
-                .then(data => {
-                    if (data.success && data.data && data.data.length > 0) {
-                        // Agrupar imágenes por categoría
-                        const categorias = {};
-                        data.data.forEach(img => {
-                            const cat = img.categoria || 'Otras';
-                            if (!categorias[cat]) {
-                                categorias[cat] = [];
-                            }
-                            categorias[cat].push(img);
-                        });
-
-                        // Generar HTML de categorías
-                        let html = '';
-                        Object.keys(categorias).forEach(cat => {
-                            const primera = categorias[cat][0];
-                            html += `
-                                <div class="album-box">
-                                    <a href="#" class="img-box img-scale" data-album="${cat.toLowerCase()}">
-                                        <img src="${primera.imagen}" alt="${cat}" onerror="this.src='../assets/images/default.jpg'"/>
-                                    </a>
-                                    <div class="caption">
-                                        <h3>${cat}</h3>
-                                        <p>${primera.descripcion || `${categorias[cat].length} imágenes`}</p>
-                                    </div>
-                                </div>
-                            `;
-                        });
-
-                        if (dinamica) {
-                            dinamica.innerHTML = html;
-                        }
-
-                        // Re-inicializar eventos de galería
-                        reinicializarGaleria();
-                    } else {
+                .then(albumes => {
+                    // La API retorna un array de álbumes directamente
+                    if (!Array.isArray(albumes) || albumes.length === 0) {
                         mostrarGaleriaEstatica();
+                        return;
                     }
+
+                    // Ordenar por campo orden
+                    albumes.sort((a, b) => (a.orden || 0) - (b.orden || 0));
+
+                    // Generar HTML de portadas de álbumes
+                    let coversHtml = '';
+                    albumes.forEach(album => {
+                        const imagenes = (album.imagenes || []).filter(i => i.activo !== false);
+                        coversHtml += `
+                            <div class="album-box">
+                                <a href="#" class="img-box img-scale" data-album="${album.id}">
+                                    <img src="${album.portada || '../assets/images/favicon.png'}" alt="${album.titulo}" onerror="this.src='../assets/images/favicon.png'"/>
+                                </a>
+                                <div class="caption">
+                                    <h3>${album.titulo}</h3>
+                                    <p>${album.descripcion || imagenes.length + ' imágenes'}</p>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    if (dinamica) {
+                        dinamica.innerHTML = coversHtml;
+                    }
+
+                    // Generar contenido de cada álbum (album-items)
+                    const cntAlbumBox = document.querySelector('.cnt-album-box');
+                    // Eliminar album-items estáticos existentes
+                    document.querySelectorAll('.album-item').forEach(el => el.remove());
+
+                    albumes.forEach(album => {
+                        const imagenes = (album.imagenes || []).filter(i => i.activo !== false);
+                        if (imagenes.length === 0) return;
+
+                        let imgsHtml = imagenes.map(img => `
+                            <div class="grid-item">
+                                <a class="img-box" href="${img.archivo}" data-title="${img.titulo || ''}">
+                                    <img src="${img.archivo}" alt="${img.titulo || ''}" onerror="this.closest('.grid-item').style.display='none'" />
+                                </a>
+                            </div>
+                        `).join('');
+
+                        const albumItem = document.createElement('div');
+                        albumItem.className = 'album-item';
+                        albumItem.style.display = 'none';
+                        albumItem.innerHTML = `
+                            <div class="grid-list list-gallery" data-lightbox-anima="fade-top" data-columns="3" data-columns-md="2">
+                                <div class="grid-box">${imgsHtml}</div>
+                                <div class="list-pagination">
+                                    <ul class="pagination" data-page-items="6" data-pagination-anima="fade-right"></ul>
+                                </div>
+                            </div>
+                        `;
+
+                        cntAlbumBox.appendChild(albumItem);
+                    });
+
+                    // Inicializar lightbox para cada álbum
+                    $('.album-item').each(function() {
+                        $(this).find('.list-gallery').magnificPopup({
+                            delegate: 'a.img-box',
+                            type: 'image',
+                            gallery: {
+                                enabled: true,
+                                navigateByImgClick: true,
+                                preload: [1, 2],
+                                tCounter: '%curr% de %total%'
+                            },
+                            image: {
+                                titleSrc: function(item) {
+                                    return item.el.attr('data-title') || '';
+                                }
+                            },
+                            callbacks: {
+                                open: function() {
+                                    var shareHTML = '<div class="share-lightbox" style="display:block !important;">' +
+                                        '<div class="share-btn" onclick="shareOnFacebook()" title="Facebook" style="background:#3b5998;"><span style="color:white;font-weight:bold;">f</span></div>' +
+                                        '<div class="share-btn" onclick="shareOnWhatsApp()" title="WhatsApp" style="background:#25d366;"><span style="color:white;font-weight:bold;">W</span></div>' +
+                                        '<div class="share-btn" onclick="shareOnTwitter()" title="Twitter" style="background:#1da1f2;"><span style="color:white;font-weight:bold;">X</span></div>' +
+                                        '</div>';
+                                    if ($('.share-lightbox').length === 0) $('body').append(shareHTML);
+                                },
+                                close: function() { $('.share-lightbox').remove(); }
+                            }
+                        });
+                    });
+
+                    // Vincular clicks en álbumes
+                    reinicializarGaleria();
                 })
                 .catch(error => {
                     console.log('Usando galería estática:', error);
@@ -750,7 +805,6 @@
         }
 
         function reinicializarGaleria() {
-            // Re-vincular eventos para los nuevos elementos
             $('.album-box a').off('click').on('click', function(e) {
                 e.preventDefault();
                 var albumIndex = $(this).closest('.album-box').index();

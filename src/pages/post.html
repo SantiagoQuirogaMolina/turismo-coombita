@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Post | Alpins | Mountain And Trekking Template</title>
+    <title>Publicación | Turismo Cómbita</title>
     <meta name="description" content="">
     <script src="../assets/js/vendor/jquery.min.js"></script>
     <script src="../assets/js/vendor/main.js"></script>
@@ -16,10 +16,28 @@
     <link rel="stylesheet" href="../assets/css/vendor/media-box.css">
     <link rel="stylesheet" href="../assets/css/vendor/contact-form.css">
     <link rel="stylesheet" href="../assets/css/vendor/social.css">
-        <link rel="stylesheet" href="../assets/media/icons/fontawesome/all.css">
-<link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/media/icons/fontawesome/all.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/frailejon-theme.css">
     <link rel="icon" href="../assets/images/favicon.png">
+    <style>
+        .post-content { font-size: 16px; line-height: 1.8; color: #333; }
+        .post-content h2 { font-size: 24px; margin: 25px 0 15px; color: #2d3e33; }
+        .post-content h3 { font-size: 20px; margin: 20px 0 12px; color: #4a6b52; }
+        .post-content p { margin-bottom: 15px; }
+        .post-content ul, .post-content ol { margin: 15px 0; padding-left: 30px; }
+        .post-content li { margin-bottom: 8px; }
+        .post-content a { color: #699073; text-decoration: underline; }
+        .post-content img { max-width: 100%; border-radius: 8px; margin: 15px 0; }
+        .post-content strong { color: #2d3e33; }
+        .post-meta { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; font-size: 14px; color: #999; }
+        .post-meta span { display: flex; align-items: center; gap: 6px; }
+        .post-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .post-tags a { background: #f0f0f0; color: #666; padding: 4px 12px; border-radius: 20px; font-size: 13px; text-decoration: none; }
+        .post-tags a:hover { background: #699073; color: white; }
+        .post-loading { text-align: center; padding: 60px 20px; }
+        .post-loading i { font-size: 30px; color: #699073; }
+    </style>
 </head>
 <body class="page-main">
     <div id="preloader"></div>
@@ -35,11 +53,10 @@
             </div>
             <i class="menu-btn"></i>
             <div class="menu-cnt">
-                                <ul id="main-menu">
+                <ul id="main-menu">
                     <li class="dropdown">
                         <a href="./index.html">Inicio</a>
                     </li>
-
                     <li class="dropdown">
                         <a href="#">Paginas</a>
                         <ul>
@@ -73,130 +90,52 @@
                         <a href="./contacts.html">Contacto</a>
                     </li>
                 </ul>
-
-            </div>
-
             </div>
         </div>
     </nav>
-    <header class="header-base">
+    <header class="header-base" id="postHeader">
         <div class="container">
-            <h1>The last summer days</h1>
-            <h2>Where to enjoy the last summer days</h2>
+            <h1 id="postTitulo">Cargando...</h1>
+            <h2 id="postSubtitulo"></h2>
             <ol class="breadcrumb">
-                <li><a href="./index.html">Home</a></li>
+                <li><a href="./index.html">Inicio</a></li>
                 <li><a href="./blog.html">Blog</a></li>
-                <li><a href="#">Post</a></li>
+                <li><a href="#" id="breadcrumbPost">Publicación</a></li>
             </ol>
         </div>
     </header>
     <main>
-        <section class="section-base ">
+        <section class="section-base">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
-                        <img src="../assets/images/laguna rica.jpg" alt="" />
-                        <hr class="space-sm" />
-                        <div class="icon-links icon-links-grid icon-social social-colors">
-                            <a data-social="share-facebook" class="facebook"><i class="icon-facebook"></i></a>
-                            <a data-social="share-twitter" class="twitter"><i class="icon-twitter"></i></a>
-                            <a data-social="share-linkedin" class="linkedin"><i class="icon-linkedin"></i></a>
-                            <a data-social="share-google" class="google"><i class="icon-google"></i></a>
-                        </div>
-                        <hr class="space-sm" />
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt utlabore et dolore magna aliqua.
-                            Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt utlabore et dolore magna aliqua.
-                            Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                            in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        </p> 
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt utlabore et dolore magna aliqua.
-                            Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt utlabore et dolore magna aliqua.
-                            Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                            in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        </p>
-                        <div class="list-nav">
-                            <a href="#">Previous post</a>
-                            <a class="list-archive" href="#"></a>
-                            <a href="#">Next post</a>
+                        <div id="postContainer">
+                            <div class="post-loading">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p style="margin-top:10px;color:#999;">Cargando publicación...</p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <form class="form-box">
-                            <div class="input-text-btn">
-                                <input class="input-text" type="text" placeholder="Search ..." /><input type="submit" value="Search" class="btn" />
-                            </div>
-                        </form>
-                        <hr class="space-sm" />
-                        <h3>Categories</h3>
-                        <hr class="space-sm" />
+                        <h3>Categorías</h3>
+                        <hr class="space-xs" />
                         <div class="menu-inner menu-inner-vertical">
                             <ul>
-                                <li>
-                                    <a href="#">
-                                        Treks and paths
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Travels
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        People and kids
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Animals and nature
-                                    </a>
-                                </li>
-
+                                <li><a href="./blog.html">Todas</a></li>
+                                <li><a href="./blog.html">Naturaleza</a></li>
+                                <li><a href="./blog.html">Cultura</a></li>
+                                <li><a href="./blog.html">Senderismo</a></li>
+                                <li><a href="./blog.html">Gastronomía</a></li>
                             </ul>
                         </div>
                         <hr class="space-sm" />
-                        <h3>Latest posts</h3>
+                        <h3>Publicaciones Recientes</h3>
                         <hr class="space-sm" />
                         <div class="menu-inner menu-inner-vertical menu-inner-image">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <img src="../assets/images/La Peña.jpg" alt="" />
-                                        <span>February 12, 2024</span>
-                                        The last summer days
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="../assets/images/montaña cordi.jpg" alt="" />
-                                        <span>February 25, 2024</span>
-                                        Travels
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="../assets/images/iglesia.jpg" alt="" />
-                                        <span>April 19, 2024</span>
-                                        People and kids
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="../assets/images/el tilin.JPG" alt="" />
-                                        <span>April 20, 2024</span>
-                                        Animals and nature
-                                    </a>
-                                </li>
+                            <ul id="sidebarRecientes">
+                                <!-- Loaded via JS -->
                             </ul>
                         </div>
-                        <hr class="space-sm" />
-                        <h3>Twitter</h3>
-                        <hr class="space-sm" />
-                        <div class="social-feed social-feed-tw social-slider" data-social-id="twitter" data-options="count:8,arrows:true,nav:true,controls:out,type:carousel,perView:1"></div>
                     </div>
                 </div>
             </div>
@@ -209,7 +148,6 @@
                     <h3>Cómbita</h3>
                     <p>En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio
                         de por qué subimos.</p>
-
                 </div>
                 <div class="col-lg-4">
                     <h3>Contacto</h3>
@@ -223,22 +161,151 @@
                     <div class="icon-links icon-social icon-links-grid social-colors">
                         <a class="facebook"><i class="icon-facebook"></i></a>
                         <a class="instagram"><i class="icon-instagram"></i></a>
-                        <a class="x"><i class="icon-twitter"></i></a> <!-- X represents the new Twitter -->
+                        <a class="x"><i class="icon-twitter"></i></a>
                         <a class="youtube"><i class="icon-youtube"></i></a>
                     </div>
                     <hr class="space-sm" />
                     <p>Siguenos en nuestras redes</p>
                 </div>
-
             </div>
         </div>
         <div class="footer-bar">
             <div class="container">
-                <span>© 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/"
-                        target="_blank">santiago-developer.com</a>.</span>
+                <span>&copy; 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/" target="_blank">santiago-developer.com</a>.</span>
                 <span><a href="./contacts.html">Contacto</a> | <a href="#">Privacy policy</a></span>
             </div>
         </div>
     </footer>
+
+    <script>
+        const API_BASE = window.location.port === '3001'
+            ? 'http://localhost:3001/api'
+            : '/api';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const postId = params.get('id');
+
+            if (postId) {
+                loadPost(postId);
+                loadSidebarRecientes(postId);
+            } else {
+                document.getElementById('postTitulo').textContent = 'Publicación no encontrada';
+                document.getElementById('postContainer').innerHTML =
+                    '<p style="text-align:center;color:#999;padding:40px;">No se especificó una publicación. <a href="./blog.html">Volver al blog</a></p>';
+            }
+        });
+
+        async function loadPost(id) {
+            try {
+                const res = await fetch(`${API_BASE}/blog/${id}`);
+                if (!res.ok) throw new Error('Post no encontrado');
+                const post = await res.json();
+
+                // Actualizar título de la página
+                document.title = `${post.titulo} | Turismo Cómbita`;
+
+                // Header
+                document.getElementById('postTitulo').textContent = post.titulo;
+                const categoriasNombres = {
+                    naturaleza: 'Naturaleza', cultura: 'Cultura', gastronomia: 'Gastronomía',
+                    senderismo: 'Senderismo', historia: 'Historia', eventos: 'Eventos', general: 'General'
+                };
+                document.getElementById('postSubtitulo').textContent = categoriasNombres[post.categoria] || post.categoria;
+                document.getElementById('breadcrumbPost').textContent = post.titulo;
+
+                // Fecha formateada
+                const fecha = new Date(post.creado);
+                const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
+                const fechaTexto = fecha.toLocaleDateString('es-CO', opciones);
+
+                // Contenido
+                let html = '';
+
+                // Imagen principal
+                if (post.imagen) {
+                    html += `<img src="${post.imagen}" alt="${post.titulo}" style="width:100%;border-radius:8px;margin-bottom:20px;" />`;
+                }
+
+                // Compartir
+                html += `
+                    <div class="icon-links icon-links-grid icon-social social-colors" style="margin-bottom:15px;">
+                        <a data-social="share-facebook" class="facebook"><i class="icon-facebook"></i></a>
+                        <a data-social="share-twitter" class="twitter"><i class="icon-twitter"></i></a>
+                        <a data-social="share-linkedin" class="linkedin"><i class="icon-linkedin"></i></a>
+                    </div>
+                `;
+
+                // Meta info
+                html += `
+                    <div class="post-meta">
+                        <span><i class="fas fa-calendar-alt"></i> ${fechaTexto}</span>
+                        <span><i class="fas fa-user"></i> ${post.autor || 'Admin'}</span>
+                        <span><i class="fas fa-folder"></i> ${categoriasNombres[post.categoria] || post.categoria}</span>
+                    </div>
+                    <hr class="space-xs" />
+                `;
+
+                // Contenido del artículo
+                html += `<div class="post-content">${post.contenido}</div>`;
+
+                // Tags
+                if (post.tags && post.tags.length > 0) {
+                    html += `
+                        <hr class="space-sm" />
+                        <div class="post-tags">
+                            ${post.tags.map(tag => `<a href="./blog.html">#${tag}</a>`).join('')}
+                        </div>
+                    `;
+                }
+
+                // Navegación
+                html += `
+                    <hr class="space-sm" />
+                    <div class="list-nav">
+                        <a href="./blog.html">&larr; Volver al Blog</a>
+                        <a class="list-archive" href="./blog.html"></a>
+                        <a href="./blog.html">Más publicaciones &rarr;</a>
+                    </div>
+                `;
+
+                document.getElementById('postContainer').innerHTML = html;
+
+            } catch (error) {
+                console.error('Error cargando post:', error);
+                document.getElementById('postTitulo').textContent = 'Publicación no encontrada';
+                document.getElementById('postContainer').innerHTML =
+                    '<p style="text-align:center;color:#999;padding:40px;">No se pudo cargar la publicación. <a href="./blog.html">Volver al blog</a></p>';
+            }
+        }
+
+        async function loadSidebarRecientes(currentId) {
+            try {
+                const res = await fetch(`${API_BASE}/blog?activo=true&limit=4`);
+                const posts = await res.json();
+                const ul = document.getElementById('sidebarRecientes');
+
+                ul.innerHTML = posts
+                    .filter(p => p.id !== currentId)
+                    .slice(0, 4)
+                    .map(post => {
+                        const fecha = new Date(post.creado);
+                        const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
+                        const fechaTexto = fecha.toLocaleDateString('es-CO', opciones);
+                        return `
+                            <li>
+                                <a href="./post.html?id=${post.id}">
+                                    ${post.imagen ? `<img src="${post.imagen}" alt="${post.titulo}" />` : `<img src="../assets/images/laguna rica.jpg" alt="" />`}
+                                    <span>${fechaTexto}</span>
+                                    ${post.titulo}
+                                </a>
+                            </li>
+                        `;
+                    }).join('');
+            } catch (error) {
+                console.error('Error cargando recientes:', error);
+            }
+        }
+    </script>
 </body>
 </html>

@@ -326,9 +326,51 @@ footer a:hover {
    RESPONSIVE - Ajustes para móviles
    ================================================================= */
 
+/* =================================================================
+   BLOG - Miniaturas normalizadas
+   ================================================================= */
+
+/* Contenedor de imagen del blog en modo lado (side) */
+.cnt-box-blog-side > .img-box {
+    min-height: 220px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cnt-box-blog-side > .img-box > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 220px;
+}
+
+/* Quitar overlay en hover de imágenes del blog */
+.cnt-box-blog-side .img-box:before,
+.cnt-box-blog-side:hover .img-box:before {
+    display: none !important;
+}
+
+.cnt-box-blog-side:hover .img-box img {
+    opacity: 1 !important;
+}
+
+/* =================================================================
+   RESPONSIVE - Ajustes para móviles
+   ================================================================= */
+
 @media (max-width: 768px) {
     /* Reducir intensidad en móviles para mejor legibilidad */
     :root {
         --color-dorado-light: rgba(221, 161, 94, 0.05);
+    }
+
+    .cnt-box-blog-side > .img-box {
+        min-height: 180px;
+    }
+
+    .cnt-box-blog-side > .img-box > img {
+        min-height: 180px;
     }
 }

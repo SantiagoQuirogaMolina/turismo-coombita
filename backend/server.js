@@ -1,0 +1,84 @@
+/**
+ * Servidor Turismo Cómbita
+ * Sitio público + Panel de Administración
+ */
+
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Servir archivos estáticos
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/assets', express.static(path.join(__dirname, '../src/assets')));
+app.use('/imagenes', express.static(path.join(__dirname, '../imagenes')));
+app.use('/admin/css', express.static(path.join(__dirname, '../admin/css')));
+app.use('/admin/js', express.static(path.join(__dirname, '../admin/js')));
+app.use('/admin', express.static(path.join(__dirname, '../admin')));
+
+// Rutas API
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/restaurantes', require('./routes/restaurantes'));
+app.use('/api/hoteles', require('./routes/hoteles'));
+app.use('/api/eventos', require('./routes/eventos'));
+app.use('/api/estadisticas', require('./routes/estadisticas'));
+app.use('/api/galeria', require('./routes/galeria'));
+app.use('/api/blog', require('./routes/blog'));
+app.use('/api/contacto', require('./routes/contacto'));
+
+// ===== PÁGINAS PÚBLICAS =====
+
+// Página principal
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../src/pages/index.html'));
+});
+
+// Todas las páginas del sitio
+app.get('/*.html', (req, res) => {
+    const pageName = req.params[0] + '.html';
+    res.sendFile(path.join(__dirname, '../src/pages', pageName));
+});
+
+// Subpáginas (treks, etc)
+app.get('/treks/*.html', (req, res) => {
+    const pageName = req.params[0] + '.html';
+    res.sendFile(path.join(__dirname, '../src/pages/treks', pageName));
+});
+
+app.get('/treks', (req, res) => {
+    res.sendFile(path.join(__dirname, '../src/pages/treks/index.html'));
+});
+
+// ===== PANEL ADMIN =====
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, '../admin/index.html'));
+});
+
+// Ruta de salud
+app.get('/api/health', (req, res) => {
+    res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+// Manejo de errores
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ error: 'Error interno del servidor' });
+});
+
+app.listen(PORT, () => {
+    console.log(`
+    ========================================
+    Servidor Turismo Cómbita
+    ========================================
+    Admin Panel: http://localhost:${PORT}/admin
+    API:         http://localhost:${PORT}/api
+    ========================================
+    `);
+});

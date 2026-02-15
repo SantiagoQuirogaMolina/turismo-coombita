@@ -129,22 +129,23 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
+            margin-bottom: 15px;
         }
         .hotel-actions .btn-hotel {
-            padding: 12px;
+            padding: 10px 8px;
             text-align: center;
             border: 1px solid #DDA15E;
             background: white;
             color: #BC6C25;
             border-radius: 5px;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
         }
         .hotel-actions .btn-hotel:hover {
             background: #BC6C25;
@@ -156,11 +157,67 @@
             background: #699073;
             color: white;
             border-color: #699073;
-            grid-column: span 2;
         }
         .hotel-actions .btn-hotel.primary:hover {
             background: #567760;
             border-color: #567760;
+        }
+        /* Estilos para botones deshabilitados */
+        .hotel-actions .btn-hotel.disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+            pointer-events: none;
+            background: #fafafa;
+            color: #bbb;
+            border-color: #e5e5e5;
+        }
+        .hotel-actions .btn-hotel.disabled:hover {
+            transform: none;
+            background: #fafafa;
+            color: #bbb;
+            border-color: #e5e5e5;
+        }
+
+        /* Redes sociales */
+        .hotel-social {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+        .hotel-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        .hotel-social a:hover {
+            transform: translateY(-2px);
+        }
+        .hotel-social a.facebook:hover {
+            background: #3b5998;
+            color: white;
+        }
+        .hotel-social a.instagram:hover {
+            background: #e1306c;
+            color: white;
+        }
+        .hotel-social a.whatsapp:hover {
+            background: #25d366;
+            color: white;
+        }
+        .hotel-social a.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            pointer-events: none;
         }
 
         /* Categorías de hospedaje */
@@ -404,18 +461,18 @@
 
                         <!-- Hospedajes estáticos (backup si el servidor no responde) -->
                         <div id="hospedajes-estaticos" class="hotels-grid" style="display: none;">
-                            <!-- Hotel 1 -->
+                            <!-- Hotel 1: Posada La Quinta de Rosita -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/La Peña.jpg" alt="Posada El Frailejón">
-                                    <div class="hotel-badge">Posada Rural</div>
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Posada La Quinta de Rosita">
+                                    <div class="hotel-badge">Posada Familiar</div>
                                     <div class="hotel-price-badge">Económico</div>
                                 </div>
                                 <div class="hotel-content">
-                                    <h3>Posada El Frailejón</h3>
+                                    <h3>Posada La Quinta de Rosita</h3>
                                     <div class="hotel-location">
                                         <i class="fas fa-map-marker-alt"></i>
-                                        Centro de Cómbita
+                                        Calle 5 No. 1-95
                                     </div>
                                     <div class="hotel-rating">
                                         <div class="stars">
@@ -428,40 +485,118 @@
                                         <span class="rating-text">4.0 - Muy bueno</span>
                                     </div>
                                     <p class="hotel-description">
-                                        Acogedora posada familiar con 6 habitaciones, ambiente cálido y desayuno típico boyacense incluido.
+                                        5 habitaciones (6 camas dobles, 4 sencillas) con capacidad para 10 personas. Hospedaje familiar acogedor.
                                     </p>
                                     <div class="hotel-services">
-                                        <span class="service-tag"><i class="fas fa-wifi"></i> WiFi</span>
-                                        <span class="service-tag"><i class="fas fa-utensils"></i> Desayuno</span>
-                                        <span class="service-tag"><i class="fas fa-parking"></i> Parqueadero</span>
-                                        <span class="service-tag"><i class="fas fa-fire"></i> Chimenea</span>
+                                        <span class="service-tag"><i class="fas fa-home"></i> Ambiente familiar</span>
+                                        <span class="service-tag"><i class="fas fa-bed"></i> 5 habitaciones</span>
+                                        <span class="service-tag"><i class="fas fa-users"></i> 10 personas</span>
                                     </div>
                                     <div class="hotel-actions">
-                                        <a href="https://wa.me/573123456789" target="_blank" class="btn-hotel primary">
-                                            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                                        <a href="#" class="btn-hotel disabled">
+                                            <i class="fab fa-whatsapp"></i> WhatsApp
                                         </a>
-                                        <a href="tel:+573123456789" class="btn-hotel">
+                                        <a href="tel:+573133662322" class="btn-hotel">
                                             <i class="fas fa-phone"></i> Llamar
                                         </a>
-                                        <a href="https://maps.google.com/?q=Posada+El+Frailejon+Combita" target="_blank" class="btn-hotel">
-                                            <i class="fas fa-map"></i> Ver Mapa
+                                        <a href="#" class="btn-hotel disabled">
+                                            <i class="fas fa-envelope"></i> Email
+                                        </a>
+                                        <a href="https://maps.google.com/?q=Combita+Calle+5+No+1-95" target="_blank" class="btn-hotel">
+                                            <i class="fas fa-map"></i> Mapa
+                                        </a>
+                                    </div>
+                                    <div class="hotel-social">
+                                        <a href="https://www.facebook.com/LaQuintaRosita" target="_blank" class="facebook">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="https://www.instagram.com/posadalaquintaderosita" target="_blank" class="instagram">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-tiktok"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-youtube"></i>
                                         </a>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Hotel 2 -->
+                            <!-- Hotel 2: Aparta Hotel El Rubí -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/montaña cordi.jpg" alt="Glamping Bosque Encantado">
-                                    <div class="hotel-badge">Glamping</div>
-                                    <div class="hotel-price-badge">Premium</div>
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Aparta Hotel El Rubí">
+                                    <div class="hotel-badge">Aparta Hotel</div>
+                                    <div class="hotel-price-badge">Estándar</div>
                                 </div>
                                 <div class="hotel-content">
-                                    <h3>Glamping Bosque Encantado</h3>
+                                    <h3>Aparta Hotel El Rubí</h3>
                                     <div class="hotel-location">
                                         <i class="fas fa-map-marker-alt"></i>
-                                        Vereda San Isidro, Km 5
+                                        Cra. 5 # 2-50
+                                    </div>
+                                    <div class="hotel-rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <span class="rating-text">4.0 - Muy bueno</span>
+                                    </div>
+                                    <p class="hotel-description">
+                                        3 apartamentos completamente equipados, cada uno con capacidad hasta 7 personas. Ideal para grupos familiares.
+                                    </p>
+                                    <div class="hotel-services">
+                                        <span class="service-tag"><i class="fas fa-home"></i> 3 apartamentos</span>
+                                        <span class="service-tag"><i class="fas fa-users"></i> 21 personas total</span>
+                                        <span class="service-tag"><i class="fas fa-utensils"></i> Cocina equipada</span>
+                                    </div>
+                                    <div class="hotel-actions">
+                                        <a href="https://wa.me/573144894536" target="_blank" class="btn-hotel">
+                                            <i class="fab fa-whatsapp"></i> WhatsApp
+                                        </a>
+                                        <a href="tel:+573144894536" class="btn-hotel">
+                                            <i class="fas fa-phone"></i> Llamar
+                                        </a>
+                                        <a href="#" class="btn-hotel disabled">
+                                            <i class="fas fa-envelope"></i> Email
+                                        </a>
+                                        <a href="https://maps.google.com/?q=Combita+Carrera+5+2-50" target="_blank" class="btn-hotel">
+                                            <i class="fas fa-map"></i> Mapa
+                                        </a>
+                                    </div>
+                                    <div class="hotel-social">
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-tiktok"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hotel 3: Hotel La Posada de Bachué -->
+                            <div class="hotel-card">
+                                <div class="hotel-gallery">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hotel La Posada de Bachué">
+                                    <div class="hotel-badge">Hotel Colonial</div>
+                                    <div class="hotel-price-badge">Estándar</div>
+                                </div>
+                                <div class="hotel-content">
+                                    <h3>Hotel La Posada de Bachué</h3>
+                                    <div class="hotel-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Calle 4 # 5-20, Centro
                                     </div>
                                     <div class="hotel-rating">
                                         <div class="stars">
@@ -474,86 +609,57 @@
                                         <span class="rating-text">4.5 - Excelente</span>
                                     </div>
                                     <p class="hotel-description">
-                                        Domos geodésicos con todas las comodidades. Vista panorámica a las estrellas y el valle.
+                                        10 habitaciones en estilo colonial con vista al parque principal. WiFi, TV cable, baño privado con agua caliente.
                                     </p>
                                     <div class="hotel-services">
-                                        <span class="service-tag"><i class="fas fa-hot-tub"></i> Jacuzzi</span>
-                                        <span class="service-tag"><i class="fas fa-bed"></i> Cama King</span>
-                                        <span class="service-tag"><i class="fas fa-fire"></i> Calefacción</span>
-                                        <span class="service-tag"><i class="fas fa-star"></i> Vista 360°</span>
+                                        <span class="service-tag"><i class="fas fa-wifi"></i> WiFi</span>
+                                        <span class="service-tag"><i class="fas fa-tv"></i> TV Cable</span>
+                                        <span class="service-tag"><i class="fas fa-shower"></i> Agua caliente</span>
+                                        <span class="service-tag"><i class="fas fa-tree"></i> Jardín</span>
                                     </div>
                                     <div class="hotel-actions">
-                                        <a href="https://wa.me/573001234567" target="_blank" class="btn-hotel primary">
-                                            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                                        <a href="https://wa.me/573213083406" target="_blank" class="btn-hotel">
+                                            <i class="fab fa-whatsapp"></i> WhatsApp
                                         </a>
-                                        <a href="tel:+573001234567" class="btn-hotel">
+                                        <a href="tel:+573213075457" class="btn-hotel">
                                             <i class="fas fa-phone"></i> Llamar
                                         </a>
-                                        <a href="https://maps.google.com/?q=Cabañas+Vista+Hermosa+Combita" target="_blank" class="btn-hotel">
-                                            <i class="fas fa-map"></i> Ver Mapa
+                                        <a href="mailto:laposadadebachue24@gmail.com" class="btn-hotel">
+                                            <i class="fas fa-envelope"></i> Email
+                                        </a>
+                                        <a href="https://maps.google.com/?q=Combita+Calle+4+5-20" target="_blank" class="btn-hotel">
+                                            <i class="fas fa-map"></i> Mapa
+                                        </a>
+                                    </div>
+                                    <div class="hotel-social">
+                                        <a href="https://www.facebook.com/hotellaposadadebachue" target="_blank" class="facebook">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="https://www.instagram.com/hotellaposadadebachue" target="_blank" class="instagram">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-tiktok"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-youtube"></i>
                                         </a>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Hotel 3 -->
+                            <!-- Hotel 4: Hospedaje Vereda San Francisco -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/iglesia.jpg" alt="Hotel Campestre Los Andes">
-                                    <div class="hotel-badge">Hotel</div>
-                                    <div class="hotel-price-badge">Premium</div>
-                                </div>
-                                <div class="hotel-content">
-                                    <h3>Hotel Campestre Los Andes</h3>
-                                    <div class="hotel-location">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        Vía Principal, Km 3
-                                    </div>
-                                    <div class="hotel-rating">
-                                        <div class="stars">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <span class="rating-text">5.0 - Excepcional</span>
-                                    </div>
-                                    <p class="hotel-description">
-                                        Hotel completo con 20 habitaciones, restaurante, spa y actividades de ecoturismo incluidas.
-                                    </p>
-                                    <div class="hotel-services">
-                                        <span class="service-tag"><i class="fas fa-spa"></i> Spa</span>
-                                        <span class="service-tag"><i class="fas fa-swimming-pool"></i> Piscina</span>
-                                        <span class="service-tag"><i class="fas fa-dumbbell"></i> Gimnasio</span>
-                                        <span class="service-tag"><i class="fas fa-concierge-bell"></i> Servicio 24h</span>
-                                    </div>
-                                    <div class="hotel-actions">
-                                        <a href="https://wa.me/573109876543" target="_blank" class="btn-hotel primary">
-                                            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
-                                        </a>
-                                        <a href="tel:+573109876543" class="btn-hotel">
-                                            <i class="fas fa-phone"></i> Llamar
-                                        </a>
-                                        <a href="https://maps.google.com/?q=Hotel+Campestre+Los+Andes+Combita" target="_blank" class="btn-hotel">
-                                            <i class="fas fa-map"></i> Ver Mapa
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Hotel 4 -->
-                            <div class="hotel-card">
-                                <div class="hotel-gallery">
-                                    <img src="../assets/images/el tilin.JPG" alt="Camping El Páramo">
-                                    <div class="hotel-badge">Camping</div>
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hospedaje Vereda San Francisco">
+                                    <div class="hotel-badge">Hospedaje Rural</div>
                                     <div class="hotel-price-badge">Económico</div>
                                 </div>
                                 <div class="hotel-content">
-                                    <h3>Camping El Páramo</h3>
+                                    <h3>Hospedaje Vereda San Francisco</h3>
                                     <div class="hotel-location">
                                         <i class="fas fa-map-marker-alt"></i>
-                                        Vereda El Carmen, Vía Laguna
+                                        Vereda San Francisco, Cómbita
                                     </div>
                                     <div class="hotel-rating">
                                         <div class="stars">
@@ -566,115 +672,291 @@
                                         <span class="rating-text">4.0 - Muy bueno</span>
                                     </div>
                                     <p class="hotel-description">
-                                        Zona de camping con servicios básicos, fogatas permitidas y acceso directo a senderos.
+                                        Hospedaje rural cerca de áreas arqueológicas. Ideal para turismo de investigación y contacto con la naturaleza.
                                     </p>
                                     <div class="hotel-services">
-                                        <span class="service-tag"><i class="fas fa-shower"></i> Duchas</span>
-                                        <span class="service-tag"><i class="fas fa-fire"></i> Fogatas</span>
+                                        <span class="service-tag"><i class="fas fa-mountain"></i> Zona arqueológica</span>
+                                        <span class="service-tag"><i class="fas fa-home"></i> Ambiente rural</span>
                                         <span class="service-tag"><i class="fas fa-hiking"></i> Senderos</span>
-                                        <span class="service-tag"><i class="fas fa-plug"></i> Electricidad</span>
                                     </div>
                                     <div class="hotel-actions">
-                                        <a href="https://wa.me/573205551234" target="_blank" class="btn-hotel primary">
-                                            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                                        <a href="https://wa.me/573143701509" target="_blank" class="btn-hotel">
+                                            <i class="fab fa-whatsapp"></i> WhatsApp
                                         </a>
-                                        <a href="tel:+573205551234" class="btn-hotel">
+                                        <a href="tel:+573143701509" class="btn-hotel">
                                             <i class="fas fa-phone"></i> Llamar
                                         </a>
-                                        <a href="https://maps.google.com/?q=Camping+El+Paramo+Combita" target="_blank" class="btn-hotel">
-                                            <i class="fas fa-map"></i> Ver Mapa
+                                        <a href="#" class="btn-hotel disabled">
+                                            <i class="fas fa-envelope"></i> Email
+                                        </a>
+                                        <a href="https://maps.google.com/?q=Vereda+San+Francisco+Combita" target="_blank" class="btn-hotel">
+                                            <i class="fas fa-map"></i> Mapa
+                                        </a>
+                                    </div>
+                                    <div class="hotel-social">
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-tiktok"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-youtube"></i>
                                         </a>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Hotel 5 -->
+                            <!-- Hotel 5: Hotel Sol del Norte -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/favorita dos.jpg" alt="Eco Lodge Frailejones">
-                                    <div class="hotel-badge">Eco Lodge</div>
-                                    <div class="hotel-price-badge">Premium</div>
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hotel Sol del Norte">
+                                    <div class="hotel-badge">Hotel</div>
+                                    <div class="hotel-price-badge">$60.000 - $140.000</div>
                                 </div>
                                 <div class="hotel-content">
-                                    <h3>Eco Lodge Frailejones</h3>
+                                    <h3>Hotel Sol del Norte</h3>
                                     <div class="hotel-location">
                                         <i class="fas fa-map-marker-alt"></i>
-                                        Reserva Natural, Km 8
+                                        Km 3, Vía Tunja - Paipa
                                     </div>
                                     <div class="hotel-rating">
                                         <div class="stars">
                                             <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <span class="rating-text">5.0 - Excepcional</span>
-                                    </div>
-                                    <p class="hotel-description">
-                                        Lodge ecológico de lujo con energía solar, construcción sostenible y experiencias de naturaleza.
-                                    </p>
-                                    <div class="hotel-services">
-                                        <span class="service-tag"><i class="fas fa-solar-panel"></i> Solar</span>
-                                        <span class="service-tag"><i class="fas fa-leaf"></i> Ecológico</span>
-                                        <span class="service-tag"><i class="fas fa-binoculars"></i> Guías</span>
-                                        <span class="service-tag"><i class="fas fa-star"></i> Lujo</span>
-                                    </div>
-                                    <div class="hotel-actions">
-                                        <a href="https://wa.me/573157779999" target="_blank" class="btn-hotel primary">
-                                            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
-                                        </a>
-                                        <a href="tel:+573157779999" class="btn-hotel">
-                                            <i class="fas fa-phone"></i> Llamar
-                                        </a>
-                                        <a href="https://maps.google.com/?q=Eco+Lodge+Frailejones+Combita" target="_blank" class="btn-hotel">
-                                            <i class="fas fa-map"></i> Ver Mapa
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Hotel 6 -->
-                            <div class="hotel-card">
-                                <div class="hotel-gallery">
-                                    <img src="../assets/images/colibrie verde descansa.jpg" alt="Hostal Del Camino">
-                                    <div class="hotel-badge">Hostal</div>
-                                    <div class="hotel-price-badge">Económico</div>
-                                </div>
-                                <div class="hotel-content">
-                                    <h3>Hostal Del Camino</h3>
-                                    <div class="hotel-location">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        Plaza Principal
-                                    </div>
-                                    <div class="hotel-rating">
-                                        <div class="stars">
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star-half-alt"></i>
-                                            <i class="far fa-star"></i>
                                         </div>
-                                        <span class="rating-text">3.5 - Bueno</span>
+                                        <span class="rating-text">4.5 - Excelente</span>
                                     </div>
                                     <p class="hotel-description">
-                                        Hostal económico ideal para mochileros. Habitaciones compartidas y privadas disponibles.
+                                        31 habitaciones con todas las comodidades. WiFi, TV cable, baño privado, agua caliente y parqueadero. Propietario: Edison Fuquene.
                                     </p>
                                     <div class="hotel-services">
                                         <span class="service-tag"><i class="fas fa-wifi"></i> WiFi</span>
-                                        <span class="service-tag"><i class="fas fa-kitchen-set"></i> Cocina</span>
-                                        <span class="service-tag"><i class="fas fa-lock"></i> Lockers</span>
-                                        <span class="service-tag"><i class="fas fa-book"></i> Biblioteca</span>
+                                        <span class="service-tag"><i class="fas fa-tv"></i> TV Cable</span>
+                                        <span class="service-tag"><i class="fas fa-parking"></i> Parqueadero</span>
+                                        <span class="service-tag"><i class="fas fa-bed"></i> 31 habitaciones</span>
                                     </div>
                                     <div class="hotel-actions">
-                                        <a href="https://wa.me/573118887654" target="_blank" class="btn-hotel primary">
-                                            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                                        <a href="https://wa.me/573144196271" target="_blank" class="btn-hotel">
+                                            <i class="fab fa-whatsapp"></i> WhatsApp
                                         </a>
-                                        <a href="tel:+573118887654" class="btn-hotel">
+                                        <a href="tel:+573102317230" class="btn-hotel">
                                             <i class="fas fa-phone"></i> Llamar
                                         </a>
-                                        <a href="https://maps.google.com/?q=Hostal+Del+Camino+Combita" target="_blank" class="btn-hotel">
-                                            <i class="fas fa-map"></i> Ver Mapa
+                                        <a href="mailto:hotelsoldelnorte11@gmail.com" class="btn-hotel">
+                                            <i class="fas fa-envelope"></i> Email
+                                        </a>
+                                        <a href="https://maps.google.com/?q=Combita+Km+3+Via+Tunja+Paipa" target="_blank" class="btn-hotel">
+                                            <i class="fas fa-map"></i> Mapa
+                                        </a>
+                                    </div>
+                                    <div class="hotel-social">
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-tiktok"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hotel 6: Hospedaje Campestre De La Montaña -->
+                            <div class="hotel-card">
+                                <div class="hotel-gallery">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hospedaje Campestre De La Montaña">
+                                    <div class="hotel-badge">Hospedaje Campestre</div>
+                                    <div class="hotel-price-badge">$30.000 - $40.000</div>
+                                </div>
+                                <div class="hotel-content">
+                                    <h3>Hospedaje Campestre De La Montaña</h3>
+                                    <div class="hotel-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Cómbita Centro
+                                    </div>
+                                    <div class="hotel-rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <span class="rating-text">4.0 - Muy bueno</span>
+                                    </div>
+                                    <p class="hotel-description">
+                                        3 habitaciones con 10 camas, 3 baños. Hospedaje campestre con ambiente tranquilo. Tarifas: Adulto $40.000, Niño $30.000.
+                                    </p>
+                                    <div class="hotel-services">
+                                        <span class="service-tag"><i class="fas fa-bed"></i> 10 camas</span>
+                                        <span class="service-tag"><i class="fas fa-shower"></i> 3 baños</span>
+                                        <span class="service-tag"><i class="fas fa-users"></i> 20 personas</span>
+                                        <span class="service-tag"><i class="fas fa-tree"></i> Campestre</span>
+                                    </div>
+                                    <div class="hotel-actions">
+                                        <a href="#" class="btn-hotel disabled">
+                                            <i class="fab fa-whatsapp"></i> WhatsApp
+                                        </a>
+                                        <a href="tel:+573133662322" class="btn-hotel">
+                                            <i class="fas fa-phone"></i> Llamar
+                                        </a>
+                                        <a href="#" class="btn-hotel disabled">
+                                            <i class="fas fa-envelope"></i> Email
+                                        </a>
+                                        <a href="https://maps.google.com/?q=Hospedaje+Campestre+Combita" target="_blank" class="btn-hotel">
+                                            <i class="fas fa-map"></i> Mapa
+                                        </a>
+                                    </div>
+                                    <div class="hotel-social">
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-tiktok"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hotel 7: Hotel Campeones de la Montaña -->
+                            <div class="hotel-card">
+                                <div class="hotel-gallery">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hotel Campeones de la Montaña">
+                                    <div class="hotel-badge">Hotel</div>
+                                    <div class="hotel-price-badge">$40.000/persona</div>
+                                </div>
+                                <div class="hotel-content">
+                                    <h3>Hotel Campeones de la Montaña</h3>
+                                    <div class="hotel-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Cómbita Centro
+                                    </div>
+                                    <div class="hotel-rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <span class="rating-text">4.0 - Muy bueno</span>
+                                    </div>
+                                    <p class="hotel-description">
+                                        4 habitaciones con 5 camas, 4 baños, cocina disponible. Capacidad para 10 personas. Tarifa: $40.000 por persona.
+                                    </p>
+                                    <div class="hotel-services">
+                                        <span class="service-tag"><i class="fas fa-bed"></i> 4 habitaciones</span>
+                                        <span class="service-tag"><i class="fas fa-utensils"></i> Cocina</span>
+                                        <span class="service-tag"><i class="fas fa-shower"></i> 4 baños</span>
+                                        <span class="service-tag"><i class="fas fa-users"></i> 10 personas</span>
+                                    </div>
+                                    <div class="hotel-actions">
+                                        <a href="#" class="btn-hotel disabled">
+                                            <i class="fab fa-whatsapp"></i> WhatsApp
+                                        </a>
+                                        <a href="tel:+573133662322" class="btn-hotel">
+                                            <i class="fas fa-phone"></i> Llamar
+                                        </a>
+                                        <a href="#" class="btn-hotel disabled">
+                                            <i class="fas fa-envelope"></i> Email
+                                        </a>
+                                        <a href="https://maps.google.com/?q=Hotel+Campeones+Montaña+Combita" target="_blank" class="btn-hotel">
+                                            <i class="fas fa-map"></i> Mapa
+                                        </a>
+                                    </div>
+                                    <div class="hotel-social">
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-tiktok"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hotel 8: Hospedaje Familiar Apartaestudio De La Montaña -->
+                            <div class="hotel-card">
+                                <div class="hotel-gallery">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Apartaestudio De La Montaña">
+                                    <div class="hotel-badge">Apartaestudio</div>
+                                    <div class="hotel-price-badge">$30.000 - $40.000</div>
+                                </div>
+                                <div class="hotel-content">
+                                    <h3>Hospedaje Familiar Apartaestudio De La Montaña</h3>
+                                    <div class="hotel-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Cómbita Centro
+                                    </div>
+                                    <div class="hotel-rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <span class="rating-text">4.0 - Muy bueno</span>
+                                    </div>
+                                    <p class="hotel-description">
+                                        Apartaestudio familiar con 3 habitaciones, 4 camas, sala y baño. Capacidad para 10 personas. Adulto: $40.000, Niño: $30.000.
+                                    </p>
+                                    <div class="hotel-services">
+                                        <span class="service-tag"><i class="fas fa-home"></i> Apartaestudio</span>
+                                        <span class="service-tag"><i class="fas fa-couch"></i> Sala</span>
+                                        <span class="service-tag"><i class="fas fa-bed"></i> 3 habitaciones</span>
+                                        <span class="service-tag"><i class="fas fa-users"></i> 10 personas</span>
+                                    </div>
+                                    <div class="hotel-actions">
+                                        <a href="#" class="btn-hotel disabled">
+                                            <i class="fab fa-whatsapp"></i> WhatsApp
+                                        </a>
+                                        <a href="tel:+573133662322" class="btn-hotel">
+                                            <i class="fas fa-phone"></i> Llamar
+                                        </a>
+                                        <a href="#" class="btn-hotel disabled">
+                                            <i class="fas fa-envelope"></i> Email
+                                        </a>
+                                        <a href="https://maps.google.com/?q=Apartaestudio+De+La+Montaña+Combita" target="_blank" class="btn-hotel">
+                                            <i class="fas fa-map"></i> Mapa
+                                        </a>
+                                    </div>
+                                    <div class="hotel-social">
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-tiktok"></i>
+                                        </a>
+                                        <a href="#" class="disabled">
+                                            <i class="fab fa-youtube"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -688,7 +970,7 @@
                             <!-- Hotel Campestre Los Andes -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/iglesia.jpg" alt="Hotel Campestre Los Andes">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hotel Campestre Los Andes">
                                     <div class="hotel-badge">Hotel</div>
                                     <div class="hotel-price-badge">Premium</div>
                                 </div>
@@ -739,7 +1021,7 @@
                             <!-- Posada El Frailejón -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/La Peña.jpg" alt="Posada El Frailejón">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Posada El Frailejón">
                                     <div class="hotel-badge">Posada Rural</div>
                                     <div class="hotel-price-badge">Económico</div>
                                 </div>
@@ -790,7 +1072,7 @@
                             <!-- Glamping Bosque Encantado -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/montaña cordi.jpg" alt="Glamping Bosque Encantado">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Glamping Bosque Encantado">
                                     <div class="hotel-badge">Glamping</div>
                                     <div class="hotel-price-badge">Premium</div>
                                 </div>
@@ -841,7 +1123,7 @@
                             <!-- Repetir solo los campings -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/el tilin.JPG" alt="Camping El Páramo">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Camping El Páramo">
                                     <div class="hotel-badge">Camping</div>
                                     <div class="hotel-price-badge">Económico</div>
                                 </div>
@@ -1049,25 +1331,82 @@
     <script src="../assets/js/vendor/tab-accordion.js"></script>
     <script src="../assets/js/vendor/progress.js"></script>
     <script>
+        // Variable global para almacenar todos los hospedajes
+        let todosLosHospedajes = [];
+
         // Asegurar que los tabs funcionen correctamente
         $(document).ready(function() {
-            // Reinicializar los tabs si es necesario
+            // Mapa de tabs a categorías
+            const tabCategorias = {
+                0: 'todos',    // Todos
+                1: 'hotel',    // Hoteles
+                2: 'posada',   // Posadas
+                3: 'glamping', // Glamping
+                4: 'camping'   // Camping
+            };
+
+            // Reinicializar los tabs
             $('.tab-box').each(function() {
                 var tabBox = $(this);
                 tabBox.find('.tab-nav li').on('click', function(e) {
                     e.preventDefault();
                     var index = $(this).index();
 
-                    // Remover clase activa de todos los tabs y paneles
+                    // Remover clase activa de todos los tabs
                     tabBox.find('.tab-nav li').removeClass('active');
-                    tabBox.find('.panel').removeClass('active');
-
-                    // Agregar clase activa al tab y panel seleccionado
                     $(this).addClass('active');
-                    tabBox.find('.panel').eq(index).addClass('active');
+
+                    // Filtrar hospedajes por categoría
+                    const categoria = tabCategorias[index];
+                    filtrarHospedajes(categoria);
                 });
             });
         });
+
+        // Función para filtrar hospedajes por categoría
+        function filtrarHospedajes(categoria) {
+            if (!todosLosHospedajes || todosLosHospedajes.length === 0) {
+                return;
+            }
+
+            let hospedajesFiltrados;
+            if (categoria === 'todos') {
+                hospedajesFiltrados = todosLosHospedajes;
+            } else {
+                hospedajesFiltrados = todosLosHospedajes.filter(h => {
+                    // Verificar por el campo categoria
+                    if (h.categoria) {
+                        return h.categoria === categoria;
+                    }
+                    // Fallback: verificar por el campo tipo
+                    const tipo = (h.tipo || '').toLowerCase();
+                    if (categoria === 'hotel') {
+                        return tipo.includes('hotel') || tipo.includes('aparta');
+                    } else if (categoria === 'posada') {
+                        return tipo.includes('posada') || tipo.includes('hospedaje');
+                    } else if (categoria === 'glamping') {
+                        return tipo.includes('glamping') || tipo.includes('domo');
+                    } else if (categoria === 'camping') {
+                        return tipo.includes('camping') || tipo.includes('carpa');
+                    }
+                    return false;
+                });
+            }
+
+            // Si no hay resultados filtrados, mostrar mensaje
+            const contenedor = document.getElementById('hospedajes-dinamicos');
+            if (hospedajesFiltrados.length === 0) {
+                contenedor.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+                        <i class="fas fa-bed" style="font-size: 48px; color: #ccc; margin-bottom: 15px; display: block;"></i>
+                        <h3 style="color: #666; margin-bottom: 10px;">No hay hospedajes en esta categoría</h3>
+                        <p style="color: #999;">Pronto agregaremos más opciones de alojamiento.</p>
+                    </div>
+                `;
+            } else {
+                renderizarHospedajes(hospedajesFiltrados, 'hospedajes-dinamicos');
+            }
+        }
     </script>
     <!-- Script de integración con la API del backend -->
     <script src="./api-config.js"></script>
@@ -1085,68 +1424,99 @@
                     try {
                         servicios = JSON.parse(servicios);
                     } catch (e) {
-                        servicios = [];
+                        servicios = servicios.split(',').map(s => s.trim()).filter(s => s);
                     }
                 }
+                if (!Array.isArray(servicios)) servicios = [];
 
-                // Parsear imágenes si es string
-                let imagenes = hospedaje.imagenes;
-                if (typeof imagenes === 'string') {
-                    try {
-                        imagenes = JSON.parse(imagenes);
-                    } catch (e) {
-                        imagenes = [];
-                    }
-                }
+                // Imagen
+                const imagen = hospedaje.imagen || '../assets/images/hospedajes/placeholder-hotel.svg';
 
-                const imagen = imagenes && imagenes[0] ? imagenes[0] : 'imagenes/hotel-default.jpg';
-
-                // Determinar badge de precio
-                let priceBadge = 'Económico';
-                if (hospedaje.precio_desde > 200000) priceBadge = 'Premium';
-                else if (hospedaje.precio_desde > 100000) priceBadge = 'Estándar';
+                // Badge de precio
+                const priceBadge = hospedaje.precio_badge || hospedaje.tarifas_texto || 'Estándar';
 
                 // Generar estrellas
+                const rating = parseFloat(hospedaje.calificacion) || 4.0;
+                const fullStars = Math.floor(rating);
+                const hasHalf = rating % 1 >= 0.5;
                 let estrellas = '';
-                const rating = Math.floor(hospedaje.calificacion || 4);
                 for (let i = 0; i < 5; i++) {
-                    if (i < rating) {
+                    if (i < fullStars) {
                         estrellas += '<i class="fas fa-star"></i>';
+                    } else if (i === fullStars && hasHalf) {
+                        estrellas += '<i class="fas fa-star-half-alt"></i>';
                     } else {
                         estrellas += '<i class="far fa-star"></i>';
                     }
                 }
 
-                // Generar tags de servicios (máximo 4)
-                let serviciosTags = '';
-                if (servicios && servicios.length > 0) {
-                    servicios.slice(0, 4).forEach(servicio => {
-                        let icono = 'fas fa-check';
-                        if (servicio.toLowerCase().includes('wifi')) icono = 'fas fa-wifi';
-                        else if (servicio.toLowerCase().includes('desayuno')) icono = 'fas fa-utensils';
-                        else if (servicio.toLowerCase().includes('parque') || servicio.toLowerCase().includes('parking')) icono = 'fas fa-parking';
-                        else if (servicio.toLowerCase().includes('piscina') || servicio.toLowerCase().includes('pool')) icono = 'fas fa-swimming-pool';
-                        else if (servicio.toLowerCase().includes('spa')) icono = 'fas fa-spa';
-                        else if (servicio.toLowerCase().includes('gym') || servicio.toLowerCase().includes('gimnasio')) icono = 'fas fa-dumbbell';
-                        else if (servicio.toLowerCase().includes('chimenea') || servicio.toLowerCase().includes('fire')) icono = 'fas fa-fire';
-                        else if (servicio.toLowerCase().includes('jacuzzi')) icono = 'fas fa-hot-tub';
+                // Rating text
+                let ratingText = 'Bueno';
+                if (rating >= 4.5) ratingText = 'Excelente';
+                else if (rating >= 4.0) ratingText = 'Muy bueno';
 
-                        serviciosTags += `<span class="service-tag"><i class="${icono}"></i> ${servicio}</span>`;
-                    });
+                // Generar tags de servicios
+                let serviciosTags = '';
+                const iconosServicios = {
+                    'wifi': 'fa-wifi', 'tv': 'fa-tv', 'cable': 'fa-tv',
+                    'parqueadero': 'fa-parking', 'parking': 'fa-parking',
+                    'agua caliente': 'fa-shower', 'ducha': 'fa-shower',
+                    'cocina': 'fa-utensils', 'desayuno': 'fa-coffee',
+                    'jardín': 'fa-tree', 'spa': 'fa-spa',
+                    'jacuzzi': 'fa-hot-tub', 'chimenea': 'fa-fire',
+                    'habitacion': 'fa-bed', 'cama': 'fa-bed',
+                    'baño': 'fa-shower', 'campestre': 'fa-tree'
+                };
+
+                servicios.slice(0, 4).forEach(servicio => {
+                    let icono = 'fa-check';
+                    const sLower = servicio.toLowerCase();
+                    for (const [key, value] of Object.entries(iconosServicios)) {
+                        if (sLower.includes(key)) {
+                            icono = value;
+                            break;
+                        }
+                    }
+                    serviciosTags += `<span class="service-tag"><i class="fas ${icono}"></i> ${servicio}</span>`;
+                });
+
+                // Agregar tags de habitaciones/capacidad si existen
+                if (hospedaje.habitaciones) {
+                    serviciosTags += `<span class="service-tag"><i class="fas fa-bed"></i> ${hospedaje.habitaciones} hab.</span>`;
+                }
+                if (hospedaje.capacidad) {
+                    serviciosTags += `<span class="service-tag"><i class="fas fa-users"></i> ${hospedaje.capacidad} pers.</span>`;
                 }
 
-                // Formatear precio
-                const precioFormateado = new Intl.NumberFormat('es-CO', {
-                    style: 'currency',
-                    currency: 'COP',
-                    minimumFractionDigits: 0,
-                    maximumFractionDigits: 0
-                }).format(hospedaje.precio_desde || 0);
+                // Descripción
+                let descripcion = hospedaje.descripcion || '';
+                if (!descripcion && hospedaje.servicios && typeof hospedaje.servicios === 'string') {
+                    descripcion = hospedaje.servicios;
+                }
+                if (!descripcion) {
+                    descripcion = `${hospedaje.habitaciones || ''} habitaciones con capacidad para ${hospedaje.capacidad || ''} personas.`;
+                }
+
+                // Redes sociales
+                const redes = hospedaje.redes_sociales || {};
+                const fbClass = redes.facebook ? '' : 'disabled';
+                const igClass = redes.instagram ? '' : 'disabled';
+                const ttClass = redes.tiktok ? '' : 'disabled';
+                const ytClass = redes.youtube ? '' : 'disabled';
+                const fbUrl = redes.facebook ? (redes.facebook.startsWith('http') ? redes.facebook : `https://facebook.com/${redes.facebook}`) : '#';
+                const igUrl = redes.instagram ? (redes.instagram.startsWith('http') ? redes.instagram : `https://instagram.com/${redes.instagram.replace('@', '')}`) : '#';
+
+                // WhatsApp y teléfono
+                const hasWa = hospedaje.whatsapp && hospedaje.whatsapp.trim();
+                const hasTel = hospedaje.telefono && hospedaje.telefono.trim();
+                const hasEmail = hospedaje.correo && hospedaje.correo.trim();
+                const waNum = hasWa ? hospedaje.whatsapp.replace(/\D/g, '') : '';
+                const telNum = hasTel ? hospedaje.telefono.replace(/\D/g, '') : '';
 
                 html += `
                     <div class="hotel-card">
                         <div class="hotel-gallery">
-                            <img src="${imagen}" alt="${hospedaje.nombre}" onerror="this.src='../assets/images/hotel-default.jpg'">
+                            <img src="${imagen}" alt="${hospedaje.nombre}" onerror="this.src='../assets/images/hospedajes/placeholder-hotel.svg'">
                             <div class="hotel-badge">${hospedaje.tipo || 'Hospedaje'}</div>
                             <div class="hotel-price-badge">${priceBadge}</div>
                         </div>
@@ -1157,29 +1527,30 @@
                                 ${hospedaje.direccion || 'Cómbita, Boyacá'}
                             </div>
                             <div class="hotel-rating">
-                                <div class="stars">
-                                    ${estrellas}
-                                </div>
-                                <span class="rating-text">${hospedaje.calificacion || 4.0} - ${rating >= 4.5 ? 'Excelente' : rating >= 4 ? 'Muy bueno' : 'Bueno'}</span>
+                                <div class="stars">${estrellas}</div>
+                                <span class="rating-text">${rating.toFixed(1)} - ${ratingText}</span>
                             </div>
-                            <p class="hotel-description">
-                                ${hospedaje.descripcion ? hospedaje.descripcion.substring(0, 150) + '...' : 'Hermoso hospedaje en Cómbita con todas las comodidades.'}
-                            </p>
-                            <div class="hotel-services">
-                                ${serviciosTags}
-                            </div>
+                            <p class="hotel-description">${descripcion}</p>
+                            <div class="hotel-services">${serviciosTags}</div>
                             <div class="hotel-actions">
-                                ${hospedaje.whatsapp ? `
-                                <a href="https://wa.me/57${hospedaje.whatsapp.replace(/\D/g, '')}" target="_blank" class="btn-hotel primary">
-                                    <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
-                                </a>` : ''}
-                                ${hospedaje.telefono ? `
-                                <a href="tel:+57${hospedaje.telefono.replace(/\D/g, '')}" class="btn-hotel">
-                                    <i class="fas fa-phone"></i> Llamar
-                                </a>` : ''}
-                                <a href="https://maps.google.com/?q=${encodeURIComponent(hospedaje.nombre + ' Cómbita')}" target="_blank" class="btn-hotel">
-                                    <i class="fas fa-map"></i> Ver Mapa
+                                <a href="${hasWa ? 'https://wa.me/57' + waNum : '#'}" target="${hasWa ? '_blank' : ''}" class="btn-hotel ${hasWa ? 'primary' : 'disabled'}">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
                                 </a>
+                                <a href="${hasTel ? 'tel:+57' + telNum : '#'}" class="btn-hotel ${hasTel ? '' : 'disabled'}">
+                                    <i class="fas fa-phone"></i> Llamar
+                                </a>
+                                <a href="${hasEmail ? 'mailto:' + hospedaje.correo : '#'}" class="btn-hotel ${hasEmail ? '' : 'disabled'}">
+                                    <i class="fas fa-envelope"></i> Email
+                                </a>
+                                <a href="https://maps.google.com/?q=${encodeURIComponent(hospedaje.nombre + ' Cómbita Boyacá')}" target="_blank" class="btn-hotel">
+                                    <i class="fas fa-map"></i> Mapa
+                                </a>
+                            </div>
+                            <div class="hotel-social">
+                                <a href="${fbUrl}" target="_blank" class="facebook ${fbClass}"><i class="fab fa-facebook-f"></i></a>
+                                <a href="${igUrl}" target="_blank" class="instagram ${igClass}"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="${ttClass}"><i class="fab fa-tiktok"></i></a>
+                                <a href="#" class="${ytClass}"><i class="fab fa-youtube"></i></a>
                             </div>
                         </div>
                     </div>
@@ -1191,7 +1562,7 @@
 
         // Cargar hospedajes al iniciar la página
         document.addEventListener('DOMContentLoaded', function() {
-            const API_URL = window.API_CONFIG ? window.API_CONFIG.API_URL : 'http://localhost:3000/api';
+            const API_URL = 'http://localhost:3001/api';
 
             // Mostrar mensaje de carga
             const dynamicContainer = document.getElementById('hospedajes-dinamicos');
@@ -1200,16 +1571,29 @@
             }
 
             // Cargar hospedajes desde el backend
-            fetch(`${API_URL}/hospedajes?activo=true`)
+            fetch(`${API_URL}/hoteles`)
                 .then(response => response.json())
-                .then(data => {
-                    if (data.success && data.data && data.data.length > 0) {
-                        console.log('Hospedajes cargados:', data.data.length);
-                        renderizarHospedajes(data.data, 'hospedajes-dinamicos');
+                .then(hoteles => {
+                    // La API devuelve directamente el array
+                    if (Array.isArray(hoteles) && hoteles.length > 0) {
+                        // Filtrar solo activos
+                        const activos = hoteles.filter(h => h.activo !== false);
+                        console.log('Hospedajes cargados:', activos.length);
+
+                        // Guardar en variable global para filtros
+                        todosLosHospedajes = activos;
+
+                        // Renderizar todos inicialmente
+                        renderizarHospedajes(activos, 'hospedajes-dinamicos');
 
                         // Ocultar hospedajes estáticos
                         const staticHotels = document.getElementById('hospedajes-estaticos');
                         if (staticHotels) staticHotels.style.display = 'none';
+
+                        // Ocultar los otros paneles de tabs (usamos solo dinámicos)
+                        document.querySelectorAll('.accommodation-tabs .panel').forEach((panel, index) => {
+                            if (index > 0) panel.style.display = 'none';
+                        });
                     } else {
                         // Si no hay datos, mostrar los estáticos
                         mostrarHospedajesEstaticos();

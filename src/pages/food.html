@@ -134,21 +134,63 @@
             background: #567760;
             border-color: #567760;
         }
+        /* Estilos para botones deshabilitados */
+        .restaurant-card .btn-action.disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+            pointer-events: none;
+            background: #fafafa;
+            color: #bbb;
+            border-color: #e5e5e5;
+        }
+        .restaurant-card .btn-action.disabled i {
+            color: #bbb;
+        }
+        /* Redes sociales restaurantes */
         .restaurant-card .social-links {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             padding: 15px 0 0;
             border-top: 1px solid #f0f0f0;
         }
         .restaurant-card .social-links a {
-            color: #999;
-            font-size: 18px;
-            transition: color 0.3s ease;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
         }
-        .restaurant-card .social-links a:hover.facebook { color: #3b5998; }
-        .restaurant-card .social-links a:hover.instagram { color: #e1306c; }
-        .restaurant-card .social-links a:hover.whatsapp { color: #25d366; }
+        .restaurant-card .social-links a:hover {
+            transform: translateY(-2px);
+        }
+        .restaurant-card .social-links a.facebook:hover {
+            background: #3b5998;
+            color: white;
+        }
+        .restaurant-card .social-links a.instagram:hover {
+            background: #e1306c;
+            color: white;
+        }
+        .restaurant-card .social-links a.tiktok:hover {
+            background: #000;
+            color: white;
+        }
+        .restaurant-card .social-links a.youtube:hover {
+            background: #ff0000;
+            color: white;
+        }
+        .restaurant-card .social-links a.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
 
         /* Grid responsive mejorado */
         .restaurants-grid {
@@ -278,6 +320,20 @@
                                     Muchos restaurantes conservan las recetas<br />ancestrales boyacenses, preparadas con productos<br />frescos de la región.
                                 </p>
                             </div>
+                            <div class="social-links">
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-4 anima">
@@ -289,6 +345,20 @@
                                     Varios establecimientos se abastecen<br />de las huertas locales, ofreciendo ingredientes<br />frescos y de temporada.
                                 </p>
                             </div>
+                            <div class="social-links">
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-4 anima">
@@ -299,6 +369,20 @@
                                 <p>
                                     Encontrarás lugares donde la comida<br />se prepara con dedicación, manteniendo<br />ese toque hogareño especial.
                                 </p>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -323,7 +407,7 @@
                             <div class="col-lg-6">
                                 <ul class="text-list text-list-image">
                                     <li>
-                                        <img src="../assets/images/La Peña.jpg" alt="Trucha del Páramo" />
+                                        <img src="../assets/images/restaurantes/placeholder-restaurant.svg" alt="Plato Típico" />
                                         <div class="content">
                                             <h3>Trucha Arcoíris</h3>
                                             <p>Especialidad de la región, cultivada en las aguas frías del páramo. Se prepara al ajillo, frita, asada o en salsa, acompañada de papa criolla y ensalada fresca.</p>
@@ -369,6 +453,20 @@
                                         </div>
                                     </li>
                                 </ul>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -424,6 +522,20 @@
                                     </li>
                                 </ul>
                             </div>
+                            <div class="social-links">
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="panel">
@@ -477,6 +589,20 @@
                                         </div>
                                     </li>
                                 </ul>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -532,6 +658,20 @@
                                     </li>
                                 </ul>
                             </div>
+                            <div class="social-links">
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -556,6 +696,20 @@
                                 <h4>Productos Locales</h4>
                                 <div class="counter" data-to="75" data-speed="4000" data-unit="%">75%</div>
                             </div>
+                            <div class="social-links">
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -574,22 +728,22 @@
 
                 <!-- Restaurantes estáticos (backup) -->
                 <div id="restaurantes-estaticos" class="restaurants-grid" style="display: none;">
-                    <!-- Restaurante 1 -->
+                    <!-- Restaurante 1: Piqueteadero El Maná -->
                     <div class="restaurant-card">
                         <div class="img-container">
-                            <img src="../assets/images/_MG_0840.jpg" alt="Restaurante El Páramo">
-                            <span class="badge-location">Centro</span>
+                            <img src="../assets/images/restaurantes/placeholder-restaurant.svg" alt="Piqueteadero El Maná">
+                            <span class="badge-location">Cómbita Centro</span>
                         </div>
                         <div class="card-content">
-                            <h3>Restaurante El Páramo</h3>
-                            <p class="specialty">Especialidad: Trucha y Cocido Boyacense</p>
+                            <h3>Piqueteadero El Maná</h3>
+                            <p class="specialty">Especialidad: Mute de mazorca, amadijos, costilla de cerdo</p>
                             <ul class="info-list">
-                                <li><i class="fas fa-clock"></i> Lun-Dom: 7:00 AM - 8:00 PM</li>
-                                <li><i class="fas fa-map-marker-alt"></i> Calle Principal #5-23, Centro</li>
-                                <li><i class="fas fa-utensils"></i> Cocina tradicional boyacense</li>
+                                <li><i class="fas fa-users"></i> Capacidad: 50 personas</li>
+                                <li><i class="fas fa-user"></i> Propietarios: Segundo y Daniel Sarmiento</li>
+                                <li><i class="fas fa-utensils"></i> Arepas, envueltos, picada (fines de semana)</li>
                             </ul>
                             <div class="action-buttons">
-                                <a href="https://wa.me/573133662322" target="_blank" class="btn-action btn-primary">
+                                <a href="#" class="btn-action disabled">
                                     <i class="fab fa-whatsapp"></i> WhatsApp
                                 </a>
                                 <a href="tel:+573133662322" class="btn-action">
@@ -598,244 +752,382 @@
                                 <a href="https://maps.google.com/?q=Combita+Boyaca+Centro" target="_blank" class="btn-action">
                                     <i class="fas fa-map"></i> Ubicación
                                 </a>
-                                <a href="#" class="btn-action">
-                                    <i class="fas fa-globe"></i> Sitio Web
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
                                 </a>
                             </div>
                             <div class="social-links">
-                                <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Restaurante 2 -->
+                    <!-- Restaurante 2: Cafetería La Gran Vía -->
                     <div class="restaurant-card">
                         <div class="img-container">
-                            <img src="../assets/images/x1300.jpg" alt="Asadero Doña Rosa">
-                            <span class="badge-location">Plaza Principal</span>
-                        </div>
-                        <div class="card-content">
-                            <h3>Asadero Doña Rosa</h3>
-                            <p class="specialty">Especialidad: Fritanga y Asados</p>
-                            <ul class="info-list">
-                                <li><i class="fas fa-clock"></i> Lun-Dom: 8:00 AM - 9:00 PM</li>
-                                <li><i class="fas fa-map-marker-alt"></i> Plaza Principal, Local 12</li>
-                                <li><i class="fas fa-utensils"></i> Carnes asadas y fritanga típica</li>
-                            </ul>
-                            <div class="action-buttons">
-                                <a href="https://wa.me/573105551234" target="_blank" class="btn-action btn-primary">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp
-                                </a>
-                                <a href="tel:+573105551234" class="btn-action">
-                                    <i class="fas fa-phone"></i> Llamar
-                                </a>
-                                <a href="https://maps.google.com/?q=Combita+Boyaca+Plaza" target="_blank" class="btn-action">
-                                    <i class="fas fa-map"></i> Ubicación
-                                </a>
-                                <a href="#" class="btn-action">
-                                    <i class="fas fa-globe"></i> Sitio Web
-                                </a>
-                            </div>
-                            <div class="social-links">
-                                <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Restaurante 3 -->
-                    <div class="restaurant-card">
-                        <div class="img-container">
-                            <img src="../assets/images/ROJO (1).JPG" alt="Fonda La Tradición">
-                            <span class="badge-location">Vereda San Rafael</span>
-                        </div>
-                        <div class="card-content">
-                            <h3>Fonda La Tradición</h3>
-                            <p class="specialty">Especialidad: Desayunos Típicos</p>
-                            <ul class="info-list">
-                                <li><i class="fas fa-clock"></i> Lun-Dom: 6:00 AM - 7:00 PM</li>
-                                <li><i class="fas fa-map-marker-alt"></i> Vereda San Rafael, Km 2</li>
-                                <li><i class="fas fa-utensils"></i> Changua, tamal y calentado</li>
-                            </ul>
-                            <div class="action-buttons">
-                                <a href="https://wa.me/573208885678" target="_blank" class="btn-action btn-primary">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp
-                                </a>
-                                <a href="tel:+573208885678" class="btn-action">
-                                    <i class="fas fa-phone"></i> Llamar
-                                </a>
-                                <a href="https://maps.google.com/?q=Combita+Boyaca+Vereda" target="_blank" class="btn-action">
-                                    <i class="fas fa-map"></i> Ubicación
-                                </a>
-                            </div>
-                            <div class="social-links">
-                                <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Restaurante 4 -->
-                    <div class="restaurant-card">
-                        <div class="img-container">
-                            <img src="../assets/images/ROJO (2).JPG" alt="Los Frailejones">
-                            <span class="badge-location">Vía al Páramo</span>
-                        </div>
-                        <div class="card-content">
-                            <h3>Restaurante Los Frailejones</h3>
-                            <p class="specialty">Especialidad: Sopas y Caldos</p>
-                            <ul class="info-list">
-                                <li><i class="fas fa-clock"></i> Lun-Dom: 7:00 AM - 6:00 PM</li>
-                                <li><i class="fas fa-map-marker-alt"></i> Km 5 Vía al Páramo</li>
-                                <li><i class="fas fa-utensils"></i> Mazamorra, cuchuco y ajiaco</li>
-                            </ul>
-                            <div class="action-buttons">
-                                <a href="https://wa.me/573157779012" target="_blank" class="btn-action btn-primary">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp
-                                </a>
-                                <a href="tel:+573157779012" class="btn-action">
-                                    <i class="fas fa-phone"></i> Llamar
-                                </a>
-                                <a href="https://maps.google.com/?q=Combita+Boyaca+Paramo" target="_blank" class="btn-action">
-                                    <i class="fas fa-map"></i> Ubicación
-                                </a>
-                                <a href="#" class="btn-action">
-                                    <i class="fas fa-globe"></i> Sitio Web
-                                </a>
-                            </div>
-                            <div class="social-links">
-                                <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-                                <a href="https://wa.me/573157779012" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Restaurante 5 -->
-                    <div class="restaurant-card">
-                        <div class="img-container">
-                            <img src="../assets/images/ROJO (3).jpg" alt="Mirador del Valle">
-                            <span class="badge-location">Mirador</span>
-                        </div>
-                        <div class="card-content">
-                            <h3>Mirador del Valle</h3>
-                            <p class="specialty">Especialidad: Comida Rápida Típica</p>
-                            <ul class="info-list">
-                                <li><i class="fas fa-clock"></i> Lun-Dom: 8:00 AM - 5:00 PM</li>
-                                <li><i class="fas fa-map-marker-alt"></i> Mirador Turístico, Km 3</li>
-                                <li><i class="fas fa-utensils"></i> Empanadas, arepas rellenas</li>
-                            </ul>
-                            <div class="action-buttons">
-                                <a href="https://wa.me/573189993456" target="_blank" class="btn-action btn-primary">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp
-                                </a>
-                                <a href="tel:+573189993456" class="btn-action">
-                                    <i class="fas fa-phone"></i> Llamar
-                                </a>
-                                <a href="https://maps.google.com/?q=Combita+Boyaca+Mirador" target="_blank" class="btn-action">
-                                    <i class="fas fa-map"></i> Ubicación
-                                </a>
-                            </div>
-                            <div class="social-links">
-                                <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Restaurante 6 -->
-                    <div class="restaurant-card">
-                        <div class="img-container">
-                            <img src="../assets/images/La Peña.jpg" alt="Café del Pueblo">
+                            <img src="../assets/images/restaurantes/placeholder-restaurant.svg" alt="Cafetería La Gran Vía">
                             <span class="badge-location">Centro</span>
                         </div>
                         <div class="card-content">
-                            <h3>Café del Pueblo</h3>
-                            <p class="specialty">Especialidad: Café y Repostería</p>
+                            <h3>Cafetería La Gran Vía</h3>
+                            <p class="specialty">Especialidad: Desayunos tradicionales</p>
                             <ul class="info-list">
-                                <li><i class="fas fa-clock"></i> Lun-Sáb: 6:30 AM - 8:00 PM</li>
-                                <li><i class="fas fa-map-marker-alt"></i> Carrera 3 #4-15, Centro</li>
-                                <li><i class="fas fa-utensils"></i> Café especial, postres caseros</li>
+                                <li><i class="fas fa-users"></i> Capacidad: 50 personas</li>
+                                <li><i class="fas fa-map-marker-alt"></i> Calle 2A # 6-17</li>
+                                <li><i class="fas fa-utensils"></i> Caldos con costilla, chocolate, tamal, almojábana</li>
+                                <li><i class="fas fa-user"></i> Propietario: Héctor Piratoba y familia</li>
                             </ul>
                             <div class="action-buttons">
-                                <a href="https://wa.me/573114447890" target="_blank" class="btn-action btn-primary">
+                                <a href="#" class="btn-action disabled">
                                     <i class="fab fa-whatsapp"></i> WhatsApp
                                 </a>
-                                <a href="tel:+573114447890" class="btn-action">
+                                <a href="tel:+573133662322" class="btn-action">
+                                    <i class="fas fa-phone"></i> Llamar
+                                </a>
+                                <a href="https://maps.google.com/?q=Combita+Boyaca+Calle+2A+6-17" target="_blank" class="btn-action">
+                                    <i class="fas fa-map"></i> Ubicación
+                                </a>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Restaurante 3: Salsa y Picante -->
+                    <div class="restaurant-card">
+                        <div class="img-container">
+                            <img src="../assets/images/restaurantes/placeholder-restaurant.svg" alt="Salsa y Picante">
+                            <span class="badge-location">Centro</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Restaurante y Asadero Salsa y Picante</h3>
+                            <p class="specialty">Especialidad: Pollo asado y churrasco</p>
+                            <ul class="info-list">
+                                <li><i class="fas fa-clock"></i> 10:00 AM - 8:00 PM</li>
+                                <li><i class="fas fa-map-marker-alt"></i> Calle 2 # 6-08</li>
+                                <li><i class="fas fa-phone"></i> 320 475 3479</li>
+                                <li><i class="fas fa-users"></i> Capacidad: 60 personas</li>
+                                <li><i class="fas fa-user"></i> Propietario: Jhon Barragán</li>
+                            </ul>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/573204753479" target="_blank" class="btn-action btn-primary">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </a>
+                                <a href="tel:+573204753479" class="btn-action">
+                                    <i class="fas fa-phone"></i> Llamar
+                                </a>
+                                <a href="https://maps.google.com/?q=Combita+Boyaca+Calle+2+6-08" target="_blank" class="btn-action">
+                                    <i class="fas fa-map"></i> Ubicación
+                                </a>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Restaurante 4: Don Valentín -->
+                    <div class="restaurant-card">
+                        <div class="img-container">
+                            <img src="../assets/images/restaurantes/placeholder-restaurant.svg" alt="Asadero Don Valentín">
+                            <span class="badge-location">Centro</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Asadero Don Valentín</h3>
+                            <p class="specialty">Especialidad: Picada, pepitoria, mute</p>
+                            <ul class="info-list">
+                                <li><i class="fas fa-clock"></i> Mar-Dom: 10:00 AM - 4:00 PM</li>
+                                <li><i class="fas fa-map-marker-alt"></i> Calle 2 # 5-53</li>
+                                <li><i class="fas fa-phone"></i> 312 351 1300</li>
+                                <li><i class="fas fa-users"></i> Capacidad: 100 personas</li>
+                                <li><i class="fas fa-utensils"></i> Sopa de maíz, cuchuco, costilla de cerdo</li>
+                            </ul>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/573123511300" target="_blank" class="btn-action btn-primary">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </a>
+                                <a href="tel:+573123511300" class="btn-action">
+                                    <i class="fas fa-phone"></i> Llamar
+                                </a>
+                                <a href="https://maps.google.com/?q=Combita+Boyaca+Calle+2+5-53" target="_blank" class="btn-action">
+                                    <i class="fas fa-map"></i> Ubicación
+                                </a>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Restaurante 5: Las Delicias de Nena -->
+                    <div class="restaurant-card">
+                        <div class="img-container">
+                            <img src="../assets/images/restaurantes/placeholder-restaurant.svg" alt="Las Delicias de Nena">
+                            <span class="badge-location">Centro</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Restaurante Las Delicias de Nena</h3>
+                            <p class="specialty">Especialidad: Almuerzos ejecutivos</p>
+                            <ul class="info-list">
+                                <li><i class="fas fa-clock"></i> Lun-Lun: 11:00 AM - 4:30 PM</li>
+                                <li><i class="fas fa-map-marker-alt"></i> Calle 2 # 3-35</li>
+                                <li><i class="fas fa-phone"></i> 320 210 7496</li>
+                                <li><i class="fas fa-users"></i> Capacidad: 50 personas</li>
+                                <li><i class="fas fa-user"></i> Propietaria: Luz Elena González</li>
+                            </ul>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/573202107496" target="_blank" class="btn-action btn-primary">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </a>
+                                <a href="tel:+573202107496" class="btn-action">
+                                    <i class="fas fa-phone"></i> Llamar
+                                </a>
+                                <a href="https://maps.google.com/?q=Combita+Boyaca+Calle+2+3-35" target="_blank" class="btn-action">
+                                    <i class="fas fa-map"></i> Ubicación
+                                </a>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Restaurante 6: La Gran Gallina -->
+                    <div class="restaurant-card">
+                        <div class="img-container">
+                            <img src="../assets/images/restaurantes/placeholder-restaurant.svg" alt="La Gran Gallina">
+                            <span class="badge-location">Centro</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Restaurante La Gran Gallina</h3>
+                            <p class="specialty">Especialidad: Combo de gallina cocida</p>
+                            <ul class="info-list">
+                                <li><i class="fas fa-clock"></i> Lun-Lun: 8:00 AM - 3:30 PM</li>
+                                <li><i class="fas fa-map-marker-alt"></i> Calle 2 # 3-34</li>
+                                <li><i class="fas fa-phone"></i> 320 358 0435</li>
+                                <li><i class="fas fa-users"></i> Capacidad: 30 personas</li>
+                                <li><i class="fas fa-user"></i> Propietaria: Dilia Esperanza Aunta Díaz</li>
+                            </ul>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/573203580435" target="_blank" class="btn-action btn-primary">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </a>
+                                <a href="tel:+573203580435" class="btn-action">
+                                    <i class="fas fa-phone"></i> Llamar
+                                </a>
+                                <a href="https://maps.google.com/?q=Combita+Boyaca+Calle+2+3-34" target="_blank" class="btn-action">
+                                    <i class="fas fa-map"></i> Ubicación
+                                </a>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Restaurante 7: Mastochocolate -->
+                    <div class="restaurant-card">
+                        <div class="img-container">
+                            <img src="../assets/images/restaurantes/placeholder-restaurant.svg" alt="Mastochocolate">
+                            <span class="badge-location">Centro</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Mastochocolate</h3>
+                            <p class="specialty">Especialidad: Postres, repostería, bar</p>
+                            <ul class="info-list">
+                                <li><i class="fas fa-clock"></i> L-V: 2:00 PM - 8:00 PM / Fines de semana: 11:00 AM - 8:00 PM</li>
+                                <li><i class="fas fa-phone"></i> 310 553 9109</li>
+                                <li><i class="fas fa-users"></i> Capacidad: 20 personas</li>
+                                <li><i class="fas fa-user"></i> Propietaria: Edelmira Vásquez</li>
+                                <li><i class="fas fa-utensils"></i> Desayunos y postres artesanales</li>
+                            </ul>
+                            <div class="action-buttons">
+                                <a href="https://wa.me/573105539109" target="_blank" class="btn-action btn-primary">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </a>
+                                <a href="tel:+573105539109" class="btn-action">
                                     <i class="fas fa-phone"></i> Llamar
                                 </a>
                                 <a href="https://maps.google.com/?q=Combita+Boyaca+Centro" target="_blank" class="btn-action">
                                     <i class="fas fa-map"></i> Ubicación
                                 </a>
-                                <a href="#" class="btn-action">
-                                    <i class="fas fa-globe"></i> Sitio Web
-                                </a>
                             </div>
                             <div class="social-links">
-                                <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Restaurante 7 -->
+                    <!-- Restaurante 8: La Mazorcada -->
                     <div class="restaurant-card">
                         <div class="img-container">
-                            <img src="../assets/images/montaña cordi.jpg" alt="El Fogón Campesino">
-                            <span class="badge-location">Vereda La Concepción</span>
+                            <img src="../assets/images/restaurantes/placeholder-restaurant.svg" alt="La Mazorcada">
+                            <span class="badge-location">Centro</span>
                         </div>
                         <div class="card-content">
-                            <h3>El Fogón Campesino</h3>
-                            <p class="specialty">Especialidad: Cocina de Leña</p>
+                            <h3>Piqueteadero y Restaurante La Mazorcada</h3>
+                            <p class="specialty">Especialidad: Mute de mazorca, mondongo</p>
                             <ul class="info-list">
-                                <li><i class="fas fa-clock"></i> Vie-Dom: 8:00 AM - 6:00 PM</li>
-                                <li><i class="fas fa-map-marker-alt"></i> Vereda La Concepción</li>
-                                <li><i class="fas fa-utensils"></i> Sancocho, gallina criolla</li>
+                                <li><i class="fas fa-clock"></i> Jue-Lun: 7:30 AM - 7:30 PM</li>
+                                <li><i class="fas fa-users"></i> Capacidad: 60 personas</li>
+                                <li><i class="fas fa-utensils"></i> Picada, gallina, almuerzos caseros, arepas</li>
                             </ul>
                             <div class="action-buttons">
-                                <a href="https://wa.me/573123456789" target="_blank" class="btn-action btn-primary">
+                                <a href="#" class="btn-action disabled">
                                     <i class="fab fa-whatsapp"></i> WhatsApp
                                 </a>
-                                <a href="tel:+573123456789" class="btn-action">
+                                <a href="tel:+573133662322" class="btn-action">
                                     <i class="fas fa-phone"></i> Llamar
                                 </a>
-                                <a href="https://maps.google.com/?q=Combita+La+Concepcion" target="_blank" class="btn-action">
+                                <a href="https://maps.google.com/?q=Combita+Boyaca+Centro" target="_blank" class="btn-action">
                                     <i class="fas fa-map"></i> Ubicación
                                 </a>
                             </div>
                             <div class="social-links">
-                                <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Restaurante 8 -->
+                    <!-- Restaurante 9: Fábrica de Almojábanas Hojana -->
                     <div class="restaurant-card">
                         <div class="img-container">
-                            <img src="../assets/images/favorita dos.jpg" alt="Parador Santa Bárbara">
-                            <span class="badge-location">Vía Tunja</span>
+                            <img src="../assets/images/restaurantes/placeholder-restaurant.svg" alt="Hojana">
+                            <span class="badge-location">Centro</span>
                         </div>
                         <div class="card-content">
-                            <h3>Parador Santa Bárbara</h3>
-                            <p class="specialty">Especialidad: Longaniza y Rellena</p>
+                            <h3>Fábrica de Almojábanas y Salón de Onces Hojana</h3>
+                            <p class="specialty">Especialidad: Almojábanas, arepas</p>
                             <ul class="info-list">
-                                <li><i class="fas fa-clock"></i> Lun-Dom: 7:00 AM - 7:00 PM</li>
-                                <li><i class="fas fa-map-marker-alt"></i> Km 2 Vía Tunja-Cómbita</li>
-                                <li><i class="fas fa-utensils"></i> Embutidos artesanales</li>
+                                <li><i class="fas fa-clock"></i> Lun-Lun: 7:30 AM - 5:00 PM</li>
+                                <li><i class="fas fa-map-marker-alt"></i> Calle 2 # 4-61</li>
+                                <li><i class="fas fa-users"></i> Capacidad: 20 personas</li>
+                                <li><i class="fas fa-utensils"></i> Bebidas calientes, productos de panadería</li>
                             </ul>
                             <div class="action-buttons">
-                                <a href="https://wa.me/573001234567" target="_blank" class="btn-action btn-primary">
+                                <a href="#" class="btn-action disabled">
                                     <i class="fab fa-whatsapp"></i> WhatsApp
                                 </a>
-                                <a href="tel:+573001234567" class="btn-action">
+                                <a href="tel:+573133662322" class="btn-action">
                                     <i class="fas fa-phone"></i> Llamar
                                 </a>
-                                <a href="https://maps.google.com/?q=Combita+Via+Tunja" target="_blank" class="btn-action">
+                                <a href="https://maps.google.com/?q=Combita+Boyaca+Calle+2+4-61" target="_blank" class="btn-action">
                                     <i class="fas fa-map"></i> Ubicación
                                 </a>
                             </div>
                             <div class="social-links">
-                                <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-                                <a href="https://wa.me/573001234567" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                                <a href="#" class="facebook disabled">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="instagram disabled">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="tiktok disabled">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="youtube disabled">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -909,25 +1201,70 @@
 
             let html = '';
             restaurantes.forEach(rest => {
-                const precio = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(rest.precio_promedio || 25000);
+                // Imagen
+                const imagen = rest.imagen || '../assets/images/restaurantes/placeholder-restaurant.svg';
+
+                // Redes sociales
+                const redes = rest.redes_sociales || {};
+                const fbClass = redes.facebook ? '' : 'disabled';
+                const igClass = redes.instagram ? '' : 'disabled';
+                const ttClass = redes.tiktok ? '' : 'disabled';
+                const ytClass = redes.youtube ? '' : 'disabled';
+
+                // WhatsApp y teléfono
+                const hasWa = rest.whatsapp && rest.whatsapp.trim();
+                const hasTel = rest.telefono && rest.telefono.trim();
+                const waNum = hasWa ? rest.whatsapp.replace(/\D/g, '') : '';
+                const telNum = hasTel ? rest.telefono.replace(/\D/g, '') : '';
+
+                // Construir lista de información
+                let infoList = '';
+                if (rest.horario) {
+                    infoList += `<li><i class="fas fa-clock"></i> ${rest.horario}</li>`;
+                }
+                if (rest.direccion) {
+                    infoList += `<li><i class="fas fa-map-marker-alt"></i> ${rest.direccion}</li>`;
+                }
+                if (rest.telefono) {
+                    infoList += `<li><i class="fas fa-phone"></i> ${rest.telefono}</li>`;
+                }
+                if (rest.aforo) {
+                    infoList += `<li><i class="fas fa-users"></i> Capacidad: ${rest.aforo} personas</li>`;
+                }
+                if (rest.propietario) {
+                    infoList += `<li><i class="fas fa-user"></i> Propietario: ${rest.propietario}</li>`;
+                }
+                if (rest.especialidad) {
+                    infoList += `<li><i class="fas fa-utensils"></i> ${rest.especialidad}</li>`;
+                }
 
                 html += `
                     <div class="restaurant-card">
                         <div class="img-container">
-                            <img src="${rest.imagen || 'imagenes/_MG_0840.jpg'}" alt="${rest.nombre}" onerror="this.src='../assets/images/_MG_0840.jpg'">
+                            <img src="${imagen}" alt="${rest.nombre}" onerror="this.src='../assets/images/restaurantes/placeholder-restaurant.svg'">
                             <span class="badge-location">${rest.ubicacion || 'Centro'}</span>
                         </div>
                         <div class="card-content">
                             <h3>${rest.nombre}</h3>
-                            <p class="cuisine-type"><i class="fas fa-utensils"></i> ${rest.tipo_cocina || 'Comida Típica'}</p>
-                            <p>${rest.descripcion || 'Deliciosa comida tradicional boyacense'}</p>
-                            <div class="price-tag">
-                                <span>Precio promedio: ${precio}</span>
+                            <p class="specialty">Especialidad: ${rest.especialidad || rest.tipo_cocina || 'Comida típica'}</p>
+                            <ul class="info-list">${infoList}</ul>
+                            <div class="action-buttons">
+                                <a href="${hasWa ? 'https://wa.me/57' + waNum : '#'}" target="${hasWa ? '_blank' : ''}" class="btn-action ${hasWa ? 'btn-primary' : 'disabled'}">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </a>
+                                <a href="${hasTel ? 'tel:+57' + telNum : '#'}" class="btn-action ${hasTel ? '' : 'disabled'}">
+                                    <i class="fas fa-phone"></i> Llamar
+                                </a>
+                                <a href="https://maps.google.com/?q=${encodeURIComponent(rest.nombre + ' Cómbita Boyacá' + (rest.direccion ? ' ' + rest.direccion : ''))}" target="_blank" class="btn-action">
+                                    <i class="fas fa-map"></i> Ubicación
+                                </a>
                             </div>
-                            <a href="${rest.whatsapp ? 'https://wa.me/57' + rest.whatsapp.replace(/\D/g, '') : 'tel:' + (rest.telefono || '')}"
-                               class="btn-action" target="_blank">
-                                <i class="fab fa-whatsapp"></i> Reservar
-                            </a>
+                            <div class="social-links">
+                                <a href="#" class="facebook ${fbClass}"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="instagram ${igClass}"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="tiktok ${ttClass}"><i class="fab fa-tiktok"></i></a>
+                                <a href="#" class="youtube ${ytClass}"><i class="fab fa-youtube"></i></a>
+                            </div>
                         </div>
                     </div>
                 `;
@@ -938,25 +1275,48 @@
 
         // Cargar restaurantes al iniciar
         document.addEventListener('DOMContentLoaded', function() {
-            const API_URL = window.API_CONFIG ? window.API_CONFIG.API_URL : 'http://localhost:3000/api';
+            const API_URL = 'http://localhost:3001/api';
 
-            fetch(`${API_URL}/restaurantes?activo=true`)
+            // Mostrar mensaje de carga
+            const dynamicContainer = document.getElementById('restaurantes-dinamicos');
+            if (dynamicContainer) {
+                dynamicContainer.innerHTML = '<div style="text-align: center; padding: 40px;"><i class="fas fa-spinner fa-spin" style="font-size: 30px; color: #BC6C25;"></i><p>Cargando restaurantes...</p></div>';
+            }
+
+            fetch(`${API_URL}/restaurantes`)
                 .then(response => response.json())
-                .then(data => {
-                    if (data.success && data.data && data.data.length > 0) {
-                        renderizarRestaurantes(data.data);
+                .then(restaurantes => {
+                    // La API devuelve directamente el array
+                    if (Array.isArray(restaurantes) && restaurantes.length > 0) {
+                        // Filtrar solo los activos
+                        const activos = restaurantes.filter(r => r.activo !== false);
+                        console.log('Restaurantes cargados:', activos.length);
+                        renderizarRestaurantes(activos);
+                        // Ocultar restaurantes estáticos
+                        const staticRest = document.getElementById('restaurantes-estaticos');
+                        if (staticRest) staticRest.style.display = 'none';
                     } else {
-                        // Mostrar estáticos si no hay dinámicos
-                        document.getElementById('restaurantes-estaticos').style.display = '';
-                        document.getElementById('restaurantes-dinamicos').style.display = 'none';
+                        // Mostrar estáticos si no hay datos
+                        mostrarRestaurantesEstaticos();
                     }
                 })
                 .catch(error => {
                     console.log('Usando restaurantes estáticos:', error);
-                    document.getElementById('restaurantes-estaticos').style.display = '';
-                    document.getElementById('restaurantes-dinamicos').style.display = 'none';
+                    mostrarRestaurantesEstaticos();
                 });
         });
+
+        function mostrarRestaurantesEstaticos() {
+            const dynamicContainer = document.getElementById('restaurantes-dinamicos');
+            const staticRest = document.getElementById('restaurantes-estaticos');
+
+            if (dynamicContainer) {
+                dynamicContainer.style.display = 'none';
+            }
+            if (staticRest) {
+                staticRest.style.display = '';
+            }
+        }
     </script>
 </body>
 </html>

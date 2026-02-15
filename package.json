@@ -2,9 +2,12 @@
   "name": "turismo-combita",
   "version": "1.0.0",
   "description": "Portal web oficial de turismo para Combitá, Boyacá",
-  "main": "src/pages/index.html",
+  "main": "backend/server.js",
   "scripts": {
     "dev": "live-server src/pages --port=3000",
+    "admin": "node backend/server.js",
+    "start": "node backend/server.js",
+    "dev:all": "concurrently \"npm run dev\" \"npm run admin\"",
     "build": "echo 'Build script pending implementation'",
     "test": "echo 'No tests configured yet'",
     "lint": "eslint src/assets/js/**/*.js",
@@ -30,13 +33,19 @@
   },
   "homepage": "https://github.com/SantiagoQuirogaMolina/turismo-coombita#readme",
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "eslint": "^8.50.0",
     "live-server": "^1.2.2",
     "prettier": "^3.0.3"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.3.2",
-    "jquery": "^3.7.1"
+    "cors": "^2.8.6",
+    "express": "^4.22.1",
+    "jquery": "^3.7.1",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^1.4.5-lts.1"
   },
   "engines": {
     "node": ">=14.0.0",

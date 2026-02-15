@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Events | Alpins | Mountain And Trekking Template</title>
+    <title>Eventos | Turismo Cómbita - Calendario de Festividades</title>
     <meta name="description" content="">
     <script src="../assets/js/vendor/jquery.min.js"></script>
     <script src="../assets/js/vendor/main.js"></script>
@@ -19,6 +19,881 @@
 <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/frailejon-theme.css">
     <link rel="icon" href="../assets/images/favicon.png">
+    <style>
+        /* Estilos personalizados para eventos - Animaciones Ultra Elegantes */
+        .events-list .grid-item {
+            margin-bottom: 0;
+            opacity: 0;
+            animation: elegantReveal 1s cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
+            position: relative;
+        }
+
+        .events-list .grid-item:nth-child(1) { animation-delay: 0.2s; }
+        .events-list .grid-item:nth-child(2) { animation-delay: 0.4s; }
+        .events-list .grid-item:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes elegantReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0) translateX(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(30px) translateX(-20px);
+            }
+        }
+
+        /* Separador elegante entre tarjetas */
+        .events-list .grid-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+        }
+
+        /* Eliminado el efecto de número para evitar overlays */
+        .events-list {
+            /* counter-reset desactivado */
+        }
+
+        /* Tarjetas de eventos - Diseño Ultra Elegante */
+        .event-card {
+            background: transparent;
+            overflow: visible;
+            box-shadow: none;
+            display: block;
+            position: relative;
+            margin-bottom: 100px;
+            padding-left: 30px;
+        }
+
+        /* Número de índice elegante */
+        .event-card::before {
+            content: attr(data-index);
+            position: absolute;
+            left: -20px;
+            top: 50px;
+            font-size: 120px;
+            font-weight: 100;
+            color: rgba(0,0,0,0.03);
+            font-family: 'Georgia', serif;
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .event-card-inner {
+            display: flex;
+            align-items: stretch;
+            min-height: 420px;
+            background: #ffffff;
+            border: none;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04),
+                        0 2px 4px rgba(0,0,0,0.04),
+                        0 4px 8px rgba(0,0,0,0.04);
+            position: relative;
+        }
+
+        .event-card:hover .event-card-inner {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.06),
+                        0 10px 20px rgba(0,0,0,0.06),
+                        0 20px 40px rgba(0,0,0,0.06);
+        }
+
+        /* Línea de acento lateral */
+        .event-card-inner::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #699073, #567760);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .event-card:hover .event-card-inner::before {
+            opacity: 1;
+        }
+
+        /* Imagen del evento - diseño premium */
+        .event-card .event-image {
+            width: 40%;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8f8f8, #f0f0f0);
+        }
+
+        /* Overlay gradiente sutil */
+        .event-card .event-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+            opacity: 0.5;
+            transition: opacity 0.4s ease;
+        }
+
+        .event-card:hover .event-image::after {
+            opacity: 0.8;
+        }
+
+        .event-card .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .event-card:hover .event-image img {
+            transform: scale(1.08);
+        }
+
+        .event-card .event-date-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            color: #2d3e33;
+            padding: 12px 20px;
+            font-weight: 600;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            z-index: 10;
+            transition: all 0.4s ease;
+            border-left: 3px solid #699073;
+        }
+
+        .event-card:hover .event-date-badge {
+            transform: translateX(5px);
+            background: rgba(255,255,255,1);
+        }
+
+        .event-card .event-content {
+            width: 60%;
+            padding: 55px 65px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(to right, #ffffff 0%, #fafafa 100%);
+        }
+
+        /* Detalle decorativo superior */
+        .event-card .event-content::before {
+            content: '';
+            position: absolute;
+            top: 55px;
+            right: 65px;
+            width: 30px;
+            height: 1px;
+            background: #699073;
+            opacity: 0.3;
+        }
+
+        .event-card .event-content h2 {
+            color: #1a1a1a;
+            font-size: 34px;
+            margin-bottom: 30px;
+            font-weight: 200;
+            position: relative;
+            letter-spacing: -1px;
+            line-height: 1.3;
+            transition: all 0.5s ease;
+            font-family: 'Georgia', serif;
+        }
+
+        .event-card:hover .event-content h2 {
+            color: #2d3e33;
+        }
+
+        .event-card .event-content h2:after {
+            /* Sin línea decorativa para diseño más limpio */
+            display: none;
+        }
+
+        .event-card .event-meta {
+            display: flex;
+            gap: 30px;
+            margin: 25px 0 30px 0;
+            flex-wrap: wrap;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .event-card:hover .event-meta {
+            opacity: 1;
+        }
+
+        .event-card .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #888;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+
+        .event-card .event-meta-item i {
+            color: #699073;
+            font-size: 14px;
+            opacity: 0.6;
+        }
+
+        .event-card .event-description {
+            color: #666;
+            line-height: 1.9;
+            margin-bottom: 30px;
+            flex-grow: 1;
+            font-size: 15px;
+            font-weight: 300;
+            position: relative;
+            padding-left: 20px;
+            opacity: 0.9;
+        }
+
+        .event-card .event-description::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -5px;
+            font-size: 40px;
+            color: #699073;
+            opacity: 0.1;
+            font-family: Georgia, serif;
+        }
+
+        .event-card .event-details {
+            background: transparent;
+            border-top: 1px solid #f0f0f0;
+            padding: 25px 0 0 0;
+            margin-top: auto;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .event-card .event-details p {
+            margin: 0;
+            color: #777;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .event-card .event-details p:hover {
+            color: #699073;
+            transform: translateX(3px);
+        }
+
+        .event-card .event-details p i {
+            color: #699073;
+            opacity: 0.6;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .event-card .event-details p:hover i {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .event-card .event-details strong {
+            color: #2d3e33;
+            font-weight: 500;
+            display: none;
+        }
+
+        /* Badges especiales - Diseño Premium */
+        .event-type-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 0;
+            font-size: 9px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: #999;
+            position: relative;
+        }
+
+        .event-type-badge::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: currentColor;
+            opacity: 0.15;
+        }
+
+        .event-type-religious {
+            color: #699073;
+        }
+
+        .event-type-cultural {
+            color: #567760;
+        }
+
+        .event-type-traditional {
+            color: #2d3e33;
+        }
+
+        /* Sección lateral - Sin hover agresivo */
+        .sidebar-event-box {
+            background: linear-gradient(135deg, #699073, #567760);
+            border-radius: 8px;
+            padding: 30px;
+            color: white;
+            text-align: center;
+            margin-bottom: 25px;
+            transition: none;
+        }
+
+        .sidebar-event-box:hover {
+            /* Sin efectos de hover */
+        }
+
+        .sidebar-event-box h3 {
+            color: white;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .sidebar-event-box p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+        }
+
+        .calendar-widget {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            margin-bottom: 25px;
+            border: 1px solid #f0f0f0;
+            transition: none;
+        }
+
+        .calendar-widget:hover {
+            /* Hover muy sutil - solo cambio de borde */
+            border-color: #e8e8e8;
+        }
+
+        .calendar-widget h4 {
+            color: #2d3e33;
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .calendar-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f5f5f5;
+            transition: none;
+        }
+
+        .calendar-item:last-child {
+            border-bottom: none;
+        }
+
+        .calendar-item:hover {
+            /* Sin hover, no es interactivo */
+            background: transparent;
+        }
+
+        .calendar-month {
+            background: #699073;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 11px;
+            min-width: 65px;
+            text-align: center;
+            margin-right: 15px;
+            letter-spacing: 0.3px;
+        }
+
+        .calendar-event {
+            color: #444;
+            font-size: 14px;
+            transition: none;
+        }
+
+        /* Responsive - Diseño Móvil Elegante */
+        @media (max-width: 991px) {
+            .event-card {
+                margin-bottom: 60px;
+            }
+
+            .event-card-inner {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .event-card .event-image {
+                width: 100%;
+                height: 280px;
+            }
+
+            .event-card .event-date-badge {
+                top: 20px;
+                left: 20px;
+                padding: 6px 20px 6px 15px;
+                font-size: 10px;
+            }
+
+            .event-card .event-content {
+                width: 100%;
+                padding: 35px 30px;
+            }
+
+            .event-card .event-content::before {
+                display: none;
+            }
+
+            .event-card .event-content h2 {
+                font-size: 26px;
+            }
+
+            .event-card:hover .event-card-inner {
+                transform: translateX(0) translateY(-3px);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            }
+
+            .event-card .event-meta {
+                gap: 20px;
+            }
+
+            .event-card .event-details {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .event-card .event-content {
+                padding: 25px 20px;
+            }
+
+            .event-card .event-content h2 {
+                font-size: 22px;
+            }
+
+            .event-card .event-description {
+                font-size: 14px;
+                padding-left: 15px;
+            }
+        }
+
+        /* Imágenes del sidebar - Sin hover agresivo */
+        .media-box-half {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: none;
+        }
+
+        .media-box-half:hover {
+            /* Sin efectos de hover */
+        }
+
+        /* Header mejorado */
+        .header-image h1 {
+            font-size: 48px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .header-image h2 {
+            font-size: 20px;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        /* Iconos de eventos */
+        .event-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #DDA15E20, #BC6C2520);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 15px;
+            flex-shrink: 0;
+            border: 1px solid rgba(221, 161, 94, 0.1);
+        }
+
+        .icon-box.boxed-area {
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            padding: 25px;
+            transition: none;
+            border: 1px solid #f0f0f0;
+        }
+
+        .icon-box.boxed-area:hover {
+            /* Sin efectos de hover molestos */
+            border-color: #e8e8e8;
+        }
+
+        .icon-box.boxed-area i {
+            color: #699073;
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .icon-box.boxed-area h3 {
+            color: #2d3e33;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .icon-box.boxed-area p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Mejoras de consistencia */
+        * {
+            outline: none;
+        }
+
+        /* Links sin hover agresivo */
+        .event-content a:hover {
+            color: #699073;
+            text-decoration: underline;
+        }
+
+        /* Mejora en la legibilidad */
+        .event-description {
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Sombras neutras sin colores */
+        .calendar-widget,
+        .icon-box.boxed-area {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .calendar-widget:hover,
+        .icon-box.boxed-area:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        /* Mejorar la accesibilidad visual */
+        .event-meta-item {
+            font-size: 13px;
+        }
+
+        /* Asegurar que los border-radius sean consistentes */
+        .event-card *,
+        .sidebar-event-box *,
+        .calendar-widget * {
+            border-radius: inherit;
+            max-border-radius: 8px;
+        }
+
+        /* Línea vertical eliminada para evitar overlays */
+
+        /* Mejora final - Botón "Ver más" elegante */
+        .event-more-link {
+            position: absolute;
+            bottom: 40px;
+            right: 60px;
+            color: #699073;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.5s ease;
+        }
+
+        .event-card:hover .event-more-link {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .event-more-link::after {
+            content: '→';
+            margin-left: 8px;
+            transition: margin 0.3s ease;
+        }
+
+        .event-more-link:hover::after {
+            margin-left: 15px;
+        }
+
+        /* Scroll suave para la página */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* OVERRIDE: Eliminar estilos de hover dorados del tema global */
+        .events-list .grid-item {
+            border: none !important;
+            box-shadow: none !important;
+            transform: none !important;
+            background: transparent !important;
+        }
+
+        .events-list .grid-item:hover {
+            border: none !important;
+            box-shadow: none !important;
+            transform: none !important;
+            background: transparent !important;
+        }
+
+        /* Asegurar que solo la tarjeta interna tenga efectos de hover */
+        .event-card {
+            border: none !important;
+            box-shadow: none !important;
+            background: transparent !important;
+        }
+
+        .event-card:hover {
+            border: none !important;
+            box-shadow: none !important;
+            background: transparent !important;
+        }
+
+        /* Los efectos de hover solo en event-card-inner */
+        .event-card-inner {
+            border: 1px solid #e0e0e0 !important;
+            background: #ffffff !important;
+        }
+
+        .event-card:hover .event-card-inner {
+            transform: translateY(-5px) !important;
+            border: 1px solid #d0d0d0 !important;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+            background: #ffffff !important;
+        }
+
+        /* Eliminar cualquier efecto de color dorado/amarillo */
+        .event-card *,
+        .event-card-inner *,
+        .grid-item * {
+            --color-dorado-frailejon: transparent !important;
+        }
+
+        /* Override adicional para eliminar TODOS los efectos del tema */
+        .events-list,
+        .events-list *,
+        .event-card,
+        .event-card *,
+        .grid-item,
+        .grid-item * {
+            --color-dorado-frailejon: transparent !important;
+            --color-dorado-hover: transparent !important;
+            --color-dorado-light: transparent !important;
+            --color-dorado-medium: transparent !important;
+        }
+
+        /* Forzar que no haya efectos before/after no deseados */
+        .event-card::before,
+        .event-card::after,
+        .grid-item::before,
+        .grid-item::after {
+            display: none !important;
+            content: none !important;
+        }
+
+        /* Asegurar que el contenedor grid-box no tenga efectos */
+        .grid-box {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        .grid-box:hover {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            transform: none !important;
+        }
+
+        /* OVERRIDE SIDEBAR: Eliminar TODOS los hovers agresivos del sidebar */
+        .col-lg-3 .icon-box,
+        .col-lg-3 .icon-box *,
+        .col-lg-3 .boxed-area,
+        .col-lg-3 .calendar-widget,
+        .col-lg-3 .sidebar-event-box,
+        .col-lg-3 [class*="box"] {
+            transition: none !important;
+            transform: none !important;
+        }
+
+        .col-lg-3 .icon-box:hover,
+        .col-lg-3 .boxed-area:hover,
+        .col-lg-3 .calendar-widget:hover,
+        .col-lg-3 .sidebar-event-box:hover,
+        .col-lg-3 [class*="box"]:hover {
+            transform: none !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+            border-color: #e8e8e8 !important;
+        }
+
+        /* Eliminar hover de iconos del sidebar */
+        .col-lg-3 .icon-box i:hover,
+        .col-lg-3 .fas:hover {
+            transform: none !important;
+            color: inherit !important;
+        }
+
+        /* Override específico para meses del calendario */
+        .calendar-month[style*="background: #699073"],
+        .calendar-month[style*="background: #BC6C25"] {
+            background: #699073 !important;
+        }
+
+        /* ELIMINAR HOVER AMARILLO DE TARJETAS ESPECÍFICAS */
+        /* Información de Contacto y Tips para Visitantes */
+        .icon-box.icon-box-top.boxed-area,
+        .icon-box.icon-box-top.boxed-area * {
+            --color-dorado-frailejon: transparent !important;
+            --color-dorado-hover: transparent !important;
+            --color-dorado-light: transparent !important;
+            --color-dorado-medium: transparent !important;
+            transition: none !important;
+        }
+
+        .icon-box.icon-box-top.boxed-area {
+            background: white !important;
+            border: 1px solid #f0f0f0 !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+        }
+
+        .icon-box.icon-box-top.boxed-area:hover {
+            background: white !important;
+            border: 1px solid #f0f0f0 !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+            transform: none !important;
+        }
+
+        /* Forzar eliminación de CUALQUIER efecto amarillo del tema */
+        .icon-box.icon-box-top.boxed-area::before,
+        .icon-box.icon-box-top.boxed-area::after,
+        .icon-box.icon-box-top.boxed-area *::before,
+        .icon-box.icon-box-top.boxed-area *::after {
+            display: none !important;
+            content: none !important;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Asegurar que los iconos NO cambien de color */
+        .icon-box.icon-box-top.boxed-area i {
+            color: #699073 !important;
+            background: transparent !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+        }
+
+        .icon-box.icon-box-top.boxed-area:hover i {
+            color: #699073 !important;
+            background: transparent !important;
+            transform: none !important;
+            padding: 0 !important;
+        }
+
+        /* Override para el box de Tips específicamente */
+        .icon-box.icon-box-top.boxed-area[style*="background: linear-gradient"] {
+            background: rgba(221, 161, 94, 0.05) !important;
+            border: 1px solid rgba(221, 161, 94, 0.15) !important;
+        }
+
+        .icon-box.icon-box-top.boxed-area[style*="background: linear-gradient"]:hover {
+            background: rgba(221, 161, 94, 0.05) !important;
+            border: 1px solid rgba(221, 161, 94, 0.15) !important;
+            transform: none !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+        }
+
+        /* Eliminar TODOS los efectos de hover de los icon-box del frailejon theme */
+        body .icon-box:hover,
+        body .icon-box.boxed-area:hover {
+            transform: none !important;
+            border-color: #f0f0f0 !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+        }
+
+        /* BLOQUEAR COMPLETAMENTE EL HOVER AMARILLO DEL ICONO */
+        .icon-box i,
+        .icon-box:hover i,
+        .icon-box.icon-box-top i,
+        .icon-box.icon-box-top:hover i,
+        .icon-box.boxed-area i,
+        .icon-box.boxed-area:hover i,
+        body .icon-box i,
+        body .icon-box:hover i {
+            background: transparent !important;
+            color: #699073 !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+            transform: none !important;
+        }
+
+        /* Específicamente para los boxes del sidebar */
+        .col-lg-3 .icon-box i,
+        .col-lg-3 .icon-box:hover i,
+        .col-lg-3 .icon-box-top i,
+        .col-lg-3 .icon-box-top:hover i {
+            background: transparent !important;
+            background-color: transparent !important;
+            color: #699073 !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+        }
+
+        /* Ultra específico para fas icons */
+        .icon-box .fas,
+        .icon-box:hover .fas,
+        .icon-box.icon-box-top .fas,
+        .icon-box.icon-box-top:hover .fas {
+            background: transparent !important;
+            background-color: transparent !important;
+            color: #699073 !important;
+        }
+
+        /* Nuclear option - desactivar variable de color en todo el sidebar */
+        .col-lg-3,
+        .col-lg-3 * {
+            --color-dorado-frailejon: #699073 !important;
+        }
+    </style>
 </head>
 <body class="page-main">
     <div id="preloader"></div>
@@ -80,12 +955,12 @@
     </nav>
     <header class="header-image ken-burn-center light" data-parallax="true" data-natural-height="1080" data-natural-width="1920" data-bleed="0" data-image-src="../assets/images/laguna rica.jpg" data-offset="0">
         <div class="container">
-            <h1>The events</h1>
-            <h2>Spring is nature way of saying let's party!</h2>
+            <h1>Eventos y Festividades</h1>
+            <h2>Tradición, cultura y celebración en el corazón de Boyacá</h2>
             <ol class="breadcrumb">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="#">Pages</a></li>
-                <li><a href="#">Events</a></li>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="#">Páginas</a></li>
+                <li><a href="#">Eventos</a></li>
             </ol>
         </div>
     </header>
@@ -105,63 +980,108 @@
                         <div id="eventos-estaticos" class="grid-list gap-60 events-list" data-columns="1" data-gap="60" style="display: none;">
                             <div class="grid-box">
                                 <div class="grid-item">
-                                    <div class="cnt-box cnt-box-side">
-                                        <a href="#" class="img-box"><img src="../assets/images/La Peña.jpg" alt="" /></a>
-                                        <div class="caption">
-                                            <h2>Sunshine and wine</h2>
-                                            <span class="extra-field">01 October 2019 at 8.00 PM</span>
-                                            <p>
-                                                Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt utlabore et dolore magna aliqua.
-                                                Utenim ad minim veniam quis nostrud exercitation ullamco laboris.
+                                    <div class="event-card" data-index="01">
+                                        <div class="event-card-inner">
+                                            <div class="event-image">
+                                                <img src="../assets/images/iglesia.jpg" alt="Fiestas Patronales" />
+                                                <div class="event-date-badge">FEBRERO</div>
+                                            </div>
+                                            <div class="event-content">
+                                            <span class="event-type-badge event-type-cultural">Festividad Cultural</span>
+                                            <h2>Fiestas Patronales de Cómbita</h2>
+                                            <div class="event-meta">
+                                                <div class="event-meta-item">
+                                                    <i class="fas fa-calendar"></i>
+                                                    <span>Último fin de semana de Febrero</span>
+                                                </div>
+                                                <div class="event-meta-item">
+                                                    <i class="fas fa-clock"></i>
+                                                    <span>3 días de celebración</span>
+                                                </div>
+                                            </div>
+                                            <p class="event-description">
+                                                Homenaje conjunto a la Inmaculada Concepción, San Isidro Labrador y San Felipe.
+                                                Una explosión de cultura que combina festivales de danza, muestras de folclor boyacense,
+                                                competencias deportivas, exhibiciones gastronómicas con los mejores platos típicos,
+                                                cabalgatas tradicionales y coloridas ferias artesanales.
                                             </p>
+                                            <div class="event-details">
+                                                <p><i class="fas fa-map-marker-alt"></i> <strong>Lugar:</strong> Parque Principal y calles del centro</p>
+                                                <p><i class="fas fa-ticket-alt"></i> <strong>Entrada:</strong> Gratuita a todos los eventos</p>
+                                                <p><i class="fas fa-theater-masks"></i> <strong>Actividades:</strong> Danzas, música en vivo, gastronomía, artesanías</p>
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="grid-item">
-                                    <div class="cnt-box cnt-box-side">
-                                        <a href="#" class="img-box"><img src="../assets/images/montaña cordi.jpg" alt="" /></a>
-                                        <div class="caption">
-                                            <h2>Classic guitar sounds</h2>
-                                            <span class="extra-field">11 January 2024 at 7.00 PM</span>
-                                            <p>
-                                                Lorem ipsum dolor sitamet consectetur adipisicing elito sed do ctetur adipis or sitamet consecelito sed ing elitsed do eiusmod eiusmod tempore.
+                                    <div class="event-card" data-index="02">
+                                        <div class="event-card-inner">
+                                        <div class="event-image">
+                                            <img src="../assets/images/montaña cordi.jpg" alt="Semana Santa" />
+                                            <div class="event-date-badge">MARZO-ABRIL</div>
+                                        </div>
+                                        <div class="event-content">
+                                            <span class="event-type-badge event-type-religious">Celebración Religiosa</span>
+                                            <h2>Semana Santa</h2>
+                                            <div class="event-meta">
+                                                <div class="event-meta-item">
+                                                    <i class="fas fa-calendar"></i>
+                                                    <span>Según calendario litúrgico</span>
+                                                </div>
+                                                <div class="event-meta-item">
+                                                    <i class="fas fa-clock"></i>
+                                                    <span>7 días de conmemoración</span>
+                                                </div>
+                                            </div>
+                                            <p class="event-description">
+                                                Una de las celebraciones más solemnes y emotivas del año. Incluye procesiones
+                                                tradicionales por las calles empedradas, eucaristías especiales, el conmovedor
+                                                Santo Viacrucis por el pueblo, la procesión del Santo Sepulcro el Viernes Santo,
+                                                Vigilia Pascual el sábado y la alegre misa de resurrección el domingo.
                                             </p>
+                                            <div class="event-details">
+                                                <p><i class="fas fa-church"></i> <strong>Lugar:</strong> Iglesia La Inmaculada Concepción</p>
+                                                <p><i class="fas fa-praying-hands"></i> <strong>Destacado:</strong> Viacrucis viviente, Vigilia Pascual</p>
+                                                <p><i class="fas fa-history"></i> <strong>Tradición:</strong> Más de 100 años de celebración</p>
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="grid-item">
-                                    <div class="cnt-box cnt-box-side">
-                                        <a href="#" class="img-box"><img src="../assets/images/iglesia.jpg" alt="" /></a>
-                                        <div class="caption">
-                                            <h2>Cheese and salumes</h2>
-                                            <span class="extra-field">20 January 2024 at 8.00 PM</span>
-                                            <p>
-                                                Lorem ipsum dolor sitamet consectetur adipisicing elito sed doctetrud exercitation ullamco laborisur adipiscing elitsed do eiusmod eiusmod tempore.
-                                            </p>
+                                    <div class="event-card" data-index="03">
+                                        <div class="event-card-inner">
+                                        <div class="event-image">
+                                            <img src="../assets/images/La Peña.jpg" alt="Corpus Christi" />
+                                            <div class="event-date-badge">MAYO-JUNIO</div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="grid-item">
-                                    <div class="cnt-box cnt-box-side">
-                                        <a href="#" class="img-box"><img src="../assets/images/el tilin.JPG" alt="" /></a>
-                                        <div class="caption">
-                                            <h2>Fire with movie</h2>
-                                            <span class="extra-field">17 September 2024 at 9.00 PM</span>
-                                            <p>
-                                                Lorem ipsum dolor sitamet consectetur adipisicing elito sed drun ullamco laboriso eiusmod tempore boriso eiusmod tctetur adipiscing elitsed eiusmod.
+                                        <div class="event-content">
+                                            <span class="event-type-badge event-type-traditional">Tradición Ancestral</span>
+                                            <h2>Corpus Christi</h2>
+                                            <div class="event-meta">
+                                                <div class="event-meta-item">
+                                                    <i class="fas fa-calendar"></i>
+                                                    <span>60 días después de Pascua</span>
+                                                </div>
+                                                <div class="event-meta-item">
+                                                    <i class="fas fa-clock"></i>
+                                                    <span>Celebración de un día</span>
+                                                </div>
+                                            </div>
+                                            <p class="event-description">
+                                                Tradición ancestral que data de la época colonial. Los habitantes crean hermosos
+                                                altares decorados con productos de la cosecha, simbolizando la gratitud por la
+                                                fertilidad de la tierra y la unión en la fe. La procesión alrededor del parque
+                                                principal es uno de los momentos más emotivos, con alfombras de aserrín coloreado
+                                                y pétalos de flores.
                                             </p>
+                                            <div class="event-details">
+                                                <p><i class="fas fa-map-marker-alt"></i> <strong>Lugar:</strong> Parque Clara Tocarruncho</p>
+                                                <p><i class="fas fa-palette"></i> <strong>Arte:</strong> Tapetes de aserrín y flores</p>
+                                                <p><i class="fas fa-wheat"></i> <strong>Tradición:</strong> Altares con cosechas locales</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="grid-item">
-                                    <div class="cnt-box cnt-box-side">
-                                        <a href="#" class="img-box"><img src="../assets/images/favorita dos.jpg" alt="" /></a>
-                                        <div class="caption">
-                                            <h2>Redbull Race</h2>
-                                            <span class="extra-field">31 October 2024 at 8.00 PM</span>
-                                            <p>
-                                                Lorem ipsum dolor sitamet conse elito sed ctetur adipisicing elito sedrud exercitation ullamco laboris do eiusmod tempore.
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -172,30 +1092,56 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <a href="#" class="media-box media-box-half" data-anima="pulse" data-time="2000">
-                            <img alt="" src="../assets/images/colibrie verde descansa.jpg">
-                            <div class="caption">
-                                <h2>Sound of silence</h2>
-                                <span class="extra-field">01 March 2019 at 8 PM</span>
-                                <p class="text-xs">
-                                    Lorem ipsum dolore consectetur adipisicing elito incididunto pertinole.
-                                </p>
+                        <div class="sidebar-event-box">
+                            <div class="event-icon" style="background: white; margin: 0 auto 15px;">
+                                <span style="font-size: 24px;">🎉</span>
                             </div>
-                        </a> 
-                        <hr class="space" />
-                        <div class="icon-box icon-box-top boxed-area">
-                            <i class="im-sunglasses-w2"></i>
-                            <div class="caption">
-                                <h3>Event organizers</h3>
-                                <p>We're searching for event organizers</p>
+                            <h3>Próximo Evento</h3>
+                            <p><strong>Fiestas Patronales</strong><br>
+                            Febrero 2027</p>
+                            <p style="font-size: 14px; margin-top: 15px;">
+                                Prepárate para 3 días de cultura, tradición y alegría en el corazón de Cómbita.
+                            </p>
+                        </div>
+
+                        <div class="calendar-widget">
+                            <h4><i class="fas fa-calendar-alt" style="color: #699073; margin-right: 10px;"></i>Calendario Anual</h4>
+                            <div class="calendar-item">
+                                <div class="calendar-month">FEB</div>
+                                <div class="calendar-event">Fiestas Patronales</div>
+                            </div>
+                            <div class="calendar-item">
+                                <div class="calendar-month" style="background: #699073;">MAR-ABR</div>
+                                <div class="calendar-event">Semana Santa</div>
+                            </div>
+                            <div class="calendar-item">
+                                <div class="calendar-month" style="background: #BC6C25;">MAY-JUN</div>
+                                <div class="calendar-event">Corpus Christi</div>
                             </div>
                         </div>
-                        <hr class="space-sm" />
+
                         <div class="icon-box icon-box-top boxed-area">
-                            <i class="im-speach-bubbles"></i>
+                            <i class="fas fa-info-circle"></i>
                             <div class="caption">
-                                <h3>Need help?</h3>
-                                <p>Contact us if have any event inquery</p>
+                                <h3>Información de Contacto</h3>
+                                <p style="margin-top: 15px;">
+                                    <i class="fas fa-phone" style="color: #699073; margin-right: 8px;"></i> 313 3662322<br>
+                                    <i class="fas fa-envelope" style="color: #699073; margin-right: 8px;"></i> alcaldia@combita-boyaca.gov.co<br>
+                                    <i class="fas fa-clock" style="color: #699073; margin-right: 8px;"></i> Lun-Vie: 8:00 AM - 5:00 PM
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="icon-box icon-box-top boxed-area" style="background: linear-gradient(135deg, #DDA15E10, #BC6C2510); border: 1px solid #DDA15E20;">
+                            <i class="fas fa-star" style="color: #DDA15E;"></i>
+                            <div class="caption">
+                                <h3>Tips para Visitantes</h3>
+                                <p style="margin-top: 15px; font-size: 14px;">
+                                    • Reserve alojamiento con anticipación durante festividades<br>
+                                    • Traiga ropa abrigada, el clima es frío<br>
+                                    • Participe con respeto en ceremonias religiosas<br>
+                                    • Disfrute la gastronomía local
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -250,7 +1196,7 @@
     <script>
         // Cargar eventos desde el backend
         document.addEventListener('DOMContentLoaded', function() {
-            const API_URL = window.API_CONFIG ? window.API_CONFIG.API_URL : 'http://localhost:3000/api';
+            const API_URL = window.API_CONFIG ? window.API_CONFIG.API_URL : 'http://localhost:3001/api';
 
             // Mostrar loading
             const dinamicos = document.getElementById('eventos-dinamicos');
@@ -262,11 +1208,15 @@
             }
 
             // Cargar eventos desde backend
-            fetch(`${API_URL}/eventos?activo=true`)
+            fetch(`${API_URL}/eventos`)
                 .then(response => response.json())
                 .then(data => {
-                    if (data.success && data.data && data.data.length > 0) {
-                        renderizarEventos(data.data);
+                    // El backend devuelve un array directamente
+                    const eventos = Array.isArray(data) ? data : (data.data || data.eventos || []);
+                    // Filtrar solo activos
+                    const eventosActivos = eventos.filter(e => e.activo !== false);
+                    if (eventosActivos.length > 0) {
+                        renderizarEventos(eventosActivos);
                     } else {
                         mostrarEventosEstaticos();
                     }
@@ -285,50 +1235,74 @@
             if (!gridBox) return;
 
             let html = '';
-            eventos.forEach(evento => {
-                // Formatear fecha
-                const fecha = new Date(evento.fecha);
-                const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-                               'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-                const fechaFormateada = `${fecha.getDate()} ${meses[fecha.getMonth()]} ${fecha.getFullYear()}`;
-                const horaFormateada = `${evento.hora_inicio || '10:00'} - ${evento.hora_fin || '18:00'}`;
+            eventos.forEach((evento, index) => {
+                // Formatear fecha - puede ser texto libre o fecha ISO
+                let fechaBadge = 'EVENTO';
+                let fechaDisplay = evento.fecha || '';
 
-                // Formatear precio
-                const precioTexto = evento.precio === 0 ? 'Entrada Gratis' :
-                    `Entrada: $${new Intl.NumberFormat('es-CO').format(evento.precio)}`;
+                // Si es fecha ISO, formatearla
+                if (evento.fechaInicio) {
+                    const fecha = new Date(evento.fechaInicio);
+                    if (!isNaN(fecha)) {
+                        const meses = ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO',
+                                       'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'];
+                        fechaBadge = meses[fecha.getMonth()];
+                        fechaDisplay = `${fecha.getDate()} de ${meses[fecha.getMonth()].toLowerCase()} ${fecha.getFullYear()}`;
+                    }
+                } else if (evento.fecha) {
+                    // Extraer mes del texto de fecha
+                    const mesesBuscar = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+                                         'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+                    const fechaLower = evento.fecha.toLowerCase();
+                    for (let i = 0; i < mesesBuscar.length; i++) {
+                        if (fechaLower.includes(mesesBuscar[i])) {
+                            fechaBadge = mesesBuscar[i].toUpperCase().substring(0, 3);
+                            break;
+                        }
+                    }
+                    fechaDisplay = evento.fecha;
+                }
+
+                // Determinar tipo de evento para el badge
+                const tipoClase = evento.tipo === 'religioso' ? 'event-type-religious' :
+                                  evento.tipo === 'tradicional' ? 'event-type-traditional' : 'event-type-cultural';
+                const tipoTexto = evento.tipo === 'religioso' ? 'Celebración Religiosa' :
+                                  evento.tipo === 'tradicional' ? 'Tradición Ancestral' : 'Festividad Cultural';
+
+                // Imagen del evento
+                const imagenSrc = evento.imagen || '../assets/images/iglesia.jpg';
 
                 html += `
                     <div class="grid-item">
-                        <div class="cnt-box cnt-box-side">
-                            <a href="#" class="img-box">
-                                <img src="${evento.imagen || 'imagenes/evento-default.jpg'}"
-                                     alt="${evento.nombre}"
-                                     onerror="this.src='../assets/images/La Peña.jpg'" />
-                            </a>
-                            <div class="caption">
-                                <h2>${evento.nombre}</h2>
-                                <span class="extra-field">${fechaFormateada} | ${horaFormateada}</span>
-                                <p>${evento.descripcion || 'Evento especial en Cómbita'}</p>
-                                <div style="margin-top: 15px;">
-                                    <p><strong>📍 Lugar:</strong> ${evento.lugar || 'Cómbita'}</p>
-                                    <p><strong>🎫 ${precioTexto}</strong></p>
-                                    ${evento.cupos ? `<p><strong>👥 Cupos disponibles:</strong> ${evento.cupos}</p>` : ''}
-                                    ${evento.categoria ? `<p><strong>🏷️ Categoría:</strong> ${evento.categoria}</p>` : ''}
-                                    ${evento.organizador ? `<p><strong>🏢 Organizador:</strong> ${evento.organizador}</p>` : ''}
+                        <div class="event-card" data-index="0${index + 1}">
+                            <div class="event-card-inner">
+                                <div class="event-image">
+                                    <img src="${imagenSrc}" alt="${evento.nombre}"
+                                         onerror="this.src='../assets/images/iglesia.jpg'" />
+                                    <div class="event-date-badge">${fechaBadge}</div>
                                 </div>
-                                ${evento.contacto_telefono || evento.contacto_email ? `
-                                <div style="margin-top: 15px;">
-                                    ${evento.contacto_telefono ? `
-                                    <a href="tel:${evento.contacto_telefono}"
-                                       style="display: inline-block; padding: 8px 16px; background: #699073; color: white; text-decoration: none; border-radius: 4px; margin-right: 10px;">
-                                        📞 Llamar
-                                    </a>` : ''}
-                                    ${evento.contacto_email ? `
-                                    <a href="mailto:${evento.contacto_email}"
-                                       style="display: inline-block; padding: 8px 16px; background: #4a6e52; color: white; text-decoration: none; border-radius: 4px;">
-                                        ✉️ Email
-                                    </a>` : ''}
-                                </div>` : ''}
+                                <div class="event-content">
+                                    <span class="event-type-badge ${tipoClase}">${tipoTexto}</span>
+                                    <h2>${evento.nombre}</h2>
+                                    <div class="event-meta">
+                                        <div class="event-meta-item">
+                                            <i class="fas fa-calendar"></i>
+                                            <span>${fechaDisplay}</span>
+                                        </div>
+                                        ${evento.ubicacion ? `
+                                        <div class="event-meta-item">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <span>${evento.ubicacion}</span>
+                                        </div>` : ''}
+                                    </div>
+                                    <p class="event-description">
+                                        ${evento.descripcion || 'Evento especial en Cómbita, Boyacá.'}
+                                    </p>
+                                    <div class="event-details">
+                                        <p><i class="fas fa-map-marker-alt"></i> <strong>Lugar:</strong> ${evento.ubicacion || 'Cómbita, Boyacá'}</p>
+                                        <p><i class="fas fa-ticket-alt"></i> <strong>Entrada:</strong> Gratuita</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

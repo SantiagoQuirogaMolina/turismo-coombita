@@ -5,7 +5,7 @@
 
 // Configuración de API (temporal)
 window.API_CONFIG = {
-    baseURL: 'http://localhost:3000/api',
+    baseURL: 'http://localhost:3001/api',
     timeout: 10000,
     mock: true // Usar datos simulados mientras no hay backend
 };
