@@ -1,127 +1,86 @@
-# 🌄 Turismo Combitá - Portal Web
+# Turismo Combita - Portal Web
 
-Portal web oficial para el turismo en Combitá, Boyacá - Descubre la belleza natural y cultural de nuestra región.
+Portal web de turismo para el municipio de Combita, Boyaca, Colombia.
 
-## 📋 Descripción
+## Descripcion
 
-Este proyecto es el sitio web oficial de turismo para el municipio de Combitá, Boyacá. Presenta información sobre:
-- 🥾 Rutas de senderismo y ecoturismo
-- 🏛️ Patrimonio cultural e histórico
-- 🦜 Fauna y flora local
-- 🏨 Hospedajes y alojamientos
-- 🍽️ Gastronomía típica
-- 📅 Eventos y actividades
+Sitio web completo con informacion turistica, panel de administracion y API backend. Incluye:
 
-## 🏗️ Arquitectura del Proyecto
+- Rutas de senderismo (Laguna Rica, El Valle, La Pena, Tilin)
+- Restaurantes y gastronomia local
+- Hospedajes y alojamientos
+- Eventos y actividades culturales
+- Artesanos y guias turisticos
+- Blog con publicaciones
+- Galeria fotografica
+- Mapa interactivo, transporte y tips del viajero
+
+## Arquitectura
 
 ```
 turismo-combita/
-├── src/           # Código fuente
-│   ├── pages/     # Páginas HTML
-│   ├── assets/    # CSS, JS, imágenes
-│   └── config/    # Configuración
-├── public/        # Archivos públicos
-├── docs/          # Documentación
-├── scripts/       # Scripts de utilidad
-└── backend/       # API (en desarrollo)
+├── src/                    # Frontend
+│   ├── pages/              # 16 paginas HTML + 5 rutas de treks
+│   └── assets/             # CSS, JS, imagenes, iconos
+├── backend/                # API Express.js
+│   ├── server.js           # Servidor principal (puerto 3001)
+│   ├── routes/             # 10 archivos de rutas (47 endpoints)
+│   ├── middleware/          # Autenticacion JWT
+│   ├── utils/              # DataManager, validacion, limpieza
+│   ├── data/               # JSON como base de datos
+│   └── uploads/            # Imagenes subidas por admin
+└── admin/                  # Panel de administracion (SPA)
+    ├── index.html          # Interfaz completa
+    ├── js/admin.js         # Logica CRUD
+    └── css/admin.css       # Estilos
 ```
 
-## 🚀 Instalación
+## Instalacion
 
-### Prerrequisitos
-- Node.js 14+ (opcional, para servidor de desarrollo)
-- Navegador web moderno
-- Git
-
-### Pasos de instalación
-
-1. **Clonar el repositorio**
 ```bash
-git clone https://github.com/SantiagoQuirogaMolina/turismo-coombita.git
-cd turismo-coombita
-```
-
-2. **Instalar dependencias** (opcional)
-```bash
+git clone <repo-url>
+cd turismo-combita
 npm install
 ```
 
-3. **Iniciar servidor de desarrollo**
-```bash
-# Opción 1: Con live-server
-npm run dev
+## Uso
 
-# Opción 2: Abrir directamente
-Abrir src/pages/index.html en el navegador
+```bash
+# Iniciar servidor (sirve frontend + API)
+node backend/server.js
 ```
 
-## 📁 Estructura de Carpetas
+El sitio estara disponible en `http://localhost:3001`
+Panel admin en `http://localhost:3001/admin`
 
-- **`src/pages/`** - Todas las páginas HTML del sitio
-- **`src/assets/`** - Recursos estáticos (CSS, JS, imágenes)
-- **`src/components/`** - Componentes reutilizables
-- **`src/config/`** - Archivos de configuración
-- **`docs/`** - Documentación del proyecto
-- **`scripts/`** - Scripts de mantenimiento y utilidades
+## Tecnologias
 
-## 🎨 Guía de Estilo
+- **Frontend**: HTML5, CSS3, JavaScript vanilla, jQuery, Bootstrap Grid
+- **Backend**: Node.js, Express.js, JSON file storage
+- **Auth**: JWT + bcryptjs
+- **Librerias**: Glide.js (sliders), Magnific Popup (lightbox), Leaflet (mapas)
 
-### Colores Principales
-- **Primario**: #8B4513 (Marrón tierra)
-- **Secundario**: #228B22 (Verde naturaleza)
-- **Acento**: #FFD700 (Dorado frailejón)
+## Paleta de colores
 
-### Tipografía
-- **Títulos**: Montserrat
-- **Texto**: Open Sans
+- Verde principal: `#699073`
+- Marron: `#BC6C25`
+- Dorado (acento): `#DDA15E`
 
-## 🛠️ Tecnologías Utilizadas
+## API Endpoints
 
-- **Frontend**: HTML5, CSS3, JavaScript ES6+
-- **Framework CSS**: Bootstrap Grid
-- **Librerías JS**:
-  - jQuery
-  - Glide.js (sliders)
-  - Magnific Popup (lightbox)
-  - Isotope (galería)
-- **Backend** (en desarrollo): Node.js + Express
+| Recurso | Endpoints |
+|---------|-----------|
+| Auth | login, me, cambiar-password |
+| Restaurantes | CRUD completo |
+| Hoteles | CRUD completo |
+| Eventos | CRUD completo |
+| Blog | CRUD + paginacion |
+| Galeria | CRUD albumes + imagenes |
+| Artesanos | CRUD completo |
+| Guias | CRUD completo |
+| Contacto | enviar, listar, marcar leido |
+| Estadisticas | general + dashboard |
 
-## 📝 Scripts Disponibles
+## Autor
 
-- `npm run dev` - Inicia servidor de desarrollo
-- `npm run build` - Construye para producción (próximamente)
-- `npm test` - Ejecuta pruebas (próximamente)
-
-## 🤝 Contribuir
-
-Las contribuciones son bienvenidas! Por favor:
-1. Fork el proyecto
-2. Crea tu rama de feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo licencia privada - ver el archivo LICENSE para más detalles.
-
-## 👥 Equipo
-
-- **Desarrollo**: Santiago Quiroga Molina
-- **Diseño**: Equipo de Turismo Combitá
-
-## 📞 Contacto
-
-- **Email**: info@turismocombitá.com
-- **Sitio Web**: [turismocombitá.com](https://turismocombitá.com)
-- **GitHub**: [@SantiagoQuirogaMolina](https://github.com/SantiagoQuirogaMolina)
-
-## 🙏 Agradecimientos
-
-- Alcaldía de Combitá
-- Comunidad local
-- Todos los colaboradores del proyecto
-
----
-
-⭐ Si te gusta este proyecto, considera darle una estrella en GitHub!
+Santiago Quiroga Molina - [santiago-developer.com](https://santiago-developer.netlify.app/)

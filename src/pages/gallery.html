@@ -691,7 +691,7 @@
     </script>
 
     <!-- Integración con Backend para Galería -->
-    <script src="./api-config.js"></script>
+
     <script>
         // Cargar galería desde el backend
         document.addEventListener('DOMContentLoaded', function() {
@@ -801,7 +801,7 @@
                     reinicializarGaleria();
                 })
                 .catch(error => {
-                    console.log('Usando galería estática:', error);
+                    // Fallback a galería estática
                     mostrarGaleriaEstatica();
                 });
         });

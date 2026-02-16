@@ -1201,7 +1201,7 @@
     <script src="../assets/js/vendor/imagesloaded.min.js"></script>
 
     <!-- Integración con Backend para Eventos -->
-    <script src="./api-config.js"></script>
+
     <script>
         // Cargar eventos desde el backend
         document.addEventListener('DOMContentLoaded', function() {
@@ -1231,7 +1231,7 @@
                     }
                 })
                 .catch(error => {
-                    console.log('Usando eventos estáticos:', error);
+                    // Fallback a eventos estáticos
                     mostrarEventosEstaticos();
                 });
         });

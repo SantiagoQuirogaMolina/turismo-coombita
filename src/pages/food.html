@@ -1201,7 +1201,7 @@
     <script src="../assets/js/vendor/imagesloaded.min.js"></script>
     <script src="../assets/js/vendor/tab-accordion.js"></script>
     <!-- Integración con Backend -->
-    <script src="./api-config.js"></script>
+
     <script>
         // Renderizar restaurantes dinámicos
         function renderizarRestaurantes(restaurantes) {
@@ -1299,7 +1299,7 @@
                     if (Array.isArray(restaurantes) && restaurantes.length > 0) {
                         // Filtrar solo los activos
                         const activos = restaurantes.filter(r => r.activo !== false);
-                        console.log('Restaurantes cargados:', activos.length);
+                        // Renderizar restaurantes activos
                         renderizarRestaurantes(activos);
                         // Ocultar restaurantes estáticos
                         const staticRest = document.getElementById('restaurantes-estaticos');
@@ -1310,7 +1310,7 @@
                     }
                 })
                 .catch(error => {
-                    console.log('Usando restaurantes estáticos:', error);
+                    // Fallback a restaurantes estáticos
                     mostrarRestaurantesEstaticos();
                 });
         });

@@ -6,7 +6,7 @@
 (function() {
     // Usar configuración global si está disponible, sino usar localhost:3000
     const API_URL = window.API_CONFIG ? window.API_CONFIG.API_URL : 'http://localhost:3000/api';
-    console.log('Auth system usando API:', API_URL);
+
 
     // Obtener información del usuario actual
     function getCurrentUser() {

@@ -372,7 +372,7 @@
     <script src="../../assets/js/vendor/isotope.min.js"></script>
 
     <!-- Integración con Backend para Caminatas -->
-    <script src="./api-config.js"></script>
+
     <script>
         // Cargar caminatas desde el backend
         document.addEventListener('DOMContentLoaded', function() {
@@ -395,7 +395,7 @@
                     }
                 })
                 .catch(error => {
-                    console.log('Usando caminatas estáticas:', error);
+                    // Fallback a caminatas estáticas
                     mostrarCaminatasEstaticas();
                 });
         });

@@ -1418,7 +1418,7 @@
         }
     </script>
     <!-- Script de integración con la API del backend -->
-    <script src="./api-config.js"></script>
+
     <script>
         // Función para renderizar hospedajes con el diseño actual
         function renderizarHospedajes(hospedajes, contenedorId) {
@@ -1587,7 +1587,7 @@
                     if (Array.isArray(hoteles) && hoteles.length > 0) {
                         // Filtrar solo activos
                         const activos = hoteles.filter(h => h.activo !== false);
-                        console.log('Hospedajes cargados:', activos.length);
+
 
                         // Guardar en variable global para filtros
                         todosLosHospedajes = activos;
@@ -1609,7 +1609,7 @@
                     }
                 })
                 .catch(error => {
-                    console.log('Error cargando hospedajes:', error);
+                    // Fallback a hospedajes estáticos
                     mostrarHospedajesEstaticos();
                 });
         });
