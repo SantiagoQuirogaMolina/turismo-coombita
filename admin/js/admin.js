@@ -47,7 +47,21 @@ function setupEventListeners() {
     document.getElementById('formBlog').addEventListener('submit', handleBlogSubmit);
     document.getElementById('formArtesano').addEventListener('submit', handleArtesanoSubmit);
     document.getElementById('formGuia').addEventListener('submit', handleGuiaSubmit);
+    document.getElementById('formVideo').addEventListener('submit', handleVideoSubmit);
     document.getElementById('formPassword').addEventListener('submit', handlePasswordChange);
+
+    // YouTube URL preview
+    document.getElementById('videoYoutubeUrl').addEventListener('input', function() {
+        const ytId = extractYouTubeId(this.value);
+        const preview = document.getElementById('videoThumbnailPreview');
+        if (ytId) {
+            preview.innerHTML = `<img src="https://img.youtube.com/vi/${ytId}/hqdefault.jpg" alt="Miniatura" onerror="this.onerror=null;this.parentElement.innerHTML='<span class=\\'no-imagen\\'>No se pudo cargar la miniatura</span>'">`;
+            preview.classList.add('has-image');
+        } else {
+            preview.innerHTML = '<span class="no-imagen">Ingresa una URL de YouTube para ver la miniatura</span>';
+            preview.classList.remove('has-image');
+        }
+    });
 
     // Close modals on outside click
     document.querySelectorAll('.modal').forEach(modal => {
@@ -166,6 +180,7 @@ function showSection(sectionId) {
         hoteles: 'Hospedajes',
         eventos: 'Eventos',
         galeria: 'Galería',
+        videos: 'Videos',
         blog: 'Blog',
         artesanos: 'Artesanos',
         guias: 'Guías Turísticos',
@@ -180,6 +195,7 @@ function showSection(sectionId) {
     if (sectionId === 'hoteles') loadHoteles();
     if (sectionId === 'eventos') loadEventos();
     if (sectionId === 'galeria') loadGaleria();
+    if (sectionId === 'videos') loadVideos();
     if (sectionId === 'blog') loadBlog();
     if (sectionId === 'artesanos') loadArtesanos();
     if (sectionId === 'guias') loadGuias();
@@ -194,8 +210,10 @@ function toggleSidebar() {
 
 async function loadDashboard() {
     try {
-        const res = await fetch(`${API_URL}/estadisticas/dashboard`);
+        const res = await fetch(`${API_URL}/estadisticas/dashboard`, { headers: getAuthHeaders() });
         const data = await res.json();
+
+        if (!data.tarjetas) { showToast('Error cargando dashboard', 'error'); return; }
 
         // Stats cards
         const statsGrid = document.getElementById('statsGrid');
@@ -795,6 +813,7 @@ function openModal(type) {
         blog: 'modalBlog',
         artesano: 'modalArtesano',
         guia: 'modalGuia',
+        video: 'modalVideo',
         confirm: 'modalConfirm'
     };
 
@@ -816,7 +835,8 @@ function openModal(type) {
                     album: 'Nuevo Álbum',
                     imagen: 'Subir Imagen',
                     artesano: 'Agregar Artesano',
-                    guia: 'Agregar Guía'
+                    guia: 'Agregar Guía',
+                    video: 'Agregar Video'
                 };
                 if (titles[type]) title.textContent = titles[type];
             }
@@ -861,6 +881,7 @@ function closeModal(type) {
         blog: 'modalBlog',
         artesano: 'modalArtesano',
         guia: 'modalGuia',
+        video: 'modalVideo',
         confirm: 'modalConfirm'
     };
 
@@ -890,7 +911,8 @@ function closeModal(type) {
             editarImagen: 'editarImagenPreview',
             blog: 'blogImagenPreview',
             artesano: 'artesanoImagenPreview',
-            guia: 'guiaImagenPreview'
+            guia: 'guiaImagenPreview',
+            video: 'videoThumbnailPreview'
         };
         const previewId = previewMap[type];
         if (previewId) {
@@ -923,7 +945,8 @@ function confirmDelete(type, id, name) {
                     album: 'galeria',
                     blog: 'blog',
                     artesano: 'artesanos',
-                    guia: 'guias'
+                    guia: 'guias',
+                    video: 'videos'
                 };
                 deleteUrl = `${API_URL}/${endpoints[type]}/${id}`;
             }
@@ -948,6 +971,7 @@ function confirmDelete(type, id, name) {
                 if (type === 'blog') loadBlog();
                 if (type === 'artesano') loadArtesanos();
                 if (type === 'guia') loadGuias();
+                if (type === 'video') loadVideos();
                 loadDashboard();
             } else {
                 showToast(data.error || 'Error al eliminar', 'error');
@@ -1741,6 +1765,151 @@ async function loadMensajesBadge() {
     } catch (error) {
         // Silencioso
     }
+}
+
+// ==================== VIDEOS ====================
+
+function extractYouTubeId(url) {
+    if (!url) return null;
+    url = url.trim();
+    // Match youtu.be/ID, youtube.com/watch?v=ID, youtube.com/embed/ID, youtube.com/shorts/ID
+    const patterns = [
+        /youtu\.be\/([a-zA-Z0-9_-]{11})/,
+        /youtube\.com\/watch\?.*v=([a-zA-Z0-9_-]{11})/,
+        /youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/,
+        /youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/
+    ];
+    for (const p of patterns) {
+        const m = url.match(p);
+        if (m) return m[1];
+    }
+    // Bare ID (11 chars)
+    if (/^[a-zA-Z0-9_-]{11}$/.test(url)) return url;
+    return null;
+}
+
+async function loadVideos() {
+    try {
+        const res = await fetch(`${API_URL}/videos`);
+        const videos = await res.json();
+
+        const tbody = document.querySelector('#tablaVideos tbody');
+        if (videos.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:30px;color:#999;">No hay videos. Agrega el primero.</td></tr>';
+            return;
+        }
+
+        tbody.innerHTML = videos.map(v => {
+            const ytId = extractYouTubeId(v.youtube_url);
+            const thumb = ytId ? `https://img.youtube.com/vi/${ytId}/default.jpg` : '';
+            return `
+            <tr>
+                <td>
+                    <div class="tabla-imagen">
+                        ${thumb ? `<img src="${thumb}" alt="${escapeHtml(v.titulo)}" onerror="this.parentElement.innerHTML='<span class=\\'sin-imagen\\'><i class=\\'fas fa-video\\'></i></span>'">` : '<span class="sin-imagen"><i class="fas fa-video"></i></span>'}
+                    </div>
+                </td>
+                <td><strong>${escapeHtml(v.titulo)}</strong></td>
+                <td>${v.descripcion ? escapeHtml(v.descripcion.length > 50 ? v.descripcion.substring(0, 50) + '...' : v.descripcion) : '-'}</td>
+                <td>${v.orden || '-'}</td>
+                <td><span class="badge-status ${v.activo !== false ? 'activo' : 'borrador'}">${v.activo !== false ? 'Activo' : 'Inactivo'}</span></td>
+                <td class="actions">
+                    <button class="btn-edit" onclick="editVideo('${v.id}')">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn-delete" onclick="confirmDelete('video', '${v.id}', '${escapeHtml(v.titulo).replace(/'/g, "\\'")}')">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            </tr>`;
+        }).join('');
+
+    } catch (error) {
+        console.error('Error loading videos:', error);
+        showToast('Error cargando videos', 'error');
+    }
+}
+
+async function handleVideoSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const id = form.querySelector('input[name="id"]').value;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    setBtnLoading(submitBtn, true);
+
+    const body = {
+        titulo: form.titulo.value,
+        youtube_url: form.youtube_url.value,
+        descripcion: form.descripcion.value,
+        orden: form.orden.value ? parseInt(form.orden.value) : undefined,
+        activo: form.activo.value === 'true'
+    };
+
+    const url = id ? `${API_URL}/videos/${id}` : `${API_URL}/videos`;
+    const method = id ? 'PUT' : 'POST';
+
+    try {
+        const res = await fetch(url, {
+            method,
+            headers: {
+                'Content-Type': 'application/json',
+                ...getAuthHeaders()
+            },
+            body: JSON.stringify(body)
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+            closeModal('video');
+            loadVideos();
+            loadDashboard();
+            showToast(id ? 'Video actualizado' : 'Video creado', 'success');
+            form.reset();
+        } else {
+            showToast(data.error || 'Error al guardar', 'error');
+        }
+    } catch (error) {
+        showToast('Error de conexión', 'error');
+    } finally {
+        setBtnLoading(submitBtn, false);
+    }
+}
+
+async function editVideo(id) {
+    try {
+        const res = await fetch(`${API_URL}/videos/${id}`);
+        const video = await res.json();
+
+        const form = document.getElementById('formVideo');
+        form.querySelector('input[name="id"]').value = video.id;
+        form.titulo.value = video.titulo || '';
+        form.youtube_url.value = video.youtube_url || '';
+        form.descripcion.value = video.descripcion || '';
+        form.orden.value = video.orden || '';
+        form.activo.value = video.activo !== false ? 'true' : 'false';
+
+        // Show thumbnail preview
+        const ytId = extractYouTubeId(video.youtube_url);
+        const preview = document.getElementById('videoThumbnailPreview');
+        if (ytId) {
+            preview.innerHTML = `<img src="https://img.youtube.com/vi/${ytId}/hqdefault.jpg" alt="Miniatura">`;
+            preview.classList.add('has-image');
+        }
+
+        document.getElementById('modalVideoTitle').textContent = 'Editar Video';
+        openModal('video');
+    } catch (error) {
+        showToast('Error cargando datos del video', 'error');
+    }
+}
+
+// Función escapeHtml para prevenir XSS
+function escapeHtml(str) {
+    if (!str) return '';
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
 }
 
 // ==================== EDITOR DE TEXTO ENRIQUECIDO ====================

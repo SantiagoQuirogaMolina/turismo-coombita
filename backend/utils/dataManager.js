@@ -29,7 +29,9 @@ function writeData(data) {
             day: 'numeric'
         });
 
-        fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), 'utf8');
+        const tmpFile = DATA_FILE + '.tmp';
+        fs.writeFileSync(tmpFile, JSON.stringify(data, null, 2), 'utf8');
+        fs.renameSync(tmpFile, DATA_FILE);
         return true;
     } catch (error) {
         console.error('Error guardando datos:', error);

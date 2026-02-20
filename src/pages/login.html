@@ -191,8 +191,7 @@
 
                 <div style="text-align: center; margin-top: 20px;">
                     <p style="color: #666; font-size: 14px;">
-                        <strong>Usuario Demo:</strong> usuario@demo.com / user123<br>
-                        <strong>Admin:</strong> admin@turismocombita.com / admin123
+                        Inicia sesion para acceder a funciones exclusivas
                     </p>
                 </div>
             </div>
@@ -280,16 +279,18 @@
                 const data = await response.json();
 
                 if (response.ok) {
-                    // Guardar token
-                    localStorage.setItem('authToken', data.token);
-                    localStorage.setItem('userInfo', JSON.stringify(data.usuario));
+                    // Guardar token y datos del usuario
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('userName', data.user.nombre);
+                    localStorage.setItem('userEmail', data.user.email);
+                    localStorage.setItem('userRole', data.user.rol);
 
                     showAlert('Login exitoso! Redirigiendo...', 'success');
 
                     // Redirigir según el rol
                     setTimeout(() => {
-                        if (data.usuario.rol === 'admin') {
-                            window.location.href = '/admin-panel';
+                        if (data.user.rol === 'admin') {
+                            window.location.href = '/admin/';
                         } else {
                             // Volver a la página anterior o al inicio
                             window.location.href = document.referrer || '/index.html';
@@ -350,5 +351,7 @@
             }
         });
     </script>
+    <!-- Sistema de Autenticación -->
+    <script src="../assets/js/modules/auth.js"></script>
 </body>
 </html>

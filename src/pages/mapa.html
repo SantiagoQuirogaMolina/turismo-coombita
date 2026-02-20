@@ -291,11 +291,10 @@
             <i class="menu-btn"></i>
             <div class="menu-cnt">
                 <ul id="main-menu">
-                    <li class="dropdown"><a href="./index.html">Inicio</a></li>
+                    <li><a href="./index.html">Inicio</a></li>
                     <li class="dropdown">
                         <a href="#">Descubre</a>
                         <ul>
-                            <li><a href="./about.html">Acerca de</a></li>
                             <li class="dropdown-submenu">
                                 <a>Imperdibles</a>
                                 <ul>
@@ -407,15 +406,15 @@
 
         document.addEventListener('DOMContentLoaded', async () => {
             // Inicializar mapa centrado en Cómbita
-            map = L.map('map').setView([5.6272, -73.3297], 14);
+            map = L.map('map').setView([5.6337, -73.3243], 13);
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; OpenStreetMap contributors',
                 maxZoom: 18
             }).addTo(map);
 
-            // Marcador principal de Cómbita
-            L.marker([5.6272, -73.3297], {
+            // Marcador principal de Cómbita (coordenadas verificadas)
+            L.marker([5.6337, -73.3243], {
                 icon: L.divIcon({
                     className: 'custom-marker',
                     html: '<div style="background:#2d3e33;width:20px;height:20px;border-radius:50%;border:4px solid #DDA15E;box-shadow:0 2px 8px rgba(0,0,0,0.4);"></div>',
@@ -423,7 +422,7 @@
                     iconAnchor: [14, 14],
                     popupAnchor: [0, -16]
                 })
-            }).addTo(map).bindPopup('<div class="map-popup"><h4>Cómbita</h4><p>Centro del municipio</p></div>');
+            }).addTo(map).bindPopup('<div class="map-popup"><h4>Cómbita</h4><p>Centro del municipio - 2.825 msnm</p></div>');
 
             await loadAllPois();
 
@@ -439,44 +438,65 @@
         async function loadAllPois() {
             const pois = [];
 
-            // Puntos de interés predefinidos (sitios turísticos y senderos)
+            // Puntos de interés con coordenadas reales (verificadas desde las páginas de treks)
             const sitios = [
-                { nombre: 'Laguna Rica', tipo: 'sendero', lat: 5.6450, lng: -73.3150, desc: 'Hermosa laguna de páramo rodeada de frailejones.' },
-                { nombre: 'La Peña', tipo: 'sendero', lat: 5.6380, lng: -73.3050, desc: 'Formación rocosa con vistas panorámicas del valle.' },
-                { nombre: 'El Tilín', tipo: 'sendero', lat: 5.6200, lng: -73.3100, desc: 'Cascada natural en medio del bosque nativo.' },
-                { nombre: 'El Valle de los Frailejones', tipo: 'sendero', lat: 5.6500, lng: -73.3200, desc: 'Extenso valle de páramo con miles de frailejones.' },
-                { nombre: 'Iglesia de Cómbita', tipo: 'sitio', lat: 5.6275, lng: -73.3300, desc: 'Iglesia colonial del centro del municipio.' },
-                { nombre: 'Parque Principal', tipo: 'sitio', lat: 5.6270, lng: -73.3295, desc: 'Plaza central de Cómbita, corazón del pueblo.' }
+                { nombre: 'Laguna Rica', tipo: 'sendero', lat: 5.7682, lng: -73.3394, desc: 'Laguna de páramo a 3.100 msnm. Rodeada de frailejones centenarios. Vereda Santa Bárbara.' },
+                { nombre: 'La Peña', tipo: 'sendero', lat: 5.7558, lng: -73.3411, desc: 'Monumento Virgen de las Aguas. Formación rocosa con vistas panorámicas a 3.200 msnm. Vereda Santa Bárbara.' },
+                { nombre: 'Cascada El Tilín', tipo: 'sendero', lat: 5.6625, lng: -73.3280, desc: 'Cascada de 12m con sitio arqueológico muisca. 2.750 msnm. Vereda San Francisco.' },
+                { nombre: 'Casa Ricaurte', tipo: 'sendero', lat: 5.7519, lng: -73.3753, desc: 'Atracción turística histórica en zona rural de Cómbita. Punto de interés cultural y natural.' },
+                { nombre: 'Laguna Negra', tipo: 'sendero', lat: 5.7627, lng: -73.3547, desc: 'Laguna de páramo en zona de reserva natural. Ecosistema de alta montaña con frailejones.' },
+                { nombre: 'Centro Histórico', tipo: 'sendero', lat: 5.6337, lng: -73.3243, desc: 'Recorrido por el casco urbano colonial fundado en 1586. Iglesia, parque y calles históricas.' },
+                { nombre: 'Iglesia Inmaculada Concepción', tipo: 'sitio', lat: 5.6336, lng: -73.3237, desc: 'Templo con arquitectura gótica francesa. Óleos coloniales de Gaspar de Figueroa. Cra 5a #3-20.' },
+                { nombre: 'Parque Principal', tipo: 'sitio', lat: 5.6334, lng: -73.3238, desc: 'Plaza Clara Tocarruncho, corazón de Cómbita. 2.825 msnm.' }
             ];
             sitios.forEach(s => pois.push(s));
 
-            // Cargar restaurantes
+            // Cargar restaurantes (distribuidos por Calle 2 y centro, según direcciones reales)
             try {
                 const res = await fetch(`${API_URL}/restaurantes`);
                 const restaurantes = await res.json();
-                restaurantes.forEach(r => {
+                // Posiciones basadas en direcciones reales sobre Calle 2, centro de Cómbita
+                const restPos = {
+                    'Calle 2A # 6-17': { lat: 5.6340, lng: -73.3250 },
+                    'Calle 2 # 6-08': { lat: 5.6339, lng: -73.3248 },
+                    'Calle 2 # 5-53': { lat: 5.6338, lng: -73.3244 },
+                    'Calle 2 # 3-35': { lat: 5.6336, lng: -73.3236 },
+                    'Calle 2 # 3-34': { lat: 5.6336, lng: -73.3235 },
+                    'Calle 2 # 4-61': { lat: 5.6337, lng: -73.3240 },
+                    'Calle 4 #4-25': { lat: 5.6333, lng: -73.3240 }
+                };
+                restaurantes.forEach((r, i) => {
+                    const pos = restPos[r.direccion] || { lat: 5.6335 + (i * 0.0002), lng: -73.3242 + (i * 0.0002) };
                     pois.push({
                         nombre: r.nombre,
                         tipo: 'restaurante',
-                        lat: 5.6272 + (Math.random() - 0.5) * 0.008,
-                        lng: -73.3297 + (Math.random() - 0.5) * 0.008,
+                        lat: pos.lat,
+                        lng: pos.lng,
                         desc: r.especialidad || r.tipo_cocina || 'Restaurante local',
                         telefono: r.telefono
                     });
                 });
             } catch(e) {}
 
-            // Cargar hospedajes
+            // Cargar hospedajes (posiciones basadas en direcciones reales)
             try {
                 const res = await fetch(`${API_URL}/hoteles`);
                 const hoteles = await res.json();
-                hoteles.forEach(h => {
+                const hotelPos = {
+                    'Calle 5 No. 1-95': { lat: 5.6330, lng: -73.3228 },
+                    'Cra. 5 # 2-50': { lat: 5.6332, lng: -73.3232 },
+                    'Vereda San Francisco, Cómbita': { lat: 5.6580, lng: -73.3250 },
+                    'Calle 4 # 5-20, Cómbita Centro': { lat: 5.6334, lng: -73.3242 },
+                    'Km 3, Vía Tunja - Paipa': { lat: 5.6150, lng: -73.3180 }
+                };
+                hoteles.forEach((h, i) => {
+                    const pos = hotelPos[h.direccion] || { lat: 5.6340 + (i * 0.0003), lng: -73.3230 - (i * 0.0003) };
                     pois.push({
                         nombre: h.nombre,
                         tipo: 'hospedaje',
-                        lat: 5.6272 + (Math.random() - 0.5) * 0.01,
-                        lng: -73.3297 + (Math.random() - 0.5) * 0.01,
-                        desc: h.tipo || 'Hospedaje',
+                        lat: pos.lat,
+                        lng: pos.lng,
+                        desc: h.tipo || h.categoria || 'Hospedaje',
                         telefono: h.telefono
                     });
                 });
@@ -602,5 +622,7 @@
         }
     </script>
     <script src="../assets/js/vendor/parallax.min.js"></script>
+    <!-- Sistema de Autenticación -->
+    <script src="../assets/js/modules/auth.js"></script>
 </body>
 </html>

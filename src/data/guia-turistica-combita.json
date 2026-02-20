@@ -8,16 +8,27 @@
       {
         "nombre": "Parque Natural Municipal La Peña",
         "ubicacion": "Vereda de Santa Bárbara",
-        "altura": "2.800 a 3.500 m.s.n.m.",
+        "altura": "2.800 a 3.200 m.s.n.m.",
         "descripcion": "Reserva natural de flora y fauna que hace parte del Páramo Iguaque-Merchán. Su sendero ancestral conduce a lagunas, ríos, quebradas, montañas y bosques que brindan experiencias renovadoras y místicas.",
-        "actividades": ["Senderismo", "Avistamiento de aves", "Contemplación", "Investigación"]
+        "actividades": [
+          "Senderismo",
+          "Avistamiento de aves",
+          "Contemplación",
+          "Investigación"
+        ]
       },
       {
         "nombre": "Parque Natural Regional El Valle",
         "ubicacion": "Vereda de Santa Bárbara",
-        "altura": "3.000 a 3.750 m.s.n.m.",
+        "altura": "3.000 a 3.200 m.s.n.m.",
         "descripcion": "Considerado el páramo más hermoso de Boyacá. Posee uno de los bosques de robles más antiguos de la cordillera andina. Su fauna incluye venados, tigrillos, guaches y otros mamíferos, reptiles, aves e insectos endémicos.",
-        "actividades": ["Senderismo", "Avistamiento de aves", "Contemplación", "Investigación", "Protección ambiental"]
+        "actividades": [
+          "Senderismo",
+          "Avistamiento de aves",
+          "Contemplación",
+          "Investigación",
+          "Protección ambiental"
+        ]
       }
     ],
     "areas_arqueologicas": [
@@ -26,21 +37,34 @@
         "ubicacion": "Vereda de San Francisco",
         "altura": "2.650 a 2.850 m.s.n.m.",
         "descripcion": "El pasado indígena de los pobladores de la región se hace presente por medio de las rocas. Vestigios de cerámicas, moyas y tumbas generan un espacio perfecto para la investigación académica y la contemplación.",
-        "actividades": ["Investigación académica", "Contemplación", "Senderismo familiar"]
+        "actividades": [
+          "Investigación académica",
+          "Contemplación",
+          "Senderismo familiar"
+        ]
       },
       {
         "nombre": "Área Arqueológica de San Martín",
         "ubicacion": "Vereda de San Martín",
         "altura": "2.650 a 2.700 m.s.n.m.",
         "descripcion": "Destaca por la importancia de los pictogramas y moyas que se conservan en óptimo estado.",
-        "actividades": ["Contemplación", "Senderismo", "Turismo de investigación"]
+        "actividades": [
+          "Contemplación",
+          "Senderismo",
+          "Turismo de investigación"
+        ]
       },
       {
         "nombre": "Área Arqueológica del Carmen",
         "ubicacion": "Vereda del Carmen",
         "altura": "2.500 a 2.950 m.s.n.m.",
         "descripcion": "Se ubican en varios puntos a lo largo del territorio de la vereda. Se destacan pictogramas variados y bien conservados, así como piedras talladas.",
-        "actividades": ["Senderismo", "Contemplación", "Rutas ciclísticas", "Turismo gastronómico"]
+        "actividades": [
+          "Senderismo",
+          "Contemplación",
+          "Rutas ciclísticas",
+          "Turismo gastronómico"
+        ]
       }
     ],
     "patrimonio_urbano": [
@@ -60,91 +84,249 @@
     "circuito_ciclistico": {
       "descripcion": "El circuito ciclístico de montaña más extremo de la región central del país. Parte del Parque Clara Tocarruncho y se encuentra señalizado.",
       "puntos": [
-        {"nombre": "Alto del Sote", "altura": "3.101", "vereda": "La Concepción"},
-        {"nombre": "Alto de la Mora", "altura": "3.119", "vereda": "San Rafael"},
-        {"nombre": "Alto Blanco (San Isidro)", "altura": "3.127", "vereda": "San Isidro"},
-        {"nombre": "Alto del Pino", "altura": "3.171", "vereda": "Santa Bárbara"},
-        {"nombre": "Punta Larga", "altura": "3.074", "vereda": "Las Mercedes"},
-        {"nombre": "Alto de Piedra Herrada", "altura": "2.900", "vereda": "El Carmen"},
-        {"nombre": "Alto Blanco (El Carmen)", "altura": "2.850", "vereda": "El Carmen"},
-        {"nombre": "Alto del Santuario", "altura": "3.038", "vereda": "San Onofre"}
+        {
+          "nombre": "Alto del Sote",
+          "altura": "3.101",
+          "vereda": "La Concepción"
+        },
+        {
+          "nombre": "Alto de la Mora",
+          "altura": "3.119",
+          "vereda": "San Rafael"
+        },
+        {
+          "nombre": "Alto Blanco (San Isidro)",
+          "altura": "3.127",
+          "vereda": "San Isidro"
+        },
+        {
+          "nombre": "Alto del Pino",
+          "altura": "3.171",
+          "vereda": "Santa Bárbara"
+        },
+        {
+          "nombre": "Punta Larga",
+          "altura": "3.074",
+          "vereda": "Las Mercedes"
+        },
+        {
+          "nombre": "Alto de Piedra Herrada",
+          "altura": "2.900",
+          "vereda": "El Carmen"
+        },
+        {
+          "nombre": "Alto Blanco (El Carmen)",
+          "altura": "2.850",
+          "vereda": "El Carmen"
+        },
+        {
+          "nombre": "Alto del Santuario",
+          "altura": "3.038",
+          "vereda": "San Onofre"
+        }
       ]
     }
   },
   "restaurantes": [
     {
+      "id": "rest001",
       "nombre": "Piqueteadero El Maná",
       "aforo": 50,
       "especialidad": "Mute de mazorca, amadijos, arepas, envueltos, picada, costilla de cerdo",
-      "propietarios": "Segundo y Daniel Sarmiento"
+      "propietario": "Segundo y Daniel Sarmiento",
+      "activo": true,
+      "direccion": "",
+      "telefono": "",
+      "horario": "",
+      "imagen": "/uploads/restaurantes/restaurante-1771531435833.png",
+      "actualizado": "2026-02-19T20:03:55.841Z",
+      "tipo_cocina": "Típica Boyacense",
+      "ubicacion": "Centro",
+      "whatsapp": "",
+      "correo": "",
+      "precio_promedio": 25000,
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      }
     },
     {
+      "id": "rest002",
       "nombre": "Cafetería La Gran Vía",
       "aforo": 50,
       "especialidad": "Desayunos: caldos con costilla, huevos al gusto, chocolate, tamal, agua de panela",
       "propietario": "Héctor Piratoba y familia",
-      "direccion": "Calle 2A # 6-17"
+      "direccion": "Calle 2A # 6-17",
+      "activo": true
     },
     {
+      "id": "rest003",
       "nombre": "Restaurante y Asadero Salsa y Picante",
       "aforo": 60,
       "especialidad": "Pollo asado, pollo broaster, churrasco, pechuga, mojarra, trucha",
       "propietario": "Jhon Barragán",
       "direccion": "Calle 2 # 6-08",
       "telefono": "320 475 3479",
-      "horario": "10:00 a.m. a 8:00 p.m."
+      "horario": "10:00 a.m. a 8:00 p.m.",
+      "activo": true,
+      "tipo_cocina": "Típica Boyacense",
+      "ubicacion": "Centro",
+      "whatsapp": "",
+      "correo": "",
+      "precio_promedio": 25000,
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "imagen": "/uploads/restaurantes/restaurante-1771531540040.png",
+      "actualizado": "2026-02-19T20:05:40.046Z"
     },
     {
+      "id": "rest004",
       "nombre": "Asadero Don Valentín",
       "aforo": 100,
       "especialidad": "Picada, pepitoria, mute, sopa de maíz, cuchuco, costilla de cerdo",
       "direccion": "Calle 2 # 5-53",
       "telefono": "312 351 1300",
-      "horario": "Martes a domingo, 10:00 a.m. a 4:00 p.m."
+      "horario": "Martes a domingo, 10:00 a.m. a 4:00 p.m.",
+      "activo": true,
+      "tipo_cocina": "Típica Boyacense",
+      "propietario": "",
+      "ubicacion": "Centro",
+      "whatsapp": "",
+      "correo": "",
+      "precio_promedio": 25000,
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "imagen": "/uploads/restaurantes/restaurante-1771531525722.png",
+      "actualizado": "2026-02-19T20:05:25.727Z"
     },
     {
+      "id": "rest005",
       "nombre": "Restaurante Las Delicias de Nena",
       "aforo": 50,
       "especialidad": "Almuerzos ejecutivos. Fines de semana: bandeja paisa, pollo al barril, churrasco",
       "propietario": "Luz Elena González",
       "direccion": "Calle 2 # 3-35",
       "telefono": "320 210 7496",
-      "horario": "Lunes a lunes, 11:00 a.m. a 4:30 p.m."
+      "horario": "Lunes a lunes, 11:00 a.m. a 4:30 p.m.",
+      "activo": true,
+      "tipo_cocina": "Típica Boyacense",
+      "ubicacion": "Centro",
+      "whatsapp": "",
+      "correo": "",
+      "precio_promedio": 25000,
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "imagen": "/uploads/restaurantes/restaurante-1771531510556.png",
+      "actualizado": "2026-02-19T20:05:10.561Z"
     },
     {
+      "id": "rest006",
       "nombre": "Restaurante La Gran Gallina",
       "aforo": 30,
       "especialidad": "Combo de gallina cocida, almuerzos corrientes, mute, ajiacos",
       "propietario": "Dilia Esperanza Aunta Díaz",
       "direccion": "Calle 2 # 3-34",
       "telefono": "320 358 0435",
-      "horario": "Lunes a lunes, 8:00 a.m. a 3:30 p.m."
+      "horario": "Lunes a lunes, 8:00 a.m. a 3:30 p.m.",
+      "activo": true,
+      "tipo_cocina": "Típica Boyacense",
+      "ubicacion": "Centro",
+      "whatsapp": "",
+      "correo": "",
+      "precio_promedio": 25000,
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "imagen": "/uploads/restaurantes/restaurante-1771531493214.png",
+      "actualizado": "2026-02-19T20:04:53.216Z"
     },
     {
+      "id": "rest007",
       "nombre": "Mastochocolate",
       "aforo": 20,
       "especialidad": "Postres, repostería, bar, desayunos",
       "propietario": "Edelmira Vásquez",
       "telefono": "310 553 9109",
-      "horario": "L-V: 2:00 p.m. a 8:00 p.m. / Fines de semana: 11:00 a.m. a 8:00 p.m."
+      "horario": "L-V: 2:00 p.m. a 8:00 p.m. / Fines de semana: 11:00 a.m. a 8:00 p.m.",
+      "activo": true,
+      "tipo_cocina": "Típica Boyacense",
+      "direccion": "",
+      "ubicacion": "Centro",
+      "whatsapp": "",
+      "correo": "",
+      "precio_promedio": 25000,
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "imagen": "/uploads/restaurantes/restaurante-1771531474793.png",
+      "actualizado": "2026-02-19T20:04:34.799Z"
     },
     {
+      "id": "rest008",
       "nombre": "Piqueteadero y Restaurante La Mazorcada",
       "aforo": 60,
       "especialidad": "Mute de mazorca, mondongo, picada, gallina, almuerzos caseros",
-      "horario": "Jueves a lunes, 7:30 a.m. a 7:30 p.m."
+      "horario": "Jueves a lunes, 7:30 a.m. a 7:30 p.m.",
+      "activo": true
     },
     {
+      "id": "rest009",
       "nombre": "Fábrica de Almojábanas y Salón de Onces Hojana",
       "aforo": 20,
       "especialidad": "Almojábanas, arepas, bebidas calientes",
       "direccion": "Calle 2 # 4-61",
-      "horario": "Lunes a lunes, 7:30 a.m. a 5:00 p.m."
+      "horario": "Lunes a lunes, 7:30 a.m. a 5:00 p.m.",
+      "activo": true
+    },
+    {
+      "id": "mltwaq5mim19eabjj3",
+      "nombre": "Cafe como en casa",
+      "tipo_cocina": "Típica Boyacense",
+      "aforo": 70,
+      "especialidad": "almuerzos ejecutivo, especiales, del dia, y platos a la carta de todo tipo.",
+      "propietario": "Mercedes Molina",
+      "direccion": "Calle 4 #4-25",
+      "ubicacion": "Centro",
+      "telefono": "310 799 4576",
+      "whatsapp": "310 799 4576",
+      "correo": "",
+      "horario": "L-D 11:00am - 5:00pm",
+      "precio_promedio": 13,
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "imagen": "/uploads/restaurantes/restaurante-1771531806438.png",
+      "activo": true,
+      "creado": "2026-02-19T20:10:06.442Z"
     }
   ],
   "hoteles": [
     {
-      "nombre": "Posada La Quinta de Rosita",
+      "id": "hot001",
+      "nombre": "Posada La Quinta de Rosita ",
       "direccion": "Calle 5 No. 1-95",
       "habitaciones": 5,
       "capacidad": 10,
@@ -153,23 +335,36 @@
         "facebook": "La Quinta Rosita",
         "instagram": "Posada la quinta de rosita",
         "google": "La quinta de rosita"
-      }
+      },
+      "activo": true,
+      "telefono": "",
+      "correo": "",
+      "imagen": "/uploads/hoteles/hotel-1771094541674.jpg",
+      "actualizado": "2026-02-14T18:42:21.676Z"
     },
     {
+      "id": "hot002",
       "nombre": "Aparta Hotel El Rubí",
       "direccion": "Cra. 5 # 2-50",
       "telefono": "314 489 4536",
       "habitaciones": 3,
       "capacidad": 21,
-      "servicios": "Apartamentos para grupos familiares"
+      "servicios": "Apartamentos para grupos familiares",
+      "activo": true,
+      "correo": "",
+      "imagen": "/uploads/hoteles/hotel-1771093739794.png",
+      "actualizado": "2026-02-14T18:28:59.800Z"
     },
     {
+      "id": "hot003",
       "nombre": "Hospedaje Vereda San Francisco",
       "direccion": "Vereda San Francisco, Cómbita",
       "telefono": "314 370 1509",
-      "servicios": "Hospedaje rural cerca de áreas arqueológicas"
+      "servicios": "Hospedaje rural cerca de áreas arqueológicas",
+      "activo": true
     },
     {
+      "id": "hot004",
       "nombre": "Hotel La Posada de Bachué",
       "direccion": "Calle 4 # 5-20, Cómbita Centro",
       "telefono": "321 308 3406 / 321 307 5457",
@@ -180,9 +375,11 @@
       "redes_sociales": {
         "facebook": "Hotel la Posada de Bachué",
         "instagram": "Hotel la posada de Bachué"
-      }
+      },
+      "activo": true
     },
     {
+      "id": "hot005",
       "nombre": "Hotel Sol del Norte",
       "direccion": "Km 3, Vía Tunja - Paipa",
       "telefono": "314 419 6271 / 310 231 7230",
@@ -196,9 +393,11 @@
         "dos_camas": "$100.000",
         "tres_camas": "$140.000"
       },
-      "propietario": "Edison Fuquene"
+      "propietario": "Edison Fuquene",
+      "activo": true
     },
     {
+      "id": "hot006",
       "nombre": "Hospedaje Campestre De La Montaña",
       "habitaciones": 3,
       "capacidad": 20,
@@ -206,16 +405,20 @@
       "tarifas": {
         "adulto": "$40.000",
         "niño": "$30.000"
-      }
+      },
+      "activo": true
     },
     {
+      "id": "hot007",
       "nombre": "Hotel Campeones de la Montaña",
       "habitaciones": 4,
       "capacidad": 10,
       "servicios": "Hospedaje con cocina disponible",
-      "tarifa": "$40.000 por persona"
+      "tarifa": "$40.000 por persona",
+      "activo": true
     },
     {
+      "id": "hot008",
       "nombre": "Hospedaje Familiar Apartaestudio De La Montaña",
       "habitaciones": 3,
       "capacidad": 10,
@@ -223,37 +426,658 @@
       "tarifas": {
         "adulto": "$40.000",
         "niño": "$30.000"
-      }
+      },
+      "activo": true
     }
   ],
   "eventos": [
     {
+      "id": "evt001",
       "nombre": "Fiestas Patronales de Cómbita",
       "fecha": "Último fin de semana de febrero",
-      "descripcion": "Homenaje conjunto a la Inmaculada Concepción, San Isidro Labrador y San Felipe. Combinan festivales, danzas, folclor, actividades deportivas, muestras gastronómicas, cabalgatas y ferias."
+      "descripcion": "Homenaje conjunto a la Inmaculada Concepción, San Isidro Labrador y San Felipe. Combinan festivales, danzas, folclor, actividades deportivas, muestras gastronómicas, cabalgatas y ferias.",
+      "tipo": "cultural",
+      "ubicacion": "Cómbita, Boyacá",
+      "activo": true,
+      "imagen": "/uploads/eventos/evento-1771096147222.jpeg",
+      "actualizado": "2026-02-14T19:09:26.523Z"
     },
     {
+      "id": "evt002",
       "nombre": "Semana Santa",
       "fecha": "Marzo - Abril (según calendario litúrgico)",
-      "descripcion": "Celebración religiosa con procesiones, eucaristías, Santo Viacrucis, procesión del Santo Sepulcro, Vigilia Pascual y misa de resurrección."
+      "descripcion": "Celebración religiosa con procesiones, eucaristías, Santo Viacrucis, procesión del Santo Sepulcro, Vigilia Pascual y misa de resurrección.",
+      "tipo": "religioso",
+      "ubicacion": "Cómbita, Boyacá",
+      "activo": true
     },
     {
+      "id": "evt003",
       "nombre": "Corpus Christi",
       "fecha": "Mayo - Junio (60 días después de Pascua)",
-      "descripcion": "Tradición antigua con altares dedicados a la cosecha y fertilidad de la tierra, simbolizando gratitud y unión en la fe. Incluye procesión alrededor del parque."
+      "descripcion": "Tradición antigua con altares dedicados a la cosecha y fertilidad de la tierra, simbolizando gratitud y unión en la fe. Incluye procesión alrededor del parque.",
+      "tipo": "religioso",
+      "ubicacion": "Cómbita, Boyacá",
+      "activo": true
+    }
+  ],
+  "galeria": [
+    {
+      "id": "paramos",
+      "titulo": "Páramos",
+      "descripcion": "Ecosistemas de alta montaña con frailejones",
+      "portada": "/imagenes/paramos/laguna rica.jpg",
+      "activo": true,
+      "orden": 1,
+      "imagenes": [
+        {
+          "id": "img001",
+          "titulo": "Laguna y Planta",
+          "archivo": "/imagenes/paramos/foto laguna y planta.JPG",
+          "activo": true
+        },
+        {
+          "id": "img002",
+          "titulo": "Frailejón en la Laguna",
+          "archivo": "/imagenes/paramos/frailejon en la laguna .jpg",
+          "activo": true
+        },
+        {
+          "id": "img003",
+          "titulo": "Frailejón Grande",
+          "archivo": "/imagenes/paramos/freilejon grande.jpg",
+          "activo": true
+        },
+        {
+          "id": "img004",
+          "titulo": "Laguna Rica",
+          "archivo": "/imagenes/paramos/laguna rica.jpg",
+          "activo": true
+        },
+        {
+          "id": "img005",
+          "titulo": "Plantas de la Laguna",
+          "archivo": "/imagenes/paramos/plantas de la laguuna.JPG",
+          "activo": true
+        },
+        {
+          "id": "img006",
+          "titulo": "Tres Frailejones",
+          "archivo": "/imagenes/paramos/tres frailejones.jpg",
+          "activo": true
+        }
+      ],
+      "creado": "2026-02-05T00:00:00.000Z"
+    },
+    {
+      "id": "fauna",
+      "titulo": "Fauna",
+      "descripcion": "Aves y animales nativos del ecosistema",
+      "portada": "/imagenes/fauna/colibrie verde descansa.jpg",
+      "activo": true,
+      "orden": 2,
+      "imagenes": [
+        {
+          "id": "img010",
+          "titulo": "Halcón Sapero",
+          "archivo": "/imagenes/fauna/alcon sapero.JPG",
+          "activo": true
+        },
+        {
+          "id": "img011",
+          "titulo": "Colibrí Silueta Alas Abiertas",
+          "archivo": "/imagenes/fauna/colibrie silueta alas abiertas.jpg",
+          "activo": true
+        },
+        {
+          "id": "img012",
+          "titulo": "Colibrí Silueta",
+          "archivo": "/imagenes/fauna/colibrie silueta.jpg",
+          "activo": true
+        },
+        {
+          "id": "img013",
+          "titulo": "Colibrí Verde",
+          "archivo": "/imagenes/fauna/colibrie verde descansa.jpg",
+          "activo": true
+        },
+        {
+          "id": "img014",
+          "titulo": "Copetón",
+          "archivo": "/imagenes/fauna/copeton.jpg",
+          "activo": true
+        },
+        {
+          "id": "img015",
+          "titulo": "Pájaro Comiendo",
+          "archivo": "/imagenes/fauna/pajaro comiendo abeja.JPG",
+          "activo": true
+        },
+        {
+          "id": "mlnym0d5qxnukpp1shi",
+          "titulo": "pajarito",
+          "descripcion": "",
+          "archivo": "/uploads/galeria/galeria-1771172895053.jpg",
+          "activo": true,
+          "creado": "2026-02-15T16:28:15.066Z"
+        },
+        {
+          "id": "mlnyvaard4acuxsgb7g",
+          "titulo": "pajarito negro",
+          "descripcion": "",
+          "archivo": "/uploads/galeria/galeria-1771173327824.JPG",
+          "activo": true,
+          "creado": "2026-02-15T16:35:27.843Z"
+        }
+      ],
+      "creado": "2026-02-05T00:00:00.000Z"
+    },
+    {
+      "id": "rupestre",
+      "titulo": "Arte Rupestre",
+      "descripcion": "Pinturas precolombinas milenarias",
+      "portada": "/uploads/galeria/galeria-1771532261344.JPG",
+      "activo": true,
+      "orden": 3,
+      "imagenes": [
+        {
+          "id": "img021",
+          "titulo": "Pinturas Rupestres Tilín",
+          "archivo": "/imagenes/rupestre/tilin,pinturas.JPG",
+          "activo": true
+        },
+        {
+          "id": "mltwlfc6zrb9ipp3hc8",
+          "titulo": "roca pintada",
+          "descripcion": "",
+          "archivo": "/uploads/galeria/galeria-1771532305608.jpg",
+          "activo": true,
+          "creado": "2026-02-19T20:18:25.638Z"
+        },
+        {
+          "id": "mltwm8zb8q2b4o2k8oo",
+          "titulo": "pinturas rupestres",
+          "descripcion": "",
+          "archivo": "/uploads/galeria/galeria-1771532343930.jpg",
+          "activo": true,
+          "creado": "2026-02-19T20:19:04.055Z"
+        },
+        {
+          "id": "mltwmolhq7byzot457c",
+          "titulo": "roca con pinturas",
+          "descripcion": "",
+          "archivo": "/uploads/galeria/galeria-1771532364231.jpg",
+          "activo": true,
+          "creado": "2026-02-19T20:19:24.293Z"
+        }
+      ],
+      "creado": "2026-02-05T00:00:00.000Z",
+      "actualizado": "2026-02-19T20:17:41.518Z"
+    },
+    {
+      "id": "patrimonio",
+      "titulo": "Patrimonio",
+      "descripcion": "Arquitectura colonial y tradiciones",
+      "portada": "/imagenes/patrimonio/iglesia.jpg",
+      "activo": true,
+      "orden": 4,
+      "imagenes": [
+        {
+          "id": "img030",
+          "titulo": "Iglesia La Inmaculada Concepción",
+          "archivo": "/imagenes/patrimonio/iglesia.jpg",
+          "activo": true
+        },
+        {
+          "id": "mltwngfvlpos8mt38t",
+          "titulo": "ultima cena en marmol",
+          "descripcion": "",
+          "archivo": "/uploads/galeria/galeria-1771532400290.JPG",
+          "activo": true,
+          "creado": "2026-02-19T20:20:00.379Z"
+        },
+        {
+          "id": "mltwnvj6zx2xpi8b6pq",
+          "titulo": "templo a la virgen",
+          "descripcion": "",
+          "archivo": "/uploads/galeria/galeria-1771532419856.JPG",
+          "activo": true,
+          "creado": "2026-02-19T20:20:19.938Z"
+        },
+        {
+          "id": "mltwo8jd53x9wcc0fup",
+          "titulo": "templo",
+          "descripcion": "",
+          "archivo": "/uploads/galeria/galeria-1771532436704.JPG",
+          "activo": true,
+          "creado": "2026-02-19T20:20:36.793Z"
+        }
+      ],
+      "creado": "2026-02-05T00:00:00.000Z"
+    },
+    {
+      "id": "paisajes",
+      "titulo": "Paisajes",
+      "descripcion": "Vistas panorámicas espectaculares",
+      "portada": "/imagenes/paisajes/favorita dos.jpg",
+      "activo": true,
+      "orden": 6,
+      "imagenes": [
+        {
+          "id": "img050",
+          "titulo": "Desde los Altos",
+          "archivo": "/imagenes/paisajes/desde los altos.jpg",
+          "activo": true
+        },
+        {
+          "id": "img051",
+          "titulo": "Vista Favorita",
+          "archivo": "/imagenes/paisajes/favorita dos.jpg",
+          "activo": true
+        },
+        {
+          "id": "img052",
+          "titulo": "Frailejón en el Valle",
+          "archivo": "/imagenes/paisajes/fraile en el valle.JPG",
+          "activo": true
+        },
+        {
+          "id": "img053",
+          "titulo": "Montañas",
+          "archivo": "/imagenes/paisajes/montallas.jpg",
+          "activo": true
+        },
+        {
+          "id": "img054",
+          "titulo": "Cordillera",
+          "archivo": "/imagenes/paisajes/montaña cordi.jpg",
+          "activo": true
+        }
+      ],
+      "creado": "2026-02-05T00:00:00.000Z"
     }
   ],
   "estadisticas": {
     "hoteles_hospedajes": 8,
     "habitaciones_totales": 59,
     "capacidad_alojamiento": 146,
-    "restaurantes_cafeterias": 9,
-    "capacidad_gastronomica": 440,
+    "restaurantes_cafeterias": 10,
+    "capacidad_gastronomica": 510,
+    "eventos": 3,
     "lugares_turisticos": 7,
     "reservas_naturales": 2,
     "areas_arqueologicas": 3,
-    "patrimonio_urbano": 2,
-    "puntos_ciclisticos": 8
+    "patrimonio_urbano": 2
   },
-  "fecha_actualizacion": "Febrero 2026"
+  "fecha_actualizacion": "19 de febrero de 2026",
+  "blog": [
+    {
+      "id": "blog-001",
+      "titulo": "Descubriendo la Laguna Rica de Cómbita",
+      "extracto": "Un recorrido por una de las lagunas más hermosas del páramo boyacense, un ecosistema único que alberga frailejones centenarios y fauna endémica.",
+      "contenido": "<p>La <strong>Laguna Rica</strong> es uno de los tesoros naturales más impresionantes del municipio de Cómbita, ubicada en la zona de páramo a más de 3.000 metros sobre el nivel del mar.</p><h3>El recorrido</h3><p>La caminata hacia la Laguna Rica comienza en la vereda San Rafael y se extiende por aproximadamente 8 kilómetros de sendero entre frailejones, musgos y una vegetación de páramo que parece de otro mundo. El ascenso es moderado pero constante, por lo que se recomienda llevar ropa abrigada y calzado adecuado.</p><h3>Flora y Fauna</h3><p>Durante el camino es posible avistar especies endémicas como el colibrí de páramo, águilas y diversas aves migratorias. La vegetación está dominada por los majestuosos frailejones (<em>Espeletia</em>), algunos con más de 100 años de antigüedad, que crecen apenas un centímetro por año.</p><h3>Recomendaciones</h3><ul><li>Llevar protección solar y gorra (la radiación UV es alta en el páramo)</li><li>Llevar agua y snacks suficientes</li><li>No dejar basura en el sendero</li><li>Contratar un guía local para una experiencia más enriquecedora</li><li>Iniciar la caminata temprano en la mañana</li></ul><p>La Laguna Rica no es solo un destino turístico, es un recordatorio de la importancia de conservar nuestros ecosistemas de páramo, fuentes de agua para miles de personas en la región.</p>",
+      "imagen": "/assets/images/laguna rica.jpg",
+      "categoria": "naturaleza",
+      "autor": "Admin",
+      "tags": [
+        "laguna",
+        "paramo",
+        "senderismo",
+        "naturaleza"
+      ],
+      "destacado": true,
+      "activo": true,
+      "creado": "2024-12-15T10:00:00.000Z",
+      "actualizado": "2024-12-15T10:00:00.000Z"
+    },
+    {
+      "id": "blog-002",
+      "titulo": "Tradiciones y Cultura Viva de Cómbita",
+      "extracto": "Cómbita conserva tradiciones ancestrales que se manifiestan en sus fiestas, artesanías y gastronomía. Conoce la riqueza cultural de este municipio boyacense.",
+      "contenido": "<p><strong>Cómbita</strong>, un municipio enclavado en el altiplano cundiboyacense, guarda en sus calles y veredas una rica herencia cultural que se remonta a tiempos precolombinos.</p><h3>Herencia Muisca</h3><p>El nombre Cómbita proviene de la lengua muisca y su territorio fue parte importante de esta civilización. Aún hoy, muchas de las tradiciones agrícolas y comunitarias tienen raíces en esta herencia ancestral.</p><h3>Festividades</h3><p>Entre las celebraciones más importantes del municipio se encuentran:</p><ul><li><strong>Ferias y Fiestas:</strong> Celebradas en el último fin de semana de febrero, incluyen cabalgatas, presentaciones musicales y eventos deportivos.</li><li><strong>Festival de la Ruana:</strong> Un homenaje a esta prenda icónica de la cultura boyacense.</li><li><strong>Semana Santa:</strong> Vivida con profunda devoción, incluye procesiones tradicionales por las calles del pueblo.</li></ul><h3>Gastronomía</h3><p>La cocina combitense es un reflejo de la tradición boyacense: el cocido boyacense, el mute de mazorca, las arepas de maíz, la chicha y el sabajón son solo algunas de las delicias que se pueden disfrutar en los restaurantes y hogares del municipio.</p><p>Visitar Cómbita es sumergirse en una Colombia auténtica, donde las tradiciones se viven con orgullo y se comparten con generosidad.</p>",
+      "imagen": "/assets/images/iglesia.jpg",
+      "categoria": "cultura",
+      "autor": "Admin",
+      "tags": [
+        "cultura",
+        "tradiciones",
+        "gastronomia",
+        "fiestas"
+      ],
+      "destacado": true,
+      "activo": true,
+      "creado": "2025-01-20T14:30:00.000Z",
+      "actualizado": "2025-01-20T14:30:00.000Z"
+    },
+    {
+      "id": "blog-003",
+      "titulo": "Guía de Senderismo: Ruta La Peña",
+      "extracto": "Todo lo que necesitas saber para recorrer una de las rutas de senderismo más populares de Cómbita, con vistas panorámicas del valle de Tenza.",
+      "contenido": "<p>La <strong>Ruta La Peña</strong> es una de las caminatas más populares y accesibles del municipio de Cómbita. Con un recorrido de aproximadamente 6 kilómetros, ofrece vistas espectaculares del paisaje boyacense.</p><h3>Datos técnicos</h3><ul><li><strong>Distancia:</strong> 6 km (ida y vuelta)</li><li><strong>Dificultad:</strong> Media</li><li><strong>Duración:</strong> 3-4 horas</li><li><strong>Altitud máxima:</strong> 3.200 msnm</li><li><strong>Punto de inicio:</strong> Vereda La Peña</li></ul><h3>Descripción del recorrido</h3><p>El sendero comienza con un tramo suave entre pastizales y fincas rurales, donde es común encontrar campesinos trabajando la tierra. A medida que se asciende, la vegetación cambia gradualmente hacia un bosque de niebla con árboles cubiertos de musgos y líquenes.</p><p>El punto culminante es la formación rocosa de La Peña, desde donde se obtiene una vista panorámica de 360 grados que incluye el valle, las montañas circundantes y, en días despejados, se puede divisar la ciudad de Tunja.</p><h3>Qué llevar</h3><ul><li>Botas de senderismo impermeables</li><li>Ropa en capas (el clima cambia rápidamente)</li><li>Impermeable o poncho</li><li>Agua (mínimo 1.5 litros por persona)</li><li>Cámara fotográfica</li></ul><p>Esta ruta es perfecta para quienes buscan una experiencia de senderismo moderada con paisajes impresionantes y la oportunidad de conectar con la naturaleza boyacense.</p>",
+      "imagen": "/assets/images/La Peña.jpg",
+      "categoria": "senderismo",
+      "autor": "Admin",
+      "tags": [
+        "senderismo",
+        "la peña",
+        "caminata",
+        "montaña"
+      ],
+      "destacado": false,
+      "activo": true,
+      "creado": "2025-02-05T09:00:00.000Z",
+      "actualizado": "2025-02-05T09:00:00.000Z"
+    }
+  ],
+  "mensajes": [
+    {
+      "id": "mlobuv58lsnfy2oyagm",
+      "nombre": "SANTIAGO QUIROGA",
+      "email": "santiagoquirogamolina1999@gmail.com",
+      "telefono": "",
+      "asunto": "Suscripción - Novedades de Cómbita",
+      "mensaje": "Solicitud de suscripción a novedades desde el formulario de inicio.",
+      "leido": false,
+      "creado": "2026-02-15T22:39:03.212Z"
+    }
+  ],
+  "artesanos": [
+    {
+      "id": "art001",
+      "nombre": "Profe Marce",
+      "especialidad": "Líder de arte y cultura",
+      "descripcion": "Líder del grupo de artesanos de Cómbita. Coordina las actividades culturales y artesanales del municipio.",
+      "telefono": "314 2105164",
+      "whatsapp": "314 2105164",
+      "email": "",
+      "ubicacion": "Cómbita, Boyacá",
+      "imagen": "/uploads/artesanos/artesano-1771531378830.jpeg",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-19T12:00:00.000Z",
+      "actualizado": "2026-02-19T20:02:58.842Z"
+    },
+    {
+      "id": "art002",
+      "nombre": "Henry Sánchez Umba",
+      "especialidad": "Artesanías",
+      "descripcion": "Artesano de Cómbita.",
+      "telefono": "313 8726747",
+      "whatsapp": "313 8726747",
+      "email": "",
+      "ubicacion": "Cómbita, Boyacá",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-19T12:00:00.000Z"
+    },
+    {
+      "id": "art003",
+      "nombre": "Lady Sánchez",
+      "especialidad": "Artesanías",
+      "descripcion": "Artesana de Cómbita.",
+      "telefono": "314 6878044",
+      "whatsapp": "314 6878044",
+      "email": "",
+      "ubicacion": "Cómbita, Boyacá",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-19T12:00:00.000Z"
+    },
+    {
+      "id": "art004",
+      "nombre": "Karem Sánchez",
+      "especialidad": "Artesanías",
+      "descripcion": "Artesana de Cómbita.",
+      "telefono": "310 2353120",
+      "whatsapp": "310 2353120",
+      "email": "",
+      "ubicacion": "Cómbita, Boyacá",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-19T12:00:00.000Z"
+    },
+    {
+      "id": "art005",
+      "nombre": "Laura Muñecos",
+      "especialidad": "Artesanías",
+      "descripcion": "Artesana de Cómbita.",
+      "telefono": "323 2278204",
+      "whatsapp": "323 2278204",
+      "email": "",
+      "ubicacion": "Cómbita, Boyacá",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-19T12:00:00.000Z"
+    },
+    {
+      "id": "art006",
+      "nombre": "Yenny Vera",
+      "especialidad": "Artesanías",
+      "descripcion": "Artesana de Cómbita.",
+      "telefono": "321 3950077",
+      "whatsapp": "321 3950077",
+      "email": "",
+      "ubicacion": "Cómbita, Boyacá",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-19T12:00:00.000Z"
+    },
+    {
+      "id": "art007",
+      "nombre": "Isabelt Barón",
+      "especialidad": "Artesanías",
+      "descripcion": "Artesana de Cómbita.",
+      "telefono": "312 5510069",
+      "whatsapp": "312 5510069",
+      "email": "",
+      "ubicacion": "Cómbita, Boyacá",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-19T12:00:00.000Z"
+    },
+    {
+      "id": "art008",
+      "nombre": "Rosa Tocarruncho",
+      "especialidad": "Artesanías",
+      "descripcion": "Artesana de Cómbita.",
+      "telefono": "320 8179540",
+      "whatsapp": "320 8179540",
+      "email": "",
+      "ubicacion": "Cómbita, Boyacá",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-19T12:00:00.000Z"
+    },
+    {
+      "id": "art009",
+      "nombre": "Rosa Cándida Umba",
+      "especialidad": "Artesanías",
+      "descripcion": "Artesana de Cómbita.",
+      "telefono": "304 6334741",
+      "whatsapp": "304 6334741",
+      "email": "",
+      "ubicacion": "Cómbita, Boyacá",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-19T12:00:00.000Z"
+    },
+    {
+      "id": "art010",
+      "nombre": "Flor Alba Umba",
+      "especialidad": "Artesanías",
+      "descripcion": "Artesana de Cómbita.",
+      "telefono": "311 5489974",
+      "whatsapp": "311 5489974",
+      "email": "",
+      "ubicacion": "Cómbita, Boyacá",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-19T12:00:00.000Z"
+    }
+  ],
+  "guias": [
+    {
+      "id": "guia001",
+      "nombre": "Jhon Jairo Llano",
+      "especialidad": "Líder de turismo",
+      "descripcion": "Líder del grupo de guías turísticos de Cómbita. Coordina los recorridos por las rutas naturales y culturales del municipio.",
+      "telefono": "311 5830004",
+      "whatsapp": "311 5830004",
+      "email": "",
+      "experiencia": "",
+      "idiomas": "Español",
+      "certificaciones": "",
+      "rutas_conocidas": "Laguna Rica, La Peña, El Tilín, El Valle",
+      "ubicacion": "Cómbita, Boyacá",
+      "imagen": "/uploads/guias/guia-1771531310680.jpeg",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-19T12:00:00.000Z",
+      "actualizado": "2026-02-19T20:01:50.686Z"
+    },
+    {
+      "id": "guia002",
+      "nombre": "David Ávila",
+      "especialidad": "Guía turístico",
+      "descripcion": "Guía turístico de Cómbita.",
+      "telefono": "321 2657842",
+      "whatsapp": "321 2657842",
+      "email": "",
+      "experiencia": "",
+      "idiomas": "Español",
+      "certificaciones": "",
+      "rutas_conocidas": "",
+      "ubicacion": "Cómbita, Boyacá",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-19T12:00:00.000Z"
+    },
+    {
+      "id": "guia003",
+      "nombre": "Diego Rojas",
+      "especialidad": "Guía turístico",
+      "descripcion": "Guía turístico de Cómbita.",
+      "telefono": "320 4730820",
+      "whatsapp": "320 4730820",
+      "email": "",
+      "experiencia": "",
+      "idiomas": "Español",
+      "certificaciones": "",
+      "rutas_conocidas": "",
+      "ubicacion": "Cómbita, Boyacá",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-19T12:00:00.000Z"
+    },
+    {
+      "id": "guia004",
+      "nombre": "Eusinio Tocarruncho",
+      "especialidad": "Guía turístico",
+      "descripcion": "Guía turístico de Cómbita.",
+      "telefono": "314 2844395",
+      "whatsapp": "314 2844395",
+      "email": "",
+      "experiencia": "",
+      "idiomas": "Español",
+      "certificaciones": "",
+      "rutas_conocidas": "",
+      "ubicacion": "Cómbita, Boyacá",
+      "imagen": "",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "activo": true,
+      "creado": "2026-02-19T12:00:00.000Z"
+    }
+  ],
+  "videos": [
+    {
+      "id": "video-001",
+      "titulo": "Cómbita, Boyacá - Naturaleza y Cultura",
+      "youtube_url": "https://www.youtube.com/watch?v=-ioKEoginzE",
+      "descripcion": "Descubre la belleza natural y cultural de Cómbita, un municipio enclavado en el corazón de Boyacá.",
+      "activo": true,
+      "orden": 1,
+      "creado": "2026-02-19T00:00:00.000Z"
+    }
+  ]
 }

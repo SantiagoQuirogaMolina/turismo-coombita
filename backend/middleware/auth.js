@@ -4,7 +4,11 @@
 
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'combita-turismo-secret-2024-dev';
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) {
+    console.error('FATAL: JWT_SECRET no está configurado en las variables de entorno');
+    process.exit(1);
+}
 
 // Verificar token JWT
 function verifyToken(req, res, next) {
@@ -44,6 +48,5 @@ function generateToken(user) {
 module.exports = {
     verifyToken,
     requireAdmin,
-    generateToken,
-    JWT_SECRET
+    generateToken
 };

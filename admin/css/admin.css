@@ -64,6 +64,7 @@ body {
     margin-bottom: 10px;
     background: var(--white);
     padding: 5px;
+    object-fit: contain;
 }
 
 .sidebar-header h2 {

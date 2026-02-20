@@ -15,16 +15,30 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const isDev = process.env.NODE_ENV !== 'production';
 
+// Confiar en proxy (Cloudflare) para rate limiting correcto
+app.set('trust proxy', 1);
+
 // Seguridad - Headers HTTP
 app.use(helmet({
-    contentSecurityPolicy: false,
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://cdnjs.cloudflare.com", "https://maps.googleapis.com", "https://maps.gstatic.com", "https://unpkg.com"],
+            styleSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com", "https://unpkg.com"],
+            imgSrc: ["'self'", "data:", "blob:", "https:", "http:"],
+            fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
+            frameSrc: ["'self'", "https://www.google.com", "https://www.youtube.com", "https://youtube.com"],
+            connectSrc: ["'self'", "https://maps.googleapis.com"],
+            scriptSrcAttr: ["'unsafe-inline'"]
+        }
+    },
     crossOriginEmbedderPolicy: false
 }));
 
 // CORS configurado
-const allowedOrigins = (process.env.CORS_ORIGINS || 'http://localhost:3000,http://localhost:3001').split(',');
+const allowedOrigins = (process.env.CORS_ORIGINS || 'http://localhost:3001').split(',').map(s => s.trim());
 app.use(cors({
-    origin: isDev ? true : allowedOrigins,
+    origin: allowedOrigins,
     credentials: true
 }));
 
@@ -74,6 +88,7 @@ app.use('/api/contacto', contactLimiter);
 app.use('/api/contacto', require('./routes/contacto'));
 app.use('/api/artesanos', require('./routes/artesanos'));
 app.use('/api/guias', require('./routes/guias'));
+app.use('/api/videos', require('./routes/videos'));
 
 // ===== PÁGINAS PÚBLICAS =====
 
@@ -82,20 +97,24 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../src/pages/index.html'));
 });
 
-// Todas las páginas del sitio
-app.get('/*.html', (req, res) => {
-    const pageName = req.params[0] + '.html';
-    res.sendFile(path.join(__dirname, '../src/pages', pageName));
-});
-
-// Subpáginas (treks, etc)
+// Subpáginas treks (ANTES del wildcard general)
 app.get('/treks/*.html', (req, res) => {
-    const pageName = req.params[0] + '.html';
-    res.sendFile(path.join(__dirname, '../src/pages/treks', pageName));
+    const pageName = path.basename(req.params[0]) + '.html';
+    res.sendFile(path.join(__dirname, '../src/pages/treks', pageName), err => {
+        if (err) res.status(404).sendFile(path.join(__dirname, '../src/pages/index.html'));
+    });
 });
 
 app.get('/treks', (req, res) => {
     res.sendFile(path.join(__dirname, '../src/pages/treks/index.html'));
+});
+
+// Todas las páginas del sitio
+app.get('/*.html', (req, res) => {
+    const pageName = path.basename(req.params[0]) + '.html';
+    res.sendFile(path.join(__dirname, '../src/pages', pageName), err => {
+        if (err) res.status(404).sendFile(path.join(__dirname, '../src/pages/index.html'));
+    });
 });
 
 // ===== PANEL ADMIN =====

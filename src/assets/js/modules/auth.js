@@ -4,9 +4,59 @@
  */
 
 (function() {
-    // Usar configuración global si está disponible, sino usar localhost:3000
-    const API_URL = window.API_CONFIG ? window.API_CONFIG.API_URL : 'http://localhost:3000/api';
+    const API_URL = window.location.origin + '/api';
 
+    // ===== SPLASH SCREEN PÁRAMO =====
+    var splashStart = Date.now();
+    var preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.innerHTML =
+            '<div class="splash-particulas">' +
+                '<span></span><span></span><span></span><span></span><span></span>' +
+            '</div>' +
+            '<div class="splash-content">' +
+                '<div class="splash-icon">' +
+                    '<svg viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">' +
+                        '<g fill="none" stroke="#DDA15E" stroke-width="1.5" stroke-linecap="round" opacity="0.9">' +
+                            '<path d="M30 78 L30 40" stroke-width="2"/>' +
+                            '<path d="M27 75 Q30 72 33 75"/>' +
+                            '<path d="M26 68 Q30 65 34 68"/>' +
+                            '<path d="M25 61 Q30 58 35 61"/>' +
+                            '<path d="M26 54 Q30 51 34 54"/>' +
+                            '<path d="M27 47 Q30 44 33 47"/>' +
+                            '<path d="M30 38 Q30 20 18 8" stroke-width="1.8"/>' +
+                            '<path d="M30 38 Q25 18 10 14" stroke-width="1.5"/>' +
+                            '<path d="M30 38 Q35 18 50 14" stroke-width="1.5"/>' +
+                            '<path d="M30 38 Q30 20 42 8" stroke-width="1.8"/>' +
+                            '<path d="M30 38 Q20 22 8 24" stroke-width="1.3"/>' +
+                            '<path d="M30 38 Q40 22 52 24" stroke-width="1.3"/>' +
+                            '<path d="M30 38 L30 6" stroke-width="1.8"/>' +
+                        '</g>' +
+                    '</svg>' +
+                '</div>' +
+                '<div class="splash-title">CÓMBITA</div>' +
+                '<div class="splash-line"></div>' +
+                '<div class="splash-subtitle">Boyacá &middot; Colombia</div>' +
+            '</div>' +
+            '<div class="splash-mountains">' +
+                '<svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">' +
+                    '<path d="M0,220 L0,160 Q120,80 240,120 Q360,160 480,100 Q600,40 720,90 Q840,140 960,70 Q1080,0 1200,50 Q1320,100 1440,60 L1440,220 Z" fill="rgba(105,144,115,0.08)"/>' +
+                    '<path d="M0,220 L0,180 Q180,120 360,155 Q540,190 720,140 Q900,90 1080,130 Q1260,170 1440,110 L1440,220 Z" fill="rgba(105,144,115,0.05)"/>' +
+                '</svg>' +
+            '</div>' +
+            '<div class="splash-progress"><span></span></div>';
+    }
+
+    // Mantener splash visible 1.5s y luego fade out (tiempo fijo, no espera imágenes)
+    document.addEventListener('DOMContentLoaded', function() {
+        if (preloader && window.jQuery) {
+            jQuery(preloader).stop(true).show().css('opacity', 1);
+            var espera = Math.max(0, 1500 - (Date.now() - splashStart));
+            setTimeout(function() {
+                jQuery(preloader).fadeOut(500);
+            }, espera);
+        }
+    });
 
     // Obtener información del usuario actual
     function getCurrentUser() {
@@ -66,7 +116,7 @@
                 <ul>
                     ${user.rol === 'admin' || user.tipo === 'admin' ? `
                         <li>
-                            <a href="/admin-panel" style="color: #2d3e33 !important;">
+                            <a href="../admin/" style="color: #2d3e33 !important;">
                                 📊 Panel Admin
                             </a>
                         </li>
@@ -91,9 +141,9 @@
         } else {
             // Usuario no logueado - Botón simple que coincide con el estilo del menú
             authItem.innerHTML = `
-                <a href="/login.html" style="color: inherit !important;">
+                <a href="contacts.html" style="color: inherit !important;">
                     <span style="display: inline-block; padding: 6px 16px; background: #699073; color: white !important; border-radius: 20px; font-size: 13px; font-weight: 600;">
-                        Iniciar Sesión
+                        Contáctanos
                     </span>
                 </a>
             `;
@@ -154,12 +204,12 @@
                     <div style="text-align: center; padding: 60px 20px; background: white; border-radius: 8px;">
                         <h3 style="color: #2d3e33; margin-bottom: 20px;">💭 ¿Quieres compartir tu experiencia?</h3>
                         <p style="color: #666; margin-bottom: 25px; font-size: 16px;">
-                            Inicia sesión para contarnos sobre tu visita a Cómbita
+                            Cuéntanos sobre tu visita a Cómbita
                         </p>
-                        <a href="/login.html" style="display: inline-block; background: #699073; color: white; padding: 14px 40px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s;"
+                        <a href="contacts.html" style="display: inline-block; background: #699073; color: white; padding: 14px 40px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s;"
                            onmouseover="this.style.background='#567760'; this.style.transform='translateY(-2px)'"
                            onmouseout="this.style.background='#699073'; this.style.transform='translateY(0)'">
-                            Iniciar Sesión
+                            Contáctanos
                         </a>
                     </div>
                 `;
@@ -310,7 +360,7 @@
                         <div style="font-size: 12px; color: #666; margin-top: 3px;">${user.rol === 'admin' ? 'Administrador' : user.rol === 'editor' ? 'Editor' : 'Usuario'}</div>
                     </div>
                     ${user.rol === 'admin' || user.rol === 'editor' ? `
-                    <a href="/admin-panel" style="display: block; padding: 12px 15px; color: #2d3e33; text-decoration: none; transition: background 0.3s;">
+                    <a href="../admin/" style="display: block; padding: 12px 15px; color: #2d3e33; text-decoration: none; transition: background 0.3s;">
                         <i class="fas fa-tachometer-alt" style="margin-right: 10px; color: #699073;"></i> Panel Admin
                     </a>
                     ` : ''}
@@ -346,10 +396,24 @@
             };
         } else {
             // Usuario no logueado - botón normal
-            btnText.textContent = 'Ingresar';
-            btnLogin.href = 'login.html';
+            btnText.textContent = 'Contáctanos';
+            btnLogin.href = 'contacts.html';
             btnLogin.onclick = null;
         }
+    }
+
+    // Fallback para imágenes parallax en móviles
+    // El plugin parallax usa url() sin comillas en el CSS, rutas con espacios/ñ fallan
+    // En desktop, el mirror div cubre el elemento, así que esto no afecta
+    function fixParallaxBackgrounds() {
+        document.querySelectorAll('[data-image-src]').forEach(function(el) {
+            var src = el.getAttribute('data-image-src');
+            if (src) {
+                el.style.backgroundImage = "url('" + src + "')";
+                el.style.backgroundSize = 'cover';
+                el.style.backgroundPosition = 'center';
+            }
+        });
     }
 
     // Hacer funciones globales
@@ -362,16 +426,23 @@
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
-                // addAuthButton(); // Comentado para evitar duplicación - usamos el botón del navbar
-                updateLoginButton(); // Actualizar el botón existente
+                updateLoginButton();
                 addCommentSystem();
             }, 100);
         });
     } else {
         setTimeout(() => {
-            // addAuthButton(); // Comentado para evitar duplicación - usamos el botón del navbar
-            updateLoginButton(); // Actualizar el botón existente
+            updateLoginButton();
             addCommentSystem();
         }, 100);
+    }
+
+    // Fallback de parallax: ejecutar cuando el DOM esté listo, sin esperar imágenes
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(fixParallaxBackgrounds, 200);
+        });
+    } else {
+        setTimeout(fixParallaxBackgrounds, 200);
     }
 })();

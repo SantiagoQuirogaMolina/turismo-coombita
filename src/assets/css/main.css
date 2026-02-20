@@ -8,6 +8,10 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500,600,700,800');
 
+html, body {
+    overflow-x: hidden;
+}
+
 /*
 -------------------------------------------------------------------
 COLORS
@@ -297,13 +301,13 @@ main > .section-google-map > .container {
         width: 200px;
         right: -300px;
         left: auto;
-        bottom: 5px;
+        bottom: -45px;
     }
 
     .alpins-slider .glide__arrow {
         right: -345px;
         left: auto;
-        bottom: -7px;
+        bottom: -57px;
         top: auto;
     }
 }
@@ -326,6 +330,33 @@ main > .section-google-map > .container {
 
 .alpins-slider .glide__arrow:before {
     color: #FFF;
+}
+
+/* Carrusel portada - imágenes uniformes */
+.alpins-slider .img-box img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+/* Carrusel hero - video y fotos uniformes */
+.section-image .slider .img-box img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+/* Tarjetas de treks - imágenes uniformes */
+.cnt-box-info .img-box img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+/* Tarjetas de treks - amarillo sutil en valores */
+.cnt-box-info .cnt-info > div > span:last-child {
+    color: var(--accent, #DDA15E);
+    font-weight: 600;
 }
 
 .table-grid td .icon-box {
@@ -1002,6 +1033,7 @@ body > header h2:after, body > header h2:before {
     width: 1500px;
     top: 12px;
     border-radius: 3px;
+    display: none;
 }
 
 body > header h2:before {
@@ -1010,6 +1042,12 @@ body > header h2:before {
 
 body > header h2:after {
     right: calc(100% + 30px);
+}
+
+@media (min-width: 992px) {
+    body > header h2:after, body > header h2:before {
+        display: block;
+    }
 }
 
 body > header:not(.header-base) > .container {
@@ -2241,6 +2279,88 @@ Small devices (landscape phones, less than 768px)
     .width-415 {
         max-width: 100%;
     }
+
+    /* === INDEX - Hero móvil: reducir espacios === */
+    .page-main .section-image hr.space-lg {
+        height: 40px;
+    }
+
+    .page-main .section-image hr.space-sm {
+        height: 10px;
+    }
+
+    .page-main .section-image hr.space {
+        height: 20px;
+    }
+
+    /* Contadores en fila horizontal */
+    .page-main .section-image .col-lg-6 > .counter {
+        display: inline-block;
+        width: 32%;
+        text-align: center;
+        vertical-align: top;
+    }
+
+    .page-main .section-image .col-lg-6 > hr.space-sm {
+        display: none;
+    }
+
+    .page-main .section-image .col-lg-6 > hr.space-xs {
+        height: 5px;
+    }
+
+    .page-main .section-image .counter h3 {
+        font-size: 13px;
+    }
+
+    .page-main .section-image .counter .text-md {
+        font-size: 28px !important;
+    }
+
+    /* Menos separación entre columnas apiladas en el hero */
+    .page-main .section-image [class*=col-lg-] + [class*=col-lg-] {
+        margin-top: 20px;
+    }
+
+    /* Secciones más compactas */
+    .page-main .section-base {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .page-main .section-color {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    /* Alpins-slider texto más compacto */
+    .page-main .section-slider .col-lg-6[data-anima] {
+        margin-top: 25px !important;
+    }
+
+    .page-main .section-slider .col-lg-6[data-anima] h1 {
+        font-size: 28px !important;
+        line-height: 36px;
+    }
+
+    /* Tabla de iconos más compacta */
+    .page-main .table-grid td {
+        padding: 15px 8px;
+    }
+
+    .page-main .table-grid .icon-box h3 {
+        font-size: 14px;
+    }
+
+    .page-main .table-grid .icon-box p {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    /* Contacto index más compacto */
+    .page-main .form-inline .row {
+        gap: 10px;
+    }
 }
 
 /*
@@ -2361,5 +2481,287 @@ Extra small devices (portrait phones, less than 576px)
     .section-home-alpins [data-to] {
         font-size: 30px;
         line-height: 45px;
+    }
+
+    /* === INDEX - Hero en teléfonos pequeños === */
+    .page-main .section-image hr.space-lg {
+        height: 25px;
+    }
+
+    .page-main .section-image .counter .text-md {
+        font-size: 24px !important;
+    }
+
+    .page-main .section-image .counter h3 {
+        font-size: 11px;
+    }
+
+    .page-main .section-image .counter .value span:last-child {
+        font-size: 11px;
+    }
+
+    /* Quote más legible */
+    .page-main .quote {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    /* Título principal más compacto */
+    .page-main .section-image h1.text-lg {
+        font-size: 30px !important;
+        line-height: 38px;
+        margin-bottom: 0;
+    }
+
+    /* Acordeón más compacto */
+    .page-main .accordion-list .content p {
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+    /* Sección media-box título */
+    .page-main .section-slider .col-lg-6[data-anima] h1 {
+        font-size: 24px !important;
+        line-height: 32px;
+    }
+
+    .page-main .section-slider .col-lg-6[data-anima] .btn {
+        font-size: 12px;
+        padding: 10px 18px;
+    }
+}
+
+/* Video play button - centrado con márgenes (no transform, que las animaciones pulse/ping lo sobreescriben) */
+.img-box.btn-video:before {
+    top: 50%;
+    left: 50%;
+    margin-top: -40px;
+    margin-left: -40px;
+    transform: none;
+}
+
+.img-box.btn-video:after {
+    top: 50%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
+    text-align: center;
+    transform: none;
+}
+
+/*
+-------------------------------------------------------------------
+SPLASH SCREEN - PÁRAMO
+-------------------------------------------------------------------
+*/
+
+body > #preloader {
+    background: linear-gradient(170deg, #1a2a20 0%, #2d3e33 45%, #3a5240 100%) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Ocultar el loader SVG del template */
+#preloader::before {
+    content: "" !important;
+    background: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* Seguro CSS: si JS no carga, ocultar igual después de 3s */
+body > #preloader {
+    animation: splash-seguro 0.6s ease-out 3s forwards;
+}
+
+@keyframes splash-seguro {
+    to { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+/* Neblina del páramo - capa 1 */
+#preloader.splash-paramo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    right: -50%;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse at 20% 80%, rgba(105,144,115,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 60%, rgba(221,161,94,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.04) 0%, transparent 70%);
+    animation: splash-neblina 4s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+@keyframes splash-neblina {
+    0% { transform: translateX(-3%) translateY(5px); opacity: 0.6; }
+    100% { transform: translateX(3%) translateY(-5px); opacity: 1; }
+}
+
+/* Montañas del fondo */
+#preloader .splash-mountains {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 220px;
+    z-index: 1;
+}
+
+#preloader .splash-mountains svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Contenido central */
+#preloader .splash-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    animation: splash-aparecer 0.8s ease-out both;
+}
+
+@keyframes splash-aparecer {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Icono frailejón */
+#preloader .splash-icon {
+    margin: 0 auto 20px;
+    width: 60px;
+    height: 80px;
+    animation: splash-respirar 3s ease-in-out infinite;
+}
+
+#preloader .splash-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes splash-respirar {
+    0%, 100% { transform: scale(1); opacity: 0.85; }
+    50% { transform: scale(1.06); opacity: 1; }
+}
+
+/* Título principal */
+#preloader .splash-title {
+    color: #DDA15E;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1;
+}
+
+/* Línea decorativa dorada */
+#preloader .splash-line {
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #DDA15E, transparent);
+    border-radius: 2px;
+    margin: 16px auto;
+    animation: splash-linea 2s ease-in-out infinite alternate;
+}
+
+@keyframes splash-linea {
+    0% { width: 40px; opacity: 0.6; }
+    100% { width: 70px; opacity: 1; }
+}
+
+/* Subtítulo */
+#preloader .splash-subtitle {
+    color: rgba(255,255,255,0.55);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Partículas flotantes (luciérnagas del páramo) */
+#preloader .splash-particulas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#preloader .splash-particulas span {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(221,161,94,0.4);
+    border-radius: 50%;
+    animation: splash-flotar 6s ease-in-out infinite;
+}
+
+#preloader .splash-particulas span:nth-child(1) { left: 15%; bottom: 20%; animation-delay: 0s; animation-duration: 7s; }
+#preloader .splash-particulas span:nth-child(2) { left: 35%; bottom: 30%; animation-delay: 1.5s; animation-duration: 5s; width: 3px; height: 3px; }
+#preloader .splash-particulas span:nth-child(3) { left: 65%; bottom: 15%; animation-delay: 0.8s; animation-duration: 8s; }
+#preloader .splash-particulas span:nth-child(4) { left: 80%; bottom: 25%; animation-delay: 2.5s; animation-duration: 6s; width: 3px; height: 3px; }
+#preloader .splash-particulas span:nth-child(5) { left: 50%; bottom: 35%; animation-delay: 1s; animation-duration: 7.5s; width: 5px; height: 5px; background: rgba(221,161,94,0.25); }
+
+@keyframes splash-flotar {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    15% { opacity: 1; }
+    50% { transform: translateY(-120px) scale(0.8); opacity: 0.6; }
+    85% { opacity: 0.3; }
+    100% { transform: translateY(-250px) scale(0.4); opacity: 0; }
+}
+
+/* Barra de progreso */
+#preloader .splash-progress {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+#preloader .splash-progress span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #DDA15E, transparent);
+    border-radius: 2px;
+    animation: splash-carga 1.8s ease-in-out infinite;
+}
+
+@keyframes splash-carga {
+    0% { width: 0%; margin-left: 0%; }
+    50% { width: 50%; margin-left: 25%; }
+    100% { width: 0%; margin-left: 100%; }
+}
+
+
+/* Responsive splash */
+@media (max-width: 575.98px) {
+    #preloader .splash-title {
+        font-size: 24px;
+        letter-spacing: 6px;
+    }
+    #preloader .splash-subtitle {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+    #preloader .splash-icon {
+        width: 45px;
+        height: 60px;
     }
 }

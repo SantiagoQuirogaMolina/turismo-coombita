@@ -4,11 +4,12 @@
 
 const express = require('express');
 const { readData } = require('../utils/dataManager');
+const { verifyToken } = require('../middleware/auth');
 
 const router = express.Router();
 
-// GET /api/estadisticas - Obtener estadísticas generales
-router.get('/', (req, res) => {
+// GET /api/estadisticas - Obtener estadísticas generales (protegido)
+router.get('/', verifyToken, (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
@@ -31,8 +32,8 @@ router.get('/', (req, res) => {
     res.json(stats);
 });
 
-// GET /api/estadisticas/dashboard - Datos para el dashboard
-router.get('/dashboard', (req, res) => {
+// GET /api/estadisticas/dashboard - Datos para el dashboard (protegido)
+router.get('/dashboard', verifyToken, (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
@@ -81,6 +82,12 @@ router.get('/dashboard', (req, res) => {
                 valor: data.guias?.length || 0,
                 icono: 'hiking',
                 color: '#5C6BC0'
+            },
+            {
+                titulo: 'Videos',
+                valor: data.videos?.length || 0,
+                icono: 'video',
+                color: '#E53935'
             }
         ],
         ultimosAgregados: {

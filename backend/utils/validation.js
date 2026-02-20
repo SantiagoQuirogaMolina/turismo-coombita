@@ -165,6 +165,28 @@ function validateGuia(body, isUpdate = false) {
     return errors;
 }
 
+function validateVideo(body, isUpdate = false) {
+    const errors = [];
+
+    if (!isUpdate) {
+        const missing = validateRequired(['titulo', 'youtube_url'], body);
+        if (missing.length) errors.push(`Campos requeridos: ${missing.join(', ')}`);
+    }
+
+    if (body.youtube_url && typeof body.youtube_url === 'string') {
+        const url = body.youtube_url.trim();
+        if (url && !/youtu\.?be/.test(url) && !/^[\w-]{11}$/.test(url)) {
+            errors.push('URL de YouTube inválida');
+        }
+    }
+
+    if (body.orden !== undefined && body.orden !== '' && !isPositiveInt(body.orden)) {
+        errors.push('El orden debe ser un número positivo');
+    }
+
+    return errors;
+}
+
 module.exports = {
     isValidEmail,
     isValidPhone,
@@ -178,5 +200,6 @@ module.exports = {
     validateBlog,
     validateContacto,
     validateArtesano,
-    validateGuia
+    validateGuia,
+    validateVideo
 };

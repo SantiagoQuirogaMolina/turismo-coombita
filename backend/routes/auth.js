@@ -14,19 +14,26 @@ const USERS_FILE = path.join(__dirname, '../data/users.json');
 // Inicializar archivo de usuarios si no existe
 function initUsersFile() {
     if (!fs.existsSync(USERS_FILE)) {
+        const adminEmail = process.env.ADMIN_EMAIL;
+        const adminPassword = process.env.ADMIN_PASSWORD;
+        if (!adminEmail || !adminPassword) {
+            console.error('FATAL: ADMIN_EMAIL y ADMIN_PASSWORD requeridos en .env para crear usuario inicial');
+            process.exit(1);
+        }
         const defaultAdmin = {
             users: [
                 {
                     id: '1',
                     nombre: 'Administrador',
-                    email: 'admin@turismocombita.com',
-                    password: bcrypt.hashSync('admin123', 10),
+                    email: adminEmail,
+                    password: bcrypt.hashSync(adminPassword, 10),
                     rol: 'admin',
                     creado: new Date().toISOString()
                 }
             ]
         };
         fs.writeFileSync(USERS_FILE, JSON.stringify(defaultAdmin, null, 2));
+        console.log('Usuario admin inicial creado desde variables de entorno');
     }
 }
 
@@ -36,9 +43,11 @@ function readUsers() {
     return JSON.parse(fs.readFileSync(USERS_FILE, 'utf8'));
 }
 
-// Guardar usuarios
+// Guardar usuarios (escritura atómica)
 function saveUsers(data) {
-    fs.writeFileSync(USERS_FILE, JSON.stringify(data, null, 2));
+    const tmpFile = USERS_FILE + '.tmp';
+    fs.writeFileSync(tmpFile, JSON.stringify(data, null, 2));
+    fs.renameSync(tmpFile, USERS_FILE);
 }
 
 // POST /api/auth/login
