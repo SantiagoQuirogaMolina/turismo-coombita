@@ -7,7 +7,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 const sanitizeHtml = require('sanitize-html');
-const { verifyToken } = require('../middleware/auth');
+const { verifyToken, requireAdmin } = require('../middleware/auth');
 const { readData, writeData, generateId } = require('../utils/dataManager');
 const { validateBlog } = require('../utils/validation');
 const { deleteOldImage } = require('../utils/imageCleanup');
@@ -118,7 +118,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST /api/blog - Crear publicación
-router.post('/', verifyToken, upload.single('imagen'), (req, res) => {
+router.post('/', verifyToken, requireAdmin, upload.single('imagen'), (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
@@ -156,7 +156,7 @@ router.post('/', verifyToken, upload.single('imagen'), (req, res) => {
 });
 
 // PUT /api/blog/:id - Actualizar publicación
-router.put('/:id', verifyToken, upload.single('imagen'), (req, res) => {
+router.put('/:id', verifyToken, requireAdmin, upload.single('imagen'), (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
@@ -201,7 +201,7 @@ router.put('/:id', verifyToken, upload.single('imagen'), (req, res) => {
 });
 
 // DELETE /api/blog/:id - Eliminar publicación
-router.delete('/:id', verifyToken, (req, res) => {
+router.delete('/:id', verifyToken, requireAdmin, (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });

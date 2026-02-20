@@ -133,14 +133,31 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Error interno del servidor' });
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`
     ========================================
     Servidor Turismo Cómbita
     ========================================
     Entorno:     ${process.env.NODE_ENV || 'development'}
-    Admin Panel: http://localhost:${PORT}/admin
-    API:         http://localhost:${PORT}/api
+    Puerto:      ${PORT}
+    Admin Panel: /admin
+    API:         /api
     ========================================
     `);
 });
+
+// Graceful shutdown
+function gracefulShutdown(signal) {
+    console.log(`\n${signal} recibido. Cerrando servidor...`);
+    server.close(() => {
+        console.log('Servidor cerrado correctamente.');
+        process.exit(0);
+    });
+    setTimeout(() => {
+        console.error('Forzando cierre tras 10s de espera.');
+        process.exit(1);
+    }, 10000);
+}
+
+process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
+process.on('SIGINT', () => gracefulShutdown('SIGINT'));

@@ -6,7 +6,7 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
-const { verifyToken } = require('../middleware/auth');
+const { verifyToken, requireAdmin } = require('../middleware/auth');
 const { readData, writeData, generateId } = require('../utils/dataManager');
 const { deleteOldImage } = require('../utils/imageCleanup');
 
@@ -81,7 +81,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST /api/galeria - Crear álbum
-router.post('/', verifyToken, upload.single('portada'), (req, res) => {
+router.post('/', verifyToken, requireAdmin, upload.single('portada'), (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
@@ -110,7 +110,7 @@ router.post('/', verifyToken, upload.single('portada'), (req, res) => {
 });
 
 // PUT /api/galeria/:id - Actualizar álbum
-router.put('/:id', verifyToken, upload.single('portada'), (req, res) => {
+router.put('/:id', verifyToken, requireAdmin, upload.single('portada'), (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
@@ -146,7 +146,7 @@ router.put('/:id', verifyToken, upload.single('portada'), (req, res) => {
 });
 
 // DELETE /api/galeria/:id - Eliminar álbum
-router.delete('/:id', verifyToken, (req, res) => {
+router.delete('/:id', verifyToken, requireAdmin, (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
@@ -173,7 +173,7 @@ router.delete('/:id', verifyToken, (req, res) => {
 // ==================== IMÁGENES DENTRO DE ÁLBUMES ====================
 
 // POST /api/galeria/:id/imagenes - Agregar imagen a álbum
-router.post('/:id/imagenes', verifyToken, upload.single('imagen'), (req, res) => {
+router.post('/:id/imagenes', verifyToken, requireAdmin, upload.single('imagen'), (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
@@ -211,7 +211,7 @@ router.post('/:id/imagenes', verifyToken, upload.single('imagen'), (req, res) =>
 });
 
 // PUT /api/galeria/:albumId/imagenes/:imgId - Actualizar imagen
-router.put('/:albumId/imagenes/:imgId', verifyToken, (req, res) => {
+router.put('/:albumId/imagenes/:imgId', verifyToken, requireAdmin, (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
@@ -245,7 +245,7 @@ router.put('/:albumId/imagenes/:imgId', verifyToken, (req, res) => {
 });
 
 // DELETE /api/galeria/:albumId/imagenes/:imgId - Eliminar imagen
-router.delete('/:albumId/imagenes/:imgId', verifyToken, (req, res) => {
+router.delete('/:albumId/imagenes/:imgId', verifyToken, requireAdmin, (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
@@ -273,7 +273,7 @@ router.delete('/:albumId/imagenes/:imgId', verifyToken, (req, res) => {
 });
 
 // POST /api/galeria/:id/set-portada - Establecer portada del álbum
-router.post('/:id/set-portada', verifyToken, (req, res) => {
+router.post('/:id/set-portada', verifyToken, requireAdmin, (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });

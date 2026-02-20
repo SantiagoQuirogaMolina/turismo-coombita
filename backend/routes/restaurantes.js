@@ -5,7 +5,7 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-const { verifyToken } = require('../middleware/auth');
+const { verifyToken, requireAdmin } = require('../middleware/auth');
 const { readData, writeData, generateId, updateStats } = require('../utils/dataManager');
 const { validateRestaurante } = require('../utils/validation');
 const { deleteOldImage } = require('../utils/imageCleanup');
@@ -91,7 +91,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST /api/restaurantes - Crear nuevo
-router.post('/', verifyToken, upload.single('imagen'), (req, res) => {
+router.post('/', verifyToken, requireAdmin, upload.single('imagen'), (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
@@ -138,7 +138,7 @@ router.post('/', verifyToken, upload.single('imagen'), (req, res) => {
 });
 
 // PUT /api/restaurantes/:id - Actualizar
-router.put('/:id', verifyToken, upload.single('imagen'), (req, res) => {
+router.put('/:id', verifyToken, requireAdmin, upload.single('imagen'), (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });
@@ -199,7 +199,7 @@ router.put('/:id', verifyToken, upload.single('imagen'), (req, res) => {
 });
 
 // DELETE /api/restaurantes/:id - Eliminar
-router.delete('/:id', verifyToken, (req, res) => {
+router.delete('/:id', verifyToken, requireAdmin, (req, res) => {
     const data = readData();
     if (!data) {
         return res.status(500).json({ error: 'Error leyendo datos' });

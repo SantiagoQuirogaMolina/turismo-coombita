@@ -52,5 +52,9 @@ backend/uploads/
 # Datos sensibles
 backend/data/users.json
 
+# Backups y logs
+backups/
+logs/
+
 # Archivos del sistema
 nul

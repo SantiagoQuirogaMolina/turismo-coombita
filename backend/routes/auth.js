@@ -12,7 +12,7 @@ const router = express.Router();
 const USERS_FILE = path.join(__dirname, '../data/users.json');
 
 // Inicializar archivo de usuarios si no existe
-function initUsersFile() {
+async function initUsersFile() {
     if (!fs.existsSync(USERS_FILE)) {
         const adminEmail = process.env.ADMIN_EMAIL;
         const adminPassword = process.env.ADMIN_PASSWORD;
@@ -26,7 +26,7 @@ function initUsersFile() {
                     id: '1',
                     nombre: 'Administrador',
                     email: adminEmail,
-                    password: bcrypt.hashSync(adminPassword, 10),
+                    password: await bcrypt.hash(adminPassword, 10),
                     rol: 'admin',
                     creado: new Date().toISOString()
                 }
@@ -38,8 +38,8 @@ function initUsersFile() {
 }
 
 // Leer usuarios
-function readUsers() {
-    initUsersFile();
+async function readUsers() {
+    await initUsersFile();
     return JSON.parse(fs.readFileSync(USERS_FILE, 'utf8'));
 }
 
@@ -51,21 +51,21 @@ function saveUsers(data) {
 }
 
 // POST /api/auth/login
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
         return res.status(400).json({ error: 'Email y contraseña son requeridos' });
     }
 
-    const data = readUsers();
+    const data = await readUsers();
     const user = data.users.find(u => u.email === email);
 
     if (!user) {
         return res.status(401).json({ error: 'Credenciales inválidas' });
     }
 
-    const validPassword = bcrypt.compareSync(password, user.password);
+    const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) {
         return res.status(401).json({ error: 'Credenciales inválidas' });
     }
@@ -90,33 +90,33 @@ router.get('/me', verifyToken, (req, res) => {
 });
 
 // POST /api/auth/cambiar-password
-router.post('/cambiar-password', verifyToken, (req, res) => {
+router.post('/cambiar-password', verifyToken, async (req, res) => {
     const { passwordActual, passwordNueva } = req.body;
 
     if (!passwordActual || !passwordNueva) {
         return res.status(400).json({ error: 'Contraseñas requeridas' });
     }
 
-    const data = readUsers();
+    const data = await readUsers();
     const userIndex = data.users.findIndex(u => u.id === req.user.id);
 
     if (userIndex === -1) {
         return res.status(404).json({ error: 'Usuario no encontrado' });
     }
 
-    const validPassword = bcrypt.compareSync(passwordActual, data.users[userIndex].password);
+    const validPassword = await bcrypt.compare(passwordActual, data.users[userIndex].password);
     if (!validPassword) {
         return res.status(401).json({ error: 'Contraseña actual incorrecta' });
     }
 
-    data.users[userIndex].password = bcrypt.hashSync(passwordNueva, 10);
+    data.users[userIndex].password = await bcrypt.hash(passwordNueva, 10);
     saveUsers(data);
 
     res.json({ success: true, message: 'Contraseña actualizada' });
 });
 
 // POST /api/auth/crear-usuario (solo admin)
-router.post('/crear-usuario', verifyToken, (req, res) => {
+router.post('/crear-usuario', verifyToken, async (req, res) => {
     if (req.user.rol !== 'admin') {
         return res.status(403).json({ error: 'No autorizado' });
     }
@@ -127,7 +127,7 @@ router.post('/crear-usuario', verifyToken, (req, res) => {
         return res.status(400).json({ error: 'Todos los campos son requeridos' });
     }
 
-    const data = readUsers();
+    const data = await readUsers();
 
     if (data.users.find(u => u.email === email)) {
         return res.status(400).json({ error: 'El email ya está registrado' });
@@ -137,7 +137,7 @@ router.post('/crear-usuario', verifyToken, (req, res) => {
         id: Date.now().toString(),
         nombre,
         email,
-        password: bcrypt.hashSync(password, 10),
+        password: await bcrypt.hash(password, 10),
         rol: rol || 'editor',
         creado: new Date().toISOString()
     };
