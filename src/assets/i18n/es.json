@@ -1,0 +1,1325 @@
+{
+  "common": {
+    "nav": {
+      "home": "Inicio",
+      "discover": "Descubre",
+      "must_see": "Imperdibles",
+      "restaurants": "Restaurantes",
+      "lodging": "Hospedajes",
+      "events": "Eventos",
+      "artisans_guides": "Artesanos y Guías",
+      "catering": "Catering y Celebraciones",
+      "explore_more": "Explora Más",
+      "history": "Historia",
+      "gallery": "Galería",
+      "treks": "Caminatas",
+      "plan": "Planifica",
+      "how_to_arrive": "Cómo Llegar",
+      "map": "Mapa",
+      "tips": "Tips del Viajero",
+      "blog": "Blog",
+      "contact": "Contacto",
+      "about": "Acerca de"
+    },
+    "footer": {
+      "brand": "Cómbita",
+      "tagline": "En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio de por qué subimos.",
+      "contact_title": "Contacto",
+      "address": "Cómbita, Boyacá, Colombia",
+      "follow_us": "Síguenos en nuestras redes",
+      "copy": "© 2024 Santiago Quiroga Molina",
+      "privacy": "Política de privacidad",
+      "contact_short": "Contacto"
+    },
+    "buttons": {
+      "send": "Enviar",
+      "sending": "Enviando...",
+      "see_more": "Ver más",
+      "close": "Cerrar",
+      "subscribe": "Suscribirme",
+      "subscribing": "Suscribiendo...",
+      "read_more": "Leer más",
+      "details": "Ver detalle",
+      "all_treks": "Todas las caminatas",
+      "about_us": "Conócenos",
+      "leave_review": "Dejar reseña"
+    },
+    "lang_switch": {
+      "label": "Idioma",
+      "es": "ES",
+      "en": "EN"
+    },
+    "labels": {
+      "name": "Nombre",
+      "email": "Correo",
+      "km": "Km",
+      "hours": "horas",
+      "days": "Días",
+      "group": "Grupo",
+      "difficulty": "Dificultad",
+      "difficulty_easy": "Fácil",
+      "difficulty_medium": "Media",
+      "difficulty_hard": "Alta",
+      "distance": "Distancia",
+      "altitude": "Altitud",
+      "elevation_gain": "Desnivel"
+    },
+    "breadcrumb": {
+      "pages": "Páginas"
+    },
+    "share": {
+      "route": "Compartir esta ruta:",
+      "label": "Compartir:"
+    },
+    "location": {
+      "title": "Ubicación"
+    },
+    "what_you_see": {
+      "col1": "Qué verás",
+      "col2": "Detalle"
+    },
+    "guide": {
+      "title": "Guía",
+      "local": "Guía Local",
+      "recommended": "Guía recomendado",
+      "required": "Guía requerido",
+      "required_word": "Requerido",
+      "contact_btn": "Contactar para guía"
+    },
+    "facts": {
+      "vereda": "Vereda",
+      "location": "Ubicación",
+      "ecosystem": "Ecosistema",
+      "cordillera": "Cordillera",
+      "cordillera_eastern": "Oriental",
+      "access": "Acceso",
+      "access_with_guide": "Con guía",
+      "access_guide_rec": "Con guía recomendado",
+      "type": "Tipo",
+      "coordinates": "Coordenadas",
+      "environment": "Entorno"
+    },
+    "map": {
+      "paramo_combita": "Páramo de Cómbita"
+    }
+  },
+  "home": {
+    "title": "Inicio | Cómbita",
+    "description": "Portal turístico de Cómbita, Boyacá. Descubre naturaleza, senderismo, cultura, gastronomía y hospedajes en el corazón de los Andes colombianos.",
+    "hero": {
+      "h1_html": "Cordillera de<br> los andes",
+      "quote": "\"La cordillera nos invita a explorar sus misterios y cuidar sus paisajes, dejando tras de nosotros un legado de amor y respeto por la naturaleza.\"",
+      "quote_author": "Juan Carlos Sarmiento",
+      "altitude": "Altitud",
+      "altitude_unit": "msnm",
+      "routes": "Rutas",
+      "area": "Area"
+    },
+    "treks_slider": {
+      "laguna_rica_title": "Caminata a laguna rica",
+      "laguna_rica_desc": "La caminata a Laguna Rica es de nivel medio, con frailejones, colibríes y orquídeas.",
+      "la_pena_title": "Caminata a la peña",
+      "la_pena_desc": "La caminata a La Peña es de nivel medio-alto, llevándote al pico más alto.",
+      "el_valle_title": "Caminata al valle",
+      "el_valle_desc": "Caminata de nivel fácil, que te lleva a explorar la majestuosidad del valle.",
+      "location": "Santa Barbara, Cómbita, Boyacá"
+    },
+    "cordillera": {
+      "title": "Cordillera de los Andes",
+      "subtitle": "Explore la cordillera",
+      "body": "Adéntrate en la Cordillera de los Andes, un lugar donde la naturaleza muestra su poder y belleza en cada rincón. Desde profundos valles hasta majestuosos picos, la cordillera invita a todos los aventureros a descubrir sus maravillas y a cuidarlas para las futuras generaciones."
+    },
+    "esencia": {
+      "title": "Nuestra esencia",
+      "subtitle": "Una mezcla perfecta entre tradición, naturaleza y calidez humana.",
+      "p1": "Combita es un lugar mágico en la Cordillera Oriental, donde la naturaleza se expresa en su máxima belleza. Entre sus montañas, el Parque Regional El Valle despliega su biodiversidad: los frailejones pueblan los páramos, mientras los colibríes llenan el aire con su colorido vuelo. Esta riqueza natural invita a la exploración y a la aventura en sus senderos, hogar también de mariposas y aves nativas.",
+      "p2": "La cultura de Combita se vive en cada rincón, reflejada en sus tradiciones y su gente amable. Su gastronomía ofrece delicias típicas como la arepa boyacense y el piquete de la región, perfecto para reconfortar y conectar con la esencia de Boyacá.",
+      "acc1_q": "Nuestras montañas y ubicación",
+      "acc1_a": "Combita se encuentra en el corazón de la Cordillera Oriental, rodeada de imponentes montañas y paisajes de ensueño. Este lugar especial invita a explorar cada rincón, disfrutando de su biodiversidad, sus senderos naturales, y la belleza de un entorno que abraza al visitante.",
+      "acc2_q": "Sobre nuestras caminatas y excursiones",
+      "acc2_a": "Sumérgete en la aventura con nuestras caminatas y excursiones, diseñadas para descubrir la majestuosidad de la cordillera y sus secretos mejor guardados. Cada recorrido es una oportunidad para conectar con la naturaleza, vivir momentos inolvidables y descubrir el alma de Cómbita.",
+      "acc3_q": "Nuestro equipo y visitantes",
+      "acc3_a": "Nuestro equipo está compuesto por guías apasionados y expertos que aman cada rincón de Cómbita. Juntos, trabajamos para crear experiencias auténticas y memorables para cada visitante, invitándolos a formar parte de esta gran comunidad que respira naturaleza y aventura."
+    },
+    "caminatas_slider": {
+      "pena_title": "Peña",
+      "pena_sub": "los Andes",
+      "pena_desc": "Reserva natural de flora y fauna entre 2.800 y 3.200 m.s.n.m. con senderos ancestrales.",
+      "tilin_title": "Tilín",
+      "tilin_sub": "San isidro",
+      "tilin_desc": "Área arqueológica con pictogramas y vestigios indígenas entre 2.650 y 2.850 m.s.n.m.",
+      "centro_title": "Centro",
+      "centro_sub": "Cómbita",
+      "centro_desc": "Arquitectura gótica francesa, parque Clara Tocarruncho y punto de partida del circuito ciclístico.",
+      "laguna_title": "Laguna Rica",
+      "laguna_sub": "Los Andes",
+      "laguna_desc": "Parque Natural Regional El Valle entre 3.000 y 3.200 m.s.n.m., el páramo más hermoso de Boyacá.",
+      "negra_title": "Laguna Negra",
+      "negra_sub": "Los Andes",
+      "negra_desc": "Bosques de robles centenarios con fauna endémica: venados, tigrillos y aves únicas de la región.",
+      "h1": "Las caminatas en Cómbita",
+      "lead": "Camina, respira y siente la esencia de Cómbita en cada paso."
+    },
+    "compromiso": {
+      "title": "Nuestro Compromiso: Excelencia",
+      "subtitle": "Nuestro compromiso es brindarte una experiencia única",
+      "team_t": "Equipo con experiencia",
+      "team_d": "Vivimos cada rincón de nuestra tierra natural y cultural",
+      "access_t": "Fácil acceso",
+      "access_d": "a solo 15 minutos de tunja, la capital de boyaca",
+      "guides_t": "Guías locales",
+      "guides_d": "Conocemos cada montaña, sendero y secreto de esta región",
+      "secret_t": "Lugares secretos",
+      "secret_d": "Descubre lugares escondidos y únicos en nuestros recorridos",
+      "andes_t": "Región andina",
+      "andes_d": "Ubicado en el corazón de la cordillera, Boyacá te espera",
+      "visit_t": "Visítanos",
+      "visit_d": "Encuéntranos en Cómbita y comienza tu aventura",
+      "global_t": "Aventura global",
+      "global_d": "te brindamos experiencias de calidad internacional",
+      "mountains_t": "Montañas asombrosas",
+      "mountains_d": "Disfruta de excursiones a rios, valles, montañas y otros paisajes únicos"
+    },
+    "newsletter": {
+      "title": "Contáctanos",
+      "subtitle": "Déjanos tus datos y recibe las últimas novedades de Cómbita",
+      "name_placeholder": "Nombre",
+      "email_placeholder": "Correo",
+      "accept_html": "Al suscribirte, aceptas nuestros términos de servicio y <a href=\"./privacidad.html\">política de privacidad</a>.",
+      "success": "¡Registro exitoso! Te mantendremos informado.",
+      "error_generic": "Error al enviar. Intenta de nuevo.",
+      "error_connection": "Error de conexión. Intenta de nuevo.",
+      "error_privacy": "Debes aceptar la política de privacidad."
+    }
+  },
+  "about": {
+    "title": "Acerca de Cómbita | Turismo Cómbita",
+    "description": "Conoce Cómbita, Boyacá: un municipio lleno de historia, naturaleza, cultura y tradición en el corazón de los Andes colombianos.",
+    "hero_title": "Acerca de Cómbita",
+    "hero_subtitle": "Un rincón de los Andes donde la naturaleza y la tradición se encuentran",
+    "intro": {
+      "p1": "<strong>Cómbita</strong> es un municipio ubicado en el departamento de Boyacá, Colombia, a tan solo 10 kilómetros de la ciudad de Tunja. Enclavado en el altiplano cundiboyacense a una altitud promedio de 2.825 metros sobre el nivel del mar, este territorio ofrece paisajes de páramo, valles verdes y montañas que quitan el aliento.",
+      "p2": "Con una historia que se remonta a la época precolombina y una rica herencia muisca, Cómbita conserva tradiciones ancestrales que se mezclan con la calidez de su gente. Desde la administración de los padres Agustinos en 1586 hasta la valiente participación de Clara Tocarrucho en la independencia de 1810, cada rincón del municipio cuenta una historia.",
+      "p3": "Hoy, Cómbita se abre al mundo como destino turístico, invitando a quienes buscan experiencias auténticas en contacto con la naturaleza, la cultura campesina boyacense y la gastronomía tradicional de la región.",
+      "image_alt": "Iglesia de Cómbita"
+    },
+    "figures": {
+      "title": "Cómbita en cifras",
+      "subtitle": "Datos que hacen especial a nuestro municipio",
+      "altitude": "Altitud promedio",
+      "distance": "Distancia a Tunja",
+      "rivers": "Ríos y quebradas principales",
+      "temperature": "Temperatura promedio"
+    },
+    "unique": {
+      "title": "Lo que nos hace únicos",
+      "subtitle": "Razones para visitar Cómbita",
+      "nature_t": "Naturaleza de Páramo",
+      "nature_d": "Ecosistemas de páramo con frailejones, lagunas cristalinas como la Laguna Rica, y senderos que atraviesan paisajes de montaña a más de 3.000 metros de altitud.",
+      "history_t": "Historia y Cultura",
+      "history_d": "Herencia muisca, arquitectura colonial, tradiciones campesinas vivas y la historia de valentía de la independencia que se respira en cada vereda.",
+      "food_t": "Gastronomía Boyacense",
+      "food_d": "Sabores auténticos de la cocina campesina: cocido boyacense, mazamorra, arepas de maíz, cuchuco y postres tradicionales preparados con recetas de generaciones.",
+      "hiking_t": "Senderismo y Aventura",
+      "hiking_d": "Rutas como La Peña, Casa Ricaurte, el Cerro Tilín y la Laguna Rica ofrecen caminatas para todos los niveles rodeadas de flora y fauna nativa.",
+      "crafts_t": "Artesanías Locales",
+      "crafts_d": "Tejidos en lana, cerámica, trabajos en fique y madera elaborados por artesanos que mantienen vivas las técnicas ancestrales de la región.",
+      "warmth_t": "Calidez Humana",
+      "warmth_d": "La hospitalidad de la gente de Cómbita es legendaria. Aquí cada visitante es recibido como parte de la familia, con una sonrisa y un tinto caliente."
+    },
+    "gallery": {
+      "title": "Paisajes de Cómbita",
+      "subtitle": "Imágenes que hablan por sí solas",
+      "laguna_t": "Laguna Rica",
+      "laguna_d": "Espejo de agua cristalino en medio del páramo, hogar de frailejones centenarios.",
+      "pena_t": "La Peña",
+      "pena_d": "Formación rocosa imponente con vistas panorámicas del altiplano boyacense.",
+      "frailejones_t": "Frailejones",
+      "frailejones_d": "Guardianes del páramo que crecen apenas un centímetro por año.",
+      "ricaurte_t": "Casa Ricaurte",
+      "ricaurte_d": "Atracción turística histórica con valor patrimonial y cultural de Cómbita.",
+      "fauna_t": "Fauna Nativa",
+      "fauna_d": "Colibríes, copetones y aves endémicas que habitan los ecosistemas de Cómbita."
+    },
+    "cta": {
+      "title": "Planifica tu visita a Cómbita",
+      "subtitle": "Descubre cómo llegar, dónde hospedarte y qué experiencias te esperan en este rincón mágico de Boyacá.",
+      "btn_arrive_html": "<i class=\"fas fa-route\"></i> Cómo Llegar",
+      "btn_lodging_html": "<i class=\"fas fa-bed\"></i> Hospedajes",
+      "btn_treks_html": "<i class=\"fas fa-hiking\"></i> Caminatas"
+    }
+  },
+  "history": {
+    "title": "Cómbita Historia",
+    "description": "Historia de Cómbita, Boyacá. Desde los Agustinos en 1586 hasta la independencia liderada por Clara Tocarrucho.",
+    "hero_title": "Historia",
+    "hero_subtitle": "Un pueblo que florece entre tradición y valentía",
+    "timeline": {
+      "t1_badge": "Inicio de administración",
+      "t1_title": "Territorio administrado por los Agustinos",
+      "t1_text": "En 1586, los padres Agustinos comenzaron a administrar el territorio de Cómbita, marcando un hito en su historia y sentando las bases para su organización.",
+      "t2_badge": "Construcción de la parroquia",
+      "t2_title": "Un centro espiritual para Cómbita",
+      "t2_text": "El arzobispo Agustín Alvarado y Castillo decretó la construcción de la parroquia, un lugar que se convertiría en el corazón de la comunidad.",
+      "t3_badge": "Independencia",
+      "t3_title": "Rebelión por la libertad",
+      "t3_text": "Liderada por Clara Tocarrucho y otros valientes, la revuelta en Cómbita contribuyó a la independencia del gobierno español, dejando un legado de lucha.",
+      "t4_year": "Actualidad",
+      "t4_badge": "Modernidad y tradición",
+      "t4_title": "Un pueblo entre valles y montañas",
+      "t4_text": "Cómbita sigue mostrando su riqueza histórica y natural mientras se adapta a la modernidad, preservando su identidad única."
+    },
+    "stats": {
+      "rivers_title": "Ríos y quebradas",
+      "rivers_unit": "principales",
+      "places_title": "Lugares turísticos",
+      "festivities_title": "Festividades",
+      "festivities_unit": "anuales"
+    }
+  },
+  "privacidad": {
+    "title": "Política de Privacidad | Turismo Cómbita",
+    "description": "Política de privacidad y tratamiento de datos personales del portal de turismo de Cómbita, Boyacá.",
+    "hero_title": "Política de Privacidad",
+    "hero_subtitle": "Tratamiento de datos personales",
+    "last_update": "Última actualización: Febrero 2026",
+    "s1": {
+      "title": "1. Responsable del tratamiento",
+      "p1": "El portal <strong>Turismo Cómbita</strong> es un proyecto de promoción turística del municipio de Cómbita, Boyacá, Colombia, desarrollado por Santiago Quiroga Molina.",
+      "li_email": "<strong>Correo de contacto:</strong> alcaldia@combita-boyaca.gov.co",
+      "li_location": "<strong>Ubicación:</strong> Cómbita, Boyacá, Colombia"
+    },
+    "s2": {
+      "title": "2. Datos que recopilamos",
+      "p1": "Recopilamos únicamente los datos que nos proporcionas voluntariamente a través de nuestros formularios:",
+      "li_contact": "<strong>Formulario de contacto:</strong> nombre, correo electrónico, teléfono (opcional), asunto y mensaje.",
+      "li_subscribe": "<strong>Formulario de suscripción:</strong> nombre y correo electrónico.",
+      "p2": "No recopilamos datos sensibles ni utilizamos cookies de rastreo de terceros."
+    },
+    "s3": {
+      "title": "3. Finalidad del tratamiento",
+      "p1": "Los datos personales que recopilamos se utilizan exclusivamente para:",
+      "li1": "Responder a consultas, sugerencias o solicitudes de información turística.",
+      "li2": "Enviar información sobre novedades, eventos y actividades turísticas de Cómbita (solo si te suscribes).",
+      "li3": "Mejorar la experiencia del usuario en el portal."
+    },
+    "s4": {
+      "title": "4. Almacenamiento y seguridad",
+      "p1": "Tus datos son almacenados en nuestros servidores con medidas de seguridad adecuadas. Implementamos:",
+      "li1": "Cifrado en la transmisión de datos.",
+      "li2": "Acceso restringido solo a personal autorizado.",
+      "li3": "Protección contra accesos no autorizados.",
+      "p2": "Los datos se conservan mientras sean necesarios para la finalidad para la que fueron recopilados o mientras no solicites su eliminación."
+    },
+    "s5": {
+      "title": "5. Derechos del titular",
+      "p1": "De acuerdo con la Ley 1581 de 2012 (Ley de Protección de Datos Personales de Colombia), tienes derecho a:",
+      "li_know": "<strong>Conocer:</strong> acceder a tus datos personales que tengamos almacenados.",
+      "li_update": "<strong>Actualizar:</strong> solicitar la corrección de datos inexactos o incompletos.",
+      "li_rectify": "<strong>Rectificar:</strong> modificar información que consideres errónea.",
+      "li_delete": "<strong>Suprimir:</strong> solicitar la eliminación de tus datos cuando no sean necesarios.",
+      "li_revoke": "<strong>Revocar:</strong> retirar tu consentimiento para el tratamiento de datos en cualquier momento.",
+      "p2": "Para ejercer estos derechos, puedes escribirnos a <a href=\"mailto:alcaldia@combita-boyaca.gov.co\">alcaldia@combita-boyaca.gov.co</a> o a través de nuestro <a href=\"./contacts.html\">formulario de contacto</a>."
+    },
+    "s6": {
+      "title": "6. Compartición de datos",
+      "p1": "<strong>No vendemos, alquilamos ni compartimos</strong> tus datos personales con terceros, salvo que sea requerido por autoridad competente conforme a la ley colombiana."
+    },
+    "s7": {
+      "title": "7. Enlaces a terceros",
+      "p1": "Nuestro sitio puede contener enlaces a sitios web de terceros (redes sociales, Google Maps, etc.). No somos responsables de las prácticas de privacidad de estos sitios externos. Te recomendamos revisar sus políticas de privacidad."
+    },
+    "s8": {
+      "title": "8. Cambios en esta política",
+      "p1": "Nos reservamos el derecho de modificar esta política de privacidad en cualquier momento. Los cambios serán publicados en esta página con la fecha de actualización correspondiente."
+    },
+    "s9": {
+      "title": "9. Contacto",
+      "p1": "Si tienes preguntas sobre esta política de privacidad o sobre el tratamiento de tus datos personales, no dudes en contactarnos:",
+      "li_email": "<strong>Correo:</strong> <a href=\"mailto:alcaldia@combita-boyaca.gov.co\">alcaldia@combita-boyaca.gov.co</a>",
+      "li_phone": "<strong>Teléfono:</strong> 313 366 2322",
+      "li_address": "<strong>Dirección:</strong> Cómbita, Boyacá, Colombia",
+      "li_form": "<strong>Formulario:</strong> <a href=\"./contacts.html\">Página de contacto</a>"
+    }
+  },
+  "login": {
+    "title": "Iniciar Sesión | Turismo Cómbita",
+    "description": "Inicia sesión para compartir tus experiencias en Cómbita",
+    "header": {
+      "brand": "Turismo Cómbita",
+      "subtitle": "Inicia sesión o regístrate"
+    },
+    "tabs": {
+      "login": "Iniciar Sesión",
+      "register": "Registrarse"
+    },
+    "labels": {
+      "password": "Contraseña",
+      "full_name": "Nombre Completo",
+      "phone_optional": "Teléfono (opcional)",
+      "confirm_password": "Confirmar Contraseña"
+    },
+    "placeholders": {
+      "email": "tu@email.com",
+      "password": "••••••••",
+      "full_name": "Tu nombre",
+      "password_min": "Mínimo 6 caracteres",
+      "confirm_password": "Repite la contraseña"
+    },
+    "buttons": {
+      "login": "Iniciar Sesión",
+      "register": "Registrarse"
+    },
+    "divider": {
+      "or": "o"
+    },
+    "info": {
+      "exclusive": "Inicia sesión para acceder a funciones exclusivas"
+    },
+    "links": {
+      "back": "← Volver al sitio"
+    },
+    "messages": {
+      "login_success": "¡Login exitoso! Redirigiendo...",
+      "login_error": "Error al iniciar sesión",
+      "register_success": "¡Registro exitoso! Ahora puedes iniciar sesión",
+      "register_error": "Error al registrarse",
+      "connection_error": "Error de conexión",
+      "password_mismatch": "Las contraseñas no coinciden",
+      "password_too_short": "La contraseña debe tener al menos 6 caracteres"
+    }
+  },
+  "blog": {
+    "title": "Blog | Turismo Cómbita",
+    "description": "Blog de turismo de Cómbita, Boyacá - Artículos sobre naturaleza, cultura, senderismo y más",
+    "hero": {
+      "h1": "Blog",
+      "h2": "Historias, guías y novedades de Cómbita"
+    },
+    "loading": "Cargando publicaciones...",
+    "empty": "No hay publicaciones disponibles.",
+    "sidebar": {
+      "categories": "Categorías",
+      "recent": "Publicaciones Recientes"
+    },
+    "categories": {
+      "all": "Todas",
+      "naturaleza": "Naturaleza",
+      "cultura": "Cultura",
+      "senderismo": "Senderismo",
+      "gastronomia": "Gastronomía",
+      "historia": "Historia",
+      "eventos": "Eventos"
+    },
+    "errors": {
+      "load_failed": "No se pudieron cargar las publicaciones."
+    }
+  },
+  "post": {
+    "title": "Publicación | Turismo Cómbita",
+    "description": "Publicación del blog de Turismo Cómbita, Boyacá.",
+    "loading": "Cargando publicación...",
+    "not_found": "Publicación no encontrada",
+    "not_specified": "No se especificó una publicación.",
+    "load_failed": "No se pudo cargar la publicación.",
+    "back_to_blog": "Volver al blog",
+    "back_to_blog_full": "Volver al Blog",
+    "more_posts": "Más publicaciones"
+  },
+  "contacts": {
+    "title": "Contacto | Turismo Cómbita - Información y Atención",
+    "description": "Contacta con la oficina de turismo de Cómbita, Boyacá. Envíanos tus preguntas, sugerencias o solicita información.",
+    "form": {
+      "title": "Escríbenos",
+      "intro": "¿Tienes preguntas sobre turismo en Cómbita? ¿Necesitas información sobre hospedajes, restaurantes o caminatas? Envíanos tu mensaje y te responderemos pronto.",
+      "label_name_html": "Nombre <span>*</span>",
+      "label_email_html": "Correo electrónico <span>*</span>",
+      "label_phone": "Teléfono",
+      "label_subject": "Asunto",
+      "label_message": "Mensaje",
+      "label_message_html": "Mensaje <span>*</span>",
+      "placeholder_name": "Tu nombre completo",
+      "placeholder_email": "correo@ejemplo.com",
+      "placeholder_phone": "300 123 4567",
+      "placeholder_message": "Escribe tu mensaje aquí...",
+      "subject_general": "Información general",
+      "subject_lodging": "Hospedajes",
+      "subject_food": "Restaurantes",
+      "subject_treks": "Caminatas y senderismo",
+      "subject_events": "Eventos",
+      "subject_suggestion": "Sugerencia",
+      "subject_other": "Otro",
+      "privacy_consent": "Acepto la política de privacidad y el tratamiento de mis datos personales",
+      "send_button": "Enviar mensaje"
+    },
+    "info": {
+      "title": "Información de Contacto",
+      "subtitle": "Encuéntranos o comunícate con nosotros",
+      "address_label": "Dirección",
+      "address_value": "Parque Principal, Cómbita,<br>Boyacá, Colombia",
+      "phone_label": "Teléfono",
+      "email_label": "Correo electrónico",
+      "website_label": "Sitio web",
+      "hours_label": "Horario de atención",
+      "hours_value": "Lunes a Viernes: 8:00 AM - 5:00 PM<br>Sábados y Festivos: Cerrado",
+      "follow_label": "Síguenos en redes"
+    },
+    "messages": {
+      "error_privacy": "Debes aceptar la política de privacidad",
+      "success": "¡Mensaje enviado correctamente! Te responderemos pronto.",
+      "error_send": "Error al enviar el mensaje.",
+      "error_connection": "Error de conexión. Intenta de nuevo."
+    }
+  },
+  "artesanos": {
+    "title": "Artesanos y Guías | Turismo Cómbita - Comunidad Local",
+    "description": "Conoce a los artesanos y guías turísticos de Cómbita, Boyacá. Tejidos en lana, cerámica, talla en madera y guías expertos para tus aventuras.",
+    "hero": {
+      "h1": "Artesanos y Guías",
+      "h2": "Conoce a las personas que hacen especial a Cómbita"
+    },
+    "intro": {
+      "title": "Nuestra Comunidad",
+      "text": "En Cómbita, cada artesano guarda en sus manos siglos de tradición y cada guía conoce los secretos que solo el páramo revela. Conócelos y vive una experiencia auténtica."
+    },
+    "artesanos_section": {
+      "title_html": "<i class=\"fas fa-palette\" style=\"color:#BC6C25;margin-right:10px;\"></i>Nuestros Artesanos",
+      "subtitle": "Manos creadoras que preservan la tradición boyacense a través de tejidos, cerámica, talla en madera y más."
+    },
+    "guias_section": {
+      "title_html": "<i class=\"fas fa-hiking\" style=\"color:#BC6C25;margin-right:10px;\"></i>Guías Turísticos",
+      "subtitle": "Expertos locales que te llevarán por los senderos, historias y rincones más hermosos de nuestro municipio."
+    },
+    "loading": {
+      "artesanos": "Cargando artesanos...",
+      "guias": "Cargando guías..."
+    },
+    "empty": {
+      "artesanos": "Próximamente conocerás a nuestros artesanos.",
+      "guias": "Próximamente conocerás a nuestros guías."
+    },
+    "errors": {
+      "artesanos": "Error cargando artesanos",
+      "guias": "Error cargando guías"
+    },
+    "card": {
+      "routes_label": "Rutas que conoce",
+      "no_contact": "Contacto no disponible"
+    },
+    "cta": {
+      "title": "¿Eres artesano o guía en Cómbita?",
+      "text": "Únete a nuestra plataforma y da a conocer tu trabajo a turistas de todo el país.",
+      "button": "Contáctanos"
+    }
+  },
+  "catering": {
+    "title": "Catering y Celebraciones | Turismo Cómbita - Eventos y Organización",
+    "description": "Servicios de catering, organización de eventos y celebraciones en Cómbita, Boyacá. Salones, decoración, mobiliario, planificación logística y más.",
+    "hero": {
+      "h1": "Catering y Celebraciones",
+      "h2": "Vive momentos únicos en el corazón de Boyacá"
+    },
+    "services": {
+      "title": "Servicios para tus Eventos",
+      "subtitle": "Encuentra al equipo y el lugar ideal para celebrar en Cómbita",
+      "celebrations": {
+        "title": "Celebraciones",
+        "text": "Bodas, cumpleaños y reuniones familiares con la calidez del campo boyacense."
+      },
+      "catering": {
+        "title": "Catering",
+        "text": "Menús personalizados con sabores típicos y opciones gourmet para cada ocasión."
+      },
+      "business": {
+        "title": "Eventos Empresariales",
+        "text": "Seminarios, capacitaciones y reuniones corporativas con servicio integral."
+      },
+      "logistics": {
+        "title": "Logística y Montaje",
+        "text": "Mobiliario, decoración, equipamento y personal para que tu evento fluya sin contratiempos."
+      }
+    },
+    "providers": {
+      "title": "Establecimientos y Proveedores",
+      "subtitle": "Conoce a quienes hacen posible cada celebración en Cómbita"
+    },
+    "filters": {
+      "all": "Todos",
+      "events": "Eventos",
+      "catering": "Catering",
+      "celebrations": "Celebraciones",
+      "business": "Empresariales",
+      "decorations": "Decoraciones"
+    },
+    "loading": "Cargando establecimientos...",
+    "empty": {
+      "title": "Próximamente",
+      "text_html": "Estamos construyendo el directorio de proveedores de eventos y catering en Cómbita.<br>Si prestas estos servicios, <a href=\"./contacts.html\" style=\"color:#BC6C25;\">contáctanos</a> para incluirte."
+    },
+    "card": {
+      "price_default": "Estándar",
+      "capacity": "Aforo:",
+      "parking": "Parqueadero:",
+      "whatsapp": "WhatsApp",
+      "call": "Llamar",
+      "location": "Ubicación"
+    },
+    "info_banner": {
+      "title_html": "<i class=\"fas fa-info-circle\" style=\"color:#BC6C25;margin-right:8px;\"></i>¿Eres organizador de eventos en Cómbita?",
+      "text_html": "Si prestas servicios de catering, organización de eventos, alquiler de salones o cualquier servicio relacionado, queremos que tu negocio sea visible para los visitantes. <a href=\"./contacts.html\" style=\"color:#BC6C25;font-weight:600;\">Contáctanos</a> y te ayudamos a publicar tu información."
+    }
+  },
+  "food": {
+    "title": "Restaurantes | Turismo Cómbita - Gastronomía Típica Boyacense",
+    "description": "Gastronomía típica de Cómbita, Boyacá. Cuchuco de maíz, piquete combitense, changua, cuajada con melao, chicha y jugos de frutas de la región.",
+    "hero": {
+      "h1": "Gastronomía Local",
+      "h2": "Sabores auténticos de la región boyacense"
+    },
+    "find": {
+      "title": "Lo que Puedes Encontrar en Cómbita",
+      "subtitle": "Descubre la variedad gastronómica que nuestros restaurantes locales ofrecen",
+      "f1_title": "Cocina Tradicional",
+      "f1_desc": "Muchos restaurantes conservan las recetas<br />ancestrales boyacenses, preparadas con productos<br />frescos de la región.",
+      "f2_title": "Productos Locales",
+      "f2_desc": "Varios establecimientos se abastecen<br />de las huertas locales, ofreciendo ingredientes<br />frescos y de temporada.",
+      "f3_title": "Sabor Casero",
+      "f3_desc": "Encontrarás lugares donde la comida<br />se prepara con dedicación, manteniendo<br />ese toque hogareño especial."
+    },
+    "dishes": {
+      "title": "Platos Típicos de la Región",
+      "subtitle": "Algunos de los platos tradicionales que podrás degustar en Cómbita",
+      "tab_main": "Platos Principales",
+      "tab_breakfast": "Desayunos",
+      "tab_dessert": "Postres",
+      "tab_drinks": "Bebidas",
+      "cuchuco_title": "Cuchuco de Maíz con Costilla",
+      "cuchuco_desc": "Sopa espesa de maíz partido con costilla de cerdo, papa, arveja y habas. El plato de sopa más representativo de Cómbita, ideal para el clima frío del páramo.",
+      "piquete_title": "Piquete Combitense",
+      "piquete_desc": "El plato seco insignia del municipio. Variedad de carnes asadas y fritas acompañadas de papa criolla, arepa, yuca y guacamole. Un festín para compartir en familia.",
+      "changua_title": "Changua de Huevos",
+      "changua_desc": "Caldo tradicional boyacense con leche, huevo pochado, cebolla larga y cilantro. Se acompaña con calado (tostada) y queso campesino.",
+      "caldos_title": "Caldos de Papas con Carne",
+      "caldos_desc": "Caldos reconfortantes preparados con papa, costilla, pata de res u otras carnes. Perfectos para comenzar el día con energía en el frío de la montaña.",
+      "arepas_title": "Arepas de Maíz",
+      "arepas_desc": "Arepas de maíz amarillo asadas al carbón o en estufa de leña, servidas calientes con mantequilla y queso campesino fresco.",
+      "envueltos_title": "Envueltos de Maíz",
+      "envueltos_desc": "Masa dulce de maíz tierno envuelta en hojas de mazorca y cocida al vapor. Una delicia tradicional del campo boyacense.",
+      "cuajada_melao_title": "Cuajada con Melao",
+      "cuajada_melao_desc": "Cuajada fresca de leche de vaca bañada en melao de panela caliente. El contraste entre lo salado del queso y lo dulce del melao es el sabor más auténtico de Cómbita.",
+      "cuajada_moras_title": "Cuajada con Dulce de Moras",
+      "cuajada_moras_desc": "Cuajada fresca acompañada de dulce casero de moras de la región. Las moras silvestres del páramo le dan un sabor intenso y único a este postre campesino.",
+      "chicha_title": "Chicha",
+      "chicha_desc": "Bebida ancestral de maíz fermentado, herencia directa de la cultura muisca. Se prepara artesanalmente y es parte esencial de las fiestas y celebraciones combitenses.",
+      "jugos_title": "Jugos de Frutas de la Región",
+      "jugos_desc": "Jugos naturales de curuba, mora, arándanos y fresas cultivadas en las tierras fértiles de Cómbita. Frutas frescas del páramo boyacense, llenas de sabor y vitaminas."
+    },
+    "products": {
+      "title": "Productos de la Región",
+      "subtitle": "Una tradición que se mantiene viva",
+      "body": "Algunos restaurantes en Cómbita tienen la fortuna de abastecerse directamente de huertas locales, ofreciendo productos frescos y de temporada. Esta práctica, aunque no universal, representa una hermosa tradición que conecta la mesa con el campo, preservando las técnicas ancestrales de cultivo y garantizando sabores auténticos en cada plato.",
+      "local_label": "Productos Locales"
+    },
+    "where": {
+      "title": "Dónde Comer en Cómbita",
+      "subtitle": "Directorio de restaurantes y lugares gastronómicos recomendados"
+    },
+    "info": {
+      "title": "Información para Visitantes",
+      "hours": "<strong>Horarios:</strong> La mayoría de restaurantes en Cómbita abren temprano (6:00-7:00 AM) y cierran al atardecer (6:00-8:00 PM). Los fines de semana suelen tener mayor afluencia.",
+      "bookings": "<strong>Reservas:</strong> Para grupos grandes o fechas especiales, se recomienda contactar directamente con el restaurante vía WhatsApp o llamada.",
+      "payment": "<strong>Métodos de pago:</strong> El efectivo es el método más común. Algunos establecimientos aceptan transferencias bancarias y pocas tarjetas de crédito.",
+      "recommendation": "<strong>Recomendación especial:</strong> No dejes de probar el piquete combitense, el cuchuco de maíz con costilla y la cuajada con melao. Acompaña con una chicha o un jugo natural de curuba.",
+      "note": "<strong>Nota:</strong> Los precios y disponibilidad de platos pueden variar según temporada y establecimiento. Consulta directamente con cada restaurante."
+    },
+    "loading": "Cargando restaurantes...",
+    "card": {
+      "capacity": "Capacidad",
+      "people": "personas",
+      "owner": "Propietario",
+      "specialty": "Especialidad",
+      "typical_food": "Comida típica",
+      "center": "Centro",
+      "whatsapp": "WhatsApp",
+      "call": "Llamar",
+      "location": "Ubicación"
+    }
+  },
+  "shelters": {
+    "title": "Hospedajes | Turismo Cómbita - Alojamiento Rural y Ecológico",
+    "description": "Encuentra el mejor alojamiento en Cómbita. Hoteles rurales, cabañas ecológicas, camping, posadas familiares y más opciones para tu estadía.",
+    "hero": {
+      "h1": "Hospedajes en Cómbita",
+      "h2": "Descansa en la tranquilidad del páramo boyacense"
+    },
+    "types": {
+      "title": "Tipos de Alojamiento Disponibles",
+      "subtitle": "Encuentra el hospedaje perfecto para tu estadía en Cómbita",
+      "rural_title": "Posadas Rurales",
+      "rural_desc": "Experiencia auténtica con familias locales. Ambiente hogareño y desayuno típico incluido.",
+      "glamping_title": "Glamping",
+      "glamping_desc": "Camping de lujo con todas las comodidades. Experiencia única en contacto con la naturaleza.",
+      "camping_title": "Camping",
+      "camping_desc": "Zonas habilitadas para acampar con vistas espectaculares del páramo y las montañas.",
+      "hotels_title": "Hoteles Campestres",
+      "hotels_desc": "Comodidad completa con servicios adicionales como restaurante y actividades guiadas."
+    },
+    "tabs": {
+      "all": "Todos",
+      "hotels": "Hoteles",
+      "inns": "Posadas",
+      "glamping": "Glamping",
+      "camping": "Camping"
+    },
+    "loading": "Cargando hospedajes...",
+    "empty": {
+      "title": "No hay hospedajes en esta categoría",
+      "subtitle": "Pronto agregaremos más opciones de alojamiento."
+    },
+    "rating": {
+      "good": "Bueno",
+      "very_good": "Muy bueno",
+      "excellent": "Excelente"
+    },
+    "card": {
+      "lodging": "Hospedaje",
+      "default_address": "Cómbita, Boyacá",
+      "rooms_short": "hab.",
+      "people_short": "pers.",
+      "rooms_with_capacity": "habitaciones con capacidad para",
+      "people": "personas",
+      "whatsapp": "WhatsApp",
+      "call": "Llamar",
+      "email": "Email",
+      "map": "Mapa"
+    }
+  },
+  "events": {
+    "title": "Eventos | Turismo Cómbita - Calendario de Festividades",
+    "description": "Eventos y festividades en Cómbita, Boyacá. Ferias, fiestas patronales y actividades culturales.",
+    "hero": {
+      "h1": "Eventos y Festividades",
+      "h2": "Tradición, cultura y celebración en el corazón de Boyacá"
+    },
+    "loading": "Cargando eventos...",
+    "fallback_badge": "EVENTO",
+    "day_connector": "de",
+    "entry_free": "Gratuita",
+    "default_location": "Cómbita, Boyacá",
+    "default_description": "Evento especial en Cómbita, Boyacá.",
+    "types": {
+      "cultural": "Festividad Cultural",
+      "religious": "Celebración Religiosa",
+      "traditional": "Tradición Ancestral"
+    },
+    "labels": {
+      "place": "Lugar:",
+      "entry": "Entrada:",
+      "activities": "Actividades:",
+      "highlight": "Destacado:",
+      "tradition": "Tradición:",
+      "art": "Arte:"
+    },
+    "months": {
+      "feb": "FEBRERO",
+      "mar_apr": "MARZO-ABRIL",
+      "may_jun": "MAYO-JUNIO",
+      "feb_short": "FEB",
+      "mar_apr_short": "MAR-ABR",
+      "may_jun_short": "MAY-JUN"
+    },
+    "months_uc": {
+      "0": "ENERO",
+      "1": "FEBRERO",
+      "2": "MARZO",
+      "3": "ABRIL",
+      "4": "MAYO",
+      "5": "JUNIO",
+      "6": "JULIO",
+      "7": "AGOSTO",
+      "8": "SEPTIEMBRE",
+      "9": "OCTUBRE",
+      "10": "NOVIEMBRE",
+      "11": "DICIEMBRE"
+    },
+    "months_lc": {
+      "0": "enero",
+      "1": "febrero",
+      "2": "marzo",
+      "3": "abril",
+      "4": "mayo",
+      "5": "junio",
+      "6": "julio",
+      "7": "agosto",
+      "8": "septiembre",
+      "9": "octubre",
+      "10": "noviembre",
+      "11": "diciembre"
+    },
+    "static": {
+      "fiestas": {
+        "title": "Fiestas Patronales de Cómbita",
+        "date": "Último fin de semana de Febrero",
+        "duration": "3 días de celebración",
+        "description": "Homenaje conjunto a la Inmaculada Concepción, San Isidro Labrador y San Felipe. Una explosión de cultura que combina festivales de danza, muestras de folclor boyacense, competencias deportivas, exhibiciones gastronómicas con los mejores platos típicos, cabalgatas tradicionales y coloridas ferias artesanales.",
+        "place": "Parque Principal y calles del centro",
+        "entry": "Gratuita a todos los eventos",
+        "activities": "Danzas, música en vivo, gastronomía, artesanías"
+      },
+      "semana_santa": {
+        "title": "Semana Santa",
+        "date": "Según calendario litúrgico",
+        "duration": "7 días de conmemoración",
+        "description": "Una de las celebraciones más solemnes y emotivas del año. Incluye procesiones tradicionales por las calles empedradas, eucaristías especiales, el conmovedor Santo Viacrucis por el pueblo, la procesión del Santo Sepulcro el Viernes Santo, Vigilia Pascual el sábado y la alegre misa de resurrección el domingo.",
+        "place": "Iglesia La Inmaculada Concepción",
+        "highlight": "Viacrucis viviente, Vigilia Pascual",
+        "tradition": "Más de 100 años de celebración"
+      },
+      "corpus": {
+        "title": "Corpus Christi",
+        "date": "60 días después de Pascua",
+        "duration": "Celebración de un día",
+        "description": "Tradición ancestral que data de la época colonial. Los habitantes crean hermosos altares decorados con productos de la cosecha, simbolizando la gratitud por la fertilidad de la tierra y la unión en la fe. La procesión alrededor del parque principal es uno de los momentos más emotivos, con alfombras de aserrín coloreado y pétalos de flores.",
+        "place": "Parque Clara Tocarruncho",
+        "art": "Tapetes de aserrín y flores",
+        "tradition": "Altares con cosechas locales"
+      }
+    },
+    "sidebar": {
+      "next_event": "Próximo Evento",
+      "next_event_name": "Fiestas Patronales",
+      "next_event_date": "Febrero 2026",
+      "next_event_desc": "Prepárate para 3 días de cultura, tradición y alegría en el corazón de Cómbita.",
+      "calendar_title": "Calendario Anual",
+      "contact_title": "Información de Contacto",
+      "contact_hours": "Lun-Vie: 8:00 AM - 5:00 PM",
+      "tips_title": "Tips para Visitantes",
+      "tips_html": "• Reserve alojamiento con anticipación durante festividades<br>• Traiga ropa abrigada, el clima es frío<br>• Participe con respeto en ceremonias religiosas<br>• Disfrute la gastronomía local"
+    }
+  },
+  "gallery": {
+    "title": "Galería | Cómbita | Turismo de Naturaleza",
+    "description": "Galería fotográfica de Cómbita: páramos, fauna, pinturas rupestres y paisajes únicos",
+    "hero": {
+      "h1": "Galería Fotográfica",
+      "h2": "Descubre la magia de Cómbita a través de nuestras imágenes"
+    },
+    "loading": "Cargando galería...",
+    "see_albums": "Ver Álbumes",
+    "back_to_albums": "← Volver a Álbumes",
+    "images_word": "imágenes",
+    "albums": {
+      "paramos": {
+        "title": "Páramos",
+        "desc": "Ecosistemas de alta montaña con frailejones"
+      },
+      "fauna": {
+        "title": "Fauna",
+        "desc": "Aves y animales nativos del ecosistema"
+      },
+      "rupestre": {
+        "title": "Arte Rupestre",
+        "desc": "Pinturas precolombinas milenarias"
+      },
+      "patrimonio": {
+        "title": "Patrimonio",
+        "desc": "Arquitectura colonial y tradiciones"
+      },
+      "formaciones": {
+        "title": "Formaciones Rocosas",
+        "desc": "Estructuras geológicas únicas"
+      },
+      "paisajes": {
+        "title": "Paisajes",
+        "desc": "Vistas panorámicas espectaculares"
+      }
+    },
+    "videos": {
+      "title": "Videos",
+      "subtitle": "Vivimos por la naturaleza",
+      "loading": "Cargando videos..."
+    },
+    "share": {
+      "whatsapp": "Mira estas increíbles fotos de Cómbita: ",
+      "twitter": "Descubre la belleza de Cómbita en estas imágenes 📸"
+    }
+  },
+  "mapa": {
+    "title": "Mapa | Turismo Cómbita - Puntos de Interés",
+    "description": "Mapa interactivo de Cómbita con todos los puntos de interés: restaurantes, hospedajes, senderos, artesanos y sitios turísticos.",
+    "mobile": {
+      "map": "Mapa",
+      "list": "Lista"
+    },
+    "sidebar": {
+      "title": "Puntos de interés",
+      "loading": "Cargando puntos...",
+      "empty": "No hay puntos en esta categoría"
+    },
+    "filters": {
+      "all": "Todos",
+      "restaurants": "Restaurantes",
+      "lodging": "Hospedajes",
+      "trails": "Senderos",
+      "sites": "Sitios"
+    },
+    "types": {
+      "restaurante": "Restaurante",
+      "hospedaje": "Hospedaje",
+      "sendero": "Sendero",
+      "artesano": "Artesano",
+      "sitio": "Sitio Turístico"
+    },
+    "fallbacks": {
+      "restaurante": "Restaurante local",
+      "hospedaje": "Hospedaje"
+    },
+    "main_marker": {
+      "desc": "Centro del municipio - 2.825 msnm"
+    },
+    "pois": {
+      "laguna_rica": "Laguna de páramo a 3.100 msnm. Rodeada de frailejones centenarios. Vereda Santa Bárbara.",
+      "la_pena": "Monumento Virgen de las Aguas. Formación rocosa con vistas panorámicas a 3.200 msnm. Vereda Santa Bárbara.",
+      "cascada_tilin": "Cascada de 12m con sitio arqueológico muisca. 2.750 msnm. Vereda San Francisco.",
+      "casa_ricaurte": "Atracción turística histórica en zona rural de Cómbita. Punto de interés cultural y natural.",
+      "laguna_negra": "Laguna de páramo en zona de reserva natural. Ecosistema de alta montaña con frailejones.",
+      "centro_historico": "Recorrido por el casco urbano colonial fundado en 1586. Iglesia, parque y calles históricas.",
+      "iglesia": "Templo con arquitectura gótica francesa. Óleos coloniales de Gaspar de Figueroa. Cra 5a #3-20.",
+      "parque": "Plaza Clara Tocarruncho, corazón de Cómbita. 2.825 msnm."
+    }
+  },
+  "tips": {
+    "title": "Tips del Viajero | Turismo Cómbita - Información Práctica",
+    "description": "Información práctica para visitar Cómbita: clima, qué llevar, mejor época, altitud, seguridad y recomendaciones para disfrutar tu viaje.",
+    "hero": {
+      "h1": "Tips del Viajero",
+      "h2": "Todo lo que necesitas saber para disfrutar al máximo tu visita"
+    },
+    "quick": {
+      "altitude_label": "Altitud promedio",
+      "temp_label": "Rango de temperatura",
+      "rain_label": "Precipitación anual",
+      "best_period": "Dic - Mar",
+      "best_period_label": "Mejor época para visitar",
+      "population_label": "Habitantes"
+    },
+    "climate": {
+      "title": "Clima por Temporada",
+      "intro": "Cómbita tiene un clima frío de montaña. Los meses marcados con ★ son los mejores para visitar."
+    },
+    "months": {
+      "jan": "Enero",
+      "feb": "Febrero",
+      "mar": "Marzo",
+      "apr": "Abril",
+      "may": "Mayo",
+      "jun": "Junio",
+      "jul": "Julio",
+      "aug": "Agosto",
+      "sep": "Septiembre",
+      "oct": "Octubre",
+      "nov": "Noviembre",
+      "dec": "Diciembre"
+    },
+    "rain": {
+      "low": "Baja",
+      "moderate": "Moderada",
+      "high": "Alta"
+    },
+    "pack": {
+      "title": "¿Qué Llevar?",
+      "intro": "Empaca inteligente para disfrutar al máximo tu experiencia en el páramo boyacense.",
+      "clothing_title": "Ropa y Abrigo",
+      "clothing": {
+        "i1": "Chaqueta impermeable y cortavientos",
+        "i2": "Ropa térmica o en capas",
+        "i3": "Bufanda, gorro y guantes",
+        "i4": "Botas de senderismo impermeables",
+        "i5": "Pantalón largo cómodo",
+        "i6": "Ropa de cambio (puede llover)"
+      },
+      "health_title": "Salud y Protección",
+      "health": {
+        "i1": "Bloqueador solar SPF 50+",
+        "i2": "Gafas de sol con protección UV",
+        "i3": "Botiquín básico",
+        "i4": "Medicamento para el soroche (mal de altura)",
+        "i5": "Repelente de insectos",
+        "i6": "Hidratación constante"
+      },
+      "gear_title": "Accesorios Útiles",
+      "gear": {
+        "i1": "Mochila pequeña para caminatas",
+        "i2": "Botella de agua reutilizable",
+        "i3": "Cámara fotográfica",
+        "i4": "Cargador portátil (powerbank)",
+        "i5": "Snacks energéticos",
+        "i6": "Dinero en efectivo"
+      }
+    },
+    "recs": {
+      "title": "Recomendaciones Importantes",
+      "nature_t": "Respeta la naturaleza",
+      "nature_d": "No dejes basura en los senderos. Los frailejones tardan más de 100 años en crecer, no los arranques ni los toques. Respeta la fauna silvestre.",
+      "altitude_t": "Aclimatación a la altura",
+      "altitude_d": "Estamos a más de 2.800 metros. Si vienes de tierra caliente, tómate el primer día con calma. Hidrátate bien y evita esfuerzos intensos las primeras horas.",
+      "guide_t": "Contrata un guía local",
+      "guide_d": "Para las caminatas de páramo es recomendable ir con un guía certificado. Conocen las rutas, el clima y pueden hacer tu experiencia mucho más enriquecedora.",
+      "weather_t": "Clima impredecible",
+      "weather_d": "En el páramo el clima cambia rápidamente. Puede estar soleado y en minutos llover. Lleva siempre una capa impermeable, incluso en temporada seca."
+    },
+    "food": {
+      "title": "Gastronomía que Debes Probar",
+      "intro": "La cocina boyacense es rica en sabores de la tierra. No te vayas sin probar estos platos.",
+      "mute_t": "Mute Boyacense",
+      "mute_d": "Sopa espesa con maíz, frijol, papa, arveja, carne de cerdo y res. El plato insignia de la región.",
+      "arepa_t": "Arepa Boyacense",
+      "arepa_d": "Dulce, con queso y panela. Se cocina en horno de leña y tiene un sabor único e inconfundible.",
+      "cocido_t": "Cocido Boyacense",
+      "cocido_d": "Variedad de tubérculos, habas, mazorca y carnes cocidos lentamente. Reconfortante y abundante.",
+      "aguapanela_t": "Aguapanela con Queso",
+      "aguapanela_d": "Bebida caliente de panela con trozos de queso campesino. Perfecta para el frío del páramo.",
+      "trucha_t": "Trucha del Páramo",
+      "trucha_d": "Trucha fresca de los ríos de montaña, preparada a la plancha o al ajillo. Delicada y deliciosa.",
+      "almojabanas_t": "Almojábanas",
+      "almojabanas_d": "Panecillos de queso con almidón de yuca. Crujientes por fuera, suaves por dentro. Ideales con chocolate."
+    },
+    "cta": {
+      "title": "¿Listo para la aventura?",
+      "subtitle": "Planifica tu viaje a Cómbita y descubre la magia del páramo boyacense.",
+      "find_guide": "Buscar un Guía"
+    }
+  },
+  "transporte": {
+    "title": "Cómo Llegar | Turismo Cómbita - Transporte y Rutas",
+    "description": "Cómo llegar a Cómbita, Boyacá. Rutas desde Bogotá y Tunja, transporte público, horarios de buses y consejos para tu viaje.",
+    "hero": {
+      "h1": "Cómo Llegar",
+      "h2": "Todas las rutas y opciones de transporte para llegar a Cómbita"
+    },
+    "quick": {
+      "from_tunja": "Desde Tunja",
+      "from_bogota": "Desde Bogotá",
+      "altitude": "Altitud",
+      "avg_temp": "Temperatura promedio"
+    },
+    "routes": {
+      "title": "Rutas Principales",
+      "intro": "Dos opciones principales para llegar a Cómbita dependiendo de tu punto de partida.",
+      "bogota_title": "Desde Bogotá",
+      "bogota_sub": "Capital de Colombia",
+      "bogota_time": "2.5 - 3 horas",
+      "bogota_desc": "La ruta más común. Toma la salida por la Autopista Norte hacia la vía que conduce a Tunja por la doble calzada Bogotá-Tunja.",
+      "bogota_step1": "Salir de Bogotá por la <strong>Autopista Norte</strong> y tomar la vía hacia Tunja (Ruta 55).",
+      "bogota_step2": "Continuar por la doble calzada pasando por <strong>Zipaquirá</strong>, <strong>Ventaquemada</strong> y el <strong>Puente de Boyacá</strong>.",
+      "bogota_step3": "Antes de llegar a Tunja, tomar el desvío señalizado hacia <strong>Cómbita</strong> (salida norte de la doble calzada).",
+      "bogota_step4": "Seguir la vía por aproximadamente <strong>5 km</strong> hasta llegar al casco urbano de Cómbita.",
+      "tunja_title": "Desde Tunja",
+      "tunja_sub": "Capital de Boyacá",
+      "tunja_time": "15 - 20 minutos",
+      "tunja_desc": "Cómbita está a solo unos minutos de la capital boyacense. Es la opción más rápida y económica.",
+      "tunja_step1": "Desde el centro de Tunja, dirigirse hacia el <strong>norte</strong> por la Avenida Norte.",
+      "tunja_step2": "Tomar la vía que conduce a <strong>Paipa/Duitama</strong> y seguir las señales hacia Cómbita.",
+      "tunja_step3": "En pocos minutos llegarás al <strong>casco urbano</strong> de Cómbita."
+    },
+    "bus": {
+      "title": "Transporte Público",
+      "intro": "Opciones de buses y colectivos para llegar sin vehículo propio.",
+      "bog_tun_title": "Buses Bogotá → Tunja",
+      "bog_tun_sub": "Terminal Salitre / Norte",
+      "bog_tun_desc": "Desde la Terminal de Transporte de Bogotá (Salitre o Norte) hay salidas frecuentes hacia Tunja con varias empresas.",
+      "th_company": "Empresa",
+      "th_frequency": "Frecuencia",
+      "th_fare": "Tarifa aprox.",
+      "freq_15_20": "Cada 15-20 min",
+      "freq_20_30": "Cada 20-30 min",
+      "freq_30_40": "Cada 30-40 min",
+      "schedule": "Horario: 4:00 AM - 9:00 PM",
+      "duration": "Duración: ~2.5 horas",
+      "tun_com_title": "Tunja → Cómbita",
+      "tun_com_sub": "Colectivos y buses locales",
+      "tun_com_desc": "Desde Tunja hay colectivos y buses locales que salen con frecuencia hacia Cómbita. Se pueden tomar en diferentes puntos:",
+      "tun_com_p1": "<strong>Terminal de Transporte de Tunja:</strong> Buses y colectivos con salidas regulares. Tarifa aprox. $2.500 - $3.500.",
+      "tun_com_p2": "<strong>Avenida Norte:</strong> Colectivos que pasan por la vía y recogen pasajeros. Frecuencia cada 10-15 minutos.",
+      "tun_com_p3": "<strong>Taxi:</strong> Desde el centro de Tunja un taxi cuesta aproximadamente $12.000 - $18.000."
+    },
+    "location": {
+      "title": "Ubicación",
+      "intro": "Cómbita se encuentra en el departamento de Boyacá, a pocos kilómetros al norte de Tunja."
+    },
+    "tips": {
+      "title": "Consejos para el Viaje",
+      "warm_t": "Lleva ropa abrigada",
+      "warm_d": "La temperatura promedio es de 13°C y puede bajar más en la noche. Lleva chaqueta y ropa en capas.",
+      "fuel_t": "Tanquea antes de salir",
+      "fuel_d": "Si vas en vehículo propio, asegúrate de llevar suficiente combustible. Hay estaciones en Tunja.",
+      "cash_t": "Lleva efectivo",
+      "cash_d": "Algunos establecimientos rurales no cuentan con datáfono. Lleva efectivo suficiente.",
+      "sun_t": "Protección solar",
+      "sun_d": "Por la altitud, la radiación UV es alta incluso en días nublados. Usa bloqueador solar."
+    },
+    "cta": {
+      "title": "¿Necesitas más información?",
+      "subtitle": "Contáctanos y te ayudaremos a planificar tu viaje a Cómbita.",
+      "btn": "Contáctanos"
+    }
+  },
+  "treks": {
+    "title": "Caminatas | Cómbita | Turismo y Aventura",
+    "description": "Rutas de senderismo en Cómbita, Boyacá. Caminatas por La Peña, Casa Ricaurte, Laguna Rica, Laguna Negra y Cerro Tilín.",
+    "hero": {
+      "title": "Caminatas",
+      "subtitle": "Explora los senderos mágicos de Cómbita"
+    },
+    "breadcrumb": {
+      "routes": "Rutas"
+    },
+    "filters": {
+      "title": "Filtros",
+      "all": "Todos",
+      "hiking": "Senderismo",
+      "mountaineering": "Montañismo",
+      "nature": "Naturaleza",
+      "adventure": "Aventura"
+    },
+    "loading": "Cargando caminatas...",
+    "cards": {
+      "free": "Gratis",
+      "optional_guide": "Guía opcional",
+      "required_guide": "Guía requerido",
+      "duration": "Duración",
+      "diff_medium_high": "Media-alta",
+      "diff_medium_low": "Media-baja",
+      "diff_low": "Baja",
+      "la_pena_desc": "El punto más alto de Cómbita. Formación rocosa con vista panorámica de 360° sobre la cordillera y el valle.",
+      "la_pena_location": "Vereda Santa Bárbara, Cómbita",
+      "ricaurte_desc": "Atracción turística histórica en Cómbita. Casa colonial con valor patrimonial y cultural de la región.",
+      "centro_name": "Centro Histórico",
+      "centro_desc": "Recorrido fascinante por el centro histórico, visitando la iglesia colonial del siglo XVIII y las pintorescas calles empedradas.",
+      "centro_location": "Centro, Cómbita",
+      "tilin_desc": "Cascada y sitio arqueológico muisca con moyas rituales, la Piedra del Sapo y vestigios ceremoniales ancestrales.",
+      "tilin_location": "Vereda San Francisco, Cómbita",
+      "negra_desc": "Trekking exigente de día completo hasta la laguna de páramo a más de 3.400 msnm, entre frailejones y bosque altoandino.",
+      "rica_desc": "Ascenso desafiante al páramo hasta alcanzar la mística laguna sagrada rodeada de frailejones gigantes y fauna silvestre.",
+      "paramo_location": "Páramo de Cómbita"
+    },
+    "cta": {
+      "title": "Reservas y contactos",
+      "text": "¿Te gustaría más información sobre nuestras caminatas o quieres reservar una excursión especial?",
+      "button": "Contáctanos"
+    },
+    "features": {
+      "guides_title": "Guías locales expertos",
+      "guides_text": "Conocemos cada rincón de nuestras montañas",
+      "booking_title": "Fácil reserva",
+      "booking_text": "Contáctanos y organiza tu aventura rápidamente",
+      "places_title": "Lugares únicos",
+      "places_text": "Descubre rincones naturales especiales de Cómbita"
+    }
+  },
+  "trek_laguna": {
+    "title": "Cómbita, Laguna Rica",
+    "description": "Caminata a la Laguna Rica en Cómbita, Boyacá. Páramo con frailejones, colibríes y paisajes de montaña.",
+    "hero": {
+      "subtitle": "Una experiencia única rodeada de naturaleza y belleza"
+    },
+    "intro": "La caminata hacia la Laguna Rica te llevará a un paisaje único, rodeado de frailejones, orquídeas y la vibrante fauna local. Este recorrido, de nivel medio, te brinda una vista impresionante del valle, mientras disfrutas de la tranquilidad que solo un lugar como este puede ofrecer. La laguna, ubicada en el corazón del Parque Regional El Valle, es un refugio natural que invita a la reflexión y la conexión profunda con la naturaleza. Un destino imperdible para quienes buscan aventura y serenidad en un solo lugar.",
+    "guide_text": "Se recomienda contratar un guía local para esta ruta de páramo. Conocen los senderos, el clima cambiante y la flora endémica.",
+    "body": "La caminata hacia la Laguna Rica es de nivel medio y ofrece vistas impresionantes del valle. A lo largo del recorrido, se pueden apreciar frailejones, colibríes y orquídeas. El sendero, rodeado de flora andina, lleva a los visitantes a disfrutar de la tranquilidad del páramo y la majestuosidad de las montañas cercanas. Es una experiencia única para quienes buscan conectar con la naturaleza en su máxima expresión.",
+    "facts": {
+      "location_value": "Zona de páramo",
+      "ecosystem_value": "Páramo andino"
+    },
+    "location_title": "Ubicación de Laguna Rica",
+    "difficulty": {
+      "heading": "Dificultad media",
+      "text": "Un recorrido de dificultad media, ideal para quienes buscan una caminata desafiante pero accesible, rodeados de impresionantes paisajes naturales."
+    },
+    "see": {
+      "frailejon_label": "Frailejones",
+      "frailejon_value": "Centenarios, crecen 1 cm/año",
+      "lagoon_label": "Laguna",
+      "lagoon_value": "Agua cristalina de páramo",
+      "fauna_label": "Fauna",
+      "fauna_value": "Colibríes, águilas, aves migratorias"
+    }
+  },
+  "trek_pena": {
+    "title": "Cómbita, La Peña",
+    "description": "Caminata a La Peña en Cómbita, Boyacá. Formación rocosa con vistas panorámicas del altiplano boyacense.",
+    "hero": {
+      "subtitle": "El lugar más imponente y alto de todo Cómbita"
+    },
+    "intro": "La caminata al Mirador de La Peña es de exigencia media-alta, ideal para quienes buscan un desafío y una recompensa impresionante al llegar a la cima. Este es el punto más alto de Cómbita y ofrece una de las vistas más impactantes de toda la región. Desde su altura, los visitantes pueden admirar una panorámica extensa de la cordillera y los valles que rodean el municipio, conectando profundamente con el entorno natural. Una experiencia que combina esfuerzo y asombro, perfecta para quienes aman las alturas y los paisajes únicos.",
+    "guide_text": "Para esta ruta de exigencia media-alta se recomienda un guía local experimentado que conozca el terreno y las condiciones del páramo.",
+    "body": "La Peña es el punto más alto e imponente de todo Cómbita, ubicado en la Vereda Santa Bárbara dentro del Páramo de La Peña. La ruta asciende desde los 2.825 m del casco urbano hasta los 3.200 m de altitud, atravesando paisajes de pastizales, bosque de niebla y finalmente páramo. Desde la cima, la formación rocosa ofrece una vista panorámica de 360 grados que abarca la cordillera, los valles circundantes y, en días despejados, se divisa la ciudad de Tunja.",
+    "facts": {
+      "ecosystem_value": "Páramo y bosque de niebla"
+    },
+    "difficulty": {
+      "heading": "Dificultad media-alta",
+      "text": "Un recorrido de dificultad media-alta, ideal para quienes buscan un desafío con recompensa: vistas panorámicas desde el punto más alto de Cómbita."
+    },
+    "see": {
+      "rock_label": "Formación rocosa",
+      "rock_value": "Mirador natural panorámico",
+      "cloud_label": "Bosque de niebla",
+      "cloud_value": "Musgos, líquenes, bromelias",
+      "view_label": "Vista 360°",
+      "view_value": "Valle, cordillera y Tunja"
+    },
+    "map": {
+      "popup_sub": "Monumento Virgen de las Aguas"
+    }
+  },
+  "trek_valle": {
+    "title": "Cómbita, Casa Ricaurte",
+    "description": "Ruta a Casa Ricaurte en Cómbita, Boyacá. Atracción turística histórica y cultural en zona rural.",
+    "hero": {
+      "subtitle": "Atracción turística histórica de Cómbita"
+    },
+    "intro": "Casa Ricaurte es una atracción turística histórica ubicada en la zona rural de Cómbita. Este punto de interés cultural ofrece una conexión con la historia y el patrimonio del municipio. Rodeada por el paisaje montañoso de la cordillera oriental, la ruta hacia Casa Ricaurte permite disfrutar de vistas panorámicas y la tranquilidad del campo boyacense. El recorrido atraviesa caminos rurales donde se puede apreciar la vida cotidiana de las veredas y la arquitectura tradicional de la región.",
+    "guide_text": "Se recomienda un guía local para recorrer el páramo. Conocen los senderos y pueden identificar la flora y fauna endémica.",
+    "body": "Casa Ricaurte es un sitio de interés histórico y turístico en Cómbita. Ubicada en la zona rural del municipio, esta atracción ofrece un recorrido por la historia local y el patrimonio cultural de la región. El entorno natural, rodeado de montañas y vegetación andina, complementa la experiencia con paisajes de gran belleza. Es un punto ideal para quienes desean explorar el lado histórico y cultural de Cómbita.",
+    "facts": {
+      "location_value": "Zona rural, Cómbita",
+      "type_value": "Atracción turística e histórica",
+      "environment_value": "Montaña andina y campo boyacense"
+    },
+    "difficulty": {
+      "heading": "Dificultad media-baja",
+      "text": "Un recorrido de dificultad media-baja, ideal para quienes buscan una caminata desafiante pero accesible, rodeados de impresionantes paisajes naturales."
+    },
+    "see": {
+      "oak_label": "Bosque de robles",
+      "oak_value": "Uno de los más antiguos de los Andes",
+      "frailejon_label": "Frailejones",
+      "frailejon_value": "Páramo de alta montaña",
+      "fauna_label": "Fauna",
+      "fauna_value": "Venados, tigrillos, guaches"
+    },
+    "map": {
+      "popup_sub": "Atracción turística, Cómbita"
+    }
+  },
+  "trek_tilin": {
+    "title": "Cómbita, El Tilín",
+    "description": "Caminata al Cerro Tilín en Cómbita, Boyacá. Pinturas rupestres precolombinas y formaciones rocosas milenarias.",
+    "hero": {
+      "subtitle": "Una experiencia de fácil acceso, ideal para ir en familia"
+    },
+    "intro": "La caminata hacia El Tilín te llevará a un sitio cargado de historia ancestral muisca en la Vereda San Francisco, a unos 5 km del centro de Cómbita. El recorrido, de nivel bajo e ideal para toda la familia, conduce a una cascada de 10 a 12 metros de altura junto a formaciones rocosas con moyas talladas por los indígenas para rituales de consagración. La tradición oral cuenta que en noches de luna llena se escucha un sonido semejante a una campanilla, de donde proviene su nombre. Un destino imperdible para quienes buscan conectar con el patrimonio arqueológico y la naturaleza en un solo lugar.",
+    "guide": {
+      "request": "Solicita un guía"
+    },
+    "guide_text": "Para una experiencia más enriquecedora, contacta a un guía local que conoce cada rincón del sendero y su historia muisca.",
+    "body": "La caminata hacia El Tilín es de nivel bajo, ideal para quienes buscan una experiencia tranquila y llena de historia. En este recorrido fácil, los visitantes podrán admirar pinturas rupestres que cuentan relatos ancestrales, mientras caminan junto al suave murmullo de un riachuelo. Durante el trayecto, pequeñas cascadas adornan el paisaje, creando una atmósfera relajante. Además, el sendero pasa cerca de un cementerio Muisca, un importante vestigio cultural que ofrece una conexión profunda con la historia de los pueblos originarios. Es una ruta accesible y enriquecedora para quienes desean explorar la naturaleza y la cultura local.",
+    "facts": {
+      "location_value": "A 5 km del centro",
+      "type_value": "Arqueológico",
+      "waterfall_label": "Cascada",
+      "waterfall_value": "10-12 m de altura",
+      "access_value": "Familiar"
+    },
+    "difficulty": {
+      "heading": "Dificultad baja",
+      "text": "Un recorrido de dificultad baja, ideal para quienes buscan una caminata accesible, rodeados de impresionantes paisajes naturales."
+    },
+    "see": {
+      "waterfall_label": "Cascada",
+      "waterfall_value": "10-12 metros de caída",
+      "moyas_label": "Moyas muiscas",
+      "moyas_value": "Oquedades rituales talladas en roca",
+      "sapo_value": "Formación rocosa ceremonial"
+    },
+    "map": {
+      "popup_sub": "Vereda San Francisco, Cómbita"
+    }
+  },
+  "trek_centro": {
+    "title": "Centro Histórico | Turismo Cómbita",
+    "description": "Recorrido por el centro histórico de Cómbita, Boyacá. Iglesia colonial, parque principal y calles tradicionales.",
+    "hero": {
+      "title": "Centro Histórico",
+      "subtitle": "El corazón cultural y religioso de Cómbita"
+    },
+    "intro": "El recorrido por el centro histórico de Cómbita es una caminata tranquila y enriquecedora que permite conocer la esencia del municipio. El punto de partida es el parque principal, conocido como la plaza \"Mano de Tigre\", donde se levanta la imponente Iglesia de la Inmaculada Concepción, cuya construcción fue ordenada en 1776 por el arzobispo Agustín Alvarado y Castillo. Las calles adoquinadas del centro conservan el encanto de la arquitectura tradicional boyacense, con casas de fachadas coloridas y balcones de madera que cuentan la historia del pueblo.",
+    "free_tour": {
+      "title": "Recorrido libre",
+      "no_guide": "Sin guía necesario",
+      "text": "El centro histórico es de acceso libre. Puedes recorrerlo a tu propio ritmo y disfrutar de la arquitectura, la gastronomía local y la hospitalidad de los combitenses."
+    },
+    "info": {
+      "access": "Acceso",
+      "access_value": "Libre",
+      "hours": "Horario",
+      "hours_value": "Todo el día",
+      "distance_tunja": "Distancia desde Tunja"
+    },
+    "body": "El casco urbano de Cómbita conserva el trazado colonial típico de los pueblos boyacenses. En torno al parque principal se encuentran los edificios más emblemáticos: la Iglesia de la Inmaculada Concepción, la Alcaldía Municipal y las casas tradicionales con sus fachadas blancas y puertas de colores. Un paseo por sus calles es un viaje al pasado, donde la tranquilidad y la calidez de sus habitantes hacen sentir al visitante como en casa.",
+    "facts": {
+      "church_label": "Iglesia",
+      "church_value": "Inmaculada Concepción (siglo XVIII)",
+      "plaza_label": "Plaza",
+      "plaza_value": "Parque principal \"Mano de Tigre\"",
+      "distance_tunja_label": "Distancia a Tunja",
+      "distance_tunja_value": "8.5 km por la Troncal Central del Norte"
+    },
+    "difficulty": {
+      "heading": "Dificultad fácil",
+      "text": "Un recorrido plano y accesible para toda la familia, ideal para conocer la historia y cultura de Cómbita sin esfuerzo físico."
+    },
+    "what_to_see": {
+      "title": "Qué ver",
+      "church_label": "Iglesia",
+      "church_value": "Iglesia de la Inmaculada Concepción",
+      "plaza_label": "Plaza",
+      "plaza_value": "Parque principal con fuente y jardines",
+      "arch_label": "Arquitectura",
+      "arch_value": "Casas coloniales con balcones de madera",
+      "food_label": "Gastronomía",
+      "food_value": "Restaurantes típicos boyacenses cercanos"
+    },
+    "map": {
+      "popup_title": "Centro Histórico",
+      "popup_sub": "Parque Principal, Cómbita"
+    }
+  },
+  "trek_sendero": {
+    "title": "Cómbita, Laguna Negra",
+    "description": "Laguna Negra en el páramo de Cómbita, Boyacá. Trekking exigente de día completo a más de 3.400 msnm entre frailejones y bosque altoandino. Guía requerido.",
+    "hero": {
+      "subtitle": "Laguna de páramo en alta montaña"
+    },
+    "intro": "La Laguna Negra es una laguna de páramo ubicada en las tierras altas de Cómbita, a más de 3.400 metros sobre el nivel del mar. Sus aguas oscuras y tranquilas reflejan el cielo andino rodeadas de frailejones centenarios y vegetación de páramo. La ruta es exigente: un trekking de día completo que asciende desde el bosque altoandino hasta el corazón del páramo, atravesando terreno irregular, zonas de niebla densa y cambios bruscos de temperatura. Se requiere buena condición física y es obligatorio ir acompañado de un guía local conocedor de la zona. No apta para niños pequeños ni personas con problemas cardíacos o respiratorios.",
+    "box": {
+      "title": "Trekking de alta montaña",
+      "only_guide": "Solo con guía local",
+      "text": "Caminata exigente de día completo por terreno de páramo. Se requiere guía local obligatorio y buena condición física."
+    },
+    "info": {
+      "type_value": "Trekking"
+    },
+    "body": "El ascenso hacia la Laguna Negra es una de las rutas más desafiantes del páramo de Cómbita. El camino parte desde zonas de bosque altoandino y asciende por terreno empinado hasta superar los 3.400 metros, cruzando zonas pantanosas, pajonales y extensos frailejonal. El clima es impredecible: sol intenso, neblina cerrada y lluvia pueden alternarse en cuestión de minutos. La recompensa es llegar a las aguas oscuras y serenas de la laguna, un espejo natural rodeado de silencio absoluto en el corazón del páramo.",
+    "facts": {
+      "ecosystem_value": "Páramo y bosque altoandino de niebla",
+      "flora_label": "Flora",
+      "flora_value": "Frailejones, pajonales, musgos, líquenes"
+    },
+    "difficulty": {
+      "heading": "Dificultad alta",
+      "text": "Trekking exigente con ascenso prolongado por terreno irregular de páramo. Se requiere buena condición física y experiencia en caminatas de montaña."
+    },
+    "recommendations": {
+      "title": "Recomendaciones",
+      "hydration_label": "Hidratación",
+      "hydration_value": "Mínimo 2 litros de agua por persona",
+      "clothing_label": "Ropa",
+      "clothing_value": "Capas térmicas, chaqueta impermeable y rompevientos",
+      "footwear_label": "Calzado",
+      "footwear_value": "Botas de trekking impermeables o botas pantaneras",
+      "bring_label": "Llevar",
+      "bring_value": "Protector solar, alimentos energéticos, muda seca y linterna"
+    }
+  }
+}

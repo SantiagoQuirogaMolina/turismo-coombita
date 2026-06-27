@@ -4,10 +4,44 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Galería | Cómbita | Turismo de Naturaleza</title>
-    <meta name="description" content="Galería fotográfica de Cómbita: páramos, fauna, pinturas rupestres y paisajes únicos">
+    <title data-i18n="gallery.title">Galería | Cómbita | Turismo de Naturaleza</title>
+    <link rel="preload" as="image" href="../assets/images/favorita dos.jpg">
+    <meta name="description" data-i18n-attr="content:gallery.description" content="Galería fotográfica de Cómbita: páramos, fauna, pinturas rupestres y paisajes únicos">
+    <!-- CSS crítico del splash (inline para que se vea desde el primer frame) -->
+    <style>
+        #preloader{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(170deg,#1a2a20 0%,#2d3e33 45%,#3a5240 100%);z-index:99995;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+        #preloader::before{content:""!important;background:none!important;width:0!important;height:0!important}
+        #preloader.splash-paramo::after{content:"";position:absolute;top:0;left:-50%;right:-50%;bottom:0;background:radial-gradient(ellipse at 20% 80%,rgba(105,144,115,.15) 0%,transparent 60%),radial-gradient(ellipse at 80% 60%,rgba(221,161,94,.08) 0%,transparent 50%),radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.04) 0%,transparent 70%);animation:splash-neblina 4s ease-in-out infinite alternate;z-index:0}
+        @keyframes splash-neblina{0%{transform:translateX(-3%) translateY(5px);opacity:.6}100%{transform:translateX(3%) translateY(-5px);opacity:1}}
+        #preloader .splash-mountains{position:absolute;bottom:0;left:0;right:0;height:220px;z-index:1}
+        #preloader .splash-mountains svg{width:100%;height:100%;display:block}
+        #preloader .splash-content{position:relative;z-index:2;text-align:center;animation:splash-aparecer .8s ease-out both}
+        @keyframes splash-aparecer{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+        #preloader .splash-icon{margin:0 auto 20px;width:60px;height:80px;animation:splash-respirar 3s ease-in-out infinite}
+        #preloader .splash-icon svg{width:100%;height:100%}
+        @keyframes splash-respirar{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.06);opacity:1}}
+        #preloader .splash-title{color:#DDA15E;font-family:'Montserrat',sans-serif;font-size:32px;font-weight:800;letter-spacing:10px;text-transform:uppercase;margin:0;line-height:1}
+        #preloader .splash-line{width:50px;height:3px;background:linear-gradient(90deg,transparent,#DDA15E,transparent);border-radius:2px;margin:16px auto;animation:splash-linea 2s ease-in-out infinite alternate}
+        @keyframes splash-linea{0%{width:40px;opacity:.6}100%{width:70px;opacity:1}}
+        #preloader .splash-subtitle{color:rgba(255,255,255,.55);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin:0}
+        #preloader .splash-particulas{position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;overflow:hidden}
+        #preloader .splash-particulas span{position:absolute;width:4px;height:4px;background:rgba(221,161,94,.4);border-radius:50%;animation:splash-flotar 6s ease-in-out infinite}
+        #preloader .splash-particulas span:nth-child(1){left:15%;bottom:20%;animation-delay:0s;animation-duration:7s}
+        #preloader .splash-particulas span:nth-child(2){left:35%;bottom:30%;animation-delay:1.5s;animation-duration:5s;width:3px;height:3px}
+        #preloader .splash-particulas span:nth-child(3){left:65%;bottom:15%;animation-delay:.8s;animation-duration:8s}
+        #preloader .splash-particulas span:nth-child(4){left:80%;bottom:25%;animation-delay:2.5s;animation-duration:6s;width:3px;height:3px}
+        #preloader .splash-particulas span:nth-child(5){left:50%;bottom:35%;animation-delay:1s;animation-duration:7.5s;width:5px;height:5px;background:rgba(221,161,94,.25)}
+        @keyframes splash-flotar{0%{transform:translateY(0) scale(1);opacity:0}15%{opacity:1}50%{transform:translateY(-120px) scale(.8);opacity:.6}85%{opacity:.3}100%{transform:translateY(-250px) scale(.4);opacity:0}}
+        #preloader .splash-progress{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);width:100px;height:2px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;z-index:2}
+        #preloader .splash-progress span{display:block;height:100%;background:linear-gradient(90deg,transparent,#DDA15E,transparent);border-radius:2px;animation:splash-carga 1.8s ease-in-out infinite}
+        @keyframes splash-carga{0%{width:0%;margin-left:0%}50%{width:50%;margin-left:25%}100%{width:0%;margin-left:100%}}
+        @media (max-width:575.98px){#preloader .splash-title{font-size:24px;letter-spacing:6px}#preloader .splash-subtitle{font-size:10px;letter-spacing:3px}#preloader .splash-icon{width:45px;height:60px}}
+        #preloader{animation:splash-seguro .6s ease-out 5s forwards}
+        @keyframes splash-seguro{to{opacity:0;visibility:hidden;pointer-events:none}}
+    </style>
     <script src="../assets/js/vendor/jquery.min.js"></script>
     <script src="../assets/js/vendor/main.js"></script>
+    <script src="../assets/js/modules/i18n.js?v=2" defer></script>
     <link rel="stylesheet" href="../assets/css/vendor/bootstrap-grid.css">
     <link rel="stylesheet" href="../assets/css/vendor/style.css">
     <link rel="stylesheet" href="../assets/css/vendor/glide.css">
@@ -17,7 +51,7 @@
     <link rel="stylesheet" href="../assets/css/vendor/contact-form.css">
         <link rel="stylesheet" href="../assets/media/icons/fontawesome/all.css">
 <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/frailejon-theme.css">
+    <link rel="stylesheet" href="../assets/css/frailejon-theme.css?v=3">
     <link rel="icon" href="../assets/images/favicon.png">
     <style>
         /* Estilos para galería mejorada */
@@ -150,7 +184,42 @@
     </style>
 </head>
 <body class="page-main">
-    <div id="preloader"></div>
+    <div id="preloader" class="splash-paramo">
+        <div class="splash-particulas">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="splash-content">
+            <div class="splash-icon">
+                <svg viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="#DDA15E" stroke-width="1.5" stroke-linecap="round" opacity="0.9">
+                        <path d="M30 78 L30 40" stroke-width="2"/>
+                        <path d="M27 75 Q30 72 33 75"/>
+                        <path d="M26 68 Q30 65 34 68"/>
+                        <path d="M25 61 Q30 58 35 61"/>
+                        <path d="M26 54 Q30 51 34 54"/>
+                        <path d="M27 47 Q30 44 33 47"/>
+                        <path d="M30 38 Q30 20 18 8" stroke-width="1.8"/>
+                        <path d="M30 38 Q25 18 10 14" stroke-width="1.5"/>
+                        <path d="M30 38 Q35 18 50 14" stroke-width="1.5"/>
+                        <path d="M30 38 Q30 20 42 8" stroke-width="1.8"/>
+                        <path d="M30 38 Q20 22 8 24" stroke-width="1.3"/>
+                        <path d="M30 38 Q40 22 52 24" stroke-width="1.3"/>
+                        <path d="M30 38 L30 6" stroke-width="1.8"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="splash-title">CÓMBITA</div>
+            <div class="splash-line"></div>
+            <div class="splash-subtitle">Boyacá &middot; Colombia</div>
+        </div>
+        <div class="splash-mountains">
+            <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,220 L0,160 Q120,80 240,120 Q360,160 480,100 Q600,40 720,90 Q840,140 960,70 Q1080,0 1200,50 Q1320,100 1440,60 L1440,220 Z" fill="rgba(105,144,115,0.08)"/>
+                <path d="M0,220 L0,180 Q180,120 360,155 Q540,190 720,140 Q900,90 1080,130 Q1260,170 1440,110 L1440,220 Z" fill="rgba(105,144,115,0.05)"/>
+            </svg>
+        </div>
+        <div class="splash-progress"><span></span></div>
+    </div>
     <nav class="menu-classic menu-fixed align-right" data-menu-anima="fade-in">
         <div class="container">
             <div class="menu-brand">
@@ -165,46 +234,52 @@
             <div class="menu-cnt">
                                 <ul id="main-menu">
                     <li class="dropdown">
-                        <a href="./index.html">Inicio</a>
+                        <a href="./index.html" data-i18n="common.nav.home">Inicio</a>
                     </li>
 
                     <li class="dropdown">
-                        <a href="#">Descubre</a>
+                        <a href="#" data-i18n="common.nav.discover">Descubre</a>
                         <ul>
                             <li class="dropdown-submenu">
-                                <a>Imperdibles</a>
+                                <a data-i18n="common.nav.must_see">Imperdibles</a>
                                 <ul>
-                                    <li><a href="./food.html">Restaurantes</a></li>
-                                    <li><a href="./shelters.html">Hospedajes</a></li>
-                                    <li><a href="./events.html">Eventos</a></li>
-                                    <li><a href="./artesanos-guias.html">Artesanos y Guías</a></li>
+                                    <li><a href="./food.html" data-i18n="common.nav.restaurants">Restaurantes</a></li>
+                                    <li><a href="./shelters.html" data-i18n="common.nav.lodging">Hospedajes</a></li>
+                                    <li><a href="./events.html" data-i18n="common.nav.events">Eventos</a></li>
+                                    <li><a href="./artesanos-guias.html" data-i18n="common.nav.artisans_guides">Artesanos y Guías</a></li>
+                                    <li><a href="./catering.html" data-i18n="common.nav.catering">Catering y Celebraciones</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown-submenu">
-                                <a>Explora Más</a>
+                                <a data-i18n="common.nav.explore_more">Explora Más</a>
                                 <ul>
-                                    <li><a href="./history.html">Historia</a></li>
-                                    <li><a href="./gallery.html">Galería</a></li>
+                                    <li><a href="./history.html" data-i18n="common.nav.history">Historia</a></li>
+                                    <li><a href="./gallery.html" data-i18n="common.nav.gallery">Galería</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="./treks/index.html">Caminatas</a>
+                        <a href="./treks/index.html" data-i18n="common.nav.treks">Caminatas</a>
                     </li>
                     <li class="dropdown">
-                        <a href="#">Planifica</a>
+                        <a href="#" data-i18n="common.nav.plan">Planifica</a>
                         <ul>
-                            <li><a href="./transporte.html">Cómo Llegar</a></li>
-                            <li><a href="./mapa.html">Mapa</a></li>
-                            <li><a href="./tips.html">Tips del Viajero</a></li>
+                            <li><a href="./transporte.html" data-i18n="common.nav.how_to_arrive">Cómo Llegar</a></li>
+                            <li><a href="./mapa.html" data-i18n="common.nav.map">Mapa</a></li>
+                            <li><a href="./tips.html" data-i18n="common.nav.tips">Tips del Viajero</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="./blog.html">Blog</a>
+                        <a href="./blog.html" data-i18n="common.nav.blog">Blog</a>
                     </li>
                     <li>
-                        <a href="./contacts.html">Contacto</a>
+                        <a href="./contacts.html" data-i18n="common.nav.contact">Contacto</a>
+                    </li>
+                    <li class="lang-switcher" aria-label="Idioma">
+                        <a href="#" data-lang-switch="es" data-i18n="common.lang_switch.es">ES</a>
+                        <span class="lang-sep">|</span>
+                        <a href="#" data-lang-switch="en" data-i18n="common.lang_switch.en">EN</a>
                     </li>
                 </ul>
 
@@ -215,12 +290,12 @@
     </nav>
     <header class="header-image ken-burn-center light" data-parallax="scroll" data-natural-height="1080" data-natural-width="1920" data-bleed="0" data-image-src="../assets/images/favorita dos.jpg" data-offset="0">
         <div class="container">
-            <h1>Galería Fotográfica</h1>
-            <h2>Descubre la magia de Cómbita a través de nuestras imágenes</h2>
+            <h1 data-i18n="gallery.hero.h1">Galería Fotográfica</h1>
+            <h2 data-i18n="gallery.hero.h2">Descubre la magia de Cómbita a través de nuestras imágenes</h2>
             <ol class="breadcrumb">
-                <li><a href="./index.html">Inicio</a></li>
-                <li><a href="#">Páginas</a></li>
-                <li><a href="#">Galería</a></li>
+                <li><a href="./index.html" data-i18n="common.nav.home">Inicio</a></li>
+                <li><a href="#" data-i18n="common.breadcrumb.pages">Páginas</a></li>
+                <li><a href="#" data-i18n="common.nav.gallery">Galería</a></li>
             </ol>
         </div>
     </header>
@@ -237,61 +312,61 @@
                     <div id="galeria-estatica" class="album-list" style="display: none;">
                         <div class="album-box">
                             <a href="#" class="img-box img-scale" data-album="paramos">
-                                <img src="../assets/images/laguna ricaaa.jpg" alt="Páramos de Cómbita" />
+                                <img src="../assets/images/laguna ricaaa.jpg" alt="Páramos de Cómbita" / loading="lazy">
                             </a>
                             <div class="caption">
-                                <h3>Páramos</h3>
-                                <p>Ecosistemas de alta montaña con frailejones</p>
+                                <h3 data-i18n="gallery.albums.paramos.title">Páramos</h3>
+                                <p data-i18n="gallery.albums.paramos.desc">Ecosistemas de alta montaña con frailejones</p>
                             </div>
                         </div>
                         <div class="album-box">
                             <a href="#" class="img-box img-scale" data-album="fauna">
-                                <img src="../assets/images/colibrie verde descansa.jpg" alt="Fauna de Cómbita" />
+                                <img src="../assets/images/colibrie verde descansa.jpg" alt="Fauna de Cómbita" / loading="lazy">
                             </a>
                             <div class="caption">
-                                <h3>Fauna</h3>
-                                <p>Aves y animales nativos del ecosistema</p>
+                                <h3 data-i18n="gallery.albums.fauna.title">Fauna</h3>
+                                <p data-i18n="gallery.albums.fauna.desc">Aves y animales nativos del ecosistema</p>
                             </div>
                         </div>
                         <div class="album-box">
                             <a href="#" class="img-box img-scale" data-album="rupestre">
-                                <img src="../assets/images/tilin,pinturas.JPG" alt="Pinturas Rupestres" />
+                                <img src="../assets/images/tilin,pinturas.JPG" alt="Pinturas Rupestres" / loading="lazy">
                             </a>
                             <div class="caption">
-                                <h3>Arte Rupestre</h3>
-                                <p>Pinturas precolombinas milenarias</p>
+                                <h3 data-i18n="gallery.albums.rupestre.title">Arte Rupestre</h3>
+                                <p data-i18n="gallery.albums.rupestre.desc">Pinturas precolombinas milenarias</p>
                             </div>
                         </div>
                         <div class="album-box">
                             <a href="#" class="img-box img-scale" data-album="patrimonio">
-                                <img src="../assets/images/iglesia.jpg" alt="Patrimonio Cultural" />
+                                <img src="../assets/images/iglesia.jpg" alt="Patrimonio Cultural" / loading="lazy">
                             </a>
                             <div class="caption">
-                                <h3>Patrimonio</h3>
-                                <p>Arquitectura colonial y tradiciones</p>
+                                <h3 data-i18n="gallery.albums.patrimonio.title">Patrimonio</h3>
+                                <p data-i18n="gallery.albums.patrimonio.desc">Arquitectura colonial y tradiciones</p>
                             </div>
                         </div>
                         <div class="album-box">
                             <a href="#" class="img-box img-scale" data-album="formaciones">
-                                <img src="../assets/images/La Peña.jpg" alt="Formaciones Rocosas" />
+                                <img src="../assets/images/La Peña.jpg" alt="Formaciones Rocosas" / loading="lazy">
                             </a>
                             <div class="caption">
-                                <h3>Formaciones Rocosas</h3>
-                                <p>Estructuras geológicas únicas</p>
+                                <h3 data-i18n="gallery.albums.formaciones.title">Formaciones Rocosas</h3>
+                                <p data-i18n="gallery.albums.formaciones.desc">Estructuras geológicas únicas</p>
                             </div>
                         </div>
                         <div class="album-box">
                             <a href="#" class="img-box img-scale" data-album="paisajes">
-                                <img src="../assets/images/montaña cordi.jpg" alt="Paisajes de Cómbita" />
+                                <img src="../assets/images/montaña cordi.jpg" alt="Paisajes de Cómbita" / loading="lazy">
                             </a>
                             <div class="caption">
-                                <h3>Paisajes</h3>
-                                <p>Vistas panorámicas espectaculares</p>
+                                <h3 data-i18n="gallery.albums.paisajes.title">Paisajes</h3>
+                                <p data-i18n="gallery.albums.paisajes.desc">Vistas panorámicas espectaculares</p>
                             </div>
                         </div>
                     </div>
                     <div class="cnt-album-box">
-                        <p class="album-title"><span>📸</span> <a>Ver Álbumes</a></p>
+                        <p class="album-title"><span>📸</span> <a data-i18n="gallery.see_albums">Ver Álbumes</a></p>
 
 <!-- CÓDIGO HTML ACTUALIZADO PARA LA GALERÍA -->
 <!-- Copia este código en la sección correspondiente de gallery.html -->
@@ -303,37 +378,37 @@
             <!-- Categoría: PÁRAMOS -->
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/paramos/foto laguna y planta.JPG" data-title="Foto Laguna Y Planta">
-                    <img src="../assets/images/paramos/foto laguna y planta.JPG" alt="Foto Laguna Y Planta" />
+                    <img src="../assets/images/paramos/foto laguna y planta.JPG" alt="Foto Laguna Y Planta" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/paramos/frailejon en la laguna .jpg" data-title="Frailejon En La Laguna ">
-                    <img src="../assets/images/paramos/frailejon en la laguna .jpg" alt="Frailejon En La Laguna " />
+                    <img src="../assets/images/paramos/frailejon en la laguna .jpg" alt="Frailejon En La Laguna " / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/paramos/freilejon grande.jpg" data-title="Freilejon Grande">
-                    <img src="../assets/images/paramos/freilejon grande.jpg" alt="Freilejon Grande" />
+                    <img src="../assets/images/paramos/freilejon grande.jpg" alt="Freilejon Grande" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/paramos/laguna rica.jpg" data-title="Laguna Rica">
-                    <img src="../assets/images/paramos/laguna rica.jpg" alt="Laguna Rica" />
+                    <img src="../assets/images/paramos/laguna rica.jpg" alt="Laguna Rica" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/paramos/laguna ricaaa.jpg" data-title="Laguna Ricaaa">
-                    <img src="../assets/images/paramos/laguna ricaaa.jpg" alt="Laguna Ricaaa" />
+                    <img src="../assets/images/paramos/laguna ricaaa.jpg" alt="Laguna Ricaaa" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/paramos/plantas de la laguuna.JPG" data-title="Plantas De La Laguuna">
-                    <img src="../assets/images/paramos/plantas de la laguuna.JPG" alt="Plantas De La Laguuna" />
+                    <img src="../assets/images/paramos/plantas de la laguuna.JPG" alt="Plantas De La Laguuna" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/paramos/tres frailejones.jpg" data-title="Tres Frailejones">
-                    <img src="../assets/images/paramos/tres frailejones.jpg" alt="Tres Frailejones" />
+                    <img src="../assets/images/paramos/tres frailejones.jpg" alt="Tres Frailejones" / loading="lazy">
                 </a>
             </div>
         </div>
@@ -349,37 +424,37 @@
             <!-- Categoría: FAUNA -->
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/fauna/alcon sapero.JPG" data-title="Alcon Sapero">
-                    <img src="../assets/images/fauna/alcon sapero.JPG" alt="Alcon Sapero" />
+                    <img src="../assets/images/fauna/alcon sapero.JPG" alt="Alcon Sapero" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/fauna/colibrie silueta alas abiertas.jpg" data-title="Colibrie Silueta Alas Abiertas">
-                    <img src="../assets/images/fauna/colibrie silueta alas abiertas.jpg" alt="Colibrie Silueta Alas Abiertas" />
+                    <img src="../assets/images/fauna/colibrie silueta alas abiertas.jpg" alt="Colibrie Silueta Alas Abiertas" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/fauna/colibrie silueta.jpg" data-title="Colibrie Silueta">
-                    <img src="../assets/images/fauna/colibrie silueta.jpg" alt="Colibrie Silueta" />
+                    <img src="../assets/images/fauna/colibrie silueta.jpg" alt="Colibrie Silueta" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/fauna/colibrie verde descansa.jpg" data-title="Colibrie Verde Descansa">
-                    <img src="../assets/images/fauna/colibrie verde descansa.jpg" alt="Colibrie Verde Descansa" />
+                    <img src="../assets/images/fauna/colibrie verde descansa.jpg" alt="Colibrie Verde Descansa" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/fauna/copeton.jpg" data-title="Copeton">
-                    <img src="../assets/images/fauna/copeton.jpg" alt="Copeton" />
+                    <img src="../assets/images/fauna/copeton.jpg" alt="Copeton" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/fauna/copeton2.jpg" data-title="Copeton2">
-                    <img src="../assets/images/fauna/copeton2.jpg" alt="Copeton2" />
+                    <img src="../assets/images/fauna/copeton2.jpg" alt="Copeton2" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/fauna/pajaro comiendo abeja.JPG" data-title="Pajaro Comiendo Abeja">
-                    <img src="../assets/images/fauna/pajaro comiendo abeja.JPG" alt="Pajaro Comiendo Abeja" />
+                    <img src="../assets/images/fauna/pajaro comiendo abeja.JPG" alt="Pajaro Comiendo Abeja" / loading="lazy">
                 </a>
             </div>
         </div>
@@ -395,17 +470,17 @@
             <!-- Categoría: ARTE RUPESTRE -->
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/rupestre/1300x800el tilin.JPG" data-title="1300X800El Tilin">
-                    <img src="../assets/images/rupestre/1300x800el tilin.JPG" alt="1300X800El Tilin" />
+                    <img src="../assets/images/rupestre/1300x800el tilin.JPG" alt="1300X800El Tilin" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/rupestre/el tilin.JPG" data-title="El Tilin">
-                    <img src="../assets/images/rupestre/el tilin.JPG" alt="El Tilin" />
+                    <img src="../assets/images/rupestre/el tilin.JPG" alt="El Tilin" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/rupestre/tilin,pinturas.JPG" data-title="Tilin,Pinturas">
-                    <img src="../assets/images/rupestre/tilin,pinturas.JPG" alt="Tilin,Pinturas" />
+                    <img src="../assets/images/rupestre/tilin,pinturas.JPG" alt="Tilin,Pinturas" / loading="lazy">
                 </a>
             </div>
         </div>
@@ -421,12 +496,12 @@
             <!-- Categoría: PATRIMONIO -->
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/patrimonio/1300x800iglesia.jpg" data-title="1300X800Iglesia">
-                    <img src="../assets/images/patrimonio/1300x800iglesia.jpg" alt="1300X800Iglesia" />
+                    <img src="../assets/images/patrimonio/1300x800iglesia.jpg" alt="1300X800Iglesia" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/patrimonio/iglesia.jpg" data-title="Iglesia">
-                    <img src="../assets/images/patrimonio/iglesia.jpg" alt="Iglesia" />
+                    <img src="../assets/images/patrimonio/iglesia.jpg" alt="Iglesia" / loading="lazy">
                 </a>
             </div>
         </div>
@@ -442,27 +517,27 @@
             <!-- Categoría: FORMACIONES ROCOSAS -->
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/formaciones/1300x800 peña desde la casa.JPG" data-title="1300X800 Peña Desde La Casa">
-                    <img src="../assets/images/formaciones/1300x800 peña desde la casa.JPG" alt="1300X800 Peña Desde La Casa" />
+                    <img src="../assets/images/formaciones/1300x800 peña desde la casa.JPG" alt="1300X800 Peña Desde La Casa" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/formaciones/La Peña.jpg" data-title="La Peña">
-                    <img src="../assets/images/formaciones/La Peña.jpg" alt="La Peña" />
+                    <img src="../assets/images/formaciones/La Peña.jpg" alt="La Peña" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/formaciones/La peña2.jpg" data-title="La Peña2">
-                    <img src="../assets/images/formaciones/La peña2.jpg" alt="La Peña2" />
+                    <img src="../assets/images/formaciones/La peña2.jpg" alt="La Peña2" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/formaciones/peña desde la casa.JPG" data-title="Peña Desde La Casa">
-                    <img src="../assets/images/formaciones/peña desde la casa.JPG" alt="Peña Desde La Casa" />
+                    <img src="../assets/images/formaciones/peña desde la casa.JPG" alt="Peña Desde La Casa" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/formaciones/peña3.jpg" data-title="Peña3">
-                    <img src="../assets/images/formaciones/peña3.jpg" alt="Peña3" />
+                    <img src="../assets/images/formaciones/peña3.jpg" alt="Peña3" / loading="lazy">
                 </a>
             </div>
         </div>
@@ -478,27 +553,27 @@
             <!-- Categoría: PAISAJES -->
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/paisajes/desde los altos.jpg" data-title="Desde Los Altos">
-                    <img src="../assets/images/paisajes/desde los altos.jpg" alt="Desde Los Altos" />
+                    <img src="../assets/images/paisajes/desde los altos.jpg" alt="Desde Los Altos" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/paisajes/favorita dos.jpg" data-title="Favorita Dos">
-                    <img src="../assets/images/paisajes/favorita dos.jpg" alt="Favorita Dos" />
+                    <img src="../assets/images/paisajes/favorita dos.jpg" alt="Favorita Dos" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/paisajes/fraile en el valle.JPG" data-title="Fraile En El Valle">
-                    <img src="../assets/images/paisajes/fraile en el valle.JPG" alt="Fraile En El Valle" />
+                    <img src="../assets/images/paisajes/fraile en el valle.JPG" alt="Fraile En El Valle" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/paisajes/montallas.jpg" data-title="Montallas">
-                    <img src="../assets/images/paisajes/montallas.jpg" alt="Montallas" />
+                    <img src="../assets/images/paisajes/montallas.jpg" alt="Montallas" / loading="lazy">
                 </a>
             </div>
             <div class="grid-item">
                 <a class="img-box" href="../assets/images/paisajes/montaña cordi.jpg" data-title="Montaña Cordi">
-                    <img src="../assets/images/paisajes/montaña cordi.jpg" alt="Montaña Cordi" />
+                    <img src="../assets/images/paisajes/montaña cordi.jpg" alt="Montaña Cordi" / loading="lazy">
                 </a>
             </div>
         </div>
@@ -516,8 +591,8 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="title">
-                            <h2>Videos</h2>
-                            <p>Vivimos por la naturaleza</p>
+                            <h2 data-i18n="gallery.videos.title">Videos</h2>
+                            <p data-i18n="gallery.videos.subtitle">Vivimos por la naturaleza</p>
                         </div>
                     </div>
                     <div class="col-lg-9">
@@ -525,7 +600,7 @@
                         <div id="videos-dinamico">
                             <div style="text-align:center; padding:40px;">
                                 <i class="fas fa-spinner fa-spin" style="font-size:24px; color:#699073;"></i>
-                                <p style="margin-top:10px;">Cargando videos...</p>
+                                <p style="margin-top:10px;" data-i18n="gallery.videos.loading">Cargando videos...</p>
                             </div>
                         </div>
                         <!-- Fallback estático -->
@@ -533,7 +608,7 @@
                             <ul class="slider" data-options="type:carousel,nav:true,perView:3,perViewSm:2,perViewXs:1,gap:30,controls:out,autoplay:3000">
                                 <li>
                                     <a class="img-box btn-video lightbox" href="https://www.youtube.com/watch?v=-ioKEoginzE" data-lightbox-anima="fade-top">
-                                        <img src="https://img.youtube.com/vi/-ioKEoginzE/hqdefault.jpg" alt="Cómbita, Boyacá">
+                                        <img src="https://img.youtube.com/vi/-ioKEoginzE/hqdefault.jpg" alt="Cómbita, Boyacá" loading="lazy">
                                     </a>
                                 </li>
                             </ul>
@@ -548,15 +623,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <h3>Cómbita</h3>
-                    <p>En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio
+                    <h3 data-i18n="common.footer.brand">Cómbita</h3>
+                    <p data-i18n="common.footer.tagline">En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio
                         de por qué subimos.</p>
 
                 </div>
                 <div class="col-lg-4">
-                    <h3>Contacto</h3>
+                    <h3 data-i18n="common.footer.contact_title">Contacto</h3>
                     <ul class="icon-list icon-line">
-                        <li>Cómbita, Boyacá, Colombia</li>
+                        <li data-i18n="common.footer.address">Cómbita, Boyacá, Colombia</li>
                         <li>alcaldia@combita-boyaca.gov.co</li>
                         <li> 313 366 2322</li>
                     </ul>
@@ -568,16 +643,16 @@
                         <a class="youtube" href="https://www.youtube.com/@Combita-Boyaca" target="_blank"><i class="icon-youtube"></i></a>
                     </div>
                     <hr class="space-sm" />
-                    <p>Síguenos en nuestras redes</p>
+                    <p data-i18n="common.footer.follow_us">Síguenos en nuestras redes</p>
                 </div>
 
             </div>
         </div>
         <div class="footer-bar">
             <div class="container">
-                <span>© 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/"
+                <span><span data-i18n="common.footer.copy">© 2024 Santiago Quiroga Molina</span> <a href="https://santiago-developer.netlify.app/"
                         target="_blank">santiago-developer.com</a>.</span>
-                <span><a href="./contacts.html">Contacto</a> | <a href="./privacidad.html">Política de privacidad</a></span>
+                <span><a href="./contacts.html" data-i18n="common.footer.contact_short">Contacto</a> | <a href="./privacidad.html" data-i18n="common.footer.privacy">Política de privacidad</a></span>
             </div>
         </div>
     </footer>
@@ -649,7 +724,8 @@
 
                 // Actualizar título del álbum
                 var albumTitle = $(this).closest('.album-box').find('h3').text();
-                $('.album-title a').text('← Volver a Álbumes | ' + albumTitle);
+                var backText = (window.i18n && window.i18n.t) ? window.i18n.t('gallery.back_to_albums', '← Volver a Álbumes') : '← Volver a Álbumes';
+                $('.album-title a').text(backText + ' | ' + albumTitle);
             });
 
             // Volver a la lista de álbumes
@@ -670,13 +746,13 @@
 
         function shareOnWhatsApp() {
             var url = window.location.href;
-            var text = 'Mira estas increíbles fotos de Cómbita: ';
+            var text = (window.i18n && window.i18n.t) ? window.i18n.t('gallery.share.whatsapp', 'Mira estas increíbles fotos de Cómbita: ') : 'Mira estas increíbles fotos de Cómbita: ';
             window.open('https://wa.me/?text=' + encodeURIComponent(text + url), '_blank');
         }
 
         function shareOnTwitter() {
             var url = window.location.href;
-            var text = 'Descubre la belleza de Cómbita en estas imágenes 📸';
+            var text = (window.i18n && window.i18n.t) ? window.i18n.t('gallery.share.twitter', 'Descubre la belleza de Cómbita en estas imágenes 📸') : 'Descubre la belleza de Cómbita en estas imágenes 📸';
             window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text), '_blank');
         }
     </script>
@@ -690,7 +766,8 @@
 
             const dinamica = document.getElementById('galeria-dinamica');
             if (dinamica) {
-                dinamica.innerHTML = '<div style="text-align:center; padding:40px;"><i class="fas fa-spinner fa-spin" style="font-size:30px; color:#699073;"></i><p>Cargando galería...</p></div>';
+                var loadingGal = (window.i18n && window.i18n.t) ? window.i18n.t('gallery.loading', 'Cargando galería...') : 'Cargando galería...';
+                dinamica.innerHTML = '<div style="text-align:center; padding:40px;"><i class="fas fa-spinner fa-spin" style="font-size:30px; color:#699073;"></i><p>' + loadingGal + '</p></div>';
             }
 
             fetch(`${API_URL}/galeria?activo=true`)
@@ -706,17 +783,18 @@
                     albumes.sort((a, b) => (a.orden || 0) - (b.orden || 0));
 
                     // Generar HTML de portadas de álbumes
+                    const imgWord = (window.i18n && window.i18n.t) ? window.i18n.t('gallery.images_word', 'imágenes') : 'imágenes';
                     let coversHtml = '';
                     albumes.forEach(album => {
                         const imagenes = (album.imagenes || []).filter(i => i.activo !== false);
                         coversHtml += `
                             <div class="album-box">
                                 <a href="#" class="img-box img-scale" data-album="${album.id}">
-                                    <img src="${album.portada || '../assets/images/favicon.png'}" alt="${album.titulo}" onerror="this.src='../assets/images/favicon.png'"/>
+                                    <img src="${album.portada || '../assets/images/favicon.png'}" alt="${album.titulo}" onerror="this.src='../assets/images/favicon.png'"/ loading="lazy">
                                 </a>
                                 <div class="caption">
                                     <h3>${album.titulo}</h3>
-                                    <p>${album.descripcion || imagenes.length + ' imágenes'}</p>
+                                    <p>${album.descripcion || imagenes.length + ' ' + imgWord}</p>
                                 </div>
                             </div>
                         `;
@@ -738,7 +816,7 @@
                         let imgsHtml = imagenes.map(img => `
                             <div class="grid-item">
                                 <a class="img-box" href="${img.archivo}" data-title="${img.titulo || ''}">
-                                    <img src="${img.archivo}" alt="${img.titulo || ''}" onerror="this.closest('.grid-item').style.display='none'" />
+                                    <img src="${img.archivo}" alt="${img.titulo || ''}" onerror="this.closest('.grid-item').style.display='none'" / loading="lazy">
                                 </a>
                             </div>
                         `).join('');
@@ -816,7 +894,8 @@
                 });
 
                 var albumTitle = $(this).closest('.album-box').find('h3').text();
-                $('.album-title a').text('← Volver a Álbumes | ' + albumTitle);
+                var backText = (window.i18n && window.i18n.t) ? window.i18n.t('gallery.back_to_albums', '← Volver a Álbumes') : '← Volver a Álbumes';
+                $('.album-title a').text(backText + ' | ' + albumTitle);
             });
         }
     </script>
@@ -852,7 +931,7 @@
                         var ytUrl = 'https://www.youtube.com/watch?v=' + ytId;
                         items += '<li>' +
                             '<a class="img-box btn-video lightbox" href="' + ytUrl + '" data-lightbox-anima="fade-top">' +
-                            '<img src="' + thumb + '" alt="' + (v.titulo || '') + '">' +
+                            '<img src="' + thumb + '" alt="' + (v.titulo || '') + '" loading="lazy">' +
                             '</a>' +
                             '</li>';
                     });

@@ -1,0 +1,1325 @@
+{
+  "common": {
+    "nav": {
+      "home": "Home",
+      "discover": "Discover",
+      "must_see": "Must-See",
+      "restaurants": "Restaurants",
+      "lodging": "Lodging",
+      "events": "Events",
+      "artisans_guides": "Artisans & Guides",
+      "catering": "Catering & Events",
+      "explore_more": "Explore More",
+      "history": "History",
+      "gallery": "Gallery",
+      "treks": "Treks",
+      "plan": "Plan Your Trip",
+      "how_to_arrive": "How to Get There",
+      "map": "Map",
+      "tips": "Traveler Tips",
+      "blog": "Blog",
+      "contact": "Contact",
+      "about": "About"
+    },
+    "footer": {
+      "brand": "Cómbita",
+      "tagline": "Somewhere between the start of the climb and the summit lies the answer to the mystery of why we climb.",
+      "contact_title": "Contact",
+      "address": "Cómbita, Boyacá, Colombia",
+      "follow_us": "Follow us on social media",
+      "copy": "© 2024 Santiago Quiroga Molina",
+      "privacy": "Privacy Policy",
+      "contact_short": "Contact"
+    },
+    "buttons": {
+      "send": "Send",
+      "sending": "Sending...",
+      "see_more": "See more",
+      "close": "Close",
+      "subscribe": "Subscribe",
+      "subscribing": "Subscribing...",
+      "read_more": "Read more",
+      "details": "View details",
+      "all_treks": "All treks",
+      "about_us": "About us",
+      "leave_review": "Leave a review"
+    },
+    "lang_switch": {
+      "label": "Language",
+      "es": "ES",
+      "en": "EN"
+    },
+    "labels": {
+      "name": "Name",
+      "email": "Email",
+      "km": "Km",
+      "hours": "hours",
+      "days": "Days",
+      "group": "Group",
+      "difficulty": "Difficulty",
+      "difficulty_easy": "Easy",
+      "difficulty_medium": "Medium",
+      "difficulty_hard": "Hard",
+      "distance": "Distance",
+      "altitude": "Altitude",
+      "elevation_gain": "Elevation gain"
+    },
+    "breadcrumb": {
+      "pages": "Pages"
+    },
+    "share": {
+      "route": "Share this route:",
+      "label": "Share:"
+    },
+    "location": {
+      "title": "Location"
+    },
+    "what_you_see": {
+      "col1": "What you'll see",
+      "col2": "Details"
+    },
+    "guide": {
+      "title": "Guide",
+      "local": "Local Guide",
+      "recommended": "Guide recommended",
+      "required": "Guide required",
+      "required_word": "Required",
+      "contact_btn": "Contact for a guide"
+    },
+    "facts": {
+      "vereda": "Village",
+      "location": "Location",
+      "ecosystem": "Ecosystem",
+      "cordillera": "Cordillera",
+      "cordillera_eastern": "Eastern",
+      "access": "Access",
+      "access_with_guide": "With guide",
+      "access_guide_rec": "Guide recommended",
+      "type": "Type",
+      "coordinates": "Coordinates",
+      "environment": "Surroundings"
+    },
+    "map": {
+      "paramo_combita": "Cómbita Páramo"
+    }
+  },
+  "home": {
+    "title": "Home | Cómbita",
+    "description": "Tourism portal of Cómbita, Boyacá. Discover nature, hiking, culture, gastronomy and lodging in the heart of the Colombian Andes.",
+    "hero": {
+      "h1_html": "Andes<br> Mountain Range",
+      "quote": "\"The mountain range invites us to explore its mysteries and care for its landscapes, leaving behind a legacy of love and respect for nature.\"",
+      "quote_author": "Juan Carlos Sarmiento",
+      "altitude": "Altitude",
+      "altitude_unit": "masl",
+      "routes": "Routes",
+      "area": "Area"
+    },
+    "treks_slider": {
+      "laguna_rica_title": "Hike to Laguna Rica",
+      "laguna_rica_desc": "The hike to Laguna Rica is medium-level, with frailejones, hummingbirds and orchids.",
+      "la_pena_title": "Hike to La Peña",
+      "la_pena_desc": "The hike to La Peña is medium-high level, taking you to the highest peak.",
+      "el_valle_title": "Hike to the Valley",
+      "el_valle_desc": "An easy-level hike that takes you to explore the majesty of the valley.",
+      "location": "Santa Barbara, Cómbita, Boyacá"
+    },
+    "cordillera": {
+      "title": "Andes Mountain Range",
+      "subtitle": "Explore the mountain range",
+      "body": "Venture into the Andes Mountain Range, a place where nature shows its power and beauty in every corner. From deep valleys to majestic peaks, the range invites every adventurer to discover its wonders and care for them for future generations."
+    },
+    "esencia": {
+      "title": "Our essence",
+      "subtitle": "A perfect blend of tradition, nature and warmth.",
+      "p1": "Cómbita is a magical place in the Eastern Mountain Range, where nature expresses itself in its full beauty. Among its mountains, El Valle Regional Park displays its biodiversity: frailejones inhabit the moors, while hummingbirds fill the air with their colorful flight. This natural richness invites exploration and adventure along its trails, also home to butterflies and native birds.",
+      "p2": "Cómbita's culture is felt in every corner, reflected in its traditions and friendly people. Its cuisine offers typical delicacies such as the Boyacá arepa and the region's piquete, perfect for comfort and connecting with the essence of Boyacá.",
+      "acc1_q": "Our mountains and location",
+      "acc1_a": "Cómbita lies in the heart of the Eastern Mountain Range, surrounded by imposing mountains and dreamlike landscapes. This special place invites you to explore every corner, enjoying its biodiversity, natural trails, and the beauty of an environment that embraces the visitor.",
+      "acc2_q": "About our treks and excursions",
+      "acc2_a": "Dive into adventure with our treks and excursions, designed to discover the majesty of the range and its best-kept secrets. Each route is an opportunity to connect with nature, live unforgettable moments and discover the soul of Cómbita.",
+      "acc3_q": "Our team and visitors",
+      "acc3_a": "Our team is made up of passionate, expert guides who love every corner of Cómbita. Together, we work to create authentic, memorable experiences for every visitor, inviting them to become part of this great community that breathes nature and adventure."
+    },
+    "caminatas_slider": {
+      "pena_title": "Peña",
+      "pena_sub": "the Andes",
+      "pena_desc": "Flora and fauna natural reserve between 2,800 and 3,200 m.a.s.l. with ancestral trails.",
+      "tilin_title": "Tilín",
+      "tilin_sub": "San Isidro",
+      "tilin_desc": "Archaeological area with pictograms and indigenous remains between 2,650 and 2,850 m.a.s.l.",
+      "centro_title": "Center",
+      "centro_sub": "Cómbita",
+      "centro_desc": "French Gothic architecture, Clara Tocarruncho park and starting point of the cycling circuit.",
+      "laguna_title": "Laguna Rica",
+      "laguna_sub": "The Andes",
+      "laguna_desc": "El Valle Regional Natural Park between 3,000 and 3,200 m.a.s.l., the most beautiful moor in Boyacá.",
+      "negra_title": "Laguna Negra",
+      "negra_sub": "The Andes",
+      "negra_desc": "Centennial oak forests with endemic fauna: deer, ocelots and unique birds of the region.",
+      "h1": "Treks in Cómbita",
+      "lead": "Walk, breathe and feel the essence of Cómbita with every step."
+    },
+    "compromiso": {
+      "title": "Our Commitment: Excellence",
+      "subtitle": "Our commitment is to give you a unique experience",
+      "team_t": "Experienced team",
+      "team_d": "We live every corner of our natural and cultural land",
+      "access_t": "Easy access",
+      "access_d": "only 15 minutes from Tunja, the capital of Boyacá",
+      "guides_t": "Local guides",
+      "guides_d": "We know every mountain, trail and secret of this region",
+      "secret_t": "Hidden places",
+      "secret_d": "Discover hidden, unique places along our routes",
+      "andes_t": "Andean region",
+      "andes_d": "Located in the heart of the mountain range, Boyacá awaits you",
+      "visit_t": "Visit us",
+      "visit_d": "Find us in Cómbita and begin your adventure",
+      "global_t": "Global adventure",
+      "global_d": "we offer international-quality experiences",
+      "mountains_t": "Amazing mountains",
+      "mountains_d": "Enjoy excursions to rivers, valleys, mountains and other unique landscapes"
+    },
+    "newsletter": {
+      "title": "Contact us",
+      "subtitle": "Leave your details and receive the latest news from Cómbita",
+      "name_placeholder": "Name",
+      "email_placeholder": "Email",
+      "accept_html": "By subscribing, you accept our terms of service and <a href=\"./privacidad.html\">privacy policy</a>.",
+      "success": "Successfully registered! We'll keep you informed.",
+      "error_generic": "Error sending. Please try again.",
+      "error_connection": "Connection error. Please try again.",
+      "error_privacy": "You must accept the privacy policy."
+    }
+  },
+  "about": {
+    "title": "About Cómbita | Turismo Cómbita",
+    "description": "Discover Cómbita, Boyacá: a town full of history, nature, culture and tradition in the heart of the Colombian Andes.",
+    "hero_title": "About Cómbita",
+    "hero_subtitle": "An Andean corner where nature and tradition meet",
+    "intro": {
+      "p1": "<strong>Cómbita</strong> is a municipality in the department of Boyacá, Colombia, just 10 kilometers from the city of Tunja. Nestled in the Cundiboyacense highlands at an average altitude of 2,825 meters above sea level, this land offers páramo landscapes, green valleys and breathtaking mountains.",
+      "p2": "With a history that dates back to pre-Columbian times and a rich Muisca heritage, Cómbita preserves ancestral traditions mixed with the warmth of its people. From the administration of the Augustinian fathers in 1586 to the brave role of Clara Tocarrucho in the 1810 independence movement, every corner of the town tells a story.",
+      "p3": "Today, Cómbita opens up to the world as a tourist destination, welcoming those who seek authentic experiences in touch with nature, Boyacá's rural culture and the region's traditional cuisine.",
+      "image_alt": "Cómbita church"
+    },
+    "figures": {
+      "title": "Cómbita in numbers",
+      "subtitle": "Facts that make our town special",
+      "altitude": "Average altitude",
+      "distance": "Distance to Tunja",
+      "rivers": "Main rivers and streams",
+      "temperature": "Average temperature"
+    },
+    "unique": {
+      "title": "What makes us unique",
+      "subtitle": "Reasons to visit Cómbita",
+      "nature_t": "Páramo Nature",
+      "nature_d": "Páramo ecosystems with frailejones, crystal-clear lagoons such as Laguna Rica, and trails that cross mountain landscapes above 3,000 meters of altitude.",
+      "history_t": "History and Culture",
+      "history_d": "Muisca heritage, colonial architecture, living rural traditions and the brave history of independence that you can feel in every village.",
+      "food_t": "Boyacense Cuisine",
+      "food_d": "Authentic flavors of country cooking: cocido boyacense, mazamorra, corn arepas, cuchuco and traditional desserts made with recipes passed down through generations.",
+      "hiking_t": "Hiking and Adventure",
+      "hiking_d": "Trails such as La Peña, Casa Ricaurte, Cerro Tilín and Laguna Rica offer hikes for all levels surrounded by native flora and fauna.",
+      "crafts_t": "Local Handicrafts",
+      "crafts_d": "Wool weavings, ceramics, fique and woodwork crafted by artisans who keep the region's ancestral techniques alive.",
+      "warmth_t": "Warm Welcome",
+      "warmth_d": "The hospitality of Cómbita's people is legendary. Here every visitor is welcomed as family, with a smile and a hot tinto."
+    },
+    "gallery": {
+      "title": "Landscapes of Cómbita",
+      "subtitle": "Images that speak for themselves",
+      "laguna_t": "Laguna Rica",
+      "laguna_d": "A crystal-clear mirror of water in the middle of the páramo, home to century-old frailejones.",
+      "pena_t": "La Peña",
+      "pena_d": "An imposing rock formation with panoramic views of the Boyacá highlands.",
+      "frailejones_t": "Frailejones",
+      "frailejones_d": "Guardians of the páramo that grow barely one centimeter per year.",
+      "ricaurte_t": "Casa Ricaurte",
+      "ricaurte_d": "A historic tourist attraction with heritage and cultural value for Cómbita.",
+      "fauna_t": "Native Wildlife",
+      "fauna_d": "Hummingbirds, copetones and endemic birds that inhabit the ecosystems of Cómbita."
+    },
+    "cta": {
+      "title": "Plan your visit to Cómbita",
+      "subtitle": "Discover how to get here, where to stay and what experiences await you in this magical corner of Boyacá.",
+      "btn_arrive_html": "<i class=\"fas fa-route\"></i> How to Arrive",
+      "btn_lodging_html": "<i class=\"fas fa-bed\"></i> Lodging",
+      "btn_treks_html": "<i class=\"fas fa-hiking\"></i> Treks"
+    }
+  },
+  "history": {
+    "title": "Cómbita History",
+    "description": "History of Cómbita, Boyacá. From the Augustinians in 1586 to the independence led by Clara Tocarrucho.",
+    "hero_title": "History",
+    "hero_subtitle": "A town that flourishes between tradition and bravery",
+    "timeline": {
+      "t1_badge": "Start of administration",
+      "t1_title": "Territory administered by the Augustinians",
+      "t1_text": "In 1586, the Augustinian fathers began administering the territory of Cómbita, marking a milestone in its history and laying the foundations for its organization.",
+      "t2_badge": "Building of the parish",
+      "t2_title": "A spiritual center for Cómbita",
+      "t2_text": "Archbishop Agustín Alvarado y Castillo decreed the construction of the parish, a place that would become the heart of the community.",
+      "t3_badge": "Independence",
+      "t3_title": "Rebellion for freedom",
+      "t3_text": "Led by Clara Tocarrucho and other brave figures, the revolt in Cómbita contributed to independence from the Spanish government, leaving a legacy of struggle.",
+      "t4_year": "Present day",
+      "t4_badge": "Modernity and tradition",
+      "t4_title": "A town between valleys and mountains",
+      "t4_text": "Cómbita continues to showcase its historical and natural richness while adapting to modernity, preserving its unique identity."
+    },
+    "stats": {
+      "rivers_title": "Rivers and streams",
+      "rivers_unit": "main",
+      "places_title": "Tourist sites",
+      "festivities_title": "Festivities",
+      "festivities_unit": "per year"
+    }
+  },
+  "privacidad": {
+    "title": "Privacy Policy | Turismo Cómbita",
+    "description": "Privacy policy and personal data processing of the Cómbita tourism portal, Boyacá.",
+    "hero_title": "Privacy Policy",
+    "hero_subtitle": "Personal data processing",
+    "last_update": "Last updated: February 2026",
+    "s1": {
+      "title": "1. Data controller",
+      "p1": "The <strong>Turismo Cómbita</strong> portal is a tourism promotion project of the municipality of Cómbita, Boyacá, Colombia, developed by Santiago Quiroga Molina.",
+      "li_email": "<strong>Contact email:</strong> alcaldia@combita-boyaca.gov.co",
+      "li_location": "<strong>Location:</strong> Cómbita, Boyacá, Colombia"
+    },
+    "s2": {
+      "title": "2. Data we collect",
+      "p1": "We only collect the data you voluntarily provide through our forms:",
+      "li_contact": "<strong>Contact form:</strong> name, email, phone (optional), subject and message.",
+      "li_subscribe": "<strong>Subscription form:</strong> name and email.",
+      "p2": "We do not collect sensitive data nor use third-party tracking cookies."
+    },
+    "s3": {
+      "title": "3. Purpose of processing",
+      "p1": "The personal data we collect is used exclusively to:",
+      "li1": "Respond to inquiries, suggestions or requests for tourist information.",
+      "li2": "Send information about news, events and tourist activities of Cómbita (only if you subscribe).",
+      "li3": "Improve the user experience on the portal."
+    },
+    "s4": {
+      "title": "4. Storage and security",
+      "p1": "Your data is stored on our servers with appropriate security measures. We implement:",
+      "li1": "Encryption during data transmission.",
+      "li2": "Restricted access for authorized personnel only.",
+      "li3": "Protection against unauthorized access.",
+      "p2": "Data is kept as long as necessary for the purpose for which it was collected, or until you request its deletion."
+    },
+    "s5": {
+      "title": "5. Rights of the data subject",
+      "p1": "In accordance with Law 1581 of 2012 (Colombia's Personal Data Protection Law), you have the right to:",
+      "li_know": "<strong>Know:</strong> access the personal data we hold about you.",
+      "li_update": "<strong>Update:</strong> request the correction of inaccurate or incomplete data.",
+      "li_rectify": "<strong>Rectify:</strong> modify information you consider incorrect.",
+      "li_delete": "<strong>Delete:</strong> request the removal of your data when no longer needed.",
+      "li_revoke": "<strong>Revoke:</strong> withdraw your consent to data processing at any time.",
+      "p2": "To exercise these rights, you can write to us at <a href=\"mailto:alcaldia@combita-boyaca.gov.co\">alcaldia@combita-boyaca.gov.co</a> or through our <a href=\"./contacts.html\">contact form</a>."
+    },
+    "s6": {
+      "title": "6. Data sharing",
+      "p1": "<strong>We do not sell, rent or share</strong> your personal data with third parties, unless required by a competent authority under Colombian law."
+    },
+    "s7": {
+      "title": "7. Third-party links",
+      "p1": "Our site may contain links to third-party websites (social media, Google Maps, etc.). We are not responsible for the privacy practices of those external sites. We recommend reviewing their privacy policies."
+    },
+    "s8": {
+      "title": "8. Changes to this policy",
+      "p1": "We reserve the right to modify this privacy policy at any time. Changes will be published on this page with the corresponding update date."
+    },
+    "s9": {
+      "title": "9. Contact",
+      "p1": "If you have questions about this privacy policy or about the processing of your personal data, do not hesitate to contact us:",
+      "li_email": "<strong>Email:</strong> <a href=\"mailto:alcaldia@combita-boyaca.gov.co\">alcaldia@combita-boyaca.gov.co</a>",
+      "li_phone": "<strong>Phone:</strong> 313 366 2322",
+      "li_address": "<strong>Address:</strong> Cómbita, Boyacá, Colombia",
+      "li_form": "<strong>Form:</strong> <a href=\"./contacts.html\">Contact page</a>"
+    }
+  },
+  "login": {
+    "title": "Sign In | Turismo Cómbita",
+    "description": "Sign in to share your experiences in Cómbita",
+    "header": {
+      "brand": "Turismo Cómbita",
+      "subtitle": "Sign in or create an account"
+    },
+    "tabs": {
+      "login": "Sign In",
+      "register": "Sign Up"
+    },
+    "labels": {
+      "password": "Password",
+      "full_name": "Full Name",
+      "phone_optional": "Phone (optional)",
+      "confirm_password": "Confirm Password"
+    },
+    "placeholders": {
+      "email": "you@email.com",
+      "password": "••••••••",
+      "full_name": "Your name",
+      "password_min": "At least 6 characters",
+      "confirm_password": "Repeat the password"
+    },
+    "buttons": {
+      "login": "Sign In",
+      "register": "Sign Up"
+    },
+    "divider": {
+      "or": "or"
+    },
+    "info": {
+      "exclusive": "Sign in to access exclusive features"
+    },
+    "links": {
+      "back": "← Back to site"
+    },
+    "messages": {
+      "login_success": "Login successful! Redirecting...",
+      "login_error": "Sign in failed",
+      "register_success": "Registration successful! You can now sign in",
+      "register_error": "Registration failed",
+      "connection_error": "Connection error",
+      "password_mismatch": "Passwords do not match",
+      "password_too_short": "Password must be at least 6 characters"
+    }
+  },
+  "blog": {
+    "title": "Blog | Turismo Cómbita",
+    "description": "Cómbita tourism blog, Boyacá - Articles about nature, culture, hiking and more",
+    "hero": {
+      "h1": "Blog",
+      "h2": "Stories, guides and news from Cómbita"
+    },
+    "loading": "Loading posts...",
+    "empty": "No posts available.",
+    "sidebar": {
+      "categories": "Categories",
+      "recent": "Recent Posts"
+    },
+    "categories": {
+      "all": "All",
+      "naturaleza": "Nature",
+      "cultura": "Culture",
+      "senderismo": "Hiking",
+      "gastronomia": "Gastronomy",
+      "historia": "History",
+      "eventos": "Events"
+    },
+    "errors": {
+      "load_failed": "Could not load posts."
+    }
+  },
+  "post": {
+    "title": "Post | Turismo Cómbita",
+    "description": "Turismo Cómbita blog post, Boyacá.",
+    "loading": "Loading post...",
+    "not_found": "Post not found",
+    "not_specified": "No post was specified.",
+    "load_failed": "Could not load the post.",
+    "back_to_blog": "Back to blog",
+    "back_to_blog_full": "Back to Blog",
+    "more_posts": "More posts"
+  },
+  "contacts": {
+    "title": "Contact | Turismo Cómbita - Information and Support",
+    "description": "Contact the Cómbita tourism office in Boyacá. Send us your questions, suggestions or request information.",
+    "form": {
+      "title": "Write to us",
+      "intro": "Do you have questions about tourism in Cómbita? Need information about lodging, restaurants or treks? Send us your message and we'll get back to you soon.",
+      "label_name_html": "Name <span>*</span>",
+      "label_email_html": "Email <span>*</span>",
+      "label_phone": "Phone",
+      "label_subject": "Subject",
+      "label_message": "Message",
+      "label_message_html": "Message <span>*</span>",
+      "placeholder_name": "Your full name",
+      "placeholder_email": "email@example.com",
+      "placeholder_phone": "300 123 4567",
+      "placeholder_message": "Write your message here...",
+      "subject_general": "General information",
+      "subject_lodging": "Lodging",
+      "subject_food": "Restaurants",
+      "subject_treks": "Treks and hiking",
+      "subject_events": "Events",
+      "subject_suggestion": "Suggestion",
+      "subject_other": "Other",
+      "privacy_consent": "I accept the privacy policy and the processing of my personal data",
+      "send_button": "Send message"
+    },
+    "info": {
+      "title": "Contact Information",
+      "subtitle": "Find us or get in touch with us",
+      "address_label": "Address",
+      "address_value": "Main Square, Cómbita,<br>Boyacá, Colombia",
+      "phone_label": "Phone",
+      "email_label": "Email",
+      "website_label": "Website",
+      "hours_label": "Opening hours",
+      "hours_value": "Monday to Friday: 8:00 AM - 5:00 PM<br>Saturdays and Holidays: Closed",
+      "follow_label": "Follow us on social media"
+    },
+    "messages": {
+      "error_privacy": "You must accept the privacy policy",
+      "success": "Message sent successfully! We'll get back to you soon.",
+      "error_send": "Error sending the message.",
+      "error_connection": "Connection error. Please try again."
+    }
+  },
+  "artesanos": {
+    "title": "Artisans & Guides | Turismo Cómbita - Local Community",
+    "description": "Meet the artisans and tour guides of Cómbita, Boyacá. Wool weavings, pottery, wood carving and expert guides for your adventures.",
+    "hero": {
+      "h1": "Artisans & Guides",
+      "h2": "Meet the people who make Cómbita special"
+    },
+    "intro": {
+      "title": "Our Community",
+      "text": "In Cómbita, every artisan holds centuries of tradition in their hands and every guide knows the secrets only the páramo reveals. Meet them and live an authentic experience."
+    },
+    "artesanos_section": {
+      "title_html": "<i class=\"fas fa-palette\" style=\"color:#BC6C25;margin-right:10px;\"></i>Our Artisans",
+      "subtitle": "Creative hands that preserve Boyacá's tradition through textiles, pottery, wood carving and more."
+    },
+    "guias_section": {
+      "title_html": "<i class=\"fas fa-hiking\" style=\"color:#BC6C25;margin-right:10px;\"></i>Tour Guides",
+      "subtitle": "Local experts who will lead you through the trails, stories and most beautiful corners of our town."
+    },
+    "loading": {
+      "artesanos": "Loading artisans...",
+      "guias": "Loading guides..."
+    },
+    "empty": {
+      "artesanos": "You'll soon meet our artisans.",
+      "guias": "You'll soon meet our guides."
+    },
+    "errors": {
+      "artesanos": "Error loading artisans",
+      "guias": "Error loading guides"
+    },
+    "card": {
+      "routes_label": "Routes they know",
+      "no_contact": "Contact not available"
+    },
+    "cta": {
+      "title": "Are you an artisan or guide in Cómbita?",
+      "text": "Join our platform and share your work with travelers from all over the country.",
+      "button": "Contact us"
+    }
+  },
+  "catering": {
+    "title": "Catering & Celebrations | Turismo Cómbita - Events & Planning",
+    "description": "Catering services, event planning and celebrations in Cómbita, Boyacá. Venues, decoration, furniture, logistics planning and more.",
+    "hero": {
+      "h1": "Catering & Celebrations",
+      "h2": "Live unique moments in the heart of Boyacá"
+    },
+    "services": {
+      "title": "Services for Your Events",
+      "subtitle": "Find the team and the perfect place to celebrate in Cómbita",
+      "celebrations": {
+        "title": "Celebrations",
+        "text": "Weddings, birthdays and family gatherings with the warmth of the Boyacá countryside."
+      },
+      "catering": {
+        "title": "Catering",
+        "text": "Custom menus with traditional flavors and gourmet options for every occasion."
+      },
+      "business": {
+        "title": "Corporate Events",
+        "text": "Seminars, training sessions and corporate meetings with full-service support."
+      },
+      "logistics": {
+        "title": "Logistics & Setup",
+        "text": "Furniture, decoration, equipment and staff so your event runs smoothly."
+      }
+    },
+    "providers": {
+      "title": "Venues & Providers",
+      "subtitle": "Meet those who make every celebration in Cómbita possible"
+    },
+    "filters": {
+      "all": "All",
+      "events": "Events",
+      "catering": "Catering",
+      "celebrations": "Celebrations",
+      "business": "Corporate",
+      "decorations": "Decoration"
+    },
+    "loading": "Loading venues...",
+    "empty": {
+      "title": "Coming soon",
+      "text_html": "We're building the directory of event and catering providers in Cómbita.<br>If you offer these services, <a href=\"./contacts.html\" style=\"color:#BC6C25;\">contact us</a> to be listed."
+    },
+    "card": {
+      "price_default": "Standard",
+      "capacity": "Capacity:",
+      "parking": "Parking:",
+      "whatsapp": "WhatsApp",
+      "call": "Call",
+      "location": "Location"
+    },
+    "info_banner": {
+      "title_html": "<i class=\"fas fa-info-circle\" style=\"color:#BC6C25;margin-right:8px;\"></i>Are you an event organizer in Cómbita?",
+      "text_html": "If you offer catering, event planning, venue rental or any related service, we want your business visible to visitors. <a href=\"./contacts.html\" style=\"color:#BC6C25;font-weight:600;\">Contact us</a> and we'll help you publish your information."
+    }
+  },
+  "food": {
+    "title": "Restaurants | Turismo Cómbita - Traditional Boyacá Cuisine",
+    "description": "Traditional cuisine of Cómbita, Boyacá. Corn cuchuco, piquete combitense, changua, curd with molasses, chicha and regional fruit juices.",
+    "hero": {
+      "h1": "Local Cuisine",
+      "h2": "Authentic flavors of the Boyacá region"
+    },
+    "find": {
+      "title": "What You Can Find in Cómbita",
+      "subtitle": "Discover the gastronomic variety our local restaurants offer",
+      "f1_title": "Traditional Cooking",
+      "f1_desc": "Many restaurants preserve ancestral<br />Boyacá recipes, prepared with fresh<br />products from the region.",
+      "f2_title": "Local Products",
+      "f2_desc": "Several establishments source their ingredients<br />from local gardens, offering fresh and<br />seasonal produce.",
+      "f3_title": "Homemade Flavor",
+      "f3_desc": "You'll find places where food<br />is prepared with dedication, keeping<br />that special homemade touch."
+    },
+    "dishes": {
+      "title": "Typical Dishes of the Region",
+      "subtitle": "Some of the traditional dishes you can taste in Cómbita",
+      "tab_main": "Main Dishes",
+      "tab_breakfast": "Breakfasts",
+      "tab_dessert": "Desserts",
+      "tab_drinks": "Drinks",
+      "cuchuco_title": "Corn Cuchuco with Pork Ribs",
+      "cuchuco_desc": "A thick soup of cracked corn with pork ribs, potato, peas and broad beans. The most representative soup of Cómbita, ideal for the cold paramo climate.",
+      "piquete_title": "Piquete Combitense",
+      "piquete_desc": "The municipality's signature platter. A variety of grilled and fried meats served with creole potatoes, arepa, yucca and guacamole. A feast to share with family.",
+      "changua_title": "Egg Changua",
+      "changua_desc": "Traditional Boyacá broth with milk, poached egg, green onion and cilantro. Served with calado (toast) and farmer's cheese.",
+      "caldos_title": "Potato and Meat Broths",
+      "caldos_desc": "Comforting broths prepared with potato, ribs, beef shank or other meats. Perfect to start the day with energy in the mountain cold.",
+      "arepas_title": "Corn Arepas",
+      "arepas_desc": "Yellow corn arepas grilled over charcoal or on a wood stove, served hot with butter and fresh farmer's cheese.",
+      "envueltos_title": "Corn Envueltos",
+      "envueltos_desc": "Sweet tender-corn dough wrapped in corn husks and steamed. A traditional delight of the Boyacá countryside.",
+      "cuajada_melao_title": "Curd with Molasses",
+      "cuajada_melao_desc": "Fresh cow's milk curd drizzled with hot panela molasses. The contrast between the salty cheese and the sweet molasses is the most authentic flavor of Cómbita.",
+      "cuajada_moras_title": "Curd with Blackberry Jam",
+      "cuajada_moras_desc": "Fresh curd served with homemade blackberry jam from the region. The wild paramo blackberries give this country dessert an intense, unique flavor.",
+      "chicha_title": "Chicha",
+      "chicha_desc": "Ancestral fermented corn beverage, a direct heritage of the Muisca culture. Crafted by hand, it is an essential part of Cómbita's festivities and celebrations.",
+      "jugos_title": "Regional Fruit Juices",
+      "jugos_desc": "Natural juices of curuba, blackberry, blueberries and strawberries grown in the fertile lands of Cómbita. Fresh paramo fruits, full of flavor and vitamins."
+    },
+    "products": {
+      "title": "Regional Products",
+      "subtitle": "A tradition that lives on",
+      "body": "Some restaurants in Cómbita are fortunate to source directly from local gardens, offering fresh and seasonal products. This practice, although not universal, represents a beautiful tradition that connects the table with the land, preserving ancestral farming techniques and guaranteeing authentic flavors in every dish.",
+      "local_label": "Local Products"
+    },
+    "where": {
+      "title": "Where to Eat in Cómbita",
+      "subtitle": "Directory of recommended restaurants and gastronomic spots"
+    },
+    "info": {
+      "title": "Visitor Information",
+      "hours": "<strong>Hours:</strong> Most restaurants in Cómbita open early (6:00-7:00 AM) and close at sunset (6:00-8:00 PM). Weekends tend to be busier.",
+      "bookings": "<strong>Reservations:</strong> For large groups or special dates, it's recommended to contact the restaurant directly via WhatsApp or phone call.",
+      "payment": "<strong>Payment methods:</strong> Cash is the most common method. Some establishments accept bank transfers and a few accept credit cards.",
+      "recommendation": "<strong>Special recommendation:</strong> Don't miss the piquete combitense, the corn cuchuco with pork ribs and the curd with molasses. Pair them with a chicha or a natural curuba juice.",
+      "note": "<strong>Note:</strong> Prices and dish availability may vary by season and establishment. Check directly with each restaurant."
+    },
+    "loading": "Loading restaurants...",
+    "card": {
+      "capacity": "Capacity",
+      "people": "people",
+      "owner": "Owner",
+      "specialty": "Specialty",
+      "typical_food": "Traditional food",
+      "center": "Downtown",
+      "whatsapp": "WhatsApp",
+      "call": "Call",
+      "location": "Location"
+    }
+  },
+  "shelters": {
+    "title": "Lodging | Turismo Cómbita - Rural and Eco-Friendly Stays",
+    "description": "Find the best lodging in Cómbita. Rural hotels, eco cabins, camping, family inns and more options for your stay.",
+    "hero": {
+      "h1": "Lodging in Cómbita",
+      "h2": "Rest in the tranquility of the Boyacá paramo"
+    },
+    "types": {
+      "title": "Available Accommodation Types",
+      "subtitle": "Find the perfect lodging for your stay in Cómbita",
+      "rural_title": "Rural Inns",
+      "rural_desc": "Authentic experience with local families. Homely atmosphere and traditional breakfast included.",
+      "glamping_title": "Glamping",
+      "glamping_desc": "Luxury camping with all the comforts. A unique experience in contact with nature.",
+      "camping_title": "Camping",
+      "camping_desc": "Designated areas to camp with spectacular views of the paramo and the mountains.",
+      "hotels_title": "Countryside Hotels",
+      "hotels_desc": "Full comfort with additional services such as restaurant and guided activities."
+    },
+    "tabs": {
+      "all": "All",
+      "hotels": "Hotels",
+      "inns": "Inns",
+      "glamping": "Glamping",
+      "camping": "Camping"
+    },
+    "loading": "Loading lodgings...",
+    "empty": {
+      "title": "No lodgings in this category",
+      "subtitle": "We'll be adding more accommodation options soon."
+    },
+    "rating": {
+      "good": "Good",
+      "very_good": "Very good",
+      "excellent": "Excellent"
+    },
+    "card": {
+      "lodging": "Lodging",
+      "default_address": "Cómbita, Boyacá",
+      "rooms_short": "rooms",
+      "people_short": "ppl",
+      "rooms_with_capacity": "rooms with capacity for",
+      "people": "people",
+      "whatsapp": "WhatsApp",
+      "call": "Call",
+      "email": "Email",
+      "map": "Map"
+    }
+  },
+  "events": {
+    "title": "Events | Turismo Cómbita - Festivities Calendar",
+    "description": "Events and festivities in Cómbita, Boyacá. Fairs, patron saint celebrations and cultural activities.",
+    "hero": {
+      "h1": "Events and Festivities",
+      "h2": "Tradition, culture and celebration in the heart of Boyacá"
+    },
+    "loading": "Loading events...",
+    "fallback_badge": "EVENT",
+    "day_connector": "of",
+    "entry_free": "Free",
+    "default_location": "Cómbita, Boyacá",
+    "default_description": "Special event in Cómbita, Boyacá.",
+    "types": {
+      "cultural": "Cultural Festival",
+      "religious": "Religious Celebration",
+      "traditional": "Ancestral Tradition"
+    },
+    "labels": {
+      "place": "Place:",
+      "entry": "Entry:",
+      "activities": "Activities:",
+      "highlight": "Highlight:",
+      "tradition": "Tradition:",
+      "art": "Art:"
+    },
+    "months": {
+      "feb": "FEBRUARY",
+      "mar_apr": "MARCH-APRIL",
+      "may_jun": "MAY-JUNE",
+      "feb_short": "FEB",
+      "mar_apr_short": "MAR-APR",
+      "may_jun_short": "MAY-JUN"
+    },
+    "months_uc": {
+      "0": "JANUARY",
+      "1": "FEBRUARY",
+      "2": "MARCH",
+      "3": "APRIL",
+      "4": "MAY",
+      "5": "JUNE",
+      "6": "JULY",
+      "7": "AUGUST",
+      "8": "SEPTEMBER",
+      "9": "OCTOBER",
+      "10": "NOVEMBER",
+      "11": "DECEMBER"
+    },
+    "months_lc": {
+      "0": "january",
+      "1": "february",
+      "2": "march",
+      "3": "april",
+      "4": "may",
+      "5": "june",
+      "6": "july",
+      "7": "august",
+      "8": "september",
+      "9": "october",
+      "10": "november",
+      "11": "december"
+    },
+    "static": {
+      "fiestas": {
+        "title": "Cómbita Patron Saint Festivities",
+        "date": "Last weekend of February",
+        "duration": "3 days of celebration",
+        "description": "A joint tribute to the Immaculate Conception, Saint Isidore the Laborer and Saint Philip. An explosion of culture combining dance festivals, displays of Boyacá folklore, sports competitions, gastronomic exhibitions featuring the best traditional dishes, traditional horseback parades and colorful artisan fairs.",
+        "place": "Main Square and downtown streets",
+        "entry": "Free admission to all events",
+        "activities": "Dances, live music, gastronomy, crafts"
+      },
+      "semana_santa": {
+        "title": "Holy Week",
+        "date": "According to the liturgical calendar",
+        "duration": "7 days of commemoration",
+        "description": "One of the most solemn and moving celebrations of the year. It includes traditional processions through the cobblestone streets, special masses, the moving Stations of the Cross through the town, the Holy Sepulchre procession on Good Friday, the Easter Vigil on Saturday and the joyful Resurrection mass on Sunday.",
+        "place": "Church of the Immaculate Conception",
+        "highlight": "Living Stations of the Cross, Easter Vigil",
+        "tradition": "More than 100 years of celebration"
+      },
+      "corpus": {
+        "title": "Corpus Christi",
+        "date": "60 days after Easter",
+        "duration": "One-day celebration",
+        "description": "An ancestral tradition dating back to colonial times. Locals create beautiful altars decorated with harvest produce, symbolizing gratitude for the fertility of the land and unity in faith. The procession around the main square is one of the most moving moments, with carpets of colored sawdust and flower petals.",
+        "place": "Clara Tocarruncho Park",
+        "art": "Sawdust and flower carpets",
+        "tradition": "Altars with local harvests"
+      }
+    },
+    "sidebar": {
+      "next_event": "Upcoming Event",
+      "next_event_name": "Patron Saint Festivities",
+      "next_event_date": "February 2026",
+      "next_event_desc": "Get ready for 3 days of culture, tradition and joy in the heart of Cómbita.",
+      "calendar_title": "Annual Calendar",
+      "contact_title": "Contact Information",
+      "contact_hours": "Mon-Fri: 8:00 AM - 5:00 PM",
+      "tips_title": "Visitor Tips",
+      "tips_html": "• Book your accommodation in advance during festivities<br>• Bring warm clothing, the weather is cold<br>• Participate respectfully in religious ceremonies<br>• Enjoy the local cuisine"
+    }
+  },
+  "gallery": {
+    "title": "Gallery | Cómbita | Nature Tourism",
+    "description": "Photo gallery of Cómbita: páramos, wildlife, rock paintings and unique landscapes",
+    "hero": {
+      "h1": "Photo Gallery",
+      "h2": "Discover the magic of Cómbita through our images"
+    },
+    "loading": "Loading gallery...",
+    "see_albums": "View Albums",
+    "back_to_albums": "← Back to Albums",
+    "images_word": "images",
+    "albums": {
+      "paramos": {
+        "title": "Páramos",
+        "desc": "High mountain ecosystems with frailejones"
+      },
+      "fauna": {
+        "title": "Wildlife",
+        "desc": "Native birds and animals of the ecosystem"
+      },
+      "rupestre": {
+        "title": "Rock Art",
+        "desc": "Ancient pre-Columbian paintings"
+      },
+      "patrimonio": {
+        "title": "Heritage",
+        "desc": "Colonial architecture and traditions"
+      },
+      "formaciones": {
+        "title": "Rock Formations",
+        "desc": "Unique geological structures"
+      },
+      "paisajes": {
+        "title": "Landscapes",
+        "desc": "Spectacular panoramic views"
+      }
+    },
+    "videos": {
+      "title": "Videos",
+      "subtitle": "We live for nature",
+      "loading": "Loading videos..."
+    },
+    "share": {
+      "whatsapp": "Check out these amazing photos of Cómbita: ",
+      "twitter": "Discover the beauty of Cómbita in these images 📸"
+    }
+  },
+  "mapa": {
+    "title": "Map | Turismo Cómbita - Points of Interest",
+    "description": "Interactive map of Cómbita with all points of interest: restaurants, lodging, trails, artisans and tourist sites.",
+    "mobile": {
+      "map": "Map",
+      "list": "List"
+    },
+    "sidebar": {
+      "title": "Points of interest",
+      "loading": "Loading points...",
+      "empty": "No points in this category"
+    },
+    "filters": {
+      "all": "All",
+      "restaurants": "Restaurants",
+      "lodging": "Lodging",
+      "trails": "Trails",
+      "sites": "Sites"
+    },
+    "types": {
+      "restaurante": "Restaurant",
+      "hospedaje": "Lodging",
+      "sendero": "Trail",
+      "artesano": "Artisan",
+      "sitio": "Tourist Site"
+    },
+    "fallbacks": {
+      "restaurante": "Local restaurant",
+      "hospedaje": "Lodging"
+    },
+    "main_marker": {
+      "desc": "Town center - 2,825 m above sea level"
+    },
+    "pois": {
+      "laguna_rica": "Páramo lake at 3,100 m. Surrounded by century-old frailejones. Santa Bárbara village.",
+      "la_pena": "Virgen de las Aguas monument. Rock formation with panoramic views at 3,200 m. Santa Bárbara village.",
+      "cascada_tilin": "12 m waterfall with Muisca archaeological site. 2,750 m. San Francisco village.",
+      "casa_ricaurte": "Historic tourist attraction in rural Cómbita. Cultural and natural point of interest.",
+      "laguna_negra": "Páramo lake in a natural reserve. High-mountain ecosystem with frailejones.",
+      "centro_historico": "Walk through the colonial town center founded in 1586. Church, park and historic streets.",
+      "iglesia": "Temple with French Gothic architecture. Colonial oil paintings by Gaspar de Figueroa. Cra 5a #3-20.",
+      "parque": "Clara Tocarruncho square, the heart of Cómbita. 2,825 m above sea level."
+    }
+  },
+  "tips": {
+    "title": "Traveler Tips | Turismo Cómbita - Practical Information",
+    "description": "Practical information for visiting Cómbita: weather, what to pack, best season, altitude, safety and recommendations to enjoy your trip.",
+    "hero": {
+      "h1": "Traveler Tips",
+      "h2": "Everything you need to know to make the most of your visit"
+    },
+    "quick": {
+      "altitude_label": "Average altitude",
+      "temp_label": "Temperature range",
+      "rain_label": "Annual rainfall",
+      "best_period": "Dec - Mar",
+      "best_period_label": "Best time to visit",
+      "population_label": "Inhabitants"
+    },
+    "climate": {
+      "title": "Climate by Season",
+      "intro": "Cómbita has a cold mountain climate. Months marked with ★ are the best to visit."
+    },
+    "months": {
+      "jan": "January",
+      "feb": "February",
+      "mar": "March",
+      "apr": "April",
+      "may": "May",
+      "jun": "June",
+      "jul": "July",
+      "aug": "August",
+      "sep": "September",
+      "oct": "October",
+      "nov": "November",
+      "dec": "December"
+    },
+    "rain": {
+      "low": "Low",
+      "moderate": "Moderate",
+      "high": "High"
+    },
+    "pack": {
+      "title": "What to Pack?",
+      "intro": "Pack smart to make the most of your experience in the Boyacá páramo.",
+      "clothing_title": "Clothing & Warm Layers",
+      "clothing": {
+        "i1": "Waterproof, windproof jacket",
+        "i2": "Thermal clothing or layers",
+        "i3": "Scarf, hat and gloves",
+        "i4": "Waterproof hiking boots",
+        "i5": "Comfortable long pants",
+        "i6": "Spare clothing (it may rain)"
+      },
+      "health_title": "Health & Protection",
+      "health": {
+        "i1": "Sunscreen SPF 50+",
+        "i2": "Sunglasses with UV protection",
+        "i3": "Basic first-aid kit",
+        "i4": "Medication for altitude sickness (soroche)",
+        "i5": "Insect repellent",
+        "i6": "Constant hydration"
+      },
+      "gear_title": "Useful Accessories",
+      "gear": {
+        "i1": "Small backpack for hikes",
+        "i2": "Reusable water bottle",
+        "i3": "Camera",
+        "i4": "Portable charger (power bank)",
+        "i5": "Energy snacks",
+        "i6": "Cash"
+      }
+    },
+    "recs": {
+      "title": "Important Recommendations",
+      "nature_t": "Respect nature",
+      "nature_d": "Don't leave litter on the trails. Frailejones take more than 100 years to grow; don't pull or touch them. Respect the wildlife.",
+      "altitude_t": "Altitude acclimatization",
+      "altitude_d": "We are above 2,800 meters. If you come from lowlands, take it easy your first day. Drink plenty of water and avoid strenuous activity during the first hours.",
+      "guide_t": "Hire a local guide",
+      "guide_d": "For páramo hikes it is advisable to go with a certified guide. They know the routes and the weather and can make your experience much richer.",
+      "weather_t": "Unpredictable weather",
+      "weather_d": "Weather in the páramo changes quickly. It can be sunny one minute and raining the next. Always carry a waterproof layer, even in the dry season."
+    },
+    "food": {
+      "title": "Dishes You Must Try",
+      "intro": "Boyacá cuisine is full of earthy flavors. Don't leave without trying these dishes.",
+      "mute_t": "Mute Boyacense",
+      "mute_d": "Thick soup with corn, beans, potato, peas, pork and beef. The signature dish of the region.",
+      "arepa_t": "Arepa Boyacense",
+      "arepa_d": "Sweet, with cheese and panela. Baked in a wood-fired oven, it has a unique, unmistakable flavor.",
+      "cocido_t": "Cocido Boyacense",
+      "cocido_d": "A variety of tubers, broad beans, corn and meats slowly cooked. Comforting and hearty.",
+      "aguapanela_t": "Aguapanela with Cheese",
+      "aguapanela_d": "Hot panela drink with pieces of farm cheese. Perfect for the cold of the páramo.",
+      "trucha_t": "Páramo Trout",
+      "trucha_d": "Fresh trout from mountain rivers, grilled or al ajillo. Delicate and delicious.",
+      "almojabanas_t": "Almojábanas",
+      "almojabanas_d": "Cheese buns made with cassava starch. Crispy outside, soft inside. Ideal with hot chocolate."
+    },
+    "cta": {
+      "title": "Ready for the adventure?",
+      "subtitle": "Plan your trip to Cómbita and discover the magic of the Boyacá páramo.",
+      "find_guide": "Find a Guide"
+    }
+  },
+  "transporte": {
+    "title": "How to Get There | Turismo Cómbita - Transport & Routes",
+    "description": "How to get to Cómbita, Boyacá. Routes from Bogotá and Tunja, public transport, bus schedules and travel tips.",
+    "hero": {
+      "h1": "How to Get There",
+      "h2": "All routes and transport options to reach Cómbita"
+    },
+    "quick": {
+      "from_tunja": "From Tunja",
+      "from_bogota": "From Bogotá",
+      "altitude": "Altitude",
+      "avg_temp": "Average temperature"
+    },
+    "routes": {
+      "title": "Main Routes",
+      "intro": "Two main options to reach Cómbita depending on your starting point.",
+      "bogota_title": "From Bogotá",
+      "bogota_sub": "Capital of Colombia",
+      "bogota_time": "2.5 - 3 hours",
+      "bogota_desc": "The most common route. Take the exit via Autopista Norte to the road that leads to Tunja along the Bogotá-Tunja dual carriageway.",
+      "bogota_step1": "Leave Bogotá via <strong>Autopista Norte</strong> and take the road to Tunja (Route 55).",
+      "bogota_step2": "Continue along the dual carriageway through <strong>Zipaquirá</strong>, <strong>Ventaquemada</strong> and the <strong>Puente de Boyacá</strong>.",
+      "bogota_step3": "Before reaching Tunja, take the signposted exit toward <strong>Cómbita</strong> (north exit of the dual carriageway).",
+      "bogota_step4": "Follow the road for about <strong>5 km</strong> until you reach the town center of Cómbita.",
+      "tunja_title": "From Tunja",
+      "tunja_sub": "Capital of Boyacá",
+      "tunja_time": "15 - 20 minutes",
+      "tunja_desc": "Cómbita is just a few minutes from the capital of Boyacá. It's the fastest and cheapest option.",
+      "tunja_step1": "From downtown Tunja, head <strong>north</strong> along Avenida Norte.",
+      "tunja_step2": "Take the road toward <strong>Paipa/Duitama</strong> and follow the signs to Cómbita.",
+      "tunja_step3": "In a few minutes you'll reach the <strong>town center</strong> of Cómbita."
+    },
+    "bus": {
+      "title": "Public Transport",
+      "intro": "Bus and shared-van options to get there without your own vehicle.",
+      "bog_tun_title": "Buses Bogotá → Tunja",
+      "bog_tun_sub": "Salitre / Norte Terminal",
+      "bog_tun_desc": "From Bogotá's Bus Terminal (Salitre or Norte) there are frequent departures to Tunja with several companies.",
+      "th_company": "Company",
+      "th_frequency": "Frequency",
+      "th_fare": "Approx. fare",
+      "freq_15_20": "Every 15-20 min",
+      "freq_20_30": "Every 20-30 min",
+      "freq_30_40": "Every 30-40 min",
+      "schedule": "Schedule: 4:00 AM - 9:00 PM",
+      "duration": "Duration: ~2.5 hours",
+      "tun_com_title": "Tunja → Cómbita",
+      "tun_com_sub": "Shared vans and local buses",
+      "tun_com_desc": "From Tunja there are shared vans and local buses leaving frequently to Cómbita. You can catch them at different points:",
+      "tun_com_p1": "<strong>Tunja Bus Terminal:</strong> Buses and shared vans with regular departures. Fare approx. $2,500 - $3,500.",
+      "tun_com_p2": "<strong>Avenida Norte:</strong> Shared vans that pass along the road and pick up passengers. Frequency every 10-15 minutes.",
+      "tun_com_p3": "<strong>Taxi:</strong> From downtown Tunja a taxi costs approximately $12,000 - $18,000."
+    },
+    "location": {
+      "title": "Location",
+      "intro": "Cómbita is located in the department of Boyacá, a few kilometers north of Tunja."
+    },
+    "tips": {
+      "title": "Travel Tips",
+      "warm_t": "Bring warm clothing",
+      "warm_d": "Average temperature is 13°C and can drop further at night. Bring a jacket and layered clothing.",
+      "fuel_t": "Fuel up before leaving",
+      "fuel_d": "If you're driving, make sure to carry enough fuel. There are stations in Tunja.",
+      "cash_t": "Carry cash",
+      "cash_d": "Some rural establishments do not accept cards. Bring enough cash.",
+      "sun_t": "Sun protection",
+      "sun_d": "Due to the altitude, UV radiation is high even on cloudy days. Use sunscreen."
+    },
+    "cta": {
+      "title": "Need more information?",
+      "subtitle": "Contact us and we'll help you plan your trip to Cómbita.",
+      "btn": "Contact us"
+    }
+  },
+  "treks": {
+    "title": "Hikes | Cómbita | Tourism & Adventure",
+    "description": "Hiking trails in Cómbita, Boyacá. Hikes to La Peña, Casa Ricaurte, Laguna Rica, Laguna Negra and Cerro Tilín.",
+    "hero": {
+      "title": "Hikes",
+      "subtitle": "Explore the magical trails of Cómbita"
+    },
+    "breadcrumb": {
+      "routes": "Routes"
+    },
+    "filters": {
+      "title": "Filters",
+      "all": "All",
+      "hiking": "Hiking",
+      "mountaineering": "Mountaineering",
+      "nature": "Nature",
+      "adventure": "Adventure"
+    },
+    "loading": "Loading hikes...",
+    "cards": {
+      "free": "Free",
+      "optional_guide": "Optional guide",
+      "required_guide": "Guide required",
+      "duration": "Duration",
+      "diff_medium_high": "Medium-high",
+      "diff_medium_low": "Medium-low",
+      "diff_low": "Low",
+      "la_pena_desc": "The highest point in Cómbita. A rocky outcrop with 360° panoramic views over the mountain range and valley.",
+      "la_pena_location": "Santa Bárbara village, Cómbita",
+      "ricaurte_desc": "Historic tourist attraction in Cómbita. A colonial house with heritage and cultural value for the region.",
+      "centro_name": "Historic Center",
+      "centro_desc": "A fascinating walk through the historic center, visiting the 18th-century colonial church and the picturesque cobblestone streets.",
+      "centro_location": "Downtown, Cómbita",
+      "tilin_desc": "Waterfall and Muisca archaeological site with ritual basins, the Frog Stone and ancestral ceremonial remains.",
+      "tilin_location": "San Francisco village, Cómbita",
+      "negra_desc": "A demanding full-day trek to the páramo lake above 3,400 m, surrounded by frailejones and high-Andean forest.",
+      "rica_desc": "A challenging climb to the páramo to reach the mystical sacred lake surrounded by giant frailejones and wildlife.",
+      "paramo_location": "Cómbita Páramo"
+    },
+    "cta": {
+      "title": "Bookings & contact",
+      "text": "Would you like more information about our hikes or want to book a special excursion?",
+      "button": "Contact us"
+    },
+    "features": {
+      "guides_title": "Expert local guides",
+      "guides_text": "We know every corner of our mountains",
+      "booking_title": "Easy booking",
+      "booking_text": "Contact us and organize your adventure quickly",
+      "places_title": "Unique places",
+      "places_text": "Discover the special natural corners of Cómbita"
+    }
+  },
+  "trek_laguna": {
+    "title": "Cómbita, Laguna Rica",
+    "description": "Hike to Laguna Rica in Cómbita, Boyacá. Páramo with frailejones, hummingbirds and mountain landscapes.",
+    "hero": {
+      "subtitle": "A unique experience surrounded by nature and beauty"
+    },
+    "intro": "The hike to Laguna Rica takes you through a unique landscape, surrounded by frailejones, orchids and vibrant local wildlife. This medium-level route offers stunning valley views while you enjoy the kind of tranquility only a place like this can provide. The lake, set in the heart of the El Valle Regional Park, is a natural refuge that invites reflection and a deep connection with nature. A must-visit for those seeking adventure and serenity in a single place.",
+    "guide_text": "Hiring a local guide is recommended for this páramo route. They know the trails, the shifting weather and the endemic flora.",
+    "body": "The hike to Laguna Rica is medium-level and offers stunning views of the valley. Along the way you can see frailejones, hummingbirds and orchids. The trail, surrounded by Andean flora, lets visitors enjoy the calm of the páramo and the majesty of the nearby mountains. It is a unique experience for anyone seeking to connect with nature at its fullest.",
+    "facts": {
+      "location_value": "Páramo zone",
+      "ecosystem_value": "Andean páramo"
+    },
+    "location_title": "Laguna Rica location",
+    "difficulty": {
+      "heading": "Medium difficulty",
+      "text": "A medium-difficulty route, ideal for those looking for a challenging yet accessible hike surrounded by impressive natural landscapes."
+    },
+    "see": {
+      "frailejon_label": "Frailejones",
+      "frailejon_value": "Centuries-old, growing 1 cm/year",
+      "lagoon_label": "Lake",
+      "lagoon_value": "Crystal-clear páramo water",
+      "fauna_label": "Wildlife",
+      "fauna_value": "Hummingbirds, eagles, migratory birds"
+    }
+  },
+  "trek_pena": {
+    "title": "Cómbita, La Peña",
+    "description": "Hike to La Peña in Cómbita, Boyacá. A rocky outcrop with panoramic views of the Boyacá highlands.",
+    "hero": {
+      "subtitle": "The most imposing and highest spot in all of Cómbita"
+    },
+    "intro": "The hike to the La Peña Viewpoint is medium-high difficulty, ideal for those seeking a challenge and an impressive reward upon reaching the summit. This is the highest point in Cómbita and offers one of the most striking views in the whole region. From its height, visitors can take in a sweeping panorama of the mountain range and the valleys around the municipality, connecting deeply with the natural surroundings. An experience that combines effort and awe, perfect for those who love heights and unique landscapes.",
+    "guide_text": "For this medium-high difficulty route an experienced local guide who knows the terrain and páramo conditions is recommended.",
+    "body": "La Peña is the highest and most imposing point in all of Cómbita, located in the Santa Bárbara village within the La Peña Páramo. The route climbs from 2,825 m in town up to 3,200 m, crossing grasslands, cloud forest and finally páramo. From the top, the rocky outcrop offers a 360-degree panorama covering the cordillera, the surrounding valleys and, on clear days, the city of Tunja.",
+    "facts": {
+      "ecosystem_value": "Páramo and cloud forest"
+    },
+    "difficulty": {
+      "heading": "Medium-high difficulty",
+      "text": "A medium-high difficulty route, ideal for those seeking a challenge with a reward: panoramic views from the highest point in Cómbita."
+    },
+    "see": {
+      "rock_label": "Rock formation",
+      "rock_value": "Natural panoramic viewpoint",
+      "cloud_label": "Cloud forest",
+      "cloud_value": "Mosses, lichens, bromeliads",
+      "view_label": "360° view",
+      "view_value": "Valley, cordillera and Tunja"
+    },
+    "map": {
+      "popup_sub": "Virgen de las Aguas Monument"
+    }
+  },
+  "trek_valle": {
+    "title": "Cómbita, Casa Ricaurte",
+    "description": "Route to Casa Ricaurte in Cómbita, Boyacá. Historic and cultural tourist attraction in the rural area.",
+    "hero": {
+      "subtitle": "Historic tourist attraction in Cómbita"
+    },
+    "intro": "Casa Ricaurte is a historic tourist attraction located in the rural area of Cómbita. This cultural point of interest offers a connection to the municipality's history and heritage. Surrounded by the mountainous landscape of the eastern cordillera, the route to Casa Ricaurte lets visitors enjoy panoramic views and the calm of the Boyacá countryside. The walk crosses rural paths where you can see the everyday life of the villages and the region's traditional architecture.",
+    "guide_text": "A local guide is recommended to explore the páramo. They know the trails and can identify the endemic flora and fauna.",
+    "body": "Casa Ricaurte is a site of historical and tourist interest in Cómbita. Located in the rural area of the municipality, this attraction offers a tour of the local history and cultural heritage of the region. The natural surroundings, framed by mountains and Andean vegetation, complement the experience with beautiful landscapes. It is an ideal stop for those who wish to explore the historic and cultural side of Cómbita.",
+    "facts": {
+      "location_value": "Rural area, Cómbita",
+      "type_value": "Historic tourist attraction",
+      "environment_value": "Andean mountain and Boyacá countryside"
+    },
+    "difficulty": {
+      "heading": "Medium-low difficulty",
+      "text": "A medium-low difficulty route, ideal for those seeking a challenging yet accessible hike surrounded by impressive natural landscapes."
+    },
+    "see": {
+      "oak_label": "Oak forest",
+      "oak_value": "One of the oldest in the Andes",
+      "frailejon_label": "Frailejones",
+      "frailejon_value": "High-mountain páramo",
+      "fauna_label": "Wildlife",
+      "fauna_value": "Deer, ocelots, guaches"
+    },
+    "map": {
+      "popup_sub": "Tourist attraction, Cómbita"
+    }
+  },
+  "trek_tilin": {
+    "title": "Cómbita, El Tilín",
+    "description": "Hike to Cerro Tilín in Cómbita, Boyacá. Pre-Columbian rock paintings and ancient rock formations.",
+    "hero": {
+      "subtitle": "An easy-access experience, perfect for families"
+    },
+    "intro": "The hike to El Tilín takes you to a site rich in ancestral Muisca history in the San Francisco village, about 5 km from downtown Cómbita. The route, low-difficulty and family-friendly, leads to a 10- to 12-meter waterfall next to rock formations with basins carved by Indigenous peoples for consecration rituals. Oral tradition says that on full-moon nights you can hear a sound like a small bell, which is where its name comes from. A must-visit for those who want to connect with archaeological heritage and nature in a single place.",
+    "guide": {
+      "request": "Request a guide"
+    },
+    "guide_text": "For a richer experience, contact a local guide who knows every corner of the trail and its Muisca history.",
+    "body": "The hike to El Tilín is low-difficulty, ideal for those looking for a calm experience full of history. On this easy route, visitors can admire rock paintings telling ancestral stories while walking alongside the soft murmur of a stream. Along the way, small waterfalls dot the landscape, creating a relaxing atmosphere. The trail also passes near a Muisca burial site, an important cultural relic that offers a deep connection with the history of the native peoples. It is an accessible and enriching route for those who want to explore nature and local culture.",
+    "facts": {
+      "location_value": "5 km from downtown",
+      "type_value": "Archaeological",
+      "waterfall_label": "Waterfall",
+      "waterfall_value": "10-12 m tall",
+      "access_value": "Family-friendly"
+    },
+    "difficulty": {
+      "heading": "Low difficulty",
+      "text": "A low-difficulty route, ideal for those looking for an accessible hike surrounded by impressive natural landscapes."
+    },
+    "see": {
+      "waterfall_label": "Waterfall",
+      "waterfall_value": "10-12 meters tall",
+      "moyas_label": "Muisca basins",
+      "moyas_value": "Ritual hollows carved into the rock",
+      "sapo_value": "Ceremonial rock formation"
+    },
+    "map": {
+      "popup_sub": "San Francisco village, Cómbita"
+    }
+  },
+  "trek_centro": {
+    "title": "Historic Center | Turismo Cómbita",
+    "description": "Tour of the historic center of Cómbita, Boyacá. Colonial church, main square and traditional streets.",
+    "hero": {
+      "title": "Historic Center",
+      "subtitle": "The cultural and religious heart of Cómbita"
+    },
+    "intro": "The tour of the historic center of Cómbita is a quiet, enriching walk that reveals the essence of the municipality. The starting point is the main square, known as the \"Mano de Tigre\" plaza, where the imposing Church of the Immaculate Conception stands, whose construction was ordered in 1776 by Archbishop Agustín Alvarado y Castillo. The cobblestone streets of the center keep the charm of traditional Boyacá architecture, with colorful house facades and wooden balconies that tell the town's story.",
+    "free_tour": {
+      "title": "Self-guided tour",
+      "no_guide": "No guide needed",
+      "text": "The historic center is open access. You can explore it at your own pace and enjoy the architecture, local food and the warmth of the people of Cómbita."
+    },
+    "info": {
+      "access": "Access",
+      "access_value": "Open",
+      "hours": "Hours",
+      "hours_value": "All day",
+      "distance_tunja": "Distance from Tunja"
+    },
+    "body": "The town of Cómbita preserves the classic colonial layout of Boyacá villages. Around the main square stand the most emblematic buildings: the Church of the Immaculate Conception, the Town Hall and the traditional houses with their white facades and colorful doors. A walk through its streets is a journey to the past, where the calm and warmth of its people make visitors feel at home.",
+    "facts": {
+      "church_label": "Church",
+      "church_value": "Immaculate Conception (18th century)",
+      "plaza_label": "Square",
+      "plaza_value": "Main square \"Mano de Tigre\"",
+      "distance_tunja_label": "Distance to Tunja",
+      "distance_tunja_value": "8.5 km along the Northern Central Highway"
+    },
+    "difficulty": {
+      "heading": "Easy difficulty",
+      "text": "A flat, accessible route for the whole family, ideal for getting to know the history and culture of Cómbita without physical effort."
+    },
+    "what_to_see": {
+      "title": "What to see",
+      "church_label": "Church",
+      "church_value": "Church of the Immaculate Conception",
+      "plaza_label": "Square",
+      "plaza_value": "Main square with fountain and gardens",
+      "arch_label": "Architecture",
+      "arch_value": "Colonial houses with wooden balconies",
+      "food_label": "Food",
+      "food_value": "Traditional Boyacá restaurants nearby"
+    },
+    "map": {
+      "popup_title": "Historic Center",
+      "popup_sub": "Main Square, Cómbita"
+    }
+  },
+  "trek_sendero": {
+    "title": "Cómbita, Laguna Negra",
+    "description": "Laguna Negra in the Cómbita páramo, Boyacá. Demanding full-day trek above 3,400 m among frailejones and high-Andean forest. Guide required.",
+    "hero": {
+      "subtitle": "High-mountain páramo lake"
+    },
+    "intro": "Laguna Negra is a páramo lake located in the highlands of Cómbita, more than 3,400 meters above sea level. Its dark, calm waters reflect the Andean sky surrounded by centuries-old frailejones and páramo vegetation. The route is demanding: a full-day trek that climbs from high-Andean forest into the heart of the páramo, crossing uneven terrain, dense fog and sharp temperature changes. Good physical condition is required and going with a local guide who knows the area is mandatory. Not suitable for young children or people with heart or respiratory problems.",
+    "box": {
+      "title": "High-mountain trekking",
+      "only_guide": "Only with local guide",
+      "text": "A demanding full-day walk over páramo terrain. A local guide is mandatory and good physical condition is needed."
+    },
+    "info": {
+      "type_value": "Trekking"
+    },
+    "body": "The climb to Laguna Negra is one of the most demanding routes in the Cómbita páramo. The path starts in high-Andean forest and climbs steep terrain past 3,400 meters, crossing boggy areas, tussock grass and extensive frailejón fields. The weather is unpredictable: intense sun, thick fog and rain can alternate within minutes. The reward is reaching the dark, serene waters of the lake, a natural mirror surrounded by absolute silence at the heart of the páramo.",
+    "facts": {
+      "ecosystem_value": "Páramo and high-Andean cloud forest",
+      "flora_label": "Flora",
+      "flora_value": "Frailejones, tussock grass, mosses, lichens"
+    },
+    "difficulty": {
+      "heading": "High difficulty",
+      "text": "Demanding trek with a long climb over uneven páramo terrain. Good physical condition and experience with mountain hiking are required."
+    },
+    "recommendations": {
+      "title": "Recommendations",
+      "hydration_label": "Hydration",
+      "hydration_value": "At least 2 liters of water per person",
+      "clothing_label": "Clothing",
+      "clothing_value": "Thermal layers, waterproof jacket and windbreaker",
+      "footwear_label": "Footwear",
+      "footwear_value": "Waterproof trekking boots or rubber boots",
+      "bring_label": "Bring",
+      "bring_value": "Sunscreen, energy snacks, dry change of clothes and flashlight"
+    }
+  }
+}

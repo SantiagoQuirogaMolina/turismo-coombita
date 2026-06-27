@@ -4,10 +4,44 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Caminatas | Cómbita | Turismo y Aventura</title>
-    <meta name="description" content="Rutas de senderismo en Cómbita, Boyacá. Caminatas por La Peña, Casa Ricaurte, Laguna Rica, Laguna Negra y Cerro Tilín.">
+    <title data-i18n="treks.title">Caminatas | Cómbita | Turismo y Aventura</title>
+    <link rel="preload" as="image" href="../../assets/images/cominoreal.jpg">
+    <meta name="description" content="Rutas de senderismo en Cómbita, Boyacá. Caminatas por La Peña, Casa Ricaurte, Laguna Rica, Laguna Negra y Cerro Tilín." data-i18n-attr="content:treks.description">
+    <!-- CSS crítico del splash (inline para que se vea desde el primer frame) -->
+    <style>
+        #preloader{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(170deg,#1a2a20 0%,#2d3e33 45%,#3a5240 100%);z-index:99995;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+        #preloader::before{content:""!important;background:none!important;width:0!important;height:0!important}
+        #preloader.splash-paramo::after{content:"";position:absolute;top:0;left:-50%;right:-50%;bottom:0;background:radial-gradient(ellipse at 20% 80%,rgba(105,144,115,.15) 0%,transparent 60%),radial-gradient(ellipse at 80% 60%,rgba(221,161,94,.08) 0%,transparent 50%),radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.04) 0%,transparent 70%);animation:splash-neblina 4s ease-in-out infinite alternate;z-index:0}
+        @keyframes splash-neblina{0%{transform:translateX(-3%) translateY(5px);opacity:.6}100%{transform:translateX(3%) translateY(-5px);opacity:1}}
+        #preloader .splash-mountains{position:absolute;bottom:0;left:0;right:0;height:220px;z-index:1}
+        #preloader .splash-mountains svg{width:100%;height:100%;display:block}
+        #preloader .splash-content{position:relative;z-index:2;text-align:center;animation:splash-aparecer .8s ease-out both}
+        @keyframes splash-aparecer{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+        #preloader .splash-icon{margin:0 auto 20px;width:60px;height:80px;animation:splash-respirar 3s ease-in-out infinite}
+        #preloader .splash-icon svg{width:100%;height:100%}
+        @keyframes splash-respirar{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.06);opacity:1}}
+        #preloader .splash-title{color:#DDA15E;font-family:'Montserrat',sans-serif;font-size:32px;font-weight:800;letter-spacing:10px;text-transform:uppercase;margin:0;line-height:1}
+        #preloader .splash-line{width:50px;height:3px;background:linear-gradient(90deg,transparent,#DDA15E,transparent);border-radius:2px;margin:16px auto;animation:splash-linea 2s ease-in-out infinite alternate}
+        @keyframes splash-linea{0%{width:40px;opacity:.6}100%{width:70px;opacity:1}}
+        #preloader .splash-subtitle{color:rgba(255,255,255,.55);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin:0}
+        #preloader .splash-particulas{position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;overflow:hidden}
+        #preloader .splash-particulas span{position:absolute;width:4px;height:4px;background:rgba(221,161,94,.4);border-radius:50%;animation:splash-flotar 6s ease-in-out infinite}
+        #preloader .splash-particulas span:nth-child(1){left:15%;bottom:20%;animation-delay:0s;animation-duration:7s}
+        #preloader .splash-particulas span:nth-child(2){left:35%;bottom:30%;animation-delay:1.5s;animation-duration:5s;width:3px;height:3px}
+        #preloader .splash-particulas span:nth-child(3){left:65%;bottom:15%;animation-delay:.8s;animation-duration:8s}
+        #preloader .splash-particulas span:nth-child(4){left:80%;bottom:25%;animation-delay:2.5s;animation-duration:6s;width:3px;height:3px}
+        #preloader .splash-particulas span:nth-child(5){left:50%;bottom:35%;animation-delay:1s;animation-duration:7.5s;width:5px;height:5px;background:rgba(221,161,94,.25)}
+        @keyframes splash-flotar{0%{transform:translateY(0) scale(1);opacity:0}15%{opacity:1}50%{transform:translateY(-120px) scale(.8);opacity:.6}85%{opacity:.3}100%{transform:translateY(-250px) scale(.4);opacity:0}}
+        #preloader .splash-progress{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);width:100px;height:2px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;z-index:2}
+        #preloader .splash-progress span{display:block;height:100%;background:linear-gradient(90deg,transparent,#DDA15E,transparent);border-radius:2px;animation:splash-carga 1.8s ease-in-out infinite}
+        @keyframes splash-carga{0%{width:0%;margin-left:0%}50%{width:50%;margin-left:25%}100%{width:0%;margin-left:100%}}
+        @media (max-width:575.98px){#preloader .splash-title{font-size:24px;letter-spacing:6px}#preloader .splash-subtitle{font-size:10px;letter-spacing:3px}#preloader .splash-icon{width:45px;height:60px}}
+        #preloader{animation:splash-seguro .6s ease-out 5s forwards}
+        @keyframes splash-seguro{to{opacity:0;visibility:hidden;pointer-events:none}}
+    </style>
     <script src="../../assets/js/vendor/jquery.min.js"></script>
     <script src="../../assets/js/vendor/main.js"></script>
+    <script src="../../assets/js/modules/i18n.js?v=2" defer></script>
     <link rel="stylesheet" href="../../assets/css/vendor/bootstrap-grid.css">
     <link rel="stylesheet" href="../../assets/css/vendor/style.css">
     <link rel="stylesheet" href="../../assets/css/vendor/glide.css">
@@ -16,7 +50,7 @@
     <link rel="stylesheet" href="../../assets/css/vendor/media-box.css">
         <link rel="stylesheet" href="../../assets/media/icons/fontawesome/all.css">
 <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/frailejon-theme.css">
+    <link rel="stylesheet" href="../../assets/css/frailejon-theme.css?v=3">
     <link rel="icon" href="../../assets/images/favicon.png">
     <style>
         /* Estilos para uniformizar las tarjetas de caminatas */
@@ -60,7 +94,42 @@
     </style>
 </head>
 <body class="page-main">
-    <div id="preloader"></div>
+    <div id="preloader" class="splash-paramo">
+        <div class="splash-particulas">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="splash-content">
+            <div class="splash-icon">
+                <svg viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="#DDA15E" stroke-width="1.5" stroke-linecap="round" opacity="0.9">
+                        <path d="M30 78 L30 40" stroke-width="2"/>
+                        <path d="M27 75 Q30 72 33 75"/>
+                        <path d="M26 68 Q30 65 34 68"/>
+                        <path d="M25 61 Q30 58 35 61"/>
+                        <path d="M26 54 Q30 51 34 54"/>
+                        <path d="M27 47 Q30 44 33 47"/>
+                        <path d="M30 38 Q30 20 18 8" stroke-width="1.8"/>
+                        <path d="M30 38 Q25 18 10 14" stroke-width="1.5"/>
+                        <path d="M30 38 Q35 18 50 14" stroke-width="1.5"/>
+                        <path d="M30 38 Q30 20 42 8" stroke-width="1.8"/>
+                        <path d="M30 38 Q20 22 8 24" stroke-width="1.3"/>
+                        <path d="M30 38 Q40 22 52 24" stroke-width="1.3"/>
+                        <path d="M30 38 L30 6" stroke-width="1.8"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="splash-title">CÓMBITA</div>
+            <div class="splash-line"></div>
+            <div class="splash-subtitle">Boyacá &middot; Colombia</div>
+        </div>
+        <div class="splash-mountains">
+            <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,220 L0,160 Q120,80 240,120 Q360,160 480,100 Q600,40 720,90 Q840,140 960,70 Q1080,0 1200,50 Q1320,100 1440,60 L1440,220 Z" fill="rgba(105,144,115,0.08)"/>
+                <path d="M0,220 L0,180 Q180,120 360,155 Q540,190 720,140 Q900,90 1080,130 Q1260,170 1440,110 L1440,220 Z" fill="rgba(105,144,115,0.05)"/>
+            </svg>
+        </div>
+        <div class="splash-progress"><span></span></div>
+    </div>
     <nav class="menu-classic menu-fixed align-right" data-menu-anima="fade-in">
         <div class="container">
             <div class="menu-brand">
@@ -75,46 +144,52 @@
             <div class="menu-cnt">
                                 <ul id="main-menu">
                     <li class="dropdown">
-                        <a href="../index.html">Inicio</a>
+                        <a href="../index.html" data-i18n="common.nav.home">Inicio</a>
                     </li>
 
                     <li class="dropdown">
-                        <a href="#">Descubre</a>
+                        <a href="#" data-i18n="common.nav.discover">Descubre</a>
                         <ul>
                             <li class="dropdown-submenu">
-                                <a>Imperdibles</a>
+                                <a data-i18n="common.nav.must_see">Imperdibles</a>
                                 <ul>
-                                    <li><a href="../food.html">Restaurantes</a></li>
-                                    <li><a href="../shelters.html">Hospedajes</a></li>
-                                    <li><a href="../events.html">Eventos</a></li>
-                                    <li><a href="../artesanos-guias.html">Artesanos y Guías</a></li>
+                                    <li><a href="../food.html" data-i18n="common.nav.restaurants">Restaurantes</a></li>
+                                    <li><a href="../shelters.html" data-i18n="common.nav.lodging">Hospedajes</a></li>
+                                    <li><a href="../events.html" data-i18n="common.nav.events">Eventos</a></li>
+                                    <li><a href="../artesanos-guias.html" data-i18n="common.nav.artisans_guides">Artesanos y Guías</a></li>
+                                    <li><a href="../catering.html" data-i18n="common.nav.catering">Catering y Celebraciones</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown-submenu">
-                                <a>Explora Más</a>
+                                <a data-i18n="common.nav.explore_more">Explora Más</a>
                                 <ul>
-                                    <li><a href="../history.html">Historia</a></li>
-                                    <li><a href="../gallery.html">Galería</a></li>
+                                    <li><a href="../history.html" data-i18n="common.nav.history">Historia</a></li>
+                                    <li><a href="../gallery.html" data-i18n="common.nav.gallery">Galería</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="./index.html">Caminatas</a>
+                        <a href="./index.html" data-i18n="common.nav.treks">Caminatas</a>
                     </li>
                     <li class="dropdown">
-                        <a href="#">Planifica</a>
+                        <a href="#" data-i18n="common.nav.plan">Planifica</a>
                         <ul>
-                            <li><a href="../transporte.html">Cómo Llegar</a></li>
-                            <li><a href="../mapa.html">Mapa</a></li>
-                            <li><a href="../tips.html">Tips del Viajero</a></li>
+                            <li><a href="../transporte.html" data-i18n="common.nav.how_to_arrive">Cómo Llegar</a></li>
+                            <li><a href="../mapa.html" data-i18n="common.nav.map">Mapa</a></li>
+                            <li><a href="../tips.html" data-i18n="common.nav.tips">Tips del Viajero</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="../blog.html">Blog</a>
+                        <a href="../blog.html" data-i18n="common.nav.blog">Blog</a>
                     </li>
                     <li>
-                        <a href="../contacts.html">Contacto</a>
+                        <a href="../contacts.html" data-i18n="common.nav.contact">Contacto</a>
+                    </li>
+                    <li class="lang-switcher" aria-label="Idioma">
+                        <a href="#" data-lang-switch="es" data-i18n="common.lang_switch.es">ES</a>
+                        <span class="lang-sep">|</span>
+                        <a href="#" data-lang-switch="en" data-i18n="common.lang_switch.en">EN</a>
                     </li>
                 </ul>
 
@@ -125,12 +200,12 @@
     </nav>
     <header class="header-image ken-burn-center light" data-parallax="scroll" data-natural-height="1080" data-natural-width="1920" data-bleed="0" data-image-src="../../assets/images/cominoreal.jpg" data-offset="0">
         <div class="container">
-            <h1>Caminatas</h1>
-            <h2>Explora los senderos mágicos de Cómbita</h2>
+            <h1 data-i18n="treks.hero.title">Caminatas</h1>
+            <h2 data-i18n="treks.hero.subtitle">Explora los senderos mágicos de Cómbita</h2>
             <ol class="breadcrumb">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="#">Rutas</a></li>
-                <li><a href="#">Caminatas</a></li>
+                <li><a href="../index.html" data-i18n="common.nav.home">Inicio</a></li>
+                <li><a href="#" data-i18n="treks.breadcrumb.routes">Rutas</a></li>
+                <li><a href="#" data-i18n="common.nav.treks">Caminatas</a></li>
             </ol>
         </div>
     </header>
@@ -139,13 +214,13 @@
             <div class="container">
                 <div class="maso-list gap-30" data-columns="3" data-columns-lg="2" data-columns-sm="1">
                     <div class="menu-inner">
-                        <div><i class="menu-btn"></i><span>Filtros</span></div>
+                        <div><i class="menu-btn"></i><span data-i18n="treks.filters.title">Filtros</span></div>
                         <ul>
-                            <li class="active"><a data-filter="maso-item" href="#">Todos</a></li>
-                            <li><a data-filter="cat-1" href="#">Senderismo</a></li>
-                            <li><a data-filter="cat-2" href="#">Montañismo</a></li>
-                            <li><a data-filter="cat-3" href="#">Naturaleza</a></li>
-                            <li><a data-filter="cat-4" href="#">Aventura</a></li>
+                            <li class="active"><a data-filter="maso-item" href="#" data-i18n="treks.filters.all">Todos</a></li>
+                            <li><a data-filter="cat-1" href="#" data-i18n="treks.filters.hiking">Senderismo</a></li>
+                            <li><a data-filter="cat-2" href="#" data-i18n="treks.filters.mountaineering">Montañismo</a></li>
+                            <li><a data-filter="cat-3" href="#" data-i18n="treks.filters.nature">Naturaleza</a></li>
+                            <li><a data-filter="cat-4" href="#" data-i18n="treks.filters.adventure">Aventura</a></li>
                             <li><a class="maso-order" data-sort="asc"></a></li>
                         </ul>
                     </div>
@@ -158,19 +233,19 @@
                     <div id="caminatas-estaticas" class="maso-box" style="display: none;">
                         <div class="maso-item cat-1">
                             <div class="cnt-box cnt-box-info boxed" data-href="./la-pena.html">
-                                <div class="extra-field">Gratis</div>
-                                <a href="./la-pena.html" class="img-box"><img src="../../assets/images/La Peña.jpg" alt="" /></a>
+                                <div class="extra-field" data-i18n="treks.cards.free">Gratis</div>
+                                <a href="./la-pena.html" class="img-box"><img src="../../assets/images/La Peña.jpg" alt="" / loading="lazy"></a>
                                 <div class="caption">
                                     <h2>La Peña</h2>
                                     <div class="cnt-info">
-                                        <div><span>Duración</span><span>5h</span></div>
-                                        <div><span>Grupo</span><span>15</span></div>
-                                        <div><span>Dificultad</span><span>Media-alta</span></div>
+                                        <div><span data-i18n="treks.cards.duration">Duración</span><span>5h</span></div>
+                                        <div><span data-i18n="common.labels.group">Grupo</span><span>15</span></div>
+                                        <div><span data-i18n="common.labels.difficulty">Dificultad</span><span data-i18n="treks.cards.diff_medium_high">Media-alta</span></div>
                                     </div>
-                                    <p class="text-truncate-2">
+                                    <p class="text-truncate-2" data-i18n="treks.cards.la_pena_desc">
                                         El punto más alto de Cómbita. Formación rocosa con vista panorámica de 360° sobre la cordillera y el valle.
                                     </p>
-                                    <div class="bottom-info">
+                                    <div class="bottom-info" data-i18n="treks.cards.la_pena_location">
                                         Vereda Santa Bárbara, Cómbita
                                     </div>
                                 </div>
@@ -178,16 +253,16 @@
                         </div>
                         <div class="maso-item cat-2">
                             <div class="cnt-box cnt-box-info boxed" data-href="./el-valle.html">
-                                <div class="extra-field">Guía opcional</div>
-                                <a href="./el-valle.html" class="img-box"><img src="../../assets/images/montaña cordi.jpg" alt="Casa Ricaurte" /></a>
+                                <div class="extra-field" data-i18n="treks.cards.optional_guide">Guía opcional</div>
+                                <a href="./el-valle.html" class="img-box"><img src="../../assets/images/montaña cordi.jpg" alt="Casa Ricaurte" / loading="lazy"></a>
                                 <div class="caption">
                                     <h2>Casa Ricaurte</h2>
                                     <div class="cnt-info">
-                                        <div><span>Duración</span><span>5h</span></div>
-                                        <div><span>Grupo</span><span>10</span></div>
-                                        <div><span>Dificultad</span><span>Media-baja</span></div>
+                                        <div><span data-i18n="treks.cards.duration">Duración</span><span>5h</span></div>
+                                        <div><span data-i18n="common.labels.group">Grupo</span><span>10</span></div>
+                                        <div><span data-i18n="common.labels.difficulty">Dificultad</span><span data-i18n="treks.cards.diff_medium_low">Media-baja</span></div>
                                     </div>
-                                    <p class="text-truncate-2">
+                                    <p class="text-truncate-2" data-i18n="treks.cards.ricaurte_desc">
                                         Atracción turística histórica en Cómbita. Casa colonial con valor patrimonial y cultural de la región.
                                     </p>
                                     <div class="bottom-info">
@@ -198,19 +273,19 @@
                         </div>
                         <div class="maso-item cat-1 cat-3 cat-4">
                             <div class="cnt-box cnt-box-info boxed" data-href="./centro-historico.html">
-                                <div class="extra-field">Gratis</div>
-                                <a href="./centro-historico.html" class="img-box"><img src="../../assets/images/iglesia.jpg" alt="Centro Histórico de Cómbita" /></a>
+                                <div class="extra-field" data-i18n="treks.cards.free">Gratis</div>
+                                <a href="./centro-historico.html" class="img-box"><img src="../../assets/images/iglesia.jpg" alt="Centro Histórico de Cómbita" / loading="lazy"></a>
                                 <div class="caption">
-                                    <h2>Centro Histórico</h2>
+                                    <h2 data-i18n="treks.cards.centro_name">Centro Histórico</h2>
                                     <div class="cnt-info">
-                                        <div><span>Duración</span><span>1h</span></div>
-                                        <div><span>Grupo</span><span>20</span></div>
-                                        <div><span>Dificultad</span><span>Fácil</span></div>
+                                        <div><span data-i18n="treks.cards.duration">Duración</span><span>1h</span></div>
+                                        <div><span data-i18n="common.labels.group">Grupo</span><span>20</span></div>
+                                        <div><span data-i18n="common.labels.difficulty">Dificultad</span><span data-i18n="common.labels.difficulty_easy">Fácil</span></div>
                                     </div>
-                                    <p class="text-truncate-2">
+                                    <p class="text-truncate-2" data-i18n="treks.cards.centro_desc">
                                         Recorrido fascinante por el centro histórico, visitando la iglesia colonial del siglo XVIII y las pintorescas calles empedradas.
                                     </p>
-                                    <div class="bottom-info">
+                                    <div class="bottom-info" data-i18n="treks.cards.centro_location">
                                         Centro, Cómbita
                                     </div>
                                 </div>
@@ -218,19 +293,19 @@
                         </div>
                         <div class="maso-item cat-2">
                             <div class="cnt-box cnt-box-info boxed" data-href="./tilin.html">
-                                <div class="extra-field">Guía requerido</div>
-                                <a href="./tilin.html" class="img-box"><img src="../../assets/images/el tilin.JPG" alt="" /></a>
+                                <div class="extra-field" data-i18n="treks.cards.required_guide">Guía requerido</div>
+                                <a href="./tilin.html" class="img-box"><img src="../../assets/images/el tilin.JPG" alt="" / loading="lazy"></a>
                                 <div class="caption">
                                     <h2>El Tilín</h2>
                                     <div class="cnt-info">
-                                        <div><span>Duración</span><span>3h</span></div>
-                                        <div><span>Grupo</span><span>12</span></div>
-                                        <div><span>Dificultad</span><span>Baja</span></div>
+                                        <div><span data-i18n="treks.cards.duration">Duración</span><span>3h</span></div>
+                                        <div><span data-i18n="common.labels.group">Grupo</span><span>12</span></div>
+                                        <div><span data-i18n="common.labels.difficulty">Dificultad</span><span data-i18n="treks.cards.diff_low">Baja</span></div>
                                     </div>
-                                    <p class="text-truncate-2">
+                                    <p class="text-truncate-2" data-i18n="treks.cards.tilin_desc">
                                         Cascada y sitio arqueológico muisca con moyas rituales, la Piedra del Sapo y vestigios ceremoniales ancestrales.
                                     </p>
-                                    <div class="bottom-info">
+                                    <div class="bottom-info" data-i18n="treks.cards.tilin_location">
                                         Vereda San Francisco, Cómbita
                                     </div>
                                 </div>
@@ -238,19 +313,19 @@
                         </div>
                         <div class="maso-item cat-2 cat-4">
                             <div class="cnt-box cnt-box-info boxed" data-href="./sendero-ecologico.html">
-                                <div class="extra-field">Guía requerido</div>
-                                <a href="./sendero-ecologico.html" class="img-box"><img src="../../assets/images/negra.jpg" alt="Laguna Negra" /></a>
+                                <div class="extra-field" data-i18n="treks.cards.required_guide">Guía requerido</div>
+                                <a href="./sendero-ecologico.html" class="img-box"><img src="../../assets/images/negra.jpg" alt="Laguna Negra" / loading="lazy"></a>
                                 <div class="caption">
                                     <h2>Laguna Negra</h2>
                                     <div class="cnt-info">
-                                        <div><span>Duración</span><span>6-8h</span></div>
-                                        <div><span>Grupo</span><span>8</span></div>
-                                        <div><span>Dificultad</span><span>Alta</span></div>
+                                        <div><span data-i18n="treks.cards.duration">Duración</span><span>6-8h</span></div>
+                                        <div><span data-i18n="common.labels.group">Grupo</span><span>8</span></div>
+                                        <div><span data-i18n="common.labels.difficulty">Dificultad</span><span data-i18n="common.labels.difficulty_hard">Alta</span></div>
                                     </div>
-                                    <p class="text-truncate-2">
+                                    <p class="text-truncate-2" data-i18n="treks.cards.negra_desc">
                                         Trekking exigente de día completo hasta la laguna de páramo a más de 3.400 msnm, entre frailejones y bosque altoandino.
                                     </p>
-                                    <div class="bottom-info">
+                                    <div class="bottom-info" data-i18n="treks.cards.paramo_location">
                                         Páramo de Cómbita
                                     </div>
                                 </div>
@@ -258,19 +333,19 @@
                         </div>
                         <div class="maso-item cat-2">
                             <div class="cnt-box cnt-box-info boxed" data-href="./laguna-rica.html">
-                                <div class="extra-field">Guía requerido</div>
-                                <a href="./laguna-rica.html" class="img-box"><img src="../../assets/images/laguna ricaaa.jpg" alt="" /></a>
+                                <div class="extra-field" data-i18n="treks.cards.required_guide">Guía requerido</div>
+                                <a href="./laguna-rica.html" class="img-box"><img src="../../assets/images/laguna ricaaa.jpg" alt="" / loading="lazy"></a>
                                 <div class="caption">
                                     <h2>Laguna Rica</h2>
                                     <div class="cnt-info">
-                                        <div><span>Duración</span><span>8h</span></div>
-                                        <div><span>Grupo</span><span>8</span></div>
-                                        <div><span>Dificultad</span><span>Media</span></div>
+                                        <div><span data-i18n="treks.cards.duration">Duración</span><span>8h</span></div>
+                                        <div><span data-i18n="common.labels.group">Grupo</span><span>8</span></div>
+                                        <div><span data-i18n="common.labels.difficulty">Dificultad</span><span data-i18n="common.labels.difficulty_medium">Media</span></div>
                                     </div>
-                                    <p class="text-truncate-2">
+                                    <p class="text-truncate-2" data-i18n="treks.cards.rica_desc">
                                         Ascenso desafiante al páramo hasta alcanzar la mística laguna sagrada rodeada de frailejones gigantes y fauna silvestre.
                                     </p>
-                                    <div class="bottom-info">
+                                    <div class="bottom-info" data-i18n="treks.cards.paramo_location">
                                         Páramo de Cómbita
                                     </div>
                                 </div>
@@ -286,11 +361,11 @@
                 <div class="cnt-box cnt-call">
                     <i class="im-paper-plane"></i>
                     <div class="caption">
-                        <h2>Reservas y contactos</h2>
-                        <p>
+                        <h2 data-i18n="treks.cta.title">Reservas y contactos</h2>
+                        <p data-i18n="treks.cta.text">
                             ¿Te gustaría más información sobre nuestras caminatas o quieres reservar una excursión especial?
                         </p>
-                        <a href="../contacts.html" class="btn btn-xs">Contáctanos</a>
+                        <a href="../contacts.html" class="btn btn-xs" data-i18n="treks.cta.button">Contáctanos</a>
                     </div>
                 </div>
                 <div class="row">
@@ -298,8 +373,8 @@
                         <div class="icon-box icon-box-left">
                             <i class="im-thumb"></i>
                             <div class="caption">
-                                <h3>Guías locales expertos</h3>
-                                <p>Conocemos cada rincón de nuestras montañas</p>
+                                <h3 data-i18n="treks.features.guides_title">Guías locales expertos</h3>
+                                <p data-i18n="treks.features.guides_text">Conocemos cada rincón de nuestras montañas</p>
                             </div>
                         </div>
                     </div>
@@ -307,8 +382,8 @@
                         <div class="icon-box icon-box-left">
                             <i class="im-icq"></i>
                             <div class="caption">
-                                <h3>Fácil reserva</h3>
-                                <p>Contáctanos y organiza tu aventura rápidamente</p>
+                                <h3 data-i18n="treks.features.booking_title">Fácil reserva</h3>
+                                <p data-i18n="treks.features.booking_text">Contáctanos y organiza tu aventura rápidamente</p>
                             </div>
                         </div>
                     </div>
@@ -316,8 +391,8 @@
                         <div class="icon-box icon-box-left">
                             <i class="im-forest"></i>
                             <div class="caption">
-                                <h3>Lugares únicos</h3>
-                                <p>Descubre rincones naturales especiales de Cómbita</p>
+                                <h3 data-i18n="treks.features.places_title">Lugares únicos</h3>
+                                <p data-i18n="treks.features.places_text">Descubre rincones naturales especiales de Cómbita</p>
                             </div>
                         </div>
                     </div>
@@ -329,15 +404,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <h3>Cómbita</h3>
-                    <p>En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio
+                    <h3 data-i18n="common.footer.brand">Cómbita</h3>
+                    <p data-i18n="common.footer.tagline">En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio
                         de por qué subimos.</p>
 
                 </div>
                 <div class="col-lg-4">
-                    <h3>Contacto</h3>
+                    <h3 data-i18n="common.footer.contact_title">Contacto</h3>
                     <ul class="icon-list icon-line">
-                        <li>Cómbita, Boyacá, Colombia</li>
+                        <li data-i18n="common.footer.address">Cómbita, Boyacá, Colombia</li>
                         <li>alcaldia@combita-boyaca.gov.co</li>
                         <li> 313 366 2322</li>
                     </ul>
@@ -349,16 +424,16 @@
                         <a class="youtube" href="https://www.youtube.com/@Combita-Boyaca" target="_blank"><i class="icon-youtube"></i></a>
                     </div>
                     <hr class="space-sm" />
-                    <p>Síguenos en nuestras redes</p>
+                    <p data-i18n="common.footer.follow_us">Síguenos en nuestras redes</p>
                 </div>
 
             </div>
         </div>
         <div class="footer-bar">
             <div class="container">
-                <span>© 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/"
+                <span><span data-i18n="common.footer.copy">© 2024 Santiago Quiroga Molina</span> <a href="https://santiago-developer.netlify.app/"
                         target="_blank">santiago-developer.com</a>.</span>
-                <span><a href="../contacts.html">Contacto</a> | <a href="../privacidad.html">Política de privacidad</a></span>
+                <span><a href="../contacts.html" data-i18n="common.footer.contact_short">Contacto</a> | <a href="../privacidad.html" data-i18n="common.footer.privacy">Política de privacidad</a></span>
             </div>
         </div>
     </footer>
@@ -377,7 +452,8 @@
             // Mostrar loading
             const dinamicas = document.getElementById('caminatas-dinamicas');
             if (dinamicas) {
-                dinamicas.innerHTML = '<div style="text-align:center; padding:40px; grid-column: span 3;"><i class="fas fa-spinner fa-spin" style="font-size:30px; color:#699073;"></i><p>Cargando caminatas...</p></div>';
+                const loadingText = (window.i18n && window.i18n.t) ? window.i18n.t('treks.loading', 'Cargando caminatas...') : 'Cargando caminatas...';
+                dinamicas.innerHTML = '<div style="text-align:center; padding:40px; grid-column: span 3;"><i class="fas fa-spinner fa-spin" style="font-size:30px; color:#699073;"></i><p>' + loadingText + '</p></div>';
             }
 
             // Cargar caminatas desde backend
@@ -419,7 +495,7 @@
                             <a href="#" class="img-box">
                                 <img src="${caminata.imagen || 'imagenes/sendero-default.jpg'}"
                                      alt="${caminata.nombre}"
-                                     onerror="this.src='../../assets/images/La Peña.jpg'" />
+                                     onerror="this.src='../../assets/images/La Peña.jpg'" / loading="lazy">
                             </a>
                             <div class="caption">
                                 <h2>${caminata.nombre}</h2>

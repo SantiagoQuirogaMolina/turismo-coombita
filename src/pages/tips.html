@@ -4,10 +4,44 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tips del Viajero | Turismo Cómbita - Información Práctica</title>
-    <meta name="description" content="Información práctica para visitar Cómbita: clima, qué llevar, mejor época, altitud, seguridad y recomendaciones para disfrutar tu viaje.">
+    <title data-i18n="tips.title">Tips del Viajero | Turismo Cómbita - Información Práctica</title>
+    <link rel="preload" as="image" href="../assets/images/La Peña.jpg">
+    <meta name="description" data-i18n-attr="content:tips.description" content="Información práctica para visitar Cómbita: clima, qué llevar, mejor época, altitud, seguridad y recomendaciones para disfrutar tu viaje.">
+    <!-- CSS crítico del splash (inline para que se vea desde el primer frame) -->
+    <style>
+        #preloader{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(170deg,#1a2a20 0%,#2d3e33 45%,#3a5240 100%);z-index:99995;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+        #preloader::before{content:""!important;background:none!important;width:0!important;height:0!important}
+        #preloader.splash-paramo::after{content:"";position:absolute;top:0;left:-50%;right:-50%;bottom:0;background:radial-gradient(ellipse at 20% 80%,rgba(105,144,115,.15) 0%,transparent 60%),radial-gradient(ellipse at 80% 60%,rgba(221,161,94,.08) 0%,transparent 50%),radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.04) 0%,transparent 70%);animation:splash-neblina 4s ease-in-out infinite alternate;z-index:0}
+        @keyframes splash-neblina{0%{transform:translateX(-3%) translateY(5px);opacity:.6}100%{transform:translateX(3%) translateY(-5px);opacity:1}}
+        #preloader .splash-mountains{position:absolute;bottom:0;left:0;right:0;height:220px;z-index:1}
+        #preloader .splash-mountains svg{width:100%;height:100%;display:block}
+        #preloader .splash-content{position:relative;z-index:2;text-align:center;animation:splash-aparecer .8s ease-out both}
+        @keyframes splash-aparecer{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+        #preloader .splash-icon{margin:0 auto 20px;width:60px;height:80px;animation:splash-respirar 3s ease-in-out infinite}
+        #preloader .splash-icon svg{width:100%;height:100%}
+        @keyframes splash-respirar{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.06);opacity:1}}
+        #preloader .splash-title{color:#DDA15E;font-family:'Montserrat',sans-serif;font-size:32px;font-weight:800;letter-spacing:10px;text-transform:uppercase;margin:0;line-height:1}
+        #preloader .splash-line{width:50px;height:3px;background:linear-gradient(90deg,transparent,#DDA15E,transparent);border-radius:2px;margin:16px auto;animation:splash-linea 2s ease-in-out infinite alternate}
+        @keyframes splash-linea{0%{width:40px;opacity:.6}100%{width:70px;opacity:1}}
+        #preloader .splash-subtitle{color:rgba(255,255,255,.55);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin:0}
+        #preloader .splash-particulas{position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;overflow:hidden}
+        #preloader .splash-particulas span{position:absolute;width:4px;height:4px;background:rgba(221,161,94,.4);border-radius:50%;animation:splash-flotar 6s ease-in-out infinite}
+        #preloader .splash-particulas span:nth-child(1){left:15%;bottom:20%;animation-delay:0s;animation-duration:7s}
+        #preloader .splash-particulas span:nth-child(2){left:35%;bottom:30%;animation-delay:1.5s;animation-duration:5s;width:3px;height:3px}
+        #preloader .splash-particulas span:nth-child(3){left:65%;bottom:15%;animation-delay:.8s;animation-duration:8s}
+        #preloader .splash-particulas span:nth-child(4){left:80%;bottom:25%;animation-delay:2.5s;animation-duration:6s;width:3px;height:3px}
+        #preloader .splash-particulas span:nth-child(5){left:50%;bottom:35%;animation-delay:1s;animation-duration:7.5s;width:5px;height:5px;background:rgba(221,161,94,.25)}
+        @keyframes splash-flotar{0%{transform:translateY(0) scale(1);opacity:0}15%{opacity:1}50%{transform:translateY(-120px) scale(.8);opacity:.6}85%{opacity:.3}100%{transform:translateY(-250px) scale(.4);opacity:0}}
+        #preloader .splash-progress{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);width:100px;height:2px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;z-index:2}
+        #preloader .splash-progress span{display:block;height:100%;background:linear-gradient(90deg,transparent,#DDA15E,transparent);border-radius:2px;animation:splash-carga 1.8s ease-in-out infinite}
+        @keyframes splash-carga{0%{width:0%;margin-left:0%}50%{width:50%;margin-left:25%}100%{width:0%;margin-left:100%}}
+        @media (max-width:575.98px){#preloader .splash-title{font-size:24px;letter-spacing:6px}#preloader .splash-subtitle{font-size:10px;letter-spacing:3px}#preloader .splash-icon{width:45px;height:60px}}
+        #preloader{animation:splash-seguro .6s ease-out 5s forwards}
+        @keyframes splash-seguro{to{opacity:0;visibility:hidden;pointer-events:none}}
+    </style>
     <script src="../assets/js/vendor/jquery.min.js"></script>
     <script src="../assets/js/vendor/main.js"></script>
+    <script src="../assets/js/modules/i18n.js?v=2" defer></script>
     <link rel="stylesheet" href="../assets/css/vendor/bootstrap-grid.css">
     <link rel="stylesheet" href="../assets/css/vendor/style.css">
     <link rel="stylesheet" href="../assets/css/vendor/glide.css">
@@ -16,7 +50,7 @@
     <link rel="stylesheet" href="../assets/css/vendor/media-box.css">
     <link rel="stylesheet" href="../assets/media/icons/fontawesome/all.css">
     <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/frailejon-theme.css">
+    <link rel="stylesheet" href="../assets/css/frailejon-theme.css?v=3">
     <link rel="icon" href="../assets/images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -277,7 +311,42 @@
     </style>
 </head>
 <body class="page-main">
-    <div id="preloader"></div>
+    <div id="preloader" class="splash-paramo">
+        <div class="splash-particulas">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="splash-content">
+            <div class="splash-icon">
+                <svg viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="#DDA15E" stroke-width="1.5" stroke-linecap="round" opacity="0.9">
+                        <path d="M30 78 L30 40" stroke-width="2"/>
+                        <path d="M27 75 Q30 72 33 75"/>
+                        <path d="M26 68 Q30 65 34 68"/>
+                        <path d="M25 61 Q30 58 35 61"/>
+                        <path d="M26 54 Q30 51 34 54"/>
+                        <path d="M27 47 Q30 44 33 47"/>
+                        <path d="M30 38 Q30 20 18 8" stroke-width="1.8"/>
+                        <path d="M30 38 Q25 18 10 14" stroke-width="1.5"/>
+                        <path d="M30 38 Q35 18 50 14" stroke-width="1.5"/>
+                        <path d="M30 38 Q30 20 42 8" stroke-width="1.8"/>
+                        <path d="M30 38 Q20 22 8 24" stroke-width="1.3"/>
+                        <path d="M30 38 Q40 22 52 24" stroke-width="1.3"/>
+                        <path d="M30 38 L30 6" stroke-width="1.8"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="splash-title">CÓMBITA</div>
+            <div class="splash-line"></div>
+            <div class="splash-subtitle">Boyacá &middot; Colombia</div>
+        </div>
+        <div class="splash-mountains">
+            <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,220 L0,160 Q120,80 240,120 Q360,160 480,100 Q600,40 720,90 Q840,140 960,70 Q1080,0 1200,50 Q1320,100 1440,60 L1440,220 Z" fill="rgba(105,144,115,0.08)"/>
+                <path d="M0,220 L0,180 Q180,120 360,155 Q540,190 720,140 Q900,90 1080,130 Q1260,170 1440,110 L1440,220 Z" fill="rgba(105,144,115,0.05)"/>
+            </svg>
+        </div>
+        <div class="splash-progress"><span></span></div>
+    </div>
     <nav class="menu-classic menu-fixed align-right" data-menu-anima="fade-in">
         <div class="container">
             <div class="menu-brand">
@@ -291,39 +360,45 @@
             <i class="menu-btn"></i>
             <div class="menu-cnt">
                 <ul id="main-menu">
-                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./index.html" data-i18n="common.nav.home">Inicio</a></li>
                     <li class="dropdown">
-                        <a href="#">Descubre</a>
+                        <a href="#" data-i18n="common.nav.discover">Descubre</a>
                         <ul>
                             <li class="dropdown-submenu">
-                                <a>Imperdibles</a>
+                                <a data-i18n="common.nav.must_see">Imperdibles</a>
                                 <ul>
-                                    <li><a href="./food.html">Restaurantes</a></li>
-                                    <li><a href="./shelters.html">Hospedajes</a></li>
-                                    <li><a href="./events.html">Eventos</a></li>
-                                    <li><a href="./artesanos-guias.html">Artesanos y Guías</a></li>
+                                    <li><a href="./food.html" data-i18n="common.nav.restaurants">Restaurantes</a></li>
+                                    <li><a href="./shelters.html" data-i18n="common.nav.lodging">Hospedajes</a></li>
+                                    <li><a href="./events.html" data-i18n="common.nav.events">Eventos</a></li>
+                                    <li><a href="./artesanos-guias.html" data-i18n="common.nav.artisans_guides">Artesanos y Guías</a></li>
+                                    <li><a href="./catering.html" data-i18n="common.nav.catering">Catering y Celebraciones</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown-submenu">
-                                <a>Explora Más</a>
+                                <a data-i18n="common.nav.explore_more">Explora Más</a>
                                 <ul>
-                                    <li><a href="./history.html">Historia</a></li>
-                                    <li><a href="./gallery.html">Galería</a></li>
+                                    <li><a href="./history.html" data-i18n="common.nav.history">Historia</a></li>
+                                    <li><a href="./gallery.html" data-i18n="common.nav.gallery">Galería</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
-                    <li><a href="./treks/index.html">Caminatas</a></li>
+                    <li><a href="./treks/index.html" data-i18n="common.nav.treks">Caminatas</a></li>
                     <li class="dropdown">
-                        <a href="#">Planifica</a>
+                        <a href="#" data-i18n="common.nav.plan">Planifica</a>
                         <ul>
-                            <li><a href="./transporte.html">Cómo Llegar</a></li>
-                            <li><a href="./mapa.html">Mapa</a></li>
-                            <li><a href="./tips.html">Tips del Viajero</a></li>
+                            <li><a href="./transporte.html" data-i18n="common.nav.how_to_arrive">Cómo Llegar</a></li>
+                            <li><a href="./mapa.html" data-i18n="common.nav.map">Mapa</a></li>
+                            <li><a href="./tips.html" data-i18n="common.nav.tips">Tips del Viajero</a></li>
                         </ul>
                     </li>
-                    <li><a href="./blog.html">Blog</a></li>
-                    <li><a href="./contacts.html">Contacto</a></li>
+                    <li><a href="./blog.html" data-i18n="common.nav.blog">Blog</a></li>
+                    <li><a href="./contacts.html" data-i18n="common.nav.contact">Contacto</a></li>
+                    <li class="lang-switcher" aria-label="Idioma">
+                        <a href="#" data-lang-switch="es" data-i18n="common.lang_switch.es">ES</a>
+                        <span class="lang-sep">|</span>
+                        <a href="#" data-lang-switch="en" data-i18n="common.lang_switch.en">EN</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -331,12 +406,12 @@
 
     <header class="header-image ken-burn-center light" data-parallax="true" data-natural-height="1080" data-natural-width="1920" data-bleed="0" data-image-src="../assets/images/La Peña.jpg" data-offset="0">
         <div class="container">
-            <h1>Tips del Viajero</h1>
-            <h2>Todo lo que necesitas saber para disfrutar al máximo tu visita</h2>
+            <h1 data-i18n="tips.hero.h1">Tips del Viajero</h1>
+            <h2 data-i18n="tips.hero.h2">Todo lo que necesitas saber para disfrutar al máximo tu visita</h2>
             <ol class="breadcrumb">
-                <li><a href="./index.html">Inicio</a></li>
-                <li><a href="#">Planifica</a></li>
-                <li><a href="#">Tips del Viajero</a></li>
+                <li><a href="./index.html" data-i18n="common.nav.home">Inicio</a></li>
+                <li><a href="#" data-i18n="common.nav.plan">Planifica</a></li>
+                <li><a href="#" data-i18n="common.nav.tips">Tips del Viajero</a></li>
             </ol>
         </div>
     </header>
@@ -349,27 +424,27 @@
                     <div class="tip-hero-item">
                         <i class="fas fa-mountain"></i>
                         <h3>2.820 m</h3>
-                        <p>Altitud promedio</p>
+                        <p data-i18n="tips.quick.altitude_label">Altitud promedio</p>
                     </div>
                     <div class="tip-hero-item">
                         <i class="fas fa-thermometer-half"></i>
                         <h3>10° - 16°C</h3>
-                        <p>Rango de temperatura</p>
+                        <p data-i18n="tips.quick.temp_label">Rango de temperatura</p>
                     </div>
                     <div class="tip-hero-item">
                         <i class="fas fa-cloud-rain"></i>
                         <h3>800 mm</h3>
-                        <p>Precipitación anual</p>
+                        <p data-i18n="tips.quick.rain_label">Precipitación anual</p>
                     </div>
                     <div class="tip-hero-item">
                         <i class="fas fa-sun"></i>
-                        <h3>Dic - Mar</h3>
-                        <p>Mejor época para visitar</p>
+                        <h3 data-i18n="tips.quick.best_period">Dic - Mar</h3>
+                        <p data-i18n="tips.quick.best_period_label">Mejor época para visitar</p>
                     </div>
                     <div class="tip-hero-item">
                         <i class="fas fa-users"></i>
                         <h3>~15.000</h3>
-                        <p>Habitantes</p>
+                        <p data-i18n="tips.quick.population_label">Habitantes</p>
                     </div>
                 </div>
             </div>
@@ -379,70 +454,70 @@
         <section class="tip-section">
             <div class="container">
                 <div class="tip-section-header">
-                    <h2>Clima por Temporada</h2>
+                    <h2 data-i18n="tips.climate.title">Clima por Temporada</h2>
                     <div class="tip-line"></div>
-                    <p>Cómbita tiene un clima frío de montaña. Los meses marcados con ★ son los mejores para visitar.</p>
+                    <p data-i18n="tips.climate.intro">Cómbita tiene un clima frío de montaña. Los meses marcados con ★ son los mejores para visitar.</p>
                 </div>
                 <div class="tip-climate-grid">
                     <div class="tip-month best">
-                        <div class="month-name">Enero</div>
+                        <div class="month-name" data-i18n="tips.months.jan">Enero</div>
                         <div class="month-temp">14°</div>
-                        <div class="month-rain"><i class="fas fa-tint"></i> Baja</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> <span data-i18n="tips.rain.low">Baja</span></div>
                     </div>
                     <div class="tip-month best">
-                        <div class="month-name">Febrero</div>
+                        <div class="month-name" data-i18n="tips.months.feb">Febrero</div>
                         <div class="month-temp">14°</div>
-                        <div class="month-rain"><i class="fas fa-tint"></i> Baja</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> <span data-i18n="tips.rain.low">Baja</span></div>
                     </div>
                     <div class="tip-month best">
-                        <div class="month-name">Marzo</div>
+                        <div class="month-name" data-i18n="tips.months.mar">Marzo</div>
                         <div class="month-temp">14°</div>
-                        <div class="month-rain"><i class="fas fa-tint"></i> Moderada</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> <span data-i18n="tips.rain.moderate">Moderada</span></div>
                     </div>
                     <div class="tip-month">
-                        <div class="month-name">Abril</div>
+                        <div class="month-name" data-i18n="tips.months.apr">Abril</div>
                         <div class="month-temp">13°</div>
-                        <div class="month-rain"><i class="fas fa-tint"></i> Alta</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> <span data-i18n="tips.rain.high">Alta</span></div>
                     </div>
                     <div class="tip-month">
-                        <div class="month-name">Mayo</div>
+                        <div class="month-name" data-i18n="tips.months.may">Mayo</div>
                         <div class="month-temp">13°</div>
-                        <div class="month-rain"><i class="fas fa-tint"></i> Alta</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> <span data-i18n="tips.rain.high">Alta</span></div>
                     </div>
                     <div class="tip-month">
-                        <div class="month-name">Junio</div>
+                        <div class="month-name" data-i18n="tips.months.jun">Junio</div>
                         <div class="month-temp">12°</div>
-                        <div class="month-rain"><i class="fas fa-tint"></i> Moderada</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> <span data-i18n="tips.rain.moderate">Moderada</span></div>
                     </div>
                     <div class="tip-month">
-                        <div class="month-name">Julio</div>
+                        <div class="month-name" data-i18n="tips.months.jul">Julio</div>
                         <div class="month-temp">12°</div>
-                        <div class="month-rain"><i class="fas fa-tint"></i> Moderada</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> <span data-i18n="tips.rain.moderate">Moderada</span></div>
                     </div>
                     <div class="tip-month">
-                        <div class="month-name">Agosto</div>
+                        <div class="month-name" data-i18n="tips.months.aug">Agosto</div>
                         <div class="month-temp">12°</div>
-                        <div class="month-rain"><i class="fas fa-tint"></i> Moderada</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> <span data-i18n="tips.rain.moderate">Moderada</span></div>
                     </div>
                     <div class="tip-month">
-                        <div class="month-name">Septiembre</div>
+                        <div class="month-name" data-i18n="tips.months.sep">Septiembre</div>
                         <div class="month-temp">13°</div>
-                        <div class="month-rain"><i class="fas fa-tint"></i> Alta</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> <span data-i18n="tips.rain.high">Alta</span></div>
                     </div>
                     <div class="tip-month">
-                        <div class="month-name">Octubre</div>
+                        <div class="month-name" data-i18n="tips.months.oct">Octubre</div>
                         <div class="month-temp">13°</div>
-                        <div class="month-rain"><i class="fas fa-tint"></i> Alta</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> <span data-i18n="tips.rain.high">Alta</span></div>
                     </div>
                     <div class="tip-month">
-                        <div class="month-name">Noviembre</div>
+                        <div class="month-name" data-i18n="tips.months.nov">Noviembre</div>
                         <div class="month-temp">13°</div>
-                        <div class="month-rain"><i class="fas fa-tint"></i> Alta</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> <span data-i18n="tips.rain.high">Alta</span></div>
                     </div>
                     <div class="tip-month best">
-                        <div class="month-name">Diciembre</div>
+                        <div class="month-name" data-i18n="tips.months.dec">Diciembre</div>
                         <div class="month-temp">13°</div>
-                        <div class="month-rain"><i class="fas fa-tint"></i> Baja</div>
+                        <div class="month-rain"><i class="fas fa-tint"></i> <span data-i18n="tips.rain.low">Baja</span></div>
                     </div>
                 </div>
             </div>
@@ -452,42 +527,42 @@
         <section class="tip-section">
             <div class="container">
                 <div class="tip-section-header">
-                    <h2>¿Qué Llevar?</h2>
+                    <h2 data-i18n="tips.pack.title">¿Qué Llevar?</h2>
                     <div class="tip-line"></div>
-                    <p>Empaca inteligente para disfrutar al máximo tu experiencia en el páramo boyacense.</p>
+                    <p data-i18n="tips.pack.intro">Empaca inteligente para disfrutar al máximo tu experiencia en el páramo boyacense.</p>
                 </div>
                 <div class="tip-checklist">
                     <div class="tip-check-card">
-                        <h3><i class="fas fa-tshirt"></i> Ropa y Abrigo</h3>
+                        <h3><i class="fas fa-tshirt"></i> <span data-i18n="tips.pack.clothing_title">Ropa y Abrigo</span></h3>
                         <ul class="tip-check-list">
-                            <li>Chaqueta impermeable y cortavientos</li>
-                            <li>Ropa térmica o en capas</li>
-                            <li>Bufanda, gorro y guantes</li>
-                            <li>Botas de senderismo impermeables</li>
-                            <li>Pantalón largo cómodo</li>
-                            <li>Ropa de cambio (puede llover)</li>
+                            <li data-i18n="tips.pack.clothing.i1">Chaqueta impermeable y cortavientos</li>
+                            <li data-i18n="tips.pack.clothing.i2">Ropa térmica o en capas</li>
+                            <li data-i18n="tips.pack.clothing.i3">Bufanda, gorro y guantes</li>
+                            <li data-i18n="tips.pack.clothing.i4">Botas de senderismo impermeables</li>
+                            <li data-i18n="tips.pack.clothing.i5">Pantalón largo cómodo</li>
+                            <li data-i18n="tips.pack.clothing.i6">Ropa de cambio (puede llover)</li>
                         </ul>
                     </div>
                     <div class="tip-check-card">
-                        <h3><i class="fas fa-first-aid"></i> Salud y Protección</h3>
+                        <h3><i class="fas fa-first-aid"></i> <span data-i18n="tips.pack.health_title">Salud y Protección</span></h3>
                         <ul class="tip-check-list">
-                            <li>Bloqueador solar SPF 50+</li>
-                            <li>Gafas de sol con protección UV</li>
-                            <li>Botiquín básico</li>
-                            <li>Medicamento para el soroche (mal de altura)</li>
-                            <li>Repelente de insectos</li>
-                            <li>Hidratación constante</li>
+                            <li data-i18n="tips.pack.health.i1">Bloqueador solar SPF 50+</li>
+                            <li data-i18n="tips.pack.health.i2">Gafas de sol con protección UV</li>
+                            <li data-i18n="tips.pack.health.i3">Botiquín básico</li>
+                            <li data-i18n="tips.pack.health.i4">Medicamento para el soroche (mal de altura)</li>
+                            <li data-i18n="tips.pack.health.i5">Repelente de insectos</li>
+                            <li data-i18n="tips.pack.health.i6">Hidratación constante</li>
                         </ul>
                     </div>
                     <div class="tip-check-card">
-                        <h3><i class="fas fa-backpack"></i> Accesorios Útiles</h3>
+                        <h3><i class="fas fa-backpack"></i> <span data-i18n="tips.pack.gear_title">Accesorios Útiles</span></h3>
                         <ul class="tip-check-list">
-                            <li>Mochila pequeña para caminatas</li>
-                            <li>Botella de agua reutilizable</li>
-                            <li>Cámara fotográfica</li>
-                            <li>Cargador portátil (powerbank)</li>
-                            <li>Snacks energéticos</li>
-                            <li>Dinero en efectivo</li>
+                            <li data-i18n="tips.pack.gear.i1">Mochila pequeña para caminatas</li>
+                            <li data-i18n="tips.pack.gear.i2">Botella de agua reutilizable</li>
+                            <li data-i18n="tips.pack.gear.i3">Cámara fotográfica</li>
+                            <li data-i18n="tips.pack.gear.i4">Cargador portátil (powerbank)</li>
+                            <li data-i18n="tips.pack.gear.i5">Snacks energéticos</li>
+                            <li data-i18n="tips.pack.gear.i6">Dinero en efectivo</li>
                         </ul>
                     </div>
                 </div>
@@ -498,36 +573,36 @@
         <section class="tip-section">
             <div class="container">
                 <div class="tip-section-header">
-                    <h2>Recomendaciones Importantes</h2>
+                    <h2 data-i18n="tips.recs.title">Recomendaciones Importantes</h2>
                     <div class="tip-line"></div>
                 </div>
                 <div class="tip-alerts">
                     <div class="tip-alert green">
                         <div class="tip-alert-icon"><i class="fas fa-leaf"></i></div>
                         <div>
-                            <h4>Respeta la naturaleza</h4>
-                            <p>No dejes basura en los senderos. Los frailejones tardan más de 100 años en crecer, no los arranques ni los toques. Respeta la fauna silvestre.</p>
+                            <h4 data-i18n="tips.recs.nature_t">Respeta la naturaleza</h4>
+                            <p data-i18n="tips.recs.nature_d">No dejes basura en los senderos. Los frailejones tardan más de 100 años en crecer, no los arranques ni los toques. Respeta la fauna silvestre.</p>
                         </div>
                     </div>
                     <div class="tip-alert orange">
                         <div class="tip-alert-icon"><i class="fas fa-mountain"></i></div>
                         <div>
-                            <h4>Aclimatación a la altura</h4>
-                            <p>Estamos a más de 2.800 metros. Si vienes de tierra caliente, tómate el primer día con calma. Hidrátate bien y evita esfuerzos intensos las primeras horas.</p>
+                            <h4 data-i18n="tips.recs.altitude_t">Aclimatación a la altura</h4>
+                            <p data-i18n="tips.recs.altitude_d">Estamos a más de 2.800 metros. Si vienes de tierra caliente, tómate el primer día con calma. Hidrátate bien y evita esfuerzos intensos las primeras horas.</p>
                         </div>
                     </div>
                     <div class="tip-alert blue">
                         <div class="tip-alert-icon"><i class="fas fa-user-shield"></i></div>
                         <div>
-                            <h4>Contrata un guía local</h4>
-                            <p>Para las caminatas de páramo es recomendable ir con un guía certificado. Conocen las rutas, el clima y pueden hacer tu experiencia mucho más enriquecedora.</p>
+                            <h4 data-i18n="tips.recs.guide_t">Contrata un guía local</h4>
+                            <p data-i18n="tips.recs.guide_d">Para las caminatas de páramo es recomendable ir con un guía certificado. Conocen las rutas, el clima y pueden hacer tu experiencia mucho más enriquecedora.</p>
                         </div>
                     </div>
                     <div class="tip-alert red">
                         <div class="tip-alert-icon"><i class="fas fa-cloud-sun-rain"></i></div>
                         <div>
-                            <h4>Clima impredecible</h4>
-                            <p>En el páramo el clima cambia rápidamente. Puede estar soleado y en minutos llover. Lleva siempre una capa impermeable, incluso en temporada seca.</p>
+                            <h4 data-i18n="tips.recs.weather_t">Clima impredecible</h4>
+                            <p data-i18n="tips.recs.weather_d">En el páramo el clima cambia rápidamente. Puede estar soleado y en minutos llover. Lleva siempre una capa impermeable, incluso en temporada seca.</p>
                         </div>
                     </div>
                 </div>
@@ -538,40 +613,40 @@
         <section class="tip-section">
             <div class="container">
                 <div class="tip-section-header">
-                    <h2>Gastronomía que Debes Probar</h2>
+                    <h2 data-i18n="tips.food.title">Gastronomía que Debes Probar</h2>
                     <div class="tip-line"></div>
-                    <p>La cocina boyacense es rica en sabores de la tierra. No te vayas sin probar estos platos.</p>
+                    <p data-i18n="tips.food.intro">La cocina boyacense es rica en sabores de la tierra. No te vayas sin probar estos platos.</p>
                 </div>
                 <div class="tip-food-grid">
                     <div class="tip-food">
                         <i class="fas fa-bowl-food"></i>
-                        <h4>Mute Boyacense</h4>
-                        <p>Sopa espesa con maíz, frijol, papa, arveja, carne de cerdo y res. El plato insignia de la región.</p>
+                        <h4 data-i18n="tips.food.mute_t">Mute Boyacense</h4>
+                        <p data-i18n="tips.food.mute_d">Sopa espesa con maíz, frijol, papa, arveja, carne de cerdo y res. El plato insignia de la región.</p>
                     </div>
                     <div class="tip-food">
                         <i class="fas fa-bread-slice"></i>
-                        <h4>Arepa Boyacense</h4>
-                        <p>Dulce, con queso y panela. Se cocina en horno de leña y tiene un sabor único e inconfundible.</p>
+                        <h4 data-i18n="tips.food.arepa_t">Arepa Boyacense</h4>
+                        <p data-i18n="tips.food.arepa_d">Dulce, con queso y panela. Se cocina en horno de leña y tiene un sabor único e inconfundible.</p>
                     </div>
                     <div class="tip-food">
                         <i class="fas fa-drumstick-bite"></i>
-                        <h4>Cocido Boyacense</h4>
-                        <p>Variedad de tubérculos, habas, mazorca y carnes cocidos lentamente. Reconfortante y abundante.</p>
+                        <h4 data-i18n="tips.food.cocido_t">Cocido Boyacense</h4>
+                        <p data-i18n="tips.food.cocido_d">Variedad de tubérculos, habas, mazorca y carnes cocidos lentamente. Reconfortante y abundante.</p>
                     </div>
                     <div class="tip-food">
                         <i class="fas fa-mug-hot"></i>
-                        <h4>Aguapanela con Queso</h4>
-                        <p>Bebida caliente de panela con trozos de queso campesino. Perfecta para el frío del páramo.</p>
+                        <h4 data-i18n="tips.food.aguapanela_t">Aguapanela con Queso</h4>
+                        <p data-i18n="tips.food.aguapanela_d">Bebida caliente de panela con trozos de queso campesino. Perfecta para el frío del páramo.</p>
                     </div>
                     <div class="tip-food">
                         <i class="fas fa-fish"></i>
-                        <h4>Trucha del Páramo</h4>
-                        <p>Trucha fresca de los ríos de montaña, preparada a la plancha o al ajillo. Delicada y deliciosa.</p>
+                        <h4 data-i18n="tips.food.trucha_t">Trucha del Páramo</h4>
+                        <p data-i18n="tips.food.trucha_d">Trucha fresca de los ríos de montaña, preparada a la plancha o al ajillo. Delicada y deliciosa.</p>
                     </div>
                     <div class="tip-food">
                         <i class="fas fa-cookie"></i>
-                        <h4>Almojábanas</h4>
-                        <p>Panecillos de queso con almidón de yuca. Crujientes por fuera, suaves por dentro. Ideales con chocolate.</p>
+                        <h4 data-i18n="tips.food.almojabanas_t">Almojábanas</h4>
+                        <p data-i18n="tips.food.almojabanas_d">Panecillos de queso con almidón de yuca. Crujientes por fuera, suaves por dentro. Ideales con chocolate.</p>
                     </div>
                 </div>
             </div>
@@ -580,17 +655,17 @@
         <!-- CTA final -->
         <section class="tip-cta">
             <div class="container">
-                <h3>¿Listo para la aventura?</h3>
-                <p>Planifica tu viaje a Cómbita y descubre la magia del páramo boyacense.</p>
+                <h3 data-i18n="tips.cta.title">¿Listo para la aventura?</h3>
+                <p data-i18n="tips.cta.subtitle">Planifica tu viaje a Cómbita y descubre la magia del páramo boyacense.</p>
                 <div class="tip-cta-links">
                     <a href="./transporte.html" class="tip-cta-link primary">
-                        <i class="fas fa-route"></i> Cómo Llegar
+                        <i class="fas fa-route"></i> <span data-i18n="common.nav.how_to_arrive">Cómo Llegar</span>
                     </a>
                     <a href="./artesanos-guias.html" class="tip-cta-link outline">
-                        <i class="fas fa-hiking"></i> Buscar un Guía
+                        <i class="fas fa-hiking"></i> <span data-i18n="tips.cta.find_guide">Buscar un Guía</span>
                     </a>
                     <a href="./contacts.html" class="tip-cta-link outline">
-                        <i class="fas fa-envelope"></i> Contacto
+                        <i class="fas fa-envelope"></i> <span data-i18n="common.nav.contact">Contacto</span>
                     </a>
                 </div>
             </div>
@@ -601,13 +676,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <h3>Cómbita</h3>
-                    <p>En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio de por qué subimos.</p>
+                    <h3 data-i18n="common.footer.brand">Cómbita</h3>
+                    <p data-i18n="common.footer.tagline">En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio de por qué subimos.</p>
                 </div>
                 <div class="col-lg-4">
-                    <h3>Contacto</h3>
+                    <h3 data-i18n="common.footer.contact_title">Contacto</h3>
                     <ul class="icon-list icon-line">
-                        <li>Cómbita, Boyacá, Colombia</li>
+                        <li data-i18n="common.footer.address">Cómbita, Boyacá, Colombia</li>
                         <li>alcaldia@combita-boyaca.gov.co</li>
                         <li> 313 366 2322</li>
                     </ul>
@@ -619,14 +694,14 @@
                         <a class="youtube" href="https://www.youtube.com/@Combita-Boyaca" target="_blank"><i class="icon-youtube"></i></a>
                     </div>
                     <hr class="space-sm" />
-                    <p>Síguenos en nuestras redes</p>
+                    <p data-i18n="common.footer.follow_us">Síguenos en nuestras redes</p>
                 </div>
             </div>
         </div>
         <div class="footer-bar">
             <div class="container">
-                <span>&copy; 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/" target="_blank">santiago-developer.com</a>.</span>
-                <span><a href="./contacts.html">Contacto</a> | <a href="./privacidad.html">Política de privacidad</a></span>
+                <span><span data-i18n="common.footer.copy">&copy; 2024 Santiago Quiroga Molina</span> <a href="https://santiago-developer.netlify.app/" target="_blank">santiago-developer.com</a>.</span>
+                <span><a href="./contacts.html" data-i18n="common.footer.contact_short">Contacto</a> | <a href="./privacidad.html" data-i18n="common.footer.privacy">Política de privacidad</a></span>
             </div>
         </div>
     </footer>

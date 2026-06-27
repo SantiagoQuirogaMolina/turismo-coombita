@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title data-i18n="catering.title">Catering y Celebraciones | Turismo Cómbita - Eventos y Organización</title>
+    <meta name="description" data-i18n-attr="content:catering.description" content="Servicios de catering, organización de eventos y celebraciones en Cómbita, Boyacá. Salones, decoración, mobiliario, planificación logística y más.">
+    <!-- CSS crítico del splash (inline para que se vea desde el primer frame) -->
+    <style>
+        #preloader{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(170deg,#1a2a20 0%,#2d3e33 45%,#3a5240 100%);z-index:99995;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+        #preloader::before{content:""!important;background:none!important;width:0!important;height:0!important}
+        #preloader.splash-paramo::after{content:"";position:absolute;top:0;left:-50%;right:-50%;bottom:0;background:radial-gradient(ellipse at 20% 80%,rgba(105,144,115,.15) 0%,transparent 60%),radial-gradient(ellipse at 80% 60%,rgba(221,161,94,.08) 0%,transparent 50%),radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.04) 0%,transparent 70%);animation:splash-neblina 4s ease-in-out infinite alternate;z-index:0}
+        @keyframes splash-neblina{0%{transform:translateX(-3%) translateY(5px);opacity:.6}100%{transform:translateX(3%) translateY(-5px);opacity:1}}
+        #preloader .splash-mountains{position:absolute;bottom:0;left:0;right:0;height:220px;z-index:1}
+        #preloader .splash-mountains svg{width:100%;height:100%;display:block}
+        #preloader .splash-content{position:relative;z-index:2;text-align:center;animation:splash-aparecer .8s ease-out both}
+        @keyframes splash-aparecer{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+        #preloader .splash-icon{margin:0 auto 20px;width:60px;height:80px;animation:splash-respirar 3s ease-in-out infinite}
+        #preloader .splash-icon svg{width:100%;height:100%}
+        @keyframes splash-respirar{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.06);opacity:1}}
+        #preloader .splash-title{color:#DDA15E;font-family:'Montserrat',sans-serif;font-size:32px;font-weight:800;letter-spacing:10px;text-transform:uppercase;margin:0;line-height:1}
+        #preloader .splash-line{width:50px;height:3px;background:linear-gradient(90deg,transparent,#DDA15E,transparent);border-radius:2px;margin:16px auto;animation:splash-linea 2s ease-in-out infinite alternate}
+        @keyframes splash-linea{0%{width:40px;opacity:.6}100%{width:70px;opacity:1}}
+        #preloader .splash-subtitle{color:rgba(255,255,255,.55);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin:0}
+        #preloader .splash-particulas{position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;overflow:hidden}
+        #preloader .splash-particulas span{position:absolute;width:4px;height:4px;background:rgba(221,161,94,.4);border-radius:50%;animation:splash-flotar 6s ease-in-out infinite}
+        #preloader .splash-particulas span:nth-child(1){left:15%;bottom:20%;animation-delay:0s;animation-duration:7s}
+        #preloader .splash-particulas span:nth-child(2){left:35%;bottom:30%;animation-delay:1.5s;animation-duration:5s;width:3px;height:3px}
+        #preloader .splash-particulas span:nth-child(3){left:65%;bottom:15%;animation-delay:.8s;animation-duration:8s}
+        #preloader .splash-particulas span:nth-child(4){left:80%;bottom:25%;animation-delay:2.5s;animation-duration:6s;width:3px;height:3px}
+        #preloader .splash-particulas span:nth-child(5){left:50%;bottom:35%;animation-delay:1s;animation-duration:7.5s;width:5px;height:5px;background:rgba(221,161,94,.25)}
+        @keyframes splash-flotar{0%{transform:translateY(0) scale(1);opacity:0}15%{opacity:1}50%{transform:translateY(-120px) scale(.8);opacity:.6}85%{opacity:.3}100%{transform:translateY(-250px) scale(.4);opacity:0}}
+        #preloader .splash-progress{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);width:100px;height:2px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;z-index:2}
+        #preloader .splash-progress span{display:block;height:100%;background:linear-gradient(90deg,transparent,#DDA15E,transparent);border-radius:2px;animation:splash-carga 1.8s ease-in-out infinite}
+        @keyframes splash-carga{0%{width:0%;margin-left:0%}50%{width:50%;margin-left:25%}100%{width:0%;margin-left:100%}}
+        @media (max-width:575.98px){#preloader .splash-title{font-size:24px;letter-spacing:6px}#preloader .splash-subtitle{font-size:10px;letter-spacing:3px}#preloader .splash-icon{width:45px;height:60px}}
+        #preloader{animation:splash-seguro .6s ease-out 5s forwards}
+        @keyframes splash-seguro{to{opacity:0;visibility:hidden;pointer-events:none}}
+    </style>
+    <script src="../assets/js/vendor/jquery.min.js"></script>
+    <script src="../assets/js/vendor/main.js"></script>
+    <script src="../assets/js/modules/i18n.js?v=2" defer></script>
+    <link rel="stylesheet" href="../assets/css/vendor/bootstrap-grid.css">
+    <link rel="stylesheet" href="../assets/css/vendor/style.css">
+    <link rel="stylesheet" href="../assets/css/vendor/glide.css">
+    <link rel="stylesheet" href="../assets/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" href="../assets/css/vendor/content-box.css">
+    <link rel="stylesheet" href="../assets/css/vendor/media-box.css">
+    <link rel="stylesheet" href="../assets/css/vendor/contact-form.css">
+    <link rel="stylesheet" href="../assets/images/icons/icons/iconsmind/line-icons.min.css">
+    <link rel="stylesheet" href="../assets/media/icons/fontawesome/all.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/frailejon-theme.css?v=3">
+    <link rel="icon" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Tarjetas de catering — siguen la línea gráfica de hotel-card */
+        .catering-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+        .catering-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        .catering-gallery {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+        .catering-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .catering-no-image {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #FEFAE0 0%, #DDA15E 100%);
+            color: white;
+            font-size: 60px;
+        }
+        .catering-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(105, 144, 115, 0.95);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+        .catering-price-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #2d3e33;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+        .catering-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .catering-content h3 {
+            color: #2d3e33;
+            font-size: 22px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .catering-location {
+            color: #BC6C25;
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .catering-location i {
+            margin-right: 8px;
+        }
+        .catering-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .catering-aforo {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: #555;
+        }
+        .catering-aforo span i {
+            color: #DDA15E;
+            margin-right: 5px;
+        }
+        .catering-tipos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        .tipo-tag {
+            background: rgba(105, 144, 115, 0.12);
+            color: #4a6b52;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .catering-services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .service-tag {
+            background: #FEFAE0;
+            color: #9C6644;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .service-tag i {
+            margin-right: 5px;
+            font-size: 11px;
+        }
+        .catering-actions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+            margin-top: auto;
+        }
+        .catering-actions .btn-cat {
+            padding: 10px 8px;
+            text-align: center;
+            border: 1px solid #DDA15E;
+            background: white;
+            color: #BC6C25;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .catering-actions .btn-cat:hover {
+            background: #BC6C25;
+            color: white;
+            border-color: #BC6C25;
+            transform: scale(1.02);
+        }
+        .catering-actions .btn-cat.primary {
+            background: #699073;
+            color: white;
+            border-color: #699073;
+        }
+        .catering-actions .btn-cat.primary:hover {
+            background: #567760;
+            border-color: #567760;
+        }
+        .catering-actions .btn-cat.disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+            pointer-events: none;
+            background: #fafafa;
+            color: #bbb;
+            border-color: #e5e5e5;
+        }
+        .catering-social {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+        .catering-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        .catering-social a:hover {
+            transform: translateY(-2px);
+        }
+        .catering-social a.facebook:hover { background: #3b5998; color: white; }
+        .catering-social a.instagram:hover { background: #e1306c; color: white; }
+        .catering-social a.tiktok:hover { background: #000; color: white; }
+        .catering-social a.youtube:hover { background: #ff0000; color: white; }
+        .catering-social a.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        /* Tipos de servicio (hero) */
+        .service-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .service-type-card {
+            background: linear-gradient(135deg, #699073 0%, #567760 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .service-type-card:hover { transform: translateY(-5px); }
+        .service-type-card i {
+            font-size: 44px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        .service-type-card h4 { font-size: 18px; margin-bottom: 10px; }
+        .service-type-card p { font-size: 14px; opacity: 0.9; }
+
+        /* Grid */
+        .catering-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        /* Filtros */
+        .catering-filters {
+            display: inline-flex;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 50px;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .catering-filters button {
+            background: transparent;
+            border: none;
+            color: #666;
+            padding: 10px 22px;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        .catering-filters button.active {
+            background: #699073;
+            color: white;
+        }
+        .catering-filters button:hover:not(.active) {
+            background: #e9ecef;
+        }
+
+        /* Banner info */
+        .info-banner {
+            background: linear-gradient(135deg, #FEFAE0 0%, #DDA15E 100%);
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .info-banner h3 {
+            color: #2d3e33;
+            margin-bottom: 15px;
+        }
+        .info-banner p {
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: #999;
+            grid-column: 1 / -1;
+        }
+        .empty-state i {
+            font-size: 60px;
+            color: #DDA15E;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .catering-grid { grid-template-columns: 1fr; }
+            .catering-actions { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="page-main">
+    <div id="preloader" class="splash-paramo">
+        <div class="splash-particulas">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="splash-content">
+            <div class="splash-icon">
+                <svg viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="#DDA15E" stroke-width="1.5" stroke-linecap="round" opacity="0.9">
+                        <path d="M30 78 L30 40" stroke-width="2"/>
+                        <path d="M27 75 Q30 72 33 75"/>
+                        <path d="M26 68 Q30 65 34 68"/>
+                        <path d="M25 61 Q30 58 35 61"/>
+                        <path d="M26 54 Q30 51 34 54"/>
+                        <path d="M27 47 Q30 44 33 47"/>
+                        <path d="M30 38 Q30 20 18 8" stroke-width="1.8"/>
+                        <path d="M30 38 Q25 18 10 14" stroke-width="1.5"/>
+                        <path d="M30 38 Q35 18 50 14" stroke-width="1.5"/>
+                        <path d="M30 38 Q30 20 42 8" stroke-width="1.8"/>
+                        <path d="M30 38 Q20 22 8 24" stroke-width="1.3"/>
+                        <path d="M30 38 Q40 22 52 24" stroke-width="1.3"/>
+                        <path d="M30 38 L30 6" stroke-width="1.8"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="splash-title">CÓMBITA</div>
+            <div class="splash-line"></div>
+            <div class="splash-subtitle">Boyacá &middot; Colombia</div>
+        </div>
+        <div class="splash-mountains">
+            <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,220 L0,160 Q120,80 240,120 Q360,160 480,100 Q600,40 720,90 Q840,140 960,70 Q1080,0 1200,50 Q1320,100 1440,60 L1440,220 Z" fill="rgba(105,144,115,0.08)"/>
+                <path d="M0,220 L0,180 Q180,120 360,155 Q540,190 720,140 Q900,90 1080,130 Q1260,170 1440,110 L1440,220 Z" fill="rgba(105,144,115,0.05)"/>
+            </svg>
+        </div>
+        <div class="splash-progress"><span></span></div>
+    </div>
+    <nav class="menu-classic menu-fixed align-right" data-menu-anima="fade-in">
+        <div class="container">
+            <div class="menu-brand">
+                <a href="./index.html">
+                    <img class="logo-default scroll-hide" src="../assets/images/icons/LOGO COLOR VECTORIZADO.png" alt="logo" />
+                    <img class="logo-retina scroll-hide" src="../assets/images/icons/LOGO COLOR VECTORIZADO.png" alt="logo" />
+                    <img class="logo-default scroll-show" src="../assets/images/icons/lgoo-dos.png" alt="logo" />
+                    <img class="logo-retina scroll-show" src="../assets/images/icons/lgoo-dos.png" alt="logo" />
+                </a>
+            </div>
+            <i class="menu-btn"></i>
+            <div class="menu-cnt">
+                <ul id="main-menu">
+                    <li class="dropdown"><a href="./index.html" data-i18n="common.nav.home">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" data-i18n="common.nav.discover">Descubre</a>
+                        <ul>
+                            <li class="dropdown-submenu">
+                                <a data-i18n="common.nav.must_see">Imperdibles</a>
+                                <ul>
+                                    <li><a href="./food.html" data-i18n="common.nav.restaurants">Restaurantes</a></li>
+                                    <li><a href="./shelters.html" data-i18n="common.nav.lodging">Hospedajes</a></li>
+                                    <li><a href="./events.html" data-i18n="common.nav.events">Eventos</a></li>
+                                    <li><a href="./artesanos-guias.html" data-i18n="common.nav.artisans_guides">Artesanos y Guías</a></li>
+                                    <li><a href="./catering.html" data-i18n="common.nav.catering">Catering y Celebraciones</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a data-i18n="common.nav.explore_more">Explora Más</a>
+                                <ul>
+                                    <li><a href="./history.html" data-i18n="common.nav.history">Historia</a></li>
+                                    <li><a href="./gallery.html" data-i18n="common.nav.gallery">Galería</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="./treks/index.html" data-i18n="common.nav.treks">Caminatas</a></li>
+                    <li class="dropdown">
+                        <a href="#" data-i18n="common.nav.plan">Planifica</a>
+                        <ul>
+                            <li><a href="./transporte.html" data-i18n="common.nav.how_to_arrive">Cómo Llegar</a></li>
+                            <li><a href="./mapa.html" data-i18n="common.nav.map">Mapa</a></li>
+                            <li><a href="./tips.html" data-i18n="common.nav.tips">Tips del Viajero</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./blog.html" data-i18n="common.nav.blog">Blog</a></li>
+                    <li><a href="./contacts.html" data-i18n="common.nav.contact">Contacto</a></li>
+                    <li class="lang-switcher" aria-label="Idioma">
+                        <a href="#" data-lang-switch="es" data-i18n="common.lang_switch.es">ES</a>
+                        <span class="lang-sep">|</span>
+                        <a href="#" data-lang-switch="en" data-i18n="common.lang_switch.en">EN</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="header-base" style="background:#fff;">
+        <div class="container">
+            <h1 data-i18n="catering.hero.h1">Catering y Celebraciones</h1>
+            <h2 data-i18n="catering.hero.h2">Vive momentos únicos en el corazón de Boyacá</h2>
+            <ol class="breadcrumb">
+                <li><a href="./index.html" data-i18n="common.nav.home">Inicio</a></li>
+                <li><a href="#" data-i18n="common.nav.must_see">Imperdibles</a></li>
+                <li><a href="#" data-i18n="common.nav.catering">Catering y Celebraciones</a></li>
+            </ol>
+        </div>
+    </header>
+    <main>
+        <section class="section-base section-color">
+            <div class="container">
+                <div class="title align-center">
+                    <h2 data-i18n="catering.services.title">Servicios para tus Eventos</h2>
+                    <p data-i18n="catering.services.subtitle">Encuentra al equipo y el lugar ideal para celebrar en Cómbita</p>
+                </div>
+                <div class="service-types">
+                    <div class="service-type-card">
+                        <i class="fas fa-glass-cheers"></i>
+                        <h4 data-i18n="catering.services.celebrations.title">Celebraciones</h4>
+                        <p data-i18n="catering.services.celebrations.text">Bodas, cumpleaños y reuniones familiares con la calidez del campo boyacense.</p>
+                    </div>
+                    <div class="service-type-card">
+                        <i class="fas fa-utensils"></i>
+                        <h4 data-i18n="catering.services.catering.title">Catering</h4>
+                        <p data-i18n="catering.services.catering.text">Menús personalizados con sabores típicos y opciones gourmet para cada ocasión.</p>
+                    </div>
+                    <div class="service-type-card">
+                        <i class="fas fa-briefcase"></i>
+                        <h4 data-i18n="catering.services.business.title">Eventos Empresariales</h4>
+                        <p data-i18n="catering.services.business.text">Seminarios, capacitaciones y reuniones corporativas con servicio integral.</p>
+                    </div>
+                    <div class="service-type-card">
+                        <i class="fas fa-tools"></i>
+                        <h4 data-i18n="catering.services.logistics.title">Logística y Montaje</h4>
+                        <p data-i18n="catering.services.logistics.text">Mobiliario, decoración, equipamento y personal para que tu evento fluya sin contratiempos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-base">
+            <div class="container">
+                <div class="title align-center">
+                    <h2 data-i18n="catering.providers.title">Establecimientos y Proveedores</h2>
+                    <p data-i18n="catering.providers.subtitle">Conoce a quienes hacen posible cada celebración en Cómbita</p>
+                </div>
+
+                <div style="text-align:center; margin-bottom: 30px;">
+                    <div class="catering-filters" id="cateringFilters">
+                        <button class="active" data-filter="" data-i18n="catering.filters.all">Todos</button>
+                        <button data-filter="Eventos" data-i18n="catering.filters.events">Eventos</button>
+                        <button data-filter="Catering" data-i18n="catering.filters.catering">Catering</button>
+                        <button data-filter="Celebraciones" data-i18n="catering.filters.celebrations">Celebraciones</button>
+                        <button data-filter="Eventos empresariales" data-i18n="catering.filters.business">Empresariales</button>
+                        <button data-filter="Decoraciones" data-i18n="catering.filters.decorations">Decoraciones</button>
+                    </div>
+                </div>
+
+                <div id="catering-dinamico" class="catering-grid">
+                    <div class="empty-state" style="grid-column: 1 / -1;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p data-i18n="catering.loading">Cargando establecimientos...</p>
+                    </div>
+                </div>
+
+                <div class="info-banner">
+                    <h3 data-i18n-html="catering.info_banner.title_html"><i class="fas fa-info-circle" style="color:#BC6C25;margin-right:8px;"></i>¿Eres organizador de eventos en Cómbita?</h3>
+                    <p data-i18n-html="catering.info_banner.text_html">Si prestas servicios de catering, organización de eventos, alquiler de salones o cualquier servicio relacionado, queremos que tu negocio sea visible para los visitantes. <a href="./contacts.html" style="color:#BC6C25;font-weight:600;">Contáctanos</a> y te ayudamos a publicar tu información.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3 data-i18n="common.footer.brand">Cómbita</h3>
+                    <p data-i18n="common.footer.tagline">En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio de por qué subimos.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h3 data-i18n="common.footer.contact_title">Contacto</h3>
+                    <ul class="icon-list icon-line">
+                        <li data-i18n="common.footer.address">Cómbita, Boyacá, Colombia</li>
+                        <li>alcaldia@combita-boyaca.gov.co</li>
+                        <li> 313 366 2322</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <div class="icon-links icon-social icon-links-grid social-colors">
+                        <a class="facebook" href="https://web.facebook.com/CombitaBoyaca" target="_blank"><i class="icon-facebook"></i></a>
+                        <a class="instagram" href="https://www.instagram.com/combitaoficial" target="_blank"><i class="icon-instagram"></i></a>
+                        <a class="youtube" href="https://www.youtube.com/@Combita-Boyaca" target="_blank"><i class="icon-youtube"></i></a>
+                    </div>
+                    <hr class="space-sm" />
+                    <p data-i18n="common.footer.follow_us">Síguenos en nuestras redes</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bar">
+            <div class="container">
+                <span><span data-i18n="common.footer.copy">&copy; 2024 Santiago Quiroga Molina</span> <a href="https://santiago-developer.netlify.app/" target="_blank">santiago-developer.com</a>.</span>
+                <span><a href="./contacts.html" data-i18n="common.footer.contact_short">Contacto</a> | <a href="./privacidad.html" data-i18n="common.footer.privacy">Política de privacidad</a></span>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/vendor/parallax.min.js"></script>
+    <script src="../assets/js/vendor/glide.min.js"></script>
+    <script src="../assets/js/vendor/imagesloaded.min.js"></script>
+    <script src="../assets/js/vendor/tab-accordion.js"></script>
+
+    <script>
+        const API_URL = window.location.origin + '/api';
+        let todosLosCatering = [];
+        let filtroActivo = '';
+
+        // Iconos para servicios
+        const iconosServicios = {
+            'WiFi': 'fa-wifi',
+            'Parqueadero': 'fa-square-parking',
+            'Cocina': 'fa-utensils',
+            'Jardín': 'fa-leaf',
+            'Chimenea': 'fa-fire',
+            'Proyector de video': 'fa-video',
+            'BBQ': 'fa-drumstick-bite'
+        };
+
+        function escHtml(str) {
+            if (!str) return '';
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function formatPhoneNumber(phone) {
+            if (!phone) return '';
+            return phone.replace(/\D/g, '');
+        }
+
+        function buildMapsLink(item) {
+            if (item.maps_link && item.maps_link.trim()) return item.maps_link.trim();
+            const q = encodeURIComponent(`${item.nombre} Cómbita Boyacá ${item.direccion || ''}`.trim());
+            return `https://maps.google.com/?q=${q}`;
+        }
+
+        function renderCateringCard(item) {
+            const tipos = (item.tipos_servicio || []).map(t =>
+                `<span class="tipo-tag">${escHtml(t)}</span>`
+            ).join('');
+
+            const servicios = (item.servicios || []).map(s => {
+                const icono = iconosServicios[s] || 'fa-check';
+                return `<span class="service-tag"><i class="fas ${icono}"></i>${escHtml(s)}</span>`;
+            }).join('');
+
+            const wa = formatPhoneNumber(item.whatsapp);
+            const tel = formatPhoneNumber(item.telefono);
+            const mapsUrl = buildMapsLink(item);
+
+            const redes = item.redes_sociales || {};
+            const fbCls = redes.facebook ? '' : 'disabled';
+            const igCls = redes.instagram ? '' : 'disabled';
+            const ttCls = redes.tiktok ? '' : 'disabled';
+            const ytCls = redes.youtube ? '' : 'disabled';
+
+            const fbHref = redes.facebook ? (redes.facebook.startsWith('http') ? redes.facebook : `https://facebook.com/${redes.facebook.replace(/^@/, '')}`) : '#';
+            const igHref = redes.instagram ? (redes.instagram.startsWith('http') ? redes.instagram : `https://instagram.com/${redes.instagram.replace(/^@/, '')}`) : '#';
+            const ttHref = redes.tiktok ? (redes.tiktok.startsWith('http') ? redes.tiktok : `https://tiktok.com/@${redes.tiktok.replace(/^@/, '')}`) : '#';
+            const ytHref = redes.youtube ? (redes.youtube.startsWith('http') ? redes.youtube : `https://youtube.com/${redes.youtube.startsWith('@') ? redes.youtube : '@' + redes.youtube}`) : '#';
+
+            const imagenHtml = item.imagen
+                ? `<img src="${item.imagen}" alt="${escHtml(item.nombre)}" onerror="this.parentElement.innerHTML='<div class=\\'catering-no-image\\' loading="lazy"><i class=\\'fas fa-champagne-glasses\\'></i></div>'">`
+                : `<div class="catering-no-image"><i class="fas fa-champagne-glasses"></i></div>`;
+
+            return `
+                <div class="catering-card">
+                    <div class="catering-gallery">
+                        ${imagenHtml}
+                        ${(item.tipos_servicio || []).length > 0 ? `<div class="catering-badge">${escHtml(item.tipos_servicio[0])}</div>` : ''}
+                        <div class="catering-price-badge">${escHtml(item.precio_badge || ((window.i18n && window.i18n.t) ? window.i18n.t('catering.card.price_default', 'Estándar') : 'Estándar'))}</div>
+                    </div>
+                    <div class="catering-content">
+                        <h3>${escHtml(item.nombre)}</h3>
+                        ${(item.direccion || item.ubicacion) ? `
+                        <div class="catering-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            ${escHtml(item.direccion || item.ubicacion)}
+                        </div>` : ''}
+                        ${item.descripcion ? `<p class="catering-description">${escHtml(item.descripcion)}</p>` : ''}
+                        ${(item.aforo_total || item.aforo_parqueadero) ? `
+                        <div class="catering-aforo">
+                            ${item.aforo_total ? `<span><i class="fas fa-users"></i>${(window.i18n && window.i18n.t) ? window.i18n.t('catering.card.capacity', 'Aforo:') : 'Aforo:'} ${item.aforo_total}</span>` : ''}
+                            ${item.aforo_parqueadero ? `<span><i class="fas fa-square-parking"></i>${(window.i18n && window.i18n.t) ? window.i18n.t('catering.card.parking', 'Parqueadero:') : 'Parqueadero:'} ${item.aforo_parqueadero}</span>` : ''}
+                        </div>` : ''}
+                        ${tipos ? `<div class="catering-tipos">${tipos}</div>` : ''}
+                        ${servicios ? `<div class="catering-services">${servicios}</div>` : ''}
+                        <div class="catering-actions">
+                            <a href="${wa ? `https://wa.me/57${wa}` : '#'}" target="${wa ? '_blank' : ''}" class="btn-cat primary ${wa ? '' : 'disabled'}">
+                                <i class="fab fa-whatsapp"></i> ${(window.i18n && window.i18n.t) ? window.i18n.t('catering.card.whatsapp', 'WhatsApp') : 'WhatsApp'}
+                            </a>
+                            <a href="${tel ? `tel:+57${tel}` : '#'}" class="btn-cat ${tel ? '' : 'disabled'}">
+                                <i class="fas fa-phone"></i> ${(window.i18n && window.i18n.t) ? window.i18n.t('catering.card.call', 'Llamar') : 'Llamar'}
+                            </a>
+                            <a href="${mapsUrl}" target="_blank" class="btn-cat" style="grid-column: span 2;">
+                                <i class="fas fa-map"></i> ${(window.i18n && window.i18n.t) ? window.i18n.t('catering.card.location', 'Ubicación') : 'Ubicación'}
+                            </a>
+                        </div>
+                        <div class="catering-social">
+                            <a href="${fbHref}" target="${redes.facebook ? '_blank' : ''}" class="facebook ${fbCls}" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="${igHref}" target="${redes.instagram ? '_blank' : ''}" class="instagram ${igCls}" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="${ttHref}" target="${redes.tiktok ? '_blank' : ''}" class="tiktok ${ttCls}" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="${ytHref}" target="${redes.youtube ? '_blank' : ''}" class="youtube ${ytCls}" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderCatering(items) {
+            const grid = document.getElementById('catering-dinamico');
+            if (!items || items.length === 0) {
+                const tr = (k, fb) => (window.i18n && window.i18n.t) ? window.i18n.t(k, fb) : fb;
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-champagne-glasses"></i>
+                        <p style="font-size:18px;color:#555;margin-bottom:10px;"><strong>${tr('catering.empty.title', 'Próximamente')}</strong></p>
+                        <p>${tr('catering.empty.text_html', 'Estamos construyendo el directorio de proveedores de eventos y catering en Cómbita.<br>Si prestas estos servicios, <a href="./contacts.html" style="color:#BC6C25;">contáctanos</a> para incluirte.')}</p>
+                    </div>
+                `;
+                return;
+            }
+            grid.innerHTML = items.map(renderCateringCard).join('');
+        }
+
+        function aplicarFiltro(tipo) {
+            filtroActivo = tipo || '';
+            if (!filtroActivo) {
+                renderCatering(todosLosCatering);
+            } else {
+                const filtrados = todosLosCatering.filter(c =>
+                    (c.tipos_servicio || []).some(t => t === filtroActivo || t.includes(filtroActivo))
+                );
+                renderCatering(filtrados);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Filtros
+            document.querySelectorAll('#cateringFilters button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('#cateringFilters button').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    aplicarFiltro(btn.dataset.filter);
+                });
+            });
+
+            // Cargar datos
+            fetch(`${API_URL}/catering`)
+                .then(r => r.json())
+                .then(data => {
+                    const items = Array.isArray(data) ? data : (data.data || []);
+                    todosLosCatering = items.filter(c => c.activo !== false);
+                    renderCatering(todosLosCatering);
+                })
+                .catch(err => {
+                    console.error('Error cargando catering:', err);
+                    renderCatering([]);
+                });
+        });
+    </script>
+    <!-- Sistema de Autenticación -->
+    <script src="../assets/js/modules/auth.js"></script>
+</body>
+</html>

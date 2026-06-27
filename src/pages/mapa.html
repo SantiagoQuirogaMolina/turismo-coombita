@@ -4,16 +4,49 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mapa | Turismo Cómbita - Puntos de Interés</title>
-    <meta name="description" content="Mapa interactivo de Cómbita con todos los puntos de interés: restaurantes, hospedajes, senderos, artesanos y sitios turísticos.">
+    <title data-i18n="mapa.title">Mapa | Turismo Cómbita - Puntos de Interés</title>
+    <meta name="description" data-i18n-attr="content:mapa.description" content="Mapa interactivo de Cómbita con todos los puntos de interés: restaurantes, hospedajes, senderos, artesanos y sitios turísticos.">
+    <!-- CSS crítico del splash (inline para que se vea desde el primer frame) -->
+    <style>
+        #preloader{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(170deg,#1a2a20 0%,#2d3e33 45%,#3a5240 100%);z-index:99995;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+        #preloader::before{content:""!important;background:none!important;width:0!important;height:0!important}
+        #preloader.splash-paramo::after{content:"";position:absolute;top:0;left:-50%;right:-50%;bottom:0;background:radial-gradient(ellipse at 20% 80%,rgba(105,144,115,.15) 0%,transparent 60%),radial-gradient(ellipse at 80% 60%,rgba(221,161,94,.08) 0%,transparent 50%),radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.04) 0%,transparent 70%);animation:splash-neblina 4s ease-in-out infinite alternate;z-index:0}
+        @keyframes splash-neblina{0%{transform:translateX(-3%) translateY(5px);opacity:.6}100%{transform:translateX(3%) translateY(-5px);opacity:1}}
+        #preloader .splash-mountains{position:absolute;bottom:0;left:0;right:0;height:220px;z-index:1}
+        #preloader .splash-mountains svg{width:100%;height:100%;display:block}
+        #preloader .splash-content{position:relative;z-index:2;text-align:center;animation:splash-aparecer .8s ease-out both}
+        @keyframes splash-aparecer{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+        #preloader .splash-icon{margin:0 auto 20px;width:60px;height:80px;animation:splash-respirar 3s ease-in-out infinite}
+        #preloader .splash-icon svg{width:100%;height:100%}
+        @keyframes splash-respirar{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.06);opacity:1}}
+        #preloader .splash-title{color:#DDA15E;font-family:'Montserrat',sans-serif;font-size:32px;font-weight:800;letter-spacing:10px;text-transform:uppercase;margin:0;line-height:1}
+        #preloader .splash-line{width:50px;height:3px;background:linear-gradient(90deg,transparent,#DDA15E,transparent);border-radius:2px;margin:16px auto;animation:splash-linea 2s ease-in-out infinite alternate}
+        @keyframes splash-linea{0%{width:40px;opacity:.6}100%{width:70px;opacity:1}}
+        #preloader .splash-subtitle{color:rgba(255,255,255,.55);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin:0}
+        #preloader .splash-particulas{position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;overflow:hidden}
+        #preloader .splash-particulas span{position:absolute;width:4px;height:4px;background:rgba(221,161,94,.4);border-radius:50%;animation:splash-flotar 6s ease-in-out infinite}
+        #preloader .splash-particulas span:nth-child(1){left:15%;bottom:20%;animation-delay:0s;animation-duration:7s}
+        #preloader .splash-particulas span:nth-child(2){left:35%;bottom:30%;animation-delay:1.5s;animation-duration:5s;width:3px;height:3px}
+        #preloader .splash-particulas span:nth-child(3){left:65%;bottom:15%;animation-delay:.8s;animation-duration:8s}
+        #preloader .splash-particulas span:nth-child(4){left:80%;bottom:25%;animation-delay:2.5s;animation-duration:6s;width:3px;height:3px}
+        #preloader .splash-particulas span:nth-child(5){left:50%;bottom:35%;animation-delay:1s;animation-duration:7.5s;width:5px;height:5px;background:rgba(221,161,94,.25)}
+        @keyframes splash-flotar{0%{transform:translateY(0) scale(1);opacity:0}15%{opacity:1}50%{transform:translateY(-120px) scale(.8);opacity:.6}85%{opacity:.3}100%{transform:translateY(-250px) scale(.4);opacity:0}}
+        #preloader .splash-progress{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);width:100px;height:2px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;z-index:2}
+        #preloader .splash-progress span{display:block;height:100%;background:linear-gradient(90deg,transparent,#DDA15E,transparent);border-radius:2px;animation:splash-carga 1.8s ease-in-out infinite}
+        @keyframes splash-carga{0%{width:0%;margin-left:0%}50%{width:50%;margin-left:25%}100%{width:0%;margin-left:100%}}
+        @media (max-width:575.98px){#preloader .splash-title{font-size:24px;letter-spacing:6px}#preloader .splash-subtitle{font-size:10px;letter-spacing:3px}#preloader .splash-icon{width:45px;height:60px}}
+        #preloader{animation:splash-seguro .6s ease-out 5s forwards}
+        @keyframes splash-seguro{to{opacity:0;visibility:hidden;pointer-events:none}}
+    </style>
     <script src="../assets/js/vendor/jquery.min.js"></script>
     <script src="../assets/js/vendor/main.js"></script>
+    <script src="../assets/js/modules/i18n.js?v=2" defer></script>
     <link rel="stylesheet" href="../assets/css/vendor/bootstrap-grid.css">
     <link rel="stylesheet" href="../assets/css/vendor/style.css">
     <link rel="stylesheet" href="../assets/css/vendor/content-box.css">
     <link rel="stylesheet" href="../assets/media/icons/fontawesome/all.css">
     <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/frailejon-theme.css">
+    <link rel="stylesheet" href="../assets/css/frailejon-theme.css?v=3">
     <link rel="icon" href="../assets/images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Leaflet CSS -->
@@ -277,7 +310,42 @@
     </style>
 </head>
 <body class="page-main map-page">
-    <div id="preloader"></div>
+    <div id="preloader" class="splash-paramo">
+        <div class="splash-particulas">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="splash-content">
+            <div class="splash-icon">
+                <svg viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="#DDA15E" stroke-width="1.5" stroke-linecap="round" opacity="0.9">
+                        <path d="M30 78 L30 40" stroke-width="2"/>
+                        <path d="M27 75 Q30 72 33 75"/>
+                        <path d="M26 68 Q30 65 34 68"/>
+                        <path d="M25 61 Q30 58 35 61"/>
+                        <path d="M26 54 Q30 51 34 54"/>
+                        <path d="M27 47 Q30 44 33 47"/>
+                        <path d="M30 38 Q30 20 18 8" stroke-width="1.8"/>
+                        <path d="M30 38 Q25 18 10 14" stroke-width="1.5"/>
+                        <path d="M30 38 Q35 18 50 14" stroke-width="1.5"/>
+                        <path d="M30 38 Q30 20 42 8" stroke-width="1.8"/>
+                        <path d="M30 38 Q20 22 8 24" stroke-width="1.3"/>
+                        <path d="M30 38 Q40 22 52 24" stroke-width="1.3"/>
+                        <path d="M30 38 L30 6" stroke-width="1.8"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="splash-title">CÓMBITA</div>
+            <div class="splash-line"></div>
+            <div class="splash-subtitle">Boyacá &middot; Colombia</div>
+        </div>
+        <div class="splash-mountains">
+            <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,220 L0,160 Q120,80 240,120 Q360,160 480,100 Q600,40 720,90 Q840,140 960,70 Q1080,0 1200,50 Q1320,100 1440,60 L1440,220 Z" fill="rgba(105,144,115,0.08)"/>
+                <path d="M0,220 L0,180 Q180,120 360,155 Q540,190 720,140 Q900,90 1080,130 Q1260,170 1440,110 L1440,220 Z" fill="rgba(105,144,115,0.05)"/>
+            </svg>
+        </div>
+        <div class="splash-progress"><span></span></div>
+    </div>
     <nav class="menu-classic menu-fixed align-right" data-menu-anima="fade-in">
         <div class="container">
             <div class="menu-brand">
@@ -291,39 +359,45 @@
             <i class="menu-btn"></i>
             <div class="menu-cnt">
                 <ul id="main-menu">
-                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./index.html" data-i18n="common.nav.home">Inicio</a></li>
                     <li class="dropdown">
-                        <a href="#">Descubre</a>
+                        <a href="#" data-i18n="common.nav.discover">Descubre</a>
                         <ul>
                             <li class="dropdown-submenu">
-                                <a>Imperdibles</a>
+                                <a data-i18n="common.nav.must_see">Imperdibles</a>
                                 <ul>
-                                    <li><a href="./food.html">Restaurantes</a></li>
-                                    <li><a href="./shelters.html">Hospedajes</a></li>
-                                    <li><a href="./events.html">Eventos</a></li>
-                                    <li><a href="./artesanos-guias.html">Artesanos y Guías</a></li>
+                                    <li><a href="./food.html" data-i18n="common.nav.restaurants">Restaurantes</a></li>
+                                    <li><a href="./shelters.html" data-i18n="common.nav.lodging">Hospedajes</a></li>
+                                    <li><a href="./events.html" data-i18n="common.nav.events">Eventos</a></li>
+                                    <li><a href="./artesanos-guias.html" data-i18n="common.nav.artisans_guides">Artesanos y Guías</a></li>
+                                    <li><a href="./catering.html" data-i18n="common.nav.catering">Catering y Celebraciones</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown-submenu">
-                                <a>Explora Más</a>
+                                <a data-i18n="common.nav.explore_more">Explora Más</a>
                                 <ul>
-                                    <li><a href="./history.html">Historia</a></li>
-                                    <li><a href="./gallery.html">Galería</a></li>
+                                    <li><a href="./history.html" data-i18n="common.nav.history">Historia</a></li>
+                                    <li><a href="./gallery.html" data-i18n="common.nav.gallery">Galería</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
-                    <li><a href="./treks/index.html">Caminatas</a></li>
+                    <li><a href="./treks/index.html" data-i18n="common.nav.treks">Caminatas</a></li>
                     <li class="dropdown">
-                        <a href="#">Planifica</a>
+                        <a href="#" data-i18n="common.nav.plan">Planifica</a>
                         <ul>
-                            <li><a href="./transporte.html">Cómo Llegar</a></li>
-                            <li><a href="./mapa.html">Mapa</a></li>
-                            <li><a href="./tips.html">Tips del Viajero</a></li>
+                            <li><a href="./transporte.html" data-i18n="common.nav.how_to_arrive">Cómo Llegar</a></li>
+                            <li><a href="./mapa.html" data-i18n="common.nav.map">Mapa</a></li>
+                            <li><a href="./tips.html" data-i18n="common.nav.tips">Tips del Viajero</a></li>
                         </ul>
                     </li>
-                    <li><a href="./blog.html">Blog</a></li>
-                    <li><a href="./contacts.html">Contacto</a></li>
+                    <li><a href="./blog.html" data-i18n="common.nav.blog">Blog</a></li>
+                    <li><a href="./contacts.html" data-i18n="common.nav.contact">Contacto</a></li>
+                    <li class="lang-switcher" aria-label="Idioma">
+                        <a href="#" data-lang-switch="es" data-i18n="common.lang_switch.es">ES</a>
+                        <span class="lang-sep">|</span>
+                        <a href="#" data-lang-switch="en" data-i18n="common.lang_switch.en">EN</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -331,18 +405,18 @@
 
     <!-- Toggle móvil mapa/lista -->
     <div class="mobile-toggle" id="mobileToggle">
-        <button class="active" onclick="mobileView('mapa')"><i class="fas fa-map"></i> Mapa</button>
-        <button onclick="mobileView('lista')"><i class="fas fa-list"></i> Lista</button>
+        <button class="active" onclick="mobileView('mapa')"><i class="fas fa-map"></i> <span data-i18n="mapa.mobile.map">Mapa</span></button>
+        <button onclick="mobileView('lista')"><i class="fas fa-list"></i> <span data-i18n="mapa.mobile.list">Lista</span></button>
     </div>
 
     <main style="margin-top:100px; height:calc(100vh - 100px); overflow:hidden;">
         <div class="map-layout">
             <div class="map-sidebar" id="mapSidebar">
-                <div class="map-sidebar-title">Puntos de interés</div>
+                <div class="map-sidebar-title" data-i18n="mapa.sidebar.title">Puntos de interés</div>
                 <div id="poiList">
                     <div class="map-empty">
                         <i class="fas fa-spinner fa-spin"></i>
-                        <p>Cargando puntos...</p>
+                        <p data-i18n="mapa.sidebar.loading">Cargando puntos...</p>
                     </div>
                 </div>
             </div>
@@ -351,19 +425,19 @@
                 <div class="map-controls">
                     <span class="map-controls-title"><i class="fas fa-map-marked-alt"></i>Cómbita</span>
                     <button class="map-filter-btn active" data-filter="todos" onclick="filterMap('todos')">
-                        <i class="fas fa-globe"></i> Todos
+                        <i class="fas fa-globe"></i> <span data-i18n="mapa.filters.all">Todos</span>
                     </button>
                     <button class="map-filter-btn" data-filter="restaurante" onclick="filterMap('restaurante')">
-                        <i class="fas fa-utensils"></i> Restaurantes <span class="filter-count" id="count-restaurante">0</span>
+                        <i class="fas fa-utensils"></i> <span data-i18n="mapa.filters.restaurants">Restaurantes</span> <span class="filter-count" id="count-restaurante">0</span>
                     </button>
                     <button class="map-filter-btn" data-filter="hospedaje" onclick="filterMap('hospedaje')">
-                        <i class="fas fa-bed"></i> Hospedajes <span class="filter-count" id="count-hospedaje">0</span>
+                        <i class="fas fa-bed"></i> <span data-i18n="mapa.filters.lodging">Hospedajes</span> <span class="filter-count" id="count-hospedaje">0</span>
                     </button>
                     <button class="map-filter-btn" data-filter="sendero" onclick="filterMap('sendero')">
-                        <i class="fas fa-hiking"></i> Senderos <span class="filter-count" id="count-sendero">0</span>
+                        <i class="fas fa-hiking"></i> <span data-i18n="mapa.filters.trails">Senderos</span> <span class="filter-count" id="count-sendero">0</span>
                     </button>
                     <button class="map-filter-btn" data-filter="sitio" onclick="filterMap('sitio')">
-                        <i class="fas fa-star"></i> Sitios <span class="filter-count" id="count-sitio">0</span>
+                        <i class="fas fa-star"></i> <span data-i18n="mapa.filters.sites">Sitios</span> <span class="filter-count" id="count-sitio">0</span>
                     </button>
                 </div>
                 <div id="map"></div>
@@ -386,12 +460,13 @@
             artesano: '#7b1fa2',
             sitio: '#c62828'
         };
+        const _t = (k, fb) => (window.i18n && window.i18n.t) ? window.i18n.t(k, fb) : fb;
         const typeLabels = {
-            restaurante: 'Restaurante',
-            hospedaje: 'Hospedaje',
-            sendero: 'Sendero',
-            artesano: 'Artesano',
-            sitio: 'Sitio Turístico'
+            get restaurante() { return _t('mapa.types.restaurante', 'Restaurante'); },
+            get hospedaje() { return _t('mapa.types.hospedaje', 'Hospedaje'); },
+            get sendero() { return _t('mapa.types.sendero', 'Sendero'); },
+            get artesano() { return _t('mapa.types.artesano', 'Artesano'); },
+            get sitio() { return _t('mapa.types.sitio', 'Sitio Turístico'); }
         };
 
         function createIcon(color) {
@@ -422,7 +497,7 @@
                     iconAnchor: [14, 14],
                     popupAnchor: [0, -16]
                 })
-            }).addTo(map).bindPopup('<div class="map-popup"><h4>Cómbita</h4><p>Centro del municipio - 2.825 msnm</p></div>');
+            }).addTo(map).bindPopup('<div class="map-popup"><h4>Cómbita</h4><p>' + _t('mapa.main_marker.desc', 'Centro del municipio - 2.825 msnm') + '</p></div>');
 
             await loadAllPois();
 
@@ -440,14 +515,14 @@
 
             // Puntos de interés con coordenadas reales (verificadas desde las páginas de treks)
             const sitios = [
-                { nombre: 'Laguna Rica', tipo: 'sendero', lat: 5.7682, lng: -73.3394, desc: 'Laguna de páramo a 3.100 msnm. Rodeada de frailejones centenarios. Vereda Santa Bárbara.' },
-                { nombre: 'La Peña', tipo: 'sendero', lat: 5.7558, lng: -73.3411, desc: 'Monumento Virgen de las Aguas. Formación rocosa con vistas panorámicas a 3.200 msnm. Vereda Santa Bárbara.' },
-                { nombre: 'Cascada El Tilín', tipo: 'sendero', lat: 5.6625, lng: -73.3280, desc: 'Cascada de 12m con sitio arqueológico muisca. 2.750 msnm. Vereda San Francisco.' },
-                { nombre: 'Casa Ricaurte', tipo: 'sendero', lat: 5.7519, lng: -73.3753, desc: 'Atracción turística histórica en zona rural de Cómbita. Punto de interés cultural y natural.' },
-                { nombre: 'Laguna Negra', tipo: 'sendero', lat: 5.7627, lng: -73.3547, desc: 'Laguna de páramo en zona de reserva natural. Ecosistema de alta montaña con frailejones.' },
-                { nombre: 'Centro Histórico', tipo: 'sendero', lat: 5.6337, lng: -73.3243, desc: 'Recorrido por el casco urbano colonial fundado en 1586. Iglesia, parque y calles históricas.' },
-                { nombre: 'Iglesia Inmaculada Concepción', tipo: 'sitio', lat: 5.6336, lng: -73.3237, desc: 'Templo con arquitectura gótica francesa. Óleos coloniales de Gaspar de Figueroa. Cra 5a #3-20.' },
-                { nombre: 'Parque Principal', tipo: 'sitio', lat: 5.6334, lng: -73.3238, desc: 'Plaza Clara Tocarruncho, corazón de Cómbita. 2.825 msnm.' }
+                { nombre: 'Laguna Rica', tipo: 'sendero', lat: 5.7682, lng: -73.3394, desc: _t('mapa.pois.laguna_rica', 'Laguna de páramo a 3.100 msnm. Rodeada de frailejones centenarios. Vereda Santa Bárbara.') },
+                { nombre: 'La Peña', tipo: 'sendero', lat: 5.7558, lng: -73.3411, desc: _t('mapa.pois.la_pena', 'Monumento Virgen de las Aguas. Formación rocosa con vistas panorámicas a 3.200 msnm. Vereda Santa Bárbara.') },
+                { nombre: 'Cascada El Tilín', tipo: 'sendero', lat: 5.6625, lng: -73.3280, desc: _t('mapa.pois.cascada_tilin', 'Cascada de 12m con sitio arqueológico muisca. 2.750 msnm. Vereda San Francisco.') },
+                { nombre: 'Casa Ricaurte', tipo: 'sendero', lat: 5.7519, lng: -73.3753, desc: _t('mapa.pois.casa_ricaurte', 'Atracción turística histórica en zona rural de Cómbita. Punto de interés cultural y natural.') },
+                { nombre: 'Laguna Negra', tipo: 'sendero', lat: 5.7627, lng: -73.3547, desc: _t('mapa.pois.laguna_negra', 'Laguna de páramo en zona de reserva natural. Ecosistema de alta montaña con frailejones.') },
+                { nombre: 'Centro Histórico', tipo: 'sendero', lat: 5.6337, lng: -73.3243, desc: _t('mapa.pois.centro_historico', 'Recorrido por el casco urbano colonial fundado en 1586. Iglesia, parque y calles históricas.') },
+                { nombre: 'Iglesia Inmaculada Concepción', tipo: 'sitio', lat: 5.6336, lng: -73.3237, desc: _t('mapa.pois.iglesia', 'Templo con arquitectura gótica francesa. Óleos coloniales de Gaspar de Figueroa. Cra 5a #3-20.') },
+                { nombre: 'Parque Principal', tipo: 'sitio', lat: 5.6334, lng: -73.3238, desc: _t('mapa.pois.parque', 'Plaza Clara Tocarruncho, corazón de Cómbita. 2.825 msnm.') }
             ];
             sitios.forEach(s => pois.push(s));
 
@@ -472,7 +547,7 @@
                         tipo: 'restaurante',
                         lat: pos.lat,
                         lng: pos.lng,
-                        desc: r.especialidad || r.tipo_cocina || 'Restaurante local',
+                        desc: r.especialidad || r.tipo_cocina || _t('mapa.fallbacks.restaurante', 'Restaurante local'),
                         telefono: r.telefono
                     });
                 });
@@ -496,7 +571,7 @@
                         tipo: 'hospedaje',
                         lat: pos.lat,
                         lng: pos.lng,
-                        desc: h.tipo || h.categoria || 'Hospedaje',
+                        desc: h.tipo || h.categoria || _t('mapa.fallbacks.hospedaje', 'Hospedaje'),
                         telefono: h.telefono
                     });
                 });
@@ -526,7 +601,7 @@
             // Renderizar lista
             const list = document.getElementById('poiList');
             if (pois.length === 0) {
-                list.innerHTML = '<div class="map-empty"><i class="fas fa-map-marker-alt"></i><p>No hay puntos en esta categoría</p></div>';
+                list.innerHTML = '<div class="map-empty"><i class="fas fa-map-marker-alt"></i><p>' + _t('mapa.sidebar.empty', 'No hay puntos en esta categoría') + '</p></div>';
                 return;
             }
 

@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Iniciar Sesión | Turismo Cómbita</title>
-    <meta name="description" content="Inicia sesión para compartir tus experiencias en Cómbita">
+    <title data-i18n="login.title">Iniciar Sesión | Turismo Cómbita</title>
+    <meta name="description" data-i18n-attr="content:login.description" content="Inicia sesión para compartir tus experiencias en Cómbita">
     <script src="../assets/js/vendor/jquery.min.js"></script>
     <script src="../assets/js/vendor/main.js"></script>
+    <script src="../assets/js/modules/i18n.js?v=2" defer></script>
     <link rel="stylesheet" href="../assets/css/vendor/bootstrap-grid.css">
     <link rel="stylesheet" href="../assets/css/vendor/style.css">
     <link rel="stylesheet" href="../assets/css/vendor/content-box.css">
         <link rel="stylesheet" href="../assets/media/icons/fontawesome/all.css">
 <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/frailejon-theme.css">
+    <link rel="stylesheet" href="../assets/css/frailejon-theme.css?v=3">
     <link rel="icon" href="../assets/images/favicon.png">
     <style>
         .login-container {
@@ -160,13 +161,13 @@
         <div class="login-box">
             <div class="login-header">
                 <i class="fas fa-mountain" style="display: block; font-size: 48px; color: #699073; margin-bottom: 15px;">🏔️</i>
-                <h2>Turismo Cómbita</h2>
-                <p style="color: #666;">Inicia sesión o regístrate</p>
+                <h2 data-i18n="login.header.brand">Turismo Cómbita</h2>
+                <p style="color: #666;" data-i18n="login.header.subtitle">Inicia sesión o regístrate</p>
             </div>
 
             <div class="tabs">
-                <div class="tab active" onclick="switchTab('login')">Iniciar Sesión</div>
-                <div class="tab" onclick="switchTab('register')">Registrarse</div>
+                <div class="tab active" onclick="switchTab('login')" data-i18n="login.tabs.login">Iniciar Sesión</div>
+                <div class="tab" onclick="switchTab('register')" data-i18n="login.tabs.register">Registrarse</div>
             </div>
 
             <div id="alert" class="alert"></div>
@@ -175,22 +176,22 @@
             <div id="login-tab" class="tab-content active">
                 <form id="loginForm">
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" id="loginEmail" required placeholder="tu@email.com">
+                        <label data-i18n="common.labels.email">Email</label>
+                        <input type="email" id="loginEmail" required placeholder="tu@email.com" data-i18n-attr="placeholder:login.placeholders.email">
                     </div>
                     <div class="form-group">
-                        <label>Contraseña</label>
-                        <input type="password" id="loginPassword" required placeholder="••••••••">
+                        <label data-i18n="login.labels.password">Contraseña</label>
+                        <input type="password" id="loginPassword" required placeholder="••••••••" data-i18n-attr="placeholder:login.placeholders.password">
                     </div>
-                    <button type="submit" class="btn-login">Iniciar Sesión</button>
+                    <button type="submit" class="btn-login" data-i18n="login.buttons.login">Iniciar Sesión</button>
                 </form>
 
                 <div class="divider">
-                    <span>o</span>
+                    <span data-i18n="login.divider.or">o</span>
                 </div>
 
                 <div style="text-align: center; margin-top: 20px;">
-                    <p style="color: #666; font-size: 14px;">
+                    <p style="color: #666; font-size: 14px;" data-i18n="login.info.exclusive">
                         Inicia sesion para acceder a funciones exclusivas
                     </p>
                 </div>
@@ -200,31 +201,31 @@
             <div id="register-tab" class="tab-content">
                 <form id="registerForm">
                     <div class="form-group">
-                        <label>Nombre Completo</label>
-                        <input type="text" id="registerName" required placeholder="Tu nombre">
+                        <label data-i18n="login.labels.full_name">Nombre Completo</label>
+                        <input type="text" id="registerName" required placeholder="Tu nombre" data-i18n-attr="placeholder:login.placeholders.full_name">
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" id="registerEmail" required placeholder="tu@email.com">
+                        <label data-i18n="common.labels.email">Email</label>
+                        <input type="email" id="registerEmail" required placeholder="tu@email.com" data-i18n-attr="placeholder:login.placeholders.email">
                     </div>
                     <div class="form-group">
-                        <label>Teléfono (opcional)</label>
+                        <label data-i18n="login.labels.phone_optional">Teléfono (opcional)</label>
                         <input type="tel" id="registerPhone" placeholder="300 123 4567">
                     </div>
                     <div class="form-group">
-                        <label>Contraseña</label>
-                        <input type="password" id="registerPassword" required placeholder="Mínimo 6 caracteres">
+                        <label data-i18n="login.labels.password">Contraseña</label>
+                        <input type="password" id="registerPassword" required placeholder="Mínimo 6 caracteres" data-i18n-attr="placeholder:login.placeholders.password_min">
                     </div>
                     <div class="form-group">
-                        <label>Confirmar Contraseña</label>
-                        <input type="password" id="registerPasswordConfirm" required placeholder="Repite la contraseña">
+                        <label data-i18n="login.labels.confirm_password">Confirmar Contraseña</label>
+                        <input type="password" id="registerPasswordConfirm" required placeholder="Repite la contraseña" data-i18n-attr="placeholder:login.placeholders.confirm_password">
                     </div>
-                    <button type="submit" class="btn-login">Registrarse</button>
+                    <button type="submit" class="btn-login" data-i18n="login.buttons.register">Registrarse</button>
                 </form>
             </div>
 
             <div class="form-links">
-                <a href="./index.html">← Volver al sitio</a>
+                <a href="./index.html" data-i18n="login.links.back">← Volver al sitio</a>
             </div>
         </div>
     </div>
@@ -278,6 +279,8 @@
 
                 const data = await response.json();
 
+                const tr = (k, fb) => (window.i18n && window.i18n.t) ? window.i18n.t(k, fb) : fb;
+
                 if (response.ok) {
                     // Guardar token y datos del usuario
                     localStorage.setItem('token', data.token);
@@ -285,7 +288,7 @@
                     localStorage.setItem('userEmail', data.user.email);
                     localStorage.setItem('userRole', data.user.rol);
 
-                    showAlert('Login exitoso! Redirigiendo...', 'success');
+                    showAlert(tr('login.messages.login_success', 'Login exitoso! Redirigiendo...'), 'success');
 
                     // Redirigir según el rol
                     setTimeout(() => {
@@ -297,10 +300,11 @@
                         }
                     }, 1500);
                 } else {
-                    showAlert(data.message || 'Error al iniciar sesión', 'error');
+                    showAlert(data.message || tr('login.messages.login_error', 'Error al iniciar sesión'), 'error');
                 }
             } catch (error) {
-                showAlert('Error de conexión', 'error');
+                const tr = (k, fb) => (window.i18n && window.i18n.t) ? window.i18n.t(k, fb) : fb;
+                showAlert(tr('login.messages.connection_error', 'Error de conexión'), 'error');
             }
         });
 
@@ -314,13 +318,15 @@
             const password = document.getElementById('registerPassword').value;
             const passwordConfirm = document.getElementById('registerPasswordConfirm').value;
 
+            const tr = (k, fb) => (window.i18n && window.i18n.t) ? window.i18n.t(k, fb) : fb;
+
             if (password !== passwordConfirm) {
-                showAlert('Las contraseñas no coinciden', 'error');
+                showAlert(tr('login.messages.password_mismatch', 'Las contraseñas no coinciden'), 'error');
                 return;
             }
 
             if (password.length < 6) {
-                showAlert('La contraseña debe tener al menos 6 caracteres', 'error');
+                showAlert(tr('login.messages.password_too_short', 'La contraseña debe tener al menos 6 caracteres'), 'error');
                 return;
             }
 
@@ -336,7 +342,7 @@
                 const data = await response.json();
 
                 if (response.ok) {
-                    showAlert('¡Registro exitoso! Ahora puedes iniciar sesión', 'success');
+                    showAlert(tr('login.messages.register_success', '¡Registro exitoso! Ahora puedes iniciar sesión'), 'success');
 
                     // Cambiar a pestaña de login
                     setTimeout(() => {
@@ -344,10 +350,10 @@
                         document.getElementById('loginEmail').value = email;
                     }, 2000);
                 } else {
-                    showAlert(data.message || 'Error al registrarse', 'error');
+                    showAlert(data.message || tr('login.messages.register_error', 'Error al registrarse'), 'error');
                 }
             } catch (error) {
-                showAlert('Error de conexión', 'error');
+                showAlert(tr('login.messages.connection_error', 'Error de conexión'), 'error');
             }
         });
     </script>

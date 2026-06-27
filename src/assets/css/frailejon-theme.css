@@ -22,13 +22,14 @@
    NAVEGACIÓN - Acentos dorados sutiles
    ================================================================= */
 
-/* Hover en menú con borde dorado sutil */
-.menu-cnt > ul > li > a:hover,
+/* Hover en menú con subrayado dorado (inset shadow → no altera layout
+   ni "cuelga" la línea fuera del anchor). Excluye el lang-switcher. */
+.menu-cnt > ul > li:not(.lang-switcher) > a:hover,
 .menu-cnt > ul > li.active > a,
 .menu-cnt > ul > li.current-menu-item > a {
     color: var(--color-dorado-frailejon) !important;
-    border-bottom: 2px solid var(--color-dorado-frailejon);
-    transition: all 0.3s ease;
+    box-shadow: inset 0 -2px 0 var(--color-dorado-frailejon);
+    transition: color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Dropdown menu hover */
@@ -412,4 +413,103 @@ footer a:hover {
     .cnt-box-blog-side > .img-box > img {
         min-height: 180px;
     }
+}
+/* =================================================================
+   SELECTOR DE IDIOMA (i18n)
+   - Solo se muestra el idioma alternativo (1 botón compacto).
+   - Usa el MISMO patrón height + line-height que los items del nav
+     para que el baseline del texto coincida perfecto.
+   ================================================================= */
+#main-menu > li.lang-switcher {
+    display: block;
+    margin: 0;
+    /* MISMOS valores tipográficos que los items del nav
+       (main.css:706: font-weight:700, font-size:14px, uppercase) —
+       igualar cap-height para que el baseline coincida con
+       INICIO / CONTACTO sin desfase visual. */
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#main-menu > li.lang-switcher > a {
+    display: block;
+    /* MISMAS dimensiones que los items normales del nav:
+       main.css: body > nav .menu-cnt > ul > li > a {
+         height:95; line-height:95; padding-bottom:25; box-sizing:content-box;
+       }
+       Sin esto el switcher mide ~50px y queda flotando arriba
+       respecto a items de ~120px en el estado top (menu-transparent). */
+    height: 95px;
+    line-height: 95px;
+    padding: 0 10px 25px;
+    box-sizing: content-box;
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: opacity .2s ease, color .2s ease;
+}
+
+/* En scroll-menu los items del nav pasan a 65px (sin padding-bottom) */
+.menu-fixed.scroll-menu #main-menu > li.lang-switcher > a {
+    height: 65px;
+    line-height: 65px;
+    padding-bottom: 0;
+}
+
+#main-menu > li.lang-switcher > a:hover {
+    opacity: 1;
+    color: #DDA15E;
+}
+
+/* Solo se ve el idioma alternativo */
+#main-menu > li.lang-switcher > a.active,
+#main-menu > li.lang-switcher > .lang-sep {
+    display: none;
+}
+
+/* Menú colapsado (móvil/tablet hamburguesa) */
+@media (max-width: 991.98px) {
+    #main-menu > li.lang-switcher {
+        margin: 0;
+    }
+    #main-menu > li.lang-switcher > a {
+        height: auto;
+        line-height: 1;
+        padding: 14px 16px;
+    }
+}
+
+/* =================================================================
+   DROPDOWNS — sub-submenús con texto largo
+   ("Catering y Celebraciones") no se desbordan del viewport.
+   ================================================================= */
+.menu-cnt .dropdown-submenu > ul {
+    min-width: 200px;
+    max-width: 260px;
+}
+
+.menu-cnt .dropdown-submenu > ul a {
+    white-space: normal;
+    line-height: 1.3;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* =================================================================
+   DROPDOWNS — evitar que sub-submenús con texto largo
+   ("Catering y Celebraciones") se desborden del viewport.
+   ================================================================= */
+.menu-cnt .dropdown-submenu > ul {
+    min-width: 200px;
+    max-width: 260px;
+}
+
+.menu-cnt .dropdown-submenu > ul a {
+    white-space: normal;
+    line-height: 1.3;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

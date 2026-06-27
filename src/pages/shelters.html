@@ -4,10 +4,43 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hospedajes | Turismo Cómbita - Alojamiento Rural y Ecológico</title>
-    <meta name="description" content="Encuentra el mejor alojamiento en Cómbita. Hoteles rurales, cabañas ecológicas, camping, posadas familiares y más opciones para tu estadía.">
+    <title data-i18n="shelters.title">Hospedajes | Turismo Cómbita - Alojamiento Rural y Ecológico</title>
+    <meta name="description" data-i18n-attr="content:shelters.description" content="Encuentra el mejor alojamiento en Cómbita. Hoteles rurales, cabañas ecológicas, camping, posadas familiares y más opciones para tu estadía.">
+    <!-- CSS crítico del splash (inline para que se vea desde el primer frame) -->
+    <style>
+        #preloader{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(170deg,#1a2a20 0%,#2d3e33 45%,#3a5240 100%);z-index:99995;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+        #preloader::before{content:""!important;background:none!important;width:0!important;height:0!important}
+        #preloader.splash-paramo::after{content:"";position:absolute;top:0;left:-50%;right:-50%;bottom:0;background:radial-gradient(ellipse at 20% 80%,rgba(105,144,115,.15) 0%,transparent 60%),radial-gradient(ellipse at 80% 60%,rgba(221,161,94,.08) 0%,transparent 50%),radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.04) 0%,transparent 70%);animation:splash-neblina 4s ease-in-out infinite alternate;z-index:0}
+        @keyframes splash-neblina{0%{transform:translateX(-3%) translateY(5px);opacity:.6}100%{transform:translateX(3%) translateY(-5px);opacity:1}}
+        #preloader .splash-mountains{position:absolute;bottom:0;left:0;right:0;height:220px;z-index:1}
+        #preloader .splash-mountains svg{width:100%;height:100%;display:block}
+        #preloader .splash-content{position:relative;z-index:2;text-align:center;animation:splash-aparecer .8s ease-out both}
+        @keyframes splash-aparecer{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+        #preloader .splash-icon{margin:0 auto 20px;width:60px;height:80px;animation:splash-respirar 3s ease-in-out infinite}
+        #preloader .splash-icon svg{width:100%;height:100%}
+        @keyframes splash-respirar{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.06);opacity:1}}
+        #preloader .splash-title{color:#DDA15E;font-family:'Montserrat',sans-serif;font-size:32px;font-weight:800;letter-spacing:10px;text-transform:uppercase;margin:0;line-height:1}
+        #preloader .splash-line{width:50px;height:3px;background:linear-gradient(90deg,transparent,#DDA15E,transparent);border-radius:2px;margin:16px auto;animation:splash-linea 2s ease-in-out infinite alternate}
+        @keyframes splash-linea{0%{width:40px;opacity:.6}100%{width:70px;opacity:1}}
+        #preloader .splash-subtitle{color:rgba(255,255,255,.55);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin:0}
+        #preloader .splash-particulas{position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;overflow:hidden}
+        #preloader .splash-particulas span{position:absolute;width:4px;height:4px;background:rgba(221,161,94,.4);border-radius:50%;animation:splash-flotar 6s ease-in-out infinite}
+        #preloader .splash-particulas span:nth-child(1){left:15%;bottom:20%;animation-delay:0s;animation-duration:7s}
+        #preloader .splash-particulas span:nth-child(2){left:35%;bottom:30%;animation-delay:1.5s;animation-duration:5s;width:3px;height:3px}
+        #preloader .splash-particulas span:nth-child(3){left:65%;bottom:15%;animation-delay:.8s;animation-duration:8s}
+        #preloader .splash-particulas span:nth-child(4){left:80%;bottom:25%;animation-delay:2.5s;animation-duration:6s;width:3px;height:3px}
+        #preloader .splash-particulas span:nth-child(5){left:50%;bottom:35%;animation-delay:1s;animation-duration:7.5s;width:5px;height:5px;background:rgba(221,161,94,.25)}
+        @keyframes splash-flotar{0%{transform:translateY(0) scale(1);opacity:0}15%{opacity:1}50%{transform:translateY(-120px) scale(.8);opacity:.6}85%{opacity:.3}100%{transform:translateY(-250px) scale(.4);opacity:0}}
+        #preloader .splash-progress{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);width:100px;height:2px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;z-index:2}
+        #preloader .splash-progress span{display:block;height:100%;background:linear-gradient(90deg,transparent,#DDA15E,transparent);border-radius:2px;animation:splash-carga 1.8s ease-in-out infinite}
+        @keyframes splash-carga{0%{width:0%;margin-left:0%}50%{width:50%;margin-left:25%}100%{width:0%;margin-left:100%}}
+        @media (max-width:575.98px){#preloader .splash-title{font-size:24px;letter-spacing:6px}#preloader .splash-subtitle{font-size:10px;letter-spacing:3px}#preloader .splash-icon{width:45px;height:60px}}
+        #preloader{animation:splash-seguro .6s ease-out 5s forwards}
+        @keyframes splash-seguro{to{opacity:0;visibility:hidden;pointer-events:none}}
+    </style>
     <script src="../assets/js/vendor/jquery.min.js"></script>
     <script src="../assets/js/vendor/main.js"></script>
+    <script src="../assets/js/modules/i18n.js?v=2" defer></script>
     <link rel="stylesheet" href="../assets/css/vendor/bootstrap-grid.css">
     <link rel="stylesheet" href="../assets/css/vendor/style.css">
     <link rel="stylesheet" href="../assets/css/vendor/glide.css">
@@ -18,7 +51,7 @@
     <link rel="stylesheet" href="../assets/images/icons/icons/iconsmind/line-icons.min.css">
         <link rel="stylesheet" href="../assets/media/icons/fontawesome/all.css">
 <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/frailejon-theme.css">
+    <link rel="stylesheet" href="../assets/css/frailejon-theme.css?v=3">
     <link rel="icon" href="../assets/images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -343,7 +376,42 @@
     </style>
 </head>
 <body class="page-main">
-    <div id="preloader"></div>
+    <div id="preloader" class="splash-paramo">
+        <div class="splash-particulas">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="splash-content">
+            <div class="splash-icon">
+                <svg viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="#DDA15E" stroke-width="1.5" stroke-linecap="round" opacity="0.9">
+                        <path d="M30 78 L30 40" stroke-width="2"/>
+                        <path d="M27 75 Q30 72 33 75"/>
+                        <path d="M26 68 Q30 65 34 68"/>
+                        <path d="M25 61 Q30 58 35 61"/>
+                        <path d="M26 54 Q30 51 34 54"/>
+                        <path d="M27 47 Q30 44 33 47"/>
+                        <path d="M30 38 Q30 20 18 8" stroke-width="1.8"/>
+                        <path d="M30 38 Q25 18 10 14" stroke-width="1.5"/>
+                        <path d="M30 38 Q35 18 50 14" stroke-width="1.5"/>
+                        <path d="M30 38 Q30 20 42 8" stroke-width="1.8"/>
+                        <path d="M30 38 Q20 22 8 24" stroke-width="1.3"/>
+                        <path d="M30 38 Q40 22 52 24" stroke-width="1.3"/>
+                        <path d="M30 38 L30 6" stroke-width="1.8"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="splash-title">CÓMBITA</div>
+            <div class="splash-line"></div>
+            <div class="splash-subtitle">Boyacá &middot; Colombia</div>
+        </div>
+        <div class="splash-mountains">
+            <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,220 L0,160 Q120,80 240,120 Q360,160 480,100 Q600,40 720,90 Q840,140 960,70 Q1080,0 1200,50 Q1320,100 1440,60 L1440,220 Z" fill="rgba(105,144,115,0.08)"/>
+                <path d="M0,220 L0,180 Q180,120 360,155 Q540,190 720,140 Q900,90 1080,130 Q1260,170 1440,110 L1440,220 Z" fill="rgba(105,144,115,0.05)"/>
+            </svg>
+        </div>
+        <div class="splash-progress"><span></span></div>
+    </div>
     <nav class="menu-classic menu-fixed align-right" data-menu-anima="fade-in">
         <div class="container">
             <div class="menu-brand">
@@ -358,45 +426,51 @@
             <div class="menu-cnt">
                 <ul id="main-menu">
                     <li class="dropdown">
-                        <a href="./index.html">Inicio</a>
+                        <a href="./index.html" data-i18n="common.nav.home">Inicio</a>
                     </li>
                     <li class="dropdown">
-                        <a href="#">Descubre</a>
+                        <a href="#" data-i18n="common.nav.discover">Descubre</a>
                         <ul>
                             <li class="dropdown-submenu">
-                                <a>Imperdibles</a>
+                                <a data-i18n="common.nav.must_see">Imperdibles</a>
                                 <ul>
-                                    <li><a href="./food.html">Restaurantes</a></li>
-                                    <li><a href="./shelters.html">Hospedajes</a></li>
-                                    <li><a href="./events.html">Eventos</a></li>
-                                    <li><a href="./artesanos-guias.html">Artesanos y Guías</a></li>
+                                    <li><a href="./food.html" data-i18n="common.nav.restaurants">Restaurantes</a></li>
+                                    <li><a href="./shelters.html" data-i18n="common.nav.lodging">Hospedajes</a></li>
+                                    <li><a href="./events.html" data-i18n="common.nav.events">Eventos</a></li>
+                                    <li><a href="./artesanos-guias.html" data-i18n="common.nav.artisans_guides">Artesanos y Guías</a></li>
+                                    <li><a href="./catering.html" data-i18n="common.nav.catering">Catering y Celebraciones</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown-submenu">
-                                <a>Explora Más</a>
+                                <a data-i18n="common.nav.explore_more">Explora Más</a>
                                 <ul>
-                                    <li><a href="./history.html">Historia</a></li>
-                                    <li><a href="./gallery.html">Galería</a></li>
+                                    <li><a href="./history.html" data-i18n="common.nav.history">Historia</a></li>
+                                    <li><a href="./gallery.html" data-i18n="common.nav.gallery">Galería</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="./treks/index.html">Caminatas</a>
+                        <a href="./treks/index.html" data-i18n="common.nav.treks">Caminatas</a>
                     </li>
                     <li class="dropdown">
-                        <a href="#">Planifica</a>
+                        <a href="#" data-i18n="common.nav.plan">Planifica</a>
                         <ul>
-                            <li><a href="./transporte.html">Cómo Llegar</a></li>
-                            <li><a href="./mapa.html">Mapa</a></li>
-                            <li><a href="./tips.html">Tips del Viajero</a></li>
+                            <li><a href="./transporte.html" data-i18n="common.nav.how_to_arrive">Cómo Llegar</a></li>
+                            <li><a href="./mapa.html" data-i18n="common.nav.map">Mapa</a></li>
+                            <li><a href="./tips.html" data-i18n="common.nav.tips">Tips del Viajero</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="./blog.html">Blog</a>
+                        <a href="./blog.html" data-i18n="common.nav.blog">Blog</a>
                     </li>
                     <li>
-                        <a href="./contacts.html">Contacto</a>
+                        <a href="./contacts.html" data-i18n="common.nav.contact">Contacto</a>
+                    </li>
+                    <li class="lang-switcher" aria-label="Idioma">
+                        <a href="#" data-lang-switch="es" data-i18n="common.lang_switch.es">ES</a>
+                        <span class="lang-sep">|</span>
+                        <a href="#" data-lang-switch="en" data-i18n="common.lang_switch.en">EN</a>
                     </li>
                 </ul>
             </div>
@@ -404,12 +478,12 @@
     </nav>
     <header class="header-base" style="background:#fff;">
         <div class="container">
-            <h1>Hospedajes en Cómbita</h1>
-            <h2>Descansa en la tranquilidad del páramo boyacense</h2>
+            <h1 data-i18n="shelters.hero.h1">Hospedajes en Cómbita</h1>
+            <h2 data-i18n="shelters.hero.h2">Descansa en la tranquilidad del páramo boyacense</h2>
             <ol class="breadcrumb">
-                <li><a href="./index.html">Inicio</a></li>
-                <li><a href="#">Páginas</a></li>
-                <li><a href="#">Hospedajes</a></li>
+                <li><a href="./index.html" data-i18n="common.nav.home">Inicio</a></li>
+                <li><a href="#" data-i18n="common.breadcrumb.pages">Páginas</a></li>
+                <li><a href="#" data-i18n="common.nav.lodging">Hospedajes</a></li>
             </ol>
         </div>
     </header>
@@ -417,29 +491,29 @@
         <section class="section-base section-color">
             <div class="container">
                 <div class="title align-center">
-                    <h2>Tipos de Alojamiento Disponibles</h2>
-                    <p>Encuentra el hospedaje perfecto para tu estadía en Cómbita</p>
+                    <h2 data-i18n="shelters.types.title">Tipos de Alojamiento Disponibles</h2>
+                    <p data-i18n="shelters.types.subtitle">Encuentra el hospedaje perfecto para tu estadía en Cómbita</p>
                 </div>
                 <div class="accommodation-types">
                     <div class="type-card">
                         <i class="im-home"></i>
-                        <h4>Posadas Rurales</h4>
-                        <p>Experiencia auténtica con familias locales. Ambiente hogareño y desayuno típico incluido.</p>
+                        <h4 data-i18n="shelters.types.rural_title">Posadas Rurales</h4>
+                        <p data-i18n="shelters.types.rural_desc">Experiencia auténtica con familias locales. Ambiente hogareño y desayuno típico incluido.</p>
                     </div>
                     <div class="type-card">
                         <i class="im-tent"></i>
-                        <h4>Glamping</h4>
-                        <p>Camping de lujo con todas las comodidades. Experiencia única en contacto con la naturaleza.</p>
+                        <h4 data-i18n="shelters.types.glamping_title">Glamping</h4>
+                        <p data-i18n="shelters.types.glamping_desc">Camping de lujo con todas las comodidades. Experiencia única en contacto con la naturaleza.</p>
                     </div>
                     <div class="type-card">
                         <i class="im-fire-flame"></i>
-                        <h4>Camping</h4>
-                        <p>Zonas habilitadas para acampar con vistas espectaculares del páramo y las montañas.</p>
+                        <h4 data-i18n="shelters.types.camping_title">Camping</h4>
+                        <p data-i18n="shelters.types.camping_desc">Zonas habilitadas para acampar con vistas espectaculares del páramo y las montañas.</p>
                     </div>
                     <div class="type-card">
                         <i class="im-hotel"></i>
-                        <h4>Hoteles Campestres</h4>
-                        <p>Comodidad completa con servicios adicionales como restaurante y actividades guiadas.</p>
+                        <h4 data-i18n="shelters.types.hotels_title">Hoteles Campestres</h4>
+                        <p data-i18n="shelters.types.hotels_desc">Comodidad completa con servicios adicionales como restaurante y actividades guiadas.</p>
                     </div>
                 </div>
             </div>
@@ -450,11 +524,11 @@
                 <div class="accommodation-tabs tab-box" data-tab-anima="fade-in">
                     <div class="align-center">
                         <ul class="tab-nav">
-                            <li class="active"><a>Todos</a></li>
-                            <li><a>Hoteles</a></li>
-                            <li><a>Posadas</a></li>
-                            <li><a>Glamping</a></li>
-                            <li><a>Camping</a></li>
+                            <li class="active"><a data-i18n="shelters.tabs.all">Todos</a></li>
+                            <li><a data-i18n="shelters.tabs.hotels">Hoteles</a></li>
+                            <li><a data-i18n="shelters.tabs.inns">Posadas</a></li>
+                            <li><a data-i18n="shelters.tabs.glamping">Glamping</a></li>
+                            <li><a data-i18n="shelters.tabs.camping">Camping</a></li>
                         </ul>
                     </div>
 
@@ -470,7 +544,7 @@
                             <!-- Hotel 1: Posada La Quinta de Rosita -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Posada La Quinta de Rosita">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Posada La Quinta de Rosita" loading="lazy">
                                     <div class="hotel-badge">Posada Familiar</div>
                                     <div class="hotel-price-badge">Económico</div>
                                 </div>
@@ -532,7 +606,7 @@
                             <!-- Hotel 2: Aparta Hotel El Rubí -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Aparta Hotel El Rubí">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Aparta Hotel El Rubí" loading="lazy">
                                     <div class="hotel-badge">Aparta Hotel</div>
                                     <div class="hotel-price-badge">Estándar</div>
                                 </div>
@@ -594,7 +668,7 @@
                             <!-- Hotel 3: Hotel La Posada de Bachué -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hotel La Posada de Bachué">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hotel La Posada de Bachué" loading="lazy">
                                     <div class="hotel-badge">Hotel Colonial</div>
                                     <div class="hotel-price-badge">Estándar</div>
                                 </div>
@@ -657,7 +731,7 @@
                             <!-- Hotel 4: Hospedaje Vereda San Francisco -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hospedaje Vereda San Francisco">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hospedaje Vereda San Francisco" loading="lazy">
                                     <div class="hotel-badge">Hospedaje Rural</div>
                                     <div class="hotel-price-badge">Económico</div>
                                 </div>
@@ -719,7 +793,7 @@
                             <!-- Hotel 5: Hotel Sol del Norte -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hotel Sol del Norte">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hotel Sol del Norte" loading="lazy">
                                     <div class="hotel-badge">Hotel</div>
                                     <div class="hotel-price-badge">$60.000 - $140.000</div>
                                 </div>
@@ -782,7 +856,7 @@
                             <!-- Hotel 6: Hospedaje Campestre De La Montaña -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hospedaje Campestre De La Montaña">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hospedaje Campestre De La Montaña" loading="lazy">
                                     <div class="hotel-badge">Hospedaje Campestre</div>
                                     <div class="hotel-price-badge">$30.000 - $40.000</div>
                                 </div>
@@ -845,7 +919,7 @@
                             <!-- Hotel 7: Hotel Campeones de la Montaña -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hotel Campeones de la Montaña">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hotel Campeones de la Montaña" loading="lazy">
                                     <div class="hotel-badge">Hotel</div>
                                     <div class="hotel-price-badge">$40.000/persona</div>
                                 </div>
@@ -908,7 +982,7 @@
                             <!-- Hotel 8: Hospedaje Familiar Apartaestudio De La Montaña -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Apartaestudio De La Montaña">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Apartaestudio De La Montaña" loading="lazy">
                                     <div class="hotel-badge">Apartaestudio</div>
                                     <div class="hotel-price-badge">$30.000 - $40.000</div>
                                 </div>
@@ -976,7 +1050,7 @@
                             <!-- Hotel Campestre Los Andes -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hotel Campestre Los Andes">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Hotel Campestre Los Andes" loading="lazy">
                                     <div class="hotel-badge">Hotel</div>
                                     <div class="hotel-price-badge">Premium</div>
                                 </div>
@@ -1027,7 +1101,7 @@
                             <!-- Posada El Frailejón -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Posada El Frailejón">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Posada El Frailejón" loading="lazy">
                                     <div class="hotel-badge">Posada Rural</div>
                                     <div class="hotel-price-badge">Económico</div>
                                 </div>
@@ -1078,7 +1152,7 @@
                             <!-- Glamping Bosque Encantado -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Glamping Bosque Encantado">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Glamping Bosque Encantado" loading="lazy">
                                     <div class="hotel-badge">Glamping</div>
                                     <div class="hotel-price-badge">Premium</div>
                                 </div>
@@ -1129,7 +1203,7 @@
                             <!-- Repetir solo los campings -->
                             <div class="hotel-card">
                                 <div class="hotel-gallery">
-                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Camping El Páramo">
+                                    <img src="../assets/images/hospedajes/placeholder-hotel.svg" alt="Camping El Páramo" loading="lazy">
                                     <div class="hotel-badge">Camping</div>
                                     <div class="hotel-price-badge">Económico</div>
                                 </div>
@@ -1182,14 +1256,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <h3>Cómbita</h3>
-                    <p>En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio
+                    <h3 data-i18n="common.footer.brand">Cómbita</h3>
+                    <p data-i18n="common.footer.tagline">En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio
                         de por qué subimos.</p>
                 </div>
                 <div class="col-lg-4">
-                    <h3>Contacto</h3>
+                    <h3 data-i18n="common.footer.contact_title">Contacto</h3>
                     <ul class="icon-list icon-line">
-                        <li>Cómbita, Boyacá, Colombia</li>
+                        <li data-i18n="common.footer.address">Cómbita, Boyacá, Colombia</li>
                         <li>alcaldia@combita-boyaca.gov.co</li>
                         <li> 313 366 2322</li>
                     </ul>
@@ -1201,15 +1275,15 @@
                         <a class="youtube" href="https://www.youtube.com/@Combita-Boyaca" target="_blank"><i class="icon-youtube"></i></a>
                     </div>
                     <hr class="space-sm" />
-                    <p>Síguenos en nuestras redes</p>
+                    <p data-i18n="common.footer.follow_us">Síguenos en nuestras redes</p>
                 </div>
             </div>
         </div>
         <div class="footer-bar">
             <div class="container">
-                <span>© 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/"
+                <span><span data-i18n="common.footer.copy">© 2024 Santiago Quiroga Molina</span> <a href="https://santiago-developer.netlify.app/"
                         target="_blank">santiago-developer.com</a>.</span>
-                <span><a href="./contacts.html">Contacto</a> | <a href="./privacidad.html">Política de privacidad</a></span>
+                <span><a href="./contacts.html" data-i18n="common.footer.contact_short">Contacto</a> | <a href="./privacidad.html" data-i18n="common.footer.privacy">Política de privacidad</a></span>
             </div>
         </div>
     </footer>
@@ -1219,6 +1293,9 @@
     <script src="../assets/js/vendor/tab-accordion.js"></script>
     <script src="../assets/js/vendor/progress.js"></script>
     <script>
+        // Helper i18n
+        const tr = (k, fb) => (window.i18n && window.i18n.t) ? window.i18n.t(k, fb) : fb;
+
         // Variable global para almacenar todos los hospedajes
         let todosLosHospedajes = [];
 
@@ -1287,8 +1364,8 @@
                 contenedor.innerHTML = `
                     <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
                         <i class="fas fa-bed" style="font-size: 48px; color: #ccc; margin-bottom: 15px; display: block;"></i>
-                        <h3 style="color: #666; margin-bottom: 10px;">No hay hospedajes en esta categoría</h3>
-                        <p style="color: #999;">Pronto agregaremos más opciones de alojamiento.</p>
+                        <h3 style="color: #666; margin-bottom: 10px;">${tr('shelters.empty.title', 'No hay hospedajes en esta categoría')}</h3>
+                        <p style="color: #999;">${tr('shelters.empty.subtitle', 'Pronto agregaremos más opciones de alojamiento.')}</p>
                     </div>
                 `;
             } else {
@@ -1339,9 +1416,9 @@
                 }
 
                 // Rating text
-                let ratingText = 'Bueno';
-                if (rating >= 4.5) ratingText = 'Excelente';
-                else if (rating >= 4.0) ratingText = 'Muy bueno';
+                let ratingText = tr('shelters.rating.good', 'Bueno');
+                if (rating >= 4.5) ratingText = tr('shelters.rating.excellent', 'Excelente');
+                else if (rating >= 4.0) ratingText = tr('shelters.rating.very_good', 'Muy bueno');
 
                 // Generar tags de servicios
                 let serviciosTags = '';
@@ -1370,10 +1447,10 @@
 
                 // Agregar tags de habitaciones/capacidad si existen
                 if (hospedaje.habitaciones) {
-                    serviciosTags += `<span class="service-tag"><i class="fas fa-bed"></i> ${hospedaje.habitaciones} hab.</span>`;
+                    serviciosTags += `<span class="service-tag"><i class="fas fa-bed"></i> ${hospedaje.habitaciones} ${tr('shelters.card.rooms_short', 'hab.')}</span>`;
                 }
                 if (hospedaje.capacidad) {
-                    serviciosTags += `<span class="service-tag"><i class="fas fa-users"></i> ${hospedaje.capacidad} pers.</span>`;
+                    serviciosTags += `<span class="service-tag"><i class="fas fa-users"></i> ${hospedaje.capacidad} ${tr('shelters.card.people_short', 'pers.')}</span>`;
                 }
 
                 // Descripción
@@ -1382,7 +1459,7 @@
                     descripcion = hospedaje.servicios;
                 }
                 if (!descripcion) {
-                    descripcion = `${hospedaje.habitaciones || ''} habitaciones con capacidad para ${hospedaje.capacidad || ''} personas.`;
+                    descripcion = `${hospedaje.habitaciones || ''} ${tr('shelters.card.rooms_with_capacity', 'habitaciones con capacidad para')} ${hospedaje.capacidad || ''} ${tr('shelters.card.people', 'personas')}.`;
                 }
 
                 // Redes sociales
@@ -1404,15 +1481,15 @@
                 html += `
                     <div class="hotel-card">
                         <div class="hotel-gallery">
-                            <img src="${imagen}" alt="${hospedaje.nombre}" onerror="this.src='../assets/images/hospedajes/placeholder-hotel.svg'">
-                            <div class="hotel-badge">${hospedaje.tipo || 'Hospedaje'}</div>
+                            <img src="${imagen}" alt="${hospedaje.nombre}" onerror="this.src='../assets/images/hospedajes/placeholder-hotel.svg'" loading="lazy">
+                            <div class="hotel-badge">${hospedaje.tipo || tr('shelters.card.lodging', 'Hospedaje')}</div>
                             <div class="hotel-price-badge">${priceBadge}</div>
                         </div>
                         <div class="hotel-content">
                             <h3>${hospedaje.nombre}</h3>
                             <div class="hotel-location">
                                 <i class="fas fa-map-marker-alt"></i>
-                                ${hospedaje.direccion || 'Cómbita, Boyacá'}
+                                ${hospedaje.direccion || tr('shelters.card.default_address', 'Cómbita, Boyacá')}
                             </div>
                             <div class="hotel-rating">
                                 <div class="stars">${estrellas}</div>
@@ -1422,16 +1499,16 @@
                             <div class="hotel-services">${serviciosTags}</div>
                             <div class="hotel-actions">
                                 <a href="${hasWa ? 'https://wa.me/57' + waNum : '#'}" target="${hasWa ? '_blank' : ''}" class="btn-hotel ${hasWa ? 'primary' : 'disabled'}">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                    <i class="fab fa-whatsapp"></i> ${tr('shelters.card.whatsapp', 'WhatsApp')}
                                 </a>
                                 <a href="${hasTel ? 'tel:+57' + telNum : '#'}" class="btn-hotel ${hasTel ? '' : 'disabled'}">
-                                    <i class="fas fa-phone"></i> Llamar
+                                    <i class="fas fa-phone"></i> ${tr('shelters.card.call', 'Llamar')}
                                 </a>
                                 <a href="${hasEmail ? 'mailto:' + hospedaje.correo : '#'}" class="btn-hotel ${hasEmail ? '' : 'disabled'}">
-                                    <i class="fas fa-envelope"></i> Email
+                                    <i class="fas fa-envelope"></i> ${tr('shelters.card.email', 'Email')}
                                 </a>
                                 <a href="https://maps.google.com/?q=${encodeURIComponent(hospedaje.nombre + ' Cómbita Boyacá')}" target="_blank" class="btn-hotel">
-                                    <i class="fas fa-map"></i> Mapa
+                                    <i class="fas fa-map"></i> ${tr('shelters.card.map', 'Mapa')}
                                 </a>
                             </div>
                             <div class="hotel-social">
@@ -1455,7 +1532,7 @@
             // Mostrar mensaje de carga
             const dynamicContainer = document.getElementById('hospedajes-dinamicos');
             if (dynamicContainer) {
-                dynamicContainer.innerHTML = '<div style="text-align: center; padding: 40px;"><i class="fas fa-spinner fa-spin" style="font-size: 30px; color: #699073;"></i><p>Cargando hospedajes...</p></div>';
+                dynamicContainer.innerHTML = `<div style="text-align: center; padding: 40px;"><i class="fas fa-spinner fa-spin" style="font-size: 30px; color: #699073;"></i><p>${tr('shelters.loading', 'Cargando hospedajes...')}</p></div>`;
             }
 
             // Cargar hospedajes desde el backend

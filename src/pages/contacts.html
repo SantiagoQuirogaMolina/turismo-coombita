@@ -5,10 +5,43 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contacto | Turismo Cómbita - Información y Atención</title>
-    <meta name="description" content="Contacta con la oficina de turismo de Cómbita, Boyacá. Envíanos tus preguntas, sugerencias o solicita información.">
+    <title data-i18n="contacts.title">Contacto | Turismo Cómbita - Información y Atención</title>
+    <meta name="description" data-i18n-attr="content:contacts.description" content="Contacta con la oficina de turismo de Cómbita, Boyacá. Envíanos tus preguntas, sugerencias o solicita información.">
+    <!-- CSS crítico del splash (inline para que se vea desde el primer frame) -->
+    <style>
+        #preloader{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(170deg,#1a2a20 0%,#2d3e33 45%,#3a5240 100%);z-index:99995;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+        #preloader::before{content:""!important;background:none!important;width:0!important;height:0!important}
+        #preloader.splash-paramo::after{content:"";position:absolute;top:0;left:-50%;right:-50%;bottom:0;background:radial-gradient(ellipse at 20% 80%,rgba(105,144,115,.15) 0%,transparent 60%),radial-gradient(ellipse at 80% 60%,rgba(221,161,94,.08) 0%,transparent 50%),radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.04) 0%,transparent 70%);animation:splash-neblina 4s ease-in-out infinite alternate;z-index:0}
+        @keyframes splash-neblina{0%{transform:translateX(-3%) translateY(5px);opacity:.6}100%{transform:translateX(3%) translateY(-5px);opacity:1}}
+        #preloader .splash-mountains{position:absolute;bottom:0;left:0;right:0;height:220px;z-index:1}
+        #preloader .splash-mountains svg{width:100%;height:100%;display:block}
+        #preloader .splash-content{position:relative;z-index:2;text-align:center;animation:splash-aparecer .8s ease-out both}
+        @keyframes splash-aparecer{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+        #preloader .splash-icon{margin:0 auto 20px;width:60px;height:80px;animation:splash-respirar 3s ease-in-out infinite}
+        #preloader .splash-icon svg{width:100%;height:100%}
+        @keyframes splash-respirar{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.06);opacity:1}}
+        #preloader .splash-title{color:#DDA15E;font-family:'Montserrat',sans-serif;font-size:32px;font-weight:800;letter-spacing:10px;text-transform:uppercase;margin:0;line-height:1}
+        #preloader .splash-line{width:50px;height:3px;background:linear-gradient(90deg,transparent,#DDA15E,transparent);border-radius:2px;margin:16px auto;animation:splash-linea 2s ease-in-out infinite alternate}
+        @keyframes splash-linea{0%{width:40px;opacity:.6}100%{width:70px;opacity:1}}
+        #preloader .splash-subtitle{color:rgba(255,255,255,.55);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin:0}
+        #preloader .splash-particulas{position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;overflow:hidden}
+        #preloader .splash-particulas span{position:absolute;width:4px;height:4px;background:rgba(221,161,94,.4);border-radius:50%;animation:splash-flotar 6s ease-in-out infinite}
+        #preloader .splash-particulas span:nth-child(1){left:15%;bottom:20%;animation-delay:0s;animation-duration:7s}
+        #preloader .splash-particulas span:nth-child(2){left:35%;bottom:30%;animation-delay:1.5s;animation-duration:5s;width:3px;height:3px}
+        #preloader .splash-particulas span:nth-child(3){left:65%;bottom:15%;animation-delay:.8s;animation-duration:8s}
+        #preloader .splash-particulas span:nth-child(4){left:80%;bottom:25%;animation-delay:2.5s;animation-duration:6s;width:3px;height:3px}
+        #preloader .splash-particulas span:nth-child(5){left:50%;bottom:35%;animation-delay:1s;animation-duration:7.5s;width:5px;height:5px;background:rgba(221,161,94,.25)}
+        @keyframes splash-flotar{0%{transform:translateY(0) scale(1);opacity:0}15%{opacity:1}50%{transform:translateY(-120px) scale(.8);opacity:.6}85%{opacity:.3}100%{transform:translateY(-250px) scale(.4);opacity:0}}
+        #preloader .splash-progress{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);width:100px;height:2px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;z-index:2}
+        #preloader .splash-progress span{display:block;height:100%;background:linear-gradient(90deg,transparent,#DDA15E,transparent);border-radius:2px;animation:splash-carga 1.8s ease-in-out infinite}
+        @keyframes splash-carga{0%{width:0%;margin-left:0%}50%{width:50%;margin-left:25%}100%{width:0%;margin-left:100%}}
+        @media (max-width:575.98px){#preloader .splash-title{font-size:24px;letter-spacing:6px}#preloader .splash-subtitle{font-size:10px;letter-spacing:3px}#preloader .splash-icon{width:45px;height:60px}}
+        #preloader{animation:splash-seguro .6s ease-out 5s forwards}
+        @keyframes splash-seguro{to{opacity:0;visibility:hidden;pointer-events:none}}
+    </style>
     <script src="../assets/js/vendor/jquery.min.js"></script>
     <script src="../assets/js/vendor/main.js"></script>
+    <script src="../assets/js/modules/i18n.js?v=2" defer></script>
     <link rel="stylesheet" href="../assets/css/vendor/bootstrap-grid.css">
     <link rel="stylesheet" href="../assets/css/vendor/style.css">
     <link rel="stylesheet" href="../assets/css/vendor/glide.css">
@@ -17,7 +50,7 @@
     <link rel="stylesheet" href="../assets/css/vendor/media-box.css">
     <link rel="stylesheet" href="../assets/media/icons/fontawesome/all.css">
     <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/frailejon-theme.css">
+    <link rel="stylesheet" href="../assets/css/frailejon-theme.css?v=3">
     <link rel="icon" href="../assets/images/favicon.png">
     <style>
         /* ===== Mapa ===== */
@@ -291,7 +324,42 @@
 </head>
 
 <body class="page-main">
-    <div id="preloader"></div>
+    <div id="preloader" class="splash-paramo">
+        <div class="splash-particulas">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="splash-content">
+            <div class="splash-icon">
+                <svg viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="#DDA15E" stroke-width="1.5" stroke-linecap="round" opacity="0.9">
+                        <path d="M30 78 L30 40" stroke-width="2"/>
+                        <path d="M27 75 Q30 72 33 75"/>
+                        <path d="M26 68 Q30 65 34 68"/>
+                        <path d="M25 61 Q30 58 35 61"/>
+                        <path d="M26 54 Q30 51 34 54"/>
+                        <path d="M27 47 Q30 44 33 47"/>
+                        <path d="M30 38 Q30 20 18 8" stroke-width="1.8"/>
+                        <path d="M30 38 Q25 18 10 14" stroke-width="1.5"/>
+                        <path d="M30 38 Q35 18 50 14" stroke-width="1.5"/>
+                        <path d="M30 38 Q30 20 42 8" stroke-width="1.8"/>
+                        <path d="M30 38 Q20 22 8 24" stroke-width="1.3"/>
+                        <path d="M30 38 Q40 22 52 24" stroke-width="1.3"/>
+                        <path d="M30 38 L30 6" stroke-width="1.8"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="splash-title">CÓMBITA</div>
+            <div class="splash-line"></div>
+            <div class="splash-subtitle">Boyacá &middot; Colombia</div>
+        </div>
+        <div class="splash-mountains">
+            <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,220 L0,160 Q120,80 240,120 Q360,160 480,100 Q600,40 720,90 Q840,140 960,70 Q1080,0 1200,50 Q1320,100 1440,60 L1440,220 Z" fill="rgba(105,144,115,0.08)"/>
+                <path d="M0,220 L0,180 Q180,120 360,155 Q540,190 720,140 Q900,90 1080,130 Q1260,170 1440,110 L1440,220 Z" fill="rgba(105,144,115,0.05)"/>
+            </svg>
+        </div>
+        <div class="splash-progress"><span></span></div>
+    </div>
     <nav class="menu-classic menu-fixed align-right" data-menu-anima="fade-in">
         <div class="container">
             <div class="menu-brand">
@@ -306,40 +374,46 @@
             <div class="menu-cnt">
                 <ul id="main-menu">
                     <li class="dropdown">
-                        <a href="./index.html">Inicio</a>
+                        <a href="./index.html" data-i18n="common.nav.home">Inicio</a>
                     </li>
                     <li class="dropdown">
-                        <a href="#">Descubre</a>
+                        <a href="#" data-i18n="common.nav.discover">Descubre</a>
                         <ul>
                             <li class="dropdown-submenu">
-                                <a>Imperdibles</a>
+                                <a data-i18n="common.nav.must_see">Imperdibles</a>
                                 <ul>
-                                    <li><a href="./food.html">Restaurantes</a></li>
-                                    <li><a href="./shelters.html">Hospedajes</a></li>
-                                    <li><a href="./events.html">Eventos</a></li>
-                                    <li><a href="./artesanos-guias.html">Artesanos y Guías</a></li>
+                                    <li><a href="./food.html" data-i18n="common.nav.restaurants">Restaurantes</a></li>
+                                    <li><a href="./shelters.html" data-i18n="common.nav.lodging">Hospedajes</a></li>
+                                    <li><a href="./events.html" data-i18n="common.nav.events">Eventos</a></li>
+                                    <li><a href="./artesanos-guias.html" data-i18n="common.nav.artisans_guides">Artesanos y Guías</a></li>
+                                    <li><a href="./catering.html" data-i18n="common.nav.catering">Catering y Celebraciones</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown-submenu">
-                                <a>Explora Más</a>
+                                <a data-i18n="common.nav.explore_more">Explora Más</a>
                                 <ul>
-                                    <li><a href="./history.html">Historia</a></li>
-                                    <li><a href="./gallery.html">Galería</a></li>
+                                    <li><a href="./history.html" data-i18n="common.nav.history">Historia</a></li>
+                                    <li><a href="./gallery.html" data-i18n="common.nav.gallery">Galería</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
-                    <li><a href="./treks/index.html">Caminatas</a></li>
+                    <li><a href="./treks/index.html" data-i18n="common.nav.treks">Caminatas</a></li>
                     <li class="dropdown">
-                        <a href="#">Planifica</a>
+                        <a href="#" data-i18n="common.nav.plan">Planifica</a>
                         <ul>
-                            <li><a href="./transporte.html">Cómo Llegar</a></li>
-                            <li><a href="./mapa.html">Mapa</a></li>
-                            <li><a href="./tips.html">Tips del Viajero</a></li>
+                            <li><a href="./transporte.html" data-i18n="common.nav.how_to_arrive">Cómo Llegar</a></li>
+                            <li><a href="./mapa.html" data-i18n="common.nav.map">Mapa</a></li>
+                            <li><a href="./tips.html" data-i18n="common.nav.tips">Tips del Viajero</a></li>
                         </ul>
                     </li>
-                    <li><a href="./blog.html">Blog</a></li>
-                    <li><a href="./contacts.html">Contacto</a></li>
+                    <li><a href="./blog.html" data-i18n="common.nav.blog">Blog</a></li>
+                    <li><a href="./contacts.html" data-i18n="common.nav.contact">Contacto</a></li>
+                    <li class="lang-switcher" aria-label="Idioma">
+                        <a href="#" data-lang-switch="es" data-i18n="common.lang_switch.es">ES</a>
+                        <span class="lang-sep">|</span>
+                        <a href="#" data-lang-switch="en" data-i18n="common.lang_switch.en">EN</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -361,54 +435,54 @@
                 <div class="contacto-grid">
                     <!-- Formulario -->
                     <div class="contacto-form">
-                        <h2>Escríbenos</h2>
-                        <p>¿Tienes preguntas sobre turismo en Cómbita? ¿Necesitas información sobre hospedajes, restaurantes o caminatas? Envíanos tu mensaje y te responderemos pronto.</p>
+                        <h2 data-i18n="contacts.form.title">Escríbenos</h2>
+                        <p data-i18n="contacts.form.intro">¿Tienes preguntas sobre turismo en Cómbita? ¿Necesitas información sobre hospedajes, restaurantes o caminatas? Envíanos tu mensaje y te responderemos pronto.</p>
 
                         <form id="formContacto">
                             <div class="campo-grupo">
                                 <div class="campo">
-                                    <label>Nombre <span>*</span></label>
-                                    <input name="nombre" placeholder="Tu nombre completo" type="text" required>
+                                    <label data-i18n-html="contacts.form.label_name_html"><span data-i18n="common.labels.name">Nombre</span> <span>*</span></label>
+                                    <input name="nombre" placeholder="Tu nombre completo" data-i18n-attr="placeholder:contacts.form.placeholder_name" type="text" required>
                                 </div>
                                 <div class="campo">
-                                    <label>Correo electrónico <span>*</span></label>
-                                    <input name="email" placeholder="correo@ejemplo.com" type="email" required>
+                                    <label data-i18n-html="contacts.form.label_email_html"><span data-i18n="common.labels.email">Correo electrónico</span> <span>*</span></label>
+                                    <input name="email" placeholder="correo@ejemplo.com" data-i18n-attr="placeholder:contacts.form.placeholder_email" type="email" required>
                                 </div>
                             </div>
 
                             <div class="campo-grupo">
                                 <div class="campo">
-                                    <label>Teléfono</label>
-                                    <input name="telefono" placeholder="300 123 4567" type="tel">
+                                    <label data-i18n="contacts.form.label_phone">Teléfono</label>
+                                    <input name="telefono" placeholder="300 123 4567" data-i18n-attr="placeholder:contacts.form.placeholder_phone" type="tel">
                                 </div>
                                 <div class="campo">
-                                    <label>Asunto</label>
+                                    <label data-i18n="contacts.form.label_subject">Asunto</label>
                                     <select name="asunto">
-                                        <option value="Información general">Información general</option>
-                                        <option value="Hospedajes">Hospedajes</option>
-                                        <option value="Restaurantes">Restaurantes</option>
-                                        <option value="Caminatas y senderismo">Caminatas y senderismo</option>
-                                        <option value="Eventos">Eventos</option>
-                                        <option value="Sugerencia">Sugerencia</option>
-                                        <option value="Otro">Otro</option>
+                                        <option value="Información general" data-i18n="contacts.form.subject_general">Información general</option>
+                                        <option value="Hospedajes" data-i18n="contacts.form.subject_lodging">Hospedajes</option>
+                                        <option value="Restaurantes" data-i18n="contacts.form.subject_food">Restaurantes</option>
+                                        <option value="Caminatas y senderismo" data-i18n="contacts.form.subject_treks">Caminatas y senderismo</option>
+                                        <option value="Eventos" data-i18n="contacts.form.subject_events">Eventos</option>
+                                        <option value="Sugerencia" data-i18n="contacts.form.subject_suggestion">Sugerencia</option>
+                                        <option value="Otro" data-i18n="contacts.form.subject_other">Otro</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="campo-grupo">
                                 <div class="campo full">
-                                    <label>Mensaje <span>*</span></label>
-                                    <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                                    <label data-i18n-html="contacts.form.label_message_html"><span data-i18n="contacts.form.label_message">Mensaje</span> <span>*</span></label>
+                                    <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." data-i18n-attr="placeholder:contacts.form.placeholder_message" required></textarea>
                                 </div>
                             </div>
 
                             <div class="check-privacidad">
                                 <input type="checkbox" id="check" name="check" required>
-                                <label for="check">Acepto la política de privacidad y el tratamiento de mis datos personales</label>
+                                <label for="check" data-i18n="contacts.form.privacy_consent">Acepto la política de privacidad y el tratamiento de mis datos personales</label>
                             </div>
 
                             <button class="btn-enviar" type="submit" id="btnEnviar">
-                                <i class="fas fa-paper-plane"></i> Enviar mensaje
+                                <i class="fas fa-paper-plane"></i> <span data-i18n="contacts.form.send_button">Enviar mensaje</span>
                             </button>
 
                             <div class="contacto-resultado" id="contactoResultado"></div>
@@ -417,21 +491,21 @@
 
                     <!-- Info lateral -->
                     <div class="contacto-info">
-                        <h2>Información de Contacto</h2>
-                        <p>Encuéntranos o comunícate con nosotros</p>
+                        <h2 data-i18n="contacts.info.title">Información de Contacto</h2>
+                        <p data-i18n="contacts.info.subtitle">Encuéntranos o comunícate con nosotros</p>
 
                         <div class="info-item">
                             <div class="info-icono"><i class="fas fa-map-marker-alt"></i></div>
                             <div class="info-texto">
-                                <h4>Dirección</h4>
-                                <p>Parque Principal, Cómbita,<br>Boyacá, Colombia</p>
+                                <h4 data-i18n="contacts.info.address_label">Dirección</h4>
+                                <p data-i18n-html="contacts.info.address_value">Parque Principal, Cómbita,<br>Boyacá, Colombia</p>
                             </div>
                         </div>
 
                         <div class="info-item">
                             <div class="info-icono"><i class="fas fa-phone-alt"></i></div>
                             <div class="info-texto">
-                                <h4>Teléfono</h4>
+                                <h4 data-i18n="contacts.info.phone_label">Teléfono</h4>
                                 <p><a href="tel:+573133662322">313 366 2322</a></p>
                             </div>
                         </div>
@@ -439,7 +513,7 @@
                         <div class="info-item">
                             <div class="info-icono"><i class="fas fa-envelope"></i></div>
                             <div class="info-texto">
-                                <h4>Correo electrónico</h4>
+                                <h4 data-i18n="contacts.info.email_label">Correo electrónico</h4>
                                 <p><a href="mailto:alcaldia@combita-boyaca.gov.co">alcaldia@combita-boyaca.gov.co</a></p>
                             </div>
                         </div>
@@ -447,7 +521,7 @@
                         <div class="info-item">
                             <div class="info-icono"><i class="fas fa-globe"></i></div>
                             <div class="info-texto">
-                                <h4>Sitio web</h4>
+                                <h4 data-i18n="contacts.info.website_label">Sitio web</h4>
                                 <p><a href="http://combita-boyaca.gov.co" target="_blank">combita-boyaca.gov.co</a></p>
                             </div>
                         </div>
@@ -455,15 +529,15 @@
                         <div class="info-item">
                             <div class="info-icono"><i class="fas fa-clock"></i></div>
                             <div class="info-texto">
-                                <h4>Horario de atención</h4>
-                                <p>Lunes a Viernes: 8:00 AM - 5:00 PM<br>Sábados y Festivos: Cerrado</p>
+                                <h4 data-i18n="contacts.info.hours_label">Horario de atención</h4>
+                                <p data-i18n-html="contacts.info.hours_value">Lunes a Viernes: 8:00 AM - 5:00 PM<br>Sábados y Festivos: Cerrado</p>
                             </div>
                         </div>
 
                         <div class="info-divider"></div>
 
                         <div class="info-redes">
-                            <h4>Síguenos en redes</h4>
+                            <h4 data-i18n="contacts.info.follow_label">Síguenos en redes</h4>
                             <div class="redes-links">
                                 <a href="https://web.facebook.com/CombitaBoyaca" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                 <a href="https://www.instagram.com/combitaoficial" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -481,14 +555,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <h3>Cómbita</h3>
-                    <p>En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio
+                    <h3 data-i18n="common.footer.brand">Cómbita</h3>
+                    <p data-i18n="common.footer.tagline">En algún lugar entre el inicio de la ascensión y la cima, se encuentra la respuesta al misterio
                         de por qué subimos.</p>
                 </div>
                 <div class="col-lg-4">
-                    <h3>Contacto</h3>
+                    <h3 data-i18n="common.footer.contact_title">Contacto</h3>
                     <ul class="icon-list icon-line">
-                        <li>Cómbita, Boyacá, Colombia</li>
+                        <li data-i18n="common.footer.address">Cómbita, Boyacá, Colombia</li>
                         <li>alcaldia@combita-boyaca.gov.co</li>
                         <li> 313 366 2322</li>
                     </ul>
@@ -500,14 +574,14 @@
                         <a class="youtube" href="https://www.youtube.com/@Combita-Boyaca" target="_blank"><i class="icon-youtube"></i></a>
                     </div>
                     <hr class="space-sm" />
-                    <p>Síguenos en nuestras redes</p>
+                    <p data-i18n="common.footer.follow_us">Síguenos en nuestras redes</p>
                 </div>
             </div>
         </div>
         <div class="footer-bar">
             <div class="container">
-                <span>&copy; 2024 Santiago Quiroga Molina <a href="https://santiago-developer.netlify.app/" target="_blank">santiago-developer.com</a>.</span>
-                <span><a href="./contacts.html">Contacto</a> | <a href="./privacidad.html">Política de privacidad</a></span>
+                <span><span data-i18n="common.footer.copy">&copy; 2024 Santiago Quiroga Molina</span> <a href="https://santiago-developer.netlify.app/" target="_blank">santiago-developer.com</a>.</span>
+                <span><a href="./contacts.html" data-i18n="common.footer.contact_short">Contacto</a> | <a href="./privacidad.html" data-i18n="common.footer.privacy">Política de privacidad</a></span>
             </div>
         </div>
     </footer>
@@ -522,15 +596,17 @@
             const resultado = document.getElementById('contactoResultado');
             const form = this;
 
+            const tr = (k, fb) => (window.i18n && window.i18n.t) ? window.i18n.t(k, fb) : fb;
+
             if (!form.check.checked) {
                 resultado.className = 'contacto-resultado error-msg';
-                resultado.innerHTML = '<i class="fas fa-exclamation-circle"></i> Debes aceptar la política de privacidad';
+                resultado.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + tr('contacts.messages.error_privacy', 'Debes aceptar la política de privacidad');
                 resultado.style.display = 'block';
                 return;
             }
 
             btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + tr('common.buttons.sending', 'Enviando...');
 
             const datos = {
                 nombre: form.nombre.value.trim(),
@@ -551,22 +627,22 @@
 
                 if (data.success) {
                     resultado.className = 'contacto-resultado exito';
-                    resultado.innerHTML = '<i class="fas fa-check-circle"></i> ¡Mensaje enviado correctamente! Te responderemos pronto.';
+                    resultado.innerHTML = '<i class="fas fa-check-circle"></i> ' + tr('contacts.messages.success', '¡Mensaje enviado correctamente! Te responderemos pronto.');
                     resultado.style.display = 'block';
                     form.reset();
                 } else {
                     resultado.className = 'contacto-resultado error-msg';
-                    resultado.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + (data.error || 'Error al enviar el mensaje.');
+                    resultado.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + (data.error || tr('contacts.messages.error_send', 'Error al enviar el mensaje.'));
                     resultado.style.display = 'block';
                 }
             } catch (error) {
                 resultado.className = 'contacto-resultado error-msg';
-                resultado.innerHTML = '<i class="fas fa-exclamation-circle"></i> Error de conexión. Intenta de nuevo.';
+                resultado.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + tr('contacts.messages.error_connection', 'Error de conexión. Intenta de nuevo.');
                 resultado.style.display = 'block';
             }
 
             btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar mensaje';
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + tr('contacts.form.send_button', 'Enviar mensaje');
 
             setTimeout(() => { resultado.style.display = 'none'; }, 8000);
         });
