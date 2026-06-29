@@ -716,8 +716,10 @@
                 var albumIndex = $(this).closest('.album-box').index();
                 var $albumContent = $('.album-item').eq(albumIndex);
 
-                // Ocultar lista de álbumes y mostrar contenido del álbum
-                $('.album-list').fadeOut(300, function() {
+                // Ocultar SOLO la lista activa (evita revelar la galería de respaldo)
+                var $activeList = $(this).closest('.album-list');
+                window.__activeAlbumList = $activeList;
+                $activeList.fadeOut(300, function() {
                     $albumContent.fadeIn(300);
                     $('.album-title').fadeIn(300);
                 });
@@ -733,7 +735,8 @@
                 e.preventDefault();
                 $('.album-item').fadeOut(300);
                 $('.album-title').fadeOut(300, function() {
-                    $('.album-list').fadeIn(300);
+                    var $list = window.__activeAlbumList || $('#galeria-dinamica');
+                    $list.fadeIn(300);
                 });
             });
         });
@@ -888,7 +891,9 @@
                 var albumIndex = $(this).closest('.album-box').index();
                 var $albumContent = $('.album-item').eq(albumIndex);
 
-                $('.album-list').fadeOut(300, function() {
+                var $activeList = $(this).closest('.album-list');
+                window.__activeAlbumList = $activeList;
+                $activeList.fadeOut(300, function() {
                     $albumContent.fadeIn(300);
                     $('.album-title').fadeIn(300);
                 });
