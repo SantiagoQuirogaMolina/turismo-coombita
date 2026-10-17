@@ -14,7 +14,8 @@ const paginationState = {
     hoteles: { page: 1, limit: 10, search: '' },
     eventos: { page: 1, limit: 10, search: '' },
     artesanos: { page: 1, limit: 10, search: '' },
-    guias: { page: 1, limit: 10, search: '' }
+    guias: { page: 1, limit: 10, search: '' },
+    catering: { page: 1, limit: 10, search: '' }
 };
 
 // ==================== INICIALIZACIÓN ====================
@@ -48,6 +49,7 @@ function setupEventListeners() {
     document.getElementById('formArtesano').addEventListener('submit', handleArtesanoSubmit);
     document.getElementById('formGuia').addEventListener('submit', handleGuiaSubmit);
     document.getElementById('formVideo').addEventListener('submit', handleVideoSubmit);
+    document.getElementById('formCatering').addEventListener('submit', handleCateringSubmit);
     document.getElementById('formPassword').addEventListener('submit', handlePasswordChange);
 
     // YouTube URL preview
@@ -184,6 +186,7 @@ function showSection(sectionId) {
         blog: 'Blog',
         artesanos: 'Artesanos',
         guias: 'Guías Turísticos',
+        catering: 'Catering y Celebraciones',
         mensajes: 'Mensajes',
         config: 'Configuración'
     };
@@ -199,6 +202,7 @@ function showSection(sectionId) {
     if (sectionId === 'blog') loadBlog();
     if (sectionId === 'artesanos') loadArtesanos();
     if (sectionId === 'guias') loadGuias();
+    if (sectionId === 'catering') loadCatering();
     if (sectionId === 'mensajes') loadMensajes();
 }
 
@@ -305,20 +309,20 @@ function searchEntity(entity) {
     const input = document.getElementById(`search-${entity}`);
     paginationState[entity].search = input.value.trim();
     paginationState[entity].page = 1;
-    const loaders = { restaurantes: loadRestaurantes, hoteles: loadHoteles, eventos: loadEventos, artesanos: loadArtesanos, guias: loadGuias };
+    const loaders = { restaurantes: loadRestaurantes, hoteles: loadHoteles, eventos: loadEventos, artesanos: loadArtesanos, guias: loadGuias, catering: loadCatering };
     loaders[entity]();
 }
 
 function clearSearch(entity) {
     paginationState[entity].search = '';
     paginationState[entity].page = 1;
-    const loaders = { restaurantes: loadRestaurantes, hoteles: loadHoteles, eventos: loadEventos, artesanos: loadArtesanos, guias: loadGuias };
+    const loaders = { restaurantes: loadRestaurantes, hoteles: loadHoteles, eventos: loadEventos, artesanos: loadArtesanos, guias: loadGuias, catering: loadCatering };
     loaders[entity]();
 }
 
 function goToPage(entity, page) {
     paginationState[entity].page = page;
-    const loaders = { restaurantes: loadRestaurantes, hoteles: loadHoteles, eventos: loadEventos, artesanos: loadArtesanos, guias: loadGuias };
+    const loaders = { restaurantes: loadRestaurantes, hoteles: loadHoteles, eventos: loadEventos, artesanos: loadArtesanos, guias: loadGuias, catering: loadCatering };
     loaders[entity]();
 }
 
@@ -814,6 +818,7 @@ function openModal(type) {
         artesano: 'modalArtesano',
         guia: 'modalGuia',
         video: 'modalVideo',
+        catering: 'modalCatering',
         confirm: 'modalConfirm'
     };
 
@@ -836,7 +841,8 @@ function openModal(type) {
                     imagen: 'Subir Imagen',
                     artesano: 'Agregar Artesano',
                     guia: 'Agregar Guía',
-                    video: 'Agregar Video'
+                    video: 'Agregar Video',
+                    catering: 'Agregar Establecimiento de Catering'
                 };
                 if (titles[type]) title.textContent = titles[type];
             }
@@ -855,7 +861,8 @@ function openModal(type) {
                 imagen: 'imagenUploadPreview',
                 blog: 'blogImagenPreview',
                 artesano: 'artesanoImagenPreview',
-                guia: 'guiaImagenPreview'
+                guia: 'guiaImagenPreview',
+                catering: 'cateringImagenPreview'
             };
             const previewId = previewMap[type];
             if (previewId) {
@@ -882,6 +889,7 @@ function closeModal(type) {
         artesano: 'modalArtesano',
         guia: 'modalGuia',
         video: 'modalVideo',
+        catering: 'modalCatering',
         confirm: 'modalConfirm'
     };
 
@@ -912,7 +920,8 @@ function closeModal(type) {
             blog: 'blogImagenPreview',
             artesano: 'artesanoImagenPreview',
             guia: 'guiaImagenPreview',
-            video: 'videoThumbnailPreview'
+            video: 'videoThumbnailPreview',
+            catering: 'cateringImagenPreview'
         };
         const previewId = previewMap[type];
         if (previewId) {
@@ -946,7 +955,8 @@ function confirmDelete(type, id, name) {
                     blog: 'blog',
                     artesano: 'artesanos',
                     guia: 'guias',
-                    video: 'videos'
+                    video: 'videos',
+                    catering: 'catering'
                 };
                 deleteUrl = `${API_URL}/${endpoints[type]}/${id}`;
             }
@@ -972,6 +982,7 @@ function confirmDelete(type, id, name) {
                 if (type === 'artesano') loadArtesanos();
                 if (type === 'guia') loadGuias();
                 if (type === 'video') loadVideos();
+                if (type === 'catering') loadCatering();
                 loadDashboard();
             } else {
                 showToast(data.error || 'Error al eliminar', 'error');
@@ -1955,6 +1966,176 @@ function setBtnLoading(btn, loading) {
     } else {
         btn.innerHTML = btn.dataset.originalText || 'Guardar';
         btn.disabled = false;
+    }
+}
+
+// ==================== CATERING Y CELEBRACIONES ====================
+
+async function loadCatering() {
+    try {
+        const state = paginationState.catering;
+        const params = new URLSearchParams({ page: state.page, limit: state.limit });
+        if (state.search) params.append('search', state.search);
+        const res = await fetch(`${API_URL}/catering?${params}`);
+        const data = await res.json();
+
+        const items = Array.isArray(data) ? data : data.data;
+        const paginationHtml = data.pages ? renderPagination('catering', data.total, data.page, data.pages) : '';
+
+        const container = document.querySelector('#section-catering .card-body');
+        const searchBarHtml = renderSearchBar('catering', 'Buscar establecimientos...');
+
+        const tableHtml = `<div class="table-responsive"><table id="tablaCatering" class="table">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Servicios</th>
+                    <th>Aforo</th>
+                    <th>Ubicación</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${(items || []).map(c => {
+                    const tipos = (c.tipos_servicio || []).slice(0, 3).join(', ') +
+                                  ((c.tipos_servicio || []).length > 3 ? '...' : '');
+                    return `
+                <tr>
+                    <td>
+                        <div class="tabla-imagen">
+                            ${c.imagen ? `<img src="${c.imagen}" alt="${escapeHtml(c.nombre)}" onerror="this.parentElement.innerHTML='<span class=\\'sin-imagen\\'><i class=\\'fas fa-champagne-glasses\\'></i></span>'">` : '<span class="sin-imagen"><i class="fas fa-champagne-glasses"></i></span>'}
+                        </div>
+                    </td>
+                    <td><strong>${escapeHtml(c.nombre)}</strong></td>
+                    <td>${escapeHtml(tipos) || '-'}</td>
+                    <td>${c.aforo_total || '-'}</td>
+                    <td>${escapeHtml(c.ubicacion || c.direccion || '-')}</td>
+                    <td><span class="badge-status ${c.activo ? 'activo' : 'borrador'}">${c.activo ? 'Activo' : 'Inactivo'}</span></td>
+                    <td class="actions">
+                        <button class="btn-edit" onclick="editCatering('${c.id}')">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                        <button class="btn-delete" onclick="confirmDelete('catering', '${c.id}', '${escapeHtml(c.nombre).replace(/'/g, "\\'")}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                `;
+                }).join('')}
+            </tbody>
+        </table></div>`;
+
+        container.innerHTML = searchBarHtml + tableHtml + paginationHtml;
+
+    } catch (error) {
+        console.error('Error loading catering:', error);
+        showToast('Error cargando catering', 'error');
+    }
+}
+
+async function handleCateringSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const id = formData.get('id');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    setBtnLoading(submitBtn, true);
+
+    const url = id ? `${API_URL}/catering/${id}` : `${API_URL}/catering`;
+    const method = id ? 'PUT' : 'POST';
+
+    try {
+        const res = await fetch(url, {
+            method,
+            headers: getAuthHeaders(),
+            body: formData
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+            closeModal('catering');
+            loadCatering();
+            loadDashboard();
+            showToast(id ? 'Establecimiento actualizado' : 'Establecimiento creado', 'success');
+            form.reset();
+        } else {
+            showToast(data.error || 'Error al guardar', 'error');
+        }
+    } catch (error) {
+        showToast('Error de conexión', 'error');
+    } finally {
+        setBtnLoading(submitBtn, false);
+    }
+}
+
+async function editCatering(id) {
+    try {
+        const res = await fetch(`${API_URL}/catering/${id}`);
+        const item = await res.json();
+
+        const form = document.getElementById('formCatering');
+        form.id.value = item.id;
+        form.nombre.value = item.nombre || '';
+        form.direccion.value = item.direccion || '';
+        form.ubicacion.value = item.ubicacion || '';
+        form.maps_link.value = item.maps_link || '';
+        form.descripcion.value = item.descripcion || '';
+        form.aforo_total.value = item.aforo_total || '';
+        form.aforo_parqueadero.value = item.aforo_parqueadero || '';
+        form.salones_descripcion.value = item.salones_descripcion || '';
+        form.precio_badge.value = item.precio_badge || 'Estándar';
+        form.precio_badge_otro.value = item.precio_badge_otro || '';
+        form.telefono.value = item.telefono || '';
+        form.whatsapp.value = item.whatsapp || '';
+        form.correo.value = item.correo || '';
+        form.activo.value = item.activo ? 'true' : 'false';
+
+        // Tipos de servicio
+        const tipos = Array.isArray(item.tipos_servicio) ? item.tipos_servicio : [];
+        form.tipo_eventos.checked = tipos.includes('Eventos');
+        form.tipo_catering.checked = tipos.includes('Catering');
+        form.tipo_seminarios.checked = tipos.includes('Seminarios');
+        form.tipo_celebraciones.checked = tipos.includes('Celebraciones');
+        form.tipo_empresariales.checked = tipos.includes('Eventos empresariales');
+        form.tipo_mobiliario.checked = tipos.includes('Alquiler de mobiliario');
+        form.tipo_logistica.checked = tipos.includes('Planificación logística') || tipos.includes('Planificación logística y montaje');
+        form.tipo_decoraciones.checked = tipos.includes('Decoraciones');
+        form.tipo_personal.checked = tipos.includes('Servicio de personal');
+        form.tipo_equipamento.checked = tipos.includes('Equipamento');
+
+        const tiposPredefinidos = ['Eventos', 'Catering', 'Seminarios', 'Celebraciones', 'Eventos empresariales',
+                                   'Alquiler de mobiliario', 'Planificación logística', 'Planificación logística y montaje',
+                                   'Decoraciones', 'Servicio de personal', 'Equipamento'];
+        form.tipos_otros.value = tipos.filter(t => !tiposPredefinidos.includes(t)).join(', ');
+
+        // Servicios
+        const servicios = Array.isArray(item.servicios) ? item.servicios : [];
+        form.servicio_wifi.checked = servicios.includes('WiFi');
+        form.servicio_parking.checked = servicios.includes('Parqueadero');
+        form.servicio_cocina.checked = servicios.includes('Cocina');
+        form.servicio_jardin.checked = servicios.includes('Jardín');
+        form.servicio_chimenea.checked = servicios.includes('Chimenea');
+        form.servicio_proyector.checked = servicios.includes('Proyector de video');
+        form.servicio_bbq.checked = servicios.includes('BBQ');
+
+        const serviciosPredefinidos = ['WiFi', 'Parqueadero', 'Cocina', 'Jardín', 'Chimenea', 'Proyector de video', 'BBQ'];
+        form.servicios_otros.value = servicios.filter(s => !serviciosPredefinidos.includes(s)).join(', ');
+
+        // Redes sociales
+        form.facebook.value = item.redes_sociales?.facebook || '';
+        form.instagram.value = item.redes_sociales?.instagram || '';
+        form.tiktok.value = item.redes_sociales?.tiktok || '';
+        form.youtube.value = item.redes_sociales?.youtube || '';
+
+        showCurrentImage('cateringImagenPreview', item.imagen);
+
+        document.getElementById('modalCateringTitle').textContent = 'Editar Establecimiento de Catering';
+        openModal('catering');
+    } catch (error) {
+        showToast('Error cargando datos', 'error');
     }
 }
 

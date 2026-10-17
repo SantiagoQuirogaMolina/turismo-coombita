@@ -300,18 +300,18 @@
     },
     {
       "id": "mltwaq5mim19eabjj3",
-      "nombre": "Cafe como en casa",
+      "nombre": "Restaurante Como En Casa",
       "tipo_cocina": "Típica Boyacense",
       "aforo": 70,
       "especialidad": "almuerzos ejecutivo, especiales, del dia, y platos a la carta de todo tipo.",
-      "propietario": "Mercedes Molina",
-      "direccion": "Calle 4 #4-25",
-      "ubicacion": "Centro",
-      "telefono": "310 799 4576",
-      "whatsapp": "310 799 4576",
-      "correo": "",
-      "horario": "L-D 11:00am - 5:00pm",
-      "precio_promedio": 13,
+      "propietario": "Mercedes del Rosario Molina Zamora ",
+      "direccion": "Calle 4 N°4-29",
+      "ubicacion": "Centro - Media cuadra abajo del parque principal , casa de dos pisos",
+      "telefono": "3107994576",
+      "whatsapp": "+57 314 4577037",
+      "correo": "molinamechis12@gmail.com",
+      "horario": "L-D 08:00am - 4:00pm",
+      "precio_promedio": 14000,
       "redes_sociales": {
         "facebook": "",
         "instagram": "",
@@ -320,7 +320,153 @@
       },
       "imagen": "/uploads/restaurantes/restaurante-1771531806438.png",
       "activo": true,
-      "creado": "2026-02-19T20:10:06.442Z"
+      "creado": "2026-02-19T20:10:06.442Z",
+      "actualizado": "2026-03-30T14:13:38.171Z"
+    },
+    {
+      "id": "mnd9h3m1oedyv73his",
+      "nombre": "El sabor de mi Tierra ",
+      "tipo_cocina": "Típica Boyacense",
+      "aforo": 150,
+      "especialidad": "Indios, cocido boyacense.",
+      "propietario": "Alfredo Torres",
+      "direccion": "Carrera 5 #3-18 segundo piso",
+      "ubicacion": "Centro junto a la iglesia ",
+      "telefono": "3144086599",
+      "whatsapp": "3115721631",
+      "correo": "restaurantecomidademitierra@gmail.com",
+      "horario": "7 am a 5 pm  (también salón de eventos)",
+      "precio_promedio": 14000,
+      "redes_sociales": {
+        "facebook": "https://www.facebook.com/share/1C7NpJjCaL/",
+        "instagram": "",
+        "tiktok": " restaurante.comid2",
+        "youtube": ""
+      },
+      "imagen": "",
+      "activo": true,
+      "creado": "2026-03-30T14:06:18.505Z"
+    },
+    {
+      "id": "mnd9mu3oea5t7qo77ru",
+      "nombre": "UMBA,  el placer de lo natural",
+      "tipo_cocina": "Postres y Repostería",
+      "aforo": 26,
+      "especialidad": "Ensaladas de frutas,  waffles, crepes y demás con fruta y helado.",
+      "propietario": "Leidy Lorena Suarez Aunta ",
+      "direccion": "Cra 5 #4-43",
+      "ubicacion": "Una cuadra de la iglesia, vía al cementerio. ",
+      "telefono": "3157540211",
+      "whatsapp": "3157540211",
+      "correo": "Loresua_bb@hotmail.com",
+      "horario": "9:00am a 6:30 pm",
+      "precio_promedio": 10000,
+      "redes_sociales": {
+        "facebook": "https://www.facebook.com/share/17FYmr2V5m/",
+        "instagram": "umba_oficial1",
+        "tiktok": "lorenaaunta",
+        "youtube": ""
+      },
+      "imagen": "",
+      "activo": true,
+      "creado": "2026-03-30T14:10:46.116Z"
+    },
+    {
+      "id": "mnd9v0ops8g15ps0xyh",
+      "nombre": "Restaurante Tín Marín",
+      "tipo_cocina": "Asadero",
+      "aforo": 350,
+      "especialidad": "Parrilla, Platos típicos Colombianos, Pescados y Mariscos, cerdo",
+      "propietario": "AUCORIA SAS",
+      "direccion": "AVENIDA NORTE 80 - 10",
+      "ubicacion": "Vereda San Onofre antes de Jardines",
+      "telefono": "3124513063",
+      "whatsapp": "3124513063",
+      "correo": "tinmarinrest@outlook.com",
+      "horario": "Domingo a Jueves 12PM - 4PM. Viernes y Sabado de 12pm - 8:30PM",
+      "precio_promedio": 60000,
+      "redes_sociales": {
+        "facebook": "tinmarinparrilla",
+        "instagram": "tinmarinparrilla",
+        "tiktok": "Tin Marin",
+        "youtube": ""
+      },
+      "imagen": "/uploads/restaurantes/restaurante-1774880227893.JPG",
+      "activo": true,
+      "creado": "2026-03-30T14:17:07.897Z"
+    },
+    {
+      "id": "mnd9zkcyw5k4g6ch1yi",
+      "nombre": "Javier Araque Elaica ",
+      "tipo_cocina": "Asadero",
+      "aforo": 120,
+      "especialidad": "Gastronomía Gourmet y Eventos",
+      "propietario": "Javier Araque Elaica ",
+      "direccion": "Vereda la Concepción parte Baja",
+      "ubicacion": "Terminando las gemelas vía Peaje a Tunja",
+      "telefono": "310 5460499",
+      "whatsapp": "310 5460499",
+      "correo": "Organizacion@germinar-promotora.org",
+      "horario": "Según Evento",
+      "precio_promedio": 25000,
+      "redes_sociales": {
+        "facebook": "https://www.facebook.com/share/1Hsd3YCyP7/",
+        "instagram": "geminar.eventos",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "imagen": "/uploads/restaurantes/restaurante-1774880440012.jpg",
+      "activo": true,
+      "creado": "2026-03-30T14:20:40.018Z"
+    },
+    {
+      "id": "mnda9jw5otgtbmvkkn",
+      "nombre": "Delicias del Altiplano",
+      "tipo_cocina": "Típica Boyacense",
+      "aforo": 20,
+      "especialidad": "Arepas Boyacenses, envueltos de Maíz pelado, Desayunos y postres.",
+      "propietario": "Anderson Fabian Ruiz Rodriguez ",
+      "direccion": "Kilometro 7 via Tunja - Paipa",
+      "ubicacion": "Diagonal Cementerio Parque Memorial de Santa Isabel ",
+      "telefono": "3137692133",
+      "whatsapp": "3137692133",
+      "correo": "andersonfruizr@gmail.com",
+      "horario": "Martes a Domingo, 8:00 am a 6:00 pm",
+      "precio_promedio": 15000,
+      "redes_sociales": {
+        "facebook": "https://www.facebook.com/share/1Du4bkbNt4/",
+        "instagram": "deliciasdelaltiplano7",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "imagen": "",
+      "activo": true,
+      "creado": "2026-03-30T14:28:25.973Z"
+    },
+    {
+      "id": "mndachucqhk4oljidbs",
+      "nombre": "Jhon Jairo Llano ",
+      "tipo_cocina": "Típica Boyacense",
+      "aforo": 100,
+      "especialidad": "Comida fusión ",
+      "propietario": "Familia Llano Hernández ",
+      "direccion": "Sector La Esperanza, vereda La Concepcion ",
+      "ubicacion": "Concepcion baja ",
+      "telefono": "",
+      "whatsapp": "3212657842",
+      "correo": "reservagourmet@gmail.com",
+      "horario": " 5:00 am a 10:00 pm",
+      "precio_promedio": 60000,
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "imagen": "/uploads/restaurantes/restaurante-1774881156114.jpeg",
+      "activo": true,
+      "creado": "2026-03-30T14:30:43.284Z",
+      "actualizado": "2026-03-30T14:32:36.121Z"
     }
   ],
   "hoteles": [
@@ -330,25 +476,30 @@
       "direccion": "Calle 5 No. 1-95",
       "habitaciones": 5,
       "capacidad": 10,
-      "servicios": "Hospedaje familiar",
+      "servicios": [
+        "WiFi",
+        "Parqueadero",
+        "Agua caliente",
+        "Jardín"
+      ],
       "redes_sociales": {
-        "facebook": "La Quinta Rosita",
+        "facebook": "https://www.facebook.com/profile.php?id=100054311209262",
         "instagram": "Posada la quinta de rosita",
         "tiktok": "",
         "youtube": ""
       },
       "activo": true,
-      "telefono": "",
-      "correo": "",
-      "imagen": "/uploads/hoteles/hotel-1771554231818.png",
-      "actualizado": "2026-02-20T02:23:55.974Z",
-      "tipo": "Hotel",
+      "telefono": "3124916912",
+      "correo": "diegofuquene@gmail.com",
+      "imagen": "/uploads/hoteles/hotel-1774881819795.jpg",
+      "actualizado": "2026-03-30T14:43:39.796Z",
+      "tipo": "Hospedaje Campestre",
       "categoria": "posada",
       "descripcion": "",
-      "whatsapp": "",
+      "whatsapp": "3124916912",
       "calificacion": 4,
-      "precio_badge": "Estándar",
-      "tarifas_texto": ""
+      "precio_badge": "Económico",
+      "tarifas_texto": "40.000 a 60.000"
     },
     {
       "id": "hot002",
@@ -389,26 +540,42 @@
     {
       "id": "hot004",
       "nombre": "Hotel La Posada de Bachué",
-      "direccion": "Calle 4 # 5-20, Cómbita Centro",
-      "telefono": "321 308 3406 / 321 307 5457",
+      "direccion": "Calle 4  # 5-20  Parque Principal Cómbita",
+      "telefono": "3213083406",
       "correo": "laposadadebachue24@gmail.com",
       "habitaciones": 10,
       "capacidad": 20,
-      "servicios": "Wi-Fi, TV por cable, baño privado con agua caliente, jardín. Estilo colonial con vista al parque principal.",
+      "servicios": [
+        "WiFi",
+        "TV Cable",
+        "Agua caliente",
+        "Jardín"
+      ],
       "redes_sociales": {
         "facebook": "Hotel la Posada de Bachué",
-        "instagram": "Hotel la posada de Bachué"
+        "instagram": "laposadadebachue24",
+        "tiktok": "",
+        "youtube": ""
       },
-      "activo": true
+      "activo": true,
+      "tipo": "Hotel",
+      "categoria": "hotel",
+      "descripcion": "En el Hotel Posada de Bachuē, parque principal Cómbita, encontrarás confort y calma, tu descanso en el corazón del pueblo",
+      "whatsapp": "3213075457",
+      "calificacion": 4,
+      "precio_badge": "Económico",
+      "tarifas_texto": "$45.000 - $90.000",
+      "imagen": "/uploads/hoteles/hotel-1774882323361.jpg",
+      "actualizado": "2026-03-30T14:52:03.362Z"
     },
     {
       "id": "hot005",
       "nombre": "Hotel Sol del Norte",
       "direccion": "Km 3, Vía Tunja - Paipa",
-      "telefono": "314 419 6271 / 310 231 7230",
+      "telefono": "3144196271",
       "correo": "hotelsoldelnorte11@gmail.com",
-      "habitaciones": 31,
-      "capacidad": 55,
+      "habitaciones": 32,
+      "capacidad": 32,
       "servicios": "Wi-Fi, TV por cable, baño privado, agua caliente, parqueadero",
       "tarifas": {
         "pareja": "$80.000",
@@ -417,7 +584,21 @@
         "tres_camas": "$140.000"
       },
       "propietario": "Edison Fuquene",
-      "activo": true
+      "activo": true,
+      "tipo": "Hotel",
+      "categoria": "hotel",
+      "descripcion": "Alojamiento que ofrece a sus huéspedes un ambiente cómodo, tranquilo y familiar, ideal para quienes buscan descanso durante viajes de turismo o trabajo. El hotel cuenta con habitaciones cómodas y bien equipadas, diseñadas para brindar una estadía agradable y práctica. ",
+      "whatsapp": "3144196271",
+      "calificacion": 4,
+      "precio_badge": "Económico",
+      "tarifas_texto": "60000y 140000",
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "actualizado": "2026-03-30T14:39:29.715Z"
     },
     {
       "id": "hot006",
@@ -485,6 +666,153 @@
         "youtube": ""
       },
       "actualizado": "2026-02-20T02:20:26.676Z"
+    },
+    {
+      "id": "mndalsoyjpser8klzxb",
+      "nombre": "Hyca Domo Glamping",
+      "tipo": "Glamping",
+      "categoria": "glamping",
+      "direccion": "Cómbita /vereda San Francisco ",
+      "descripcion": "Alojamiento tipo domo, Glamping y zona de camping. Domo Kia capacidad 5 personas, Glamping 5 personas.",
+      "telefono": "3132075576",
+      "whatsapp": "3143701509",
+      "correo": "hycaglamping@gmail.com",
+      "habitaciones": 2,
+      "capacidad": 10,
+      "calificacion": 4,
+      "precio_badge": "Estándar",
+      "tarifas_texto": "300.000- 450.0000",
+      "servicios": [
+        "WiFi",
+        "Parqueadero",
+        "Agua caliente",
+        "Cocina",
+        "Jardín",
+        "Desayuno",
+        "Jacuzzi"
+      ],
+      "redes_sociales": {
+        "facebook": "Hyca.glamping",
+        "instagram": "hyca.glamping",
+        "tiktok": "hyca.glamping",
+        "youtube": ""
+      },
+      "imagen": "/uploads/hoteles/hotel-1774881477247.jpeg",
+      "activo": true,
+      "creado": "2026-03-30T14:37:57.250Z"
+    },
+    {
+      "id": "mndaygn5zjlqvam32yj",
+      "nombre": "Jhon Jairo llano",
+      "tipo": "Posada Rural",
+      "categoria": "posada",
+      "direccion": "Sector La Esperanza, vereda la Concepción ",
+      "descripcion": "Espacio de alojamiento, contemplación y descanso ",
+      "telefono": "",
+      "whatsapp": "3212657842",
+      "correo": "reservagourme@gmail.com",
+      "habitaciones": 6,
+      "capacidad": 30,
+      "calificacion": 4,
+      "precio_badge": "Estándar",
+      "tarifas_texto": "120.000",
+      "servicios": [
+        "Parqueadero",
+        "Agua caliente",
+        "Cocina",
+        "Jardín",
+        "Desayuno",
+        "Spa",
+        "Jacuzzi",
+        "Chimenea",
+        "Senderos",
+        "restaurante"
+      ],
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "imagen": "/uploads/hoteles/hotel-1774882068143.jpeg",
+      "activo": true,
+      "creado": "2026-03-30T14:47:48.161Z"
+    },
+    {
+      "id": "mndb73nshf4g840dkcj",
+      "nombre": "HYCA Glamping ",
+      "tipo": "Glamping",
+      "categoria": "glamping",
+      "direccion": "Cómbita / vereda San Francisco ",
+      "descripcion": "Alojamiento tipo Glamping, domo y zona de camping ",
+      "telefono": "3143701509",
+      "whatsapp": "3143701509",
+      "correo": "hycaglamping@gmail.com",
+      "habitaciones": 2,
+      "capacidad": 10,
+      "calificacion": 4,
+      "precio_badge": "Premium",
+      "tarifas_texto": "300.000 y 350.0000",
+      "servicios": [
+        "WiFi",
+        "Parqueadero",
+        "Agua caliente",
+        "Cocina",
+        "Jardín",
+        "Desayuno",
+        "Spa",
+        "Jacuzzi",
+        "Chimenea"
+      ],
+      "redes_sociales": {
+        "facebook": "",
+        "instagram": "@hyca.glamping",
+        "tiktok": "hyca.glamping",
+        "youtube": ""
+      },
+      "imagen": "",
+      "activo": true,
+      "creado": "2026-03-30T14:54:31.240Z"
+    },
+    {
+      "id": "mndba7pi9mybsbuuano",
+      "nombre": "Familia Llano ",
+      "tipo": "Hospedaje Campestre",
+      "categoria": "hotel",
+      "direccion": "Sector La Esperanza, Vereda La Concepción ",
+      "descripcion": "Servicio de Hospedaje y restaurante campestre",
+      "telefono": "3212657842",
+      "whatsapp": "3212657842",
+      "correo": "jj_1504@hotmail.com",
+      "habitaciones": 5,
+      "capacidad": 20,
+      "calificacion": 4,
+      "precio_badge": "Premium",
+      "tarifas_texto": "$ 60.000",
+      "servicios": [
+        "WiFi",
+        "TV Cable",
+        "Parqueadero",
+        "Agua caliente",
+        "Cocina",
+        "Jardín",
+        "Desayuno",
+        "Spa",
+        "Jacuzzi",
+        "Chimenea",
+        "Senderos ecológicos",
+        "camping",
+        "granja"
+      ],
+      "redes_sociales": {
+        "facebook": "La Reserva Gourmet",
+        "instagram": "La Reserva Gourmet",
+        "tiktok": "",
+        "youtube": ""
+      },
+      "imagen": "/uploads/hoteles/hotel-1774882616447.jpeg",
+      "activo": true,
+      "creado": "2026-03-30T14:56:56.454Z"
     }
   ],
   "eventos": [
@@ -634,7 +962,7 @@
       "id": "rupestre",
       "titulo": "Arte Rupestre",
       "descripcion": "Pinturas precolombinas milenarias",
-      "portada": "/uploads/galeria/galeria-1771532261344.JPG",
+      "portada": "/uploads/galeria/galeria-1771557130544.jpg",
       "activo": true,
       "orden": 3,
       "imagenes": [
@@ -645,32 +973,40 @@
           "activo": true
         },
         {
-          "id": "mltwlfc6zrb9ipp3hc8",
-          "titulo": "roca pintada",
+          "id": "mlubeanmzorys33hiil",
+          "titulo": "piedra píntada",
           "descripcion": "",
-          "archivo": "/uploads/galeria/galeria-1771532305608.jpg",
+          "archivo": "/uploads/galeria/galeria-1771557167197.jpg",
           "activo": true,
-          "creado": "2026-02-19T20:18:25.638Z"
+          "creado": "2026-02-20T03:12:47.218Z"
         },
         {
-          "id": "mltwm8zb8q2b4o2k8oo",
-          "titulo": "pinturas rupestres",
+          "id": "mlubeboopm5k8zkuwx",
+          "titulo": "piedra píntada",
           "descripcion": "",
-          "archivo": "/uploads/galeria/galeria-1771532343930.jpg",
+          "archivo": "/uploads/galeria/galeria-1771557168532.jpg",
           "activo": true,
-          "creado": "2026-02-19T20:19:04.055Z"
+          "creado": "2026-02-20T03:12:48.552Z"
         },
         {
-          "id": "mltwmolhq7byzot457c",
-          "titulo": "roca con pinturas",
+          "id": "mluberwvklcz8iowyp",
+          "titulo": "pictogrtama",
           "descripcion": "",
-          "archivo": "/uploads/galeria/galeria-1771532364231.jpg",
+          "archivo": "/uploads/galeria/galeria-1771557189575.jpg",
           "activo": true,
-          "creado": "2026-02-19T20:19:24.293Z"
+          "creado": "2026-02-20T03:13:09.583Z"
+        },
+        {
+          "id": "mlubesbg4tdtwyohbyn",
+          "titulo": "pictograma",
+          "descripcion": "",
+          "archivo": "/uploads/galeria/galeria-1771557190099.jpg",
+          "activo": true,
+          "creado": "2026-02-20T03:13:10.108Z"
         }
       ],
       "creado": "2026-02-05T00:00:00.000Z",
-      "actualizado": "2026-02-19T20:17:41.518Z"
+      "actualizado": "2026-02-20T03:12:10.555Z"
     },
     {
       "id": "patrimonio",
@@ -756,18 +1092,20 @@
     }
   ],
   "estadisticas": {
-    "hoteles_hospedajes": 8,
-    "habitaciones_totales": 59,
-    "capacidad_alojamiento": 146,
-    "restaurantes_cafeterias": 10,
-    "capacidad_gastronomica": 510,
+    "hoteles_hospedajes": 12,
+    "habitaciones_totales": 75,
+    "capacidad_alojamiento": 193,
+    "restaurantes_cafeterias": 16,
+    "capacidad_gastronomica": 1276,
     "eventos": 3,
+    "catering_total": 0,
+    "catering_aforo": 0,
     "lugares_turisticos": 7,
     "reservas_naturales": 2,
     "areas_arqueologicas": 3,
     "patrimonio_urbano": 2
   },
-  "fecha_actualizacion": "19 de febrero de 2026",
+  "fecha_actualizacion": "8 de mayo de 2026",
   "blog": [
     {
       "id": "blog-001",
@@ -1138,5 +1476,6 @@
       "orden": 1,
       "creado": "2026-02-19T00:00:00.000Z"
     }
-  ]
+  ],
+  "catering": []
 }

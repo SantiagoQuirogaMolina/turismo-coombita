@@ -165,6 +165,33 @@ function validateGuia(body, isUpdate = false) {
     return errors;
 }
 
+function validateCatering(body, isUpdate = false) {
+    const errors = [];
+
+    if (!isUpdate) {
+        const missing = validateRequired(['nombre'], body);
+        if (missing.length) errors.push(`Campos requeridos: ${missing.join(', ')}`);
+    }
+
+    if (body.correo && !isValidEmail(body.correo)) {
+        errors.push('Formato de correo inválido');
+    }
+    if (body.telefono && !isValidPhone(body.telefono)) {
+        errors.push('Formato de teléfono inválido');
+    }
+    if (body.whatsapp && !isValidPhone(body.whatsapp)) {
+        errors.push('Formato de WhatsApp inválido');
+    }
+    if (body.aforo_total && !isPositiveInt(body.aforo_total)) {
+        errors.push('El aforo total debe ser un número positivo');
+    }
+    if (body.aforo_parqueadero && !isPositiveInt(body.aforo_parqueadero)) {
+        errors.push('El aforo del parqueadero debe ser un número positivo');
+    }
+
+    return errors;
+}
+
 function validateVideo(body, isUpdate = false) {
     const errors = [];
 
@@ -201,5 +228,6 @@ module.exports = {
     validateContacto,
     validateArtesano,
     validateGuia,
-    validateVideo
+    validateVideo,
+    validateCatering
 };

@@ -9,7 +9,11 @@
     // ===== SPLASH SCREEN PÁRAMO =====
     var splashStart = Date.now();
     var preloader = document.getElementById('preloader');
-    if (preloader) {
+
+    // Si la página NO tiene el splash inline (preloader vacío), inyectarlo aquí.
+    // Las páginas que ya traen contenido inline (ej. index.html) no se sobreescriben.
+    if (preloader && !preloader.innerHTML.trim()) {
+        preloader.classList.add('splash-paramo');
         preloader.innerHTML =
             '<div class="splash-particulas">' +
                 '<span></span><span></span><span></span><span></span><span></span>' +
@@ -47,14 +51,44 @@
             '<div class="splash-progress"><span></span></div>';
     }
 
-    // Mantener splash visible 1.5s y luego fade out (tiempo fijo, no espera imágenes)
+    // Splash: mínimo 1500ms, espera al hero hasta 4s máximo, luego fade out.
+    var splashHidden = false;
+    function ocultarSplash() {
+        if (splashHidden || !preloader) return;
+        splashHidden = true;
+        if (window.jQuery) {
+            jQuery(preloader).stop(true).fadeOut(500);
+        } else {
+            preloader.style.transition = 'opacity .5s';
+            preloader.style.opacity = '0';
+            setTimeout(function() { preloader.style.display = 'none'; }, 500);
+        }
+    }
+
+    function programarOcultar(extra) {
+        var transcurrido = Date.now() - splashStart;
+        var falta = Math.max(0, 1500 - transcurrido);
+        setTimeout(ocultarSplash, falta + (extra || 0));
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
-        if (preloader && window.jQuery) {
-            jQuery(preloader).stop(true).show().css('opacity', 1);
-            var espera = Math.max(0, 1500 - (Date.now() - splashStart));
-            setTimeout(function() {
-                jQuery(preloader).fadeOut(500);
-            }, espera);
+        if (!preloader) return;
+
+        // Timeout máximo de seguridad: 4s desde el inicio
+        setTimeout(ocultarSplash, Math.max(0, 4000 - (Date.now() - splashStart)));
+
+        // Buscar imagen del hero (data-image-src) — si existe, esperarla
+        var heroEl = document.querySelector('[data-image-src]');
+        var heroSrc = heroEl ? heroEl.getAttribute('data-image-src') : null;
+
+        if (heroSrc) {
+            var img = new Image();
+            img.onload = function() { programarOcultar(); };
+            img.onerror = function() { programarOcultar(); };
+            img.src = heroSrc;
+        } else {
+            // Sin hero detectado, comportamiento clásico: 1500ms y se va
+            programarOcultar();
         }
     });
 

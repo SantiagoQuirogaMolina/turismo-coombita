@@ -53,6 +53,10 @@
                 <i class="fas fa-hiking"></i>
                 <span>Guías</span>
             </a>
+            <a href="#" class="nav-item" data-section="catering">
+                <i class="fas fa-champagne-glasses"></i>
+                <span>Catering</span>
+            </a>
             <a href="#" class="nav-item" data-section="mensajes">
                 <i class="fas fa-envelope"></i>
                 <span>Mensajes</span>
@@ -136,6 +140,9 @@
                                 </button>
                                 <button class="btn btn-block" style="background:#5C6BC0;color:white;" onclick="showSection('guias'); openModal('guia')">
                                     <i class="fas fa-plus"></i> Nuevo Guía
+                                </button>
+                                <button class="btn btn-block" style="background:#9C27B0;color:white;" onclick="showSection('catering'); openModal('catering')">
+                                    <i class="fas fa-plus"></i> Nuevo Catering
                                 </button>
                             </div>
                         </div>
@@ -382,6 +389,36 @@
                                         <th>Especialidad</th>
                                         <th>Experiencia</th>
                                         <th>Rutas</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Catering Section -->
+            <section class="section" id="section-catering">
+                <div class="section-header">
+                    <h2>Gestión de Catering y Celebraciones</h2>
+                    <button class="btn btn-primary" onclick="openModal('catering')">
+                        <i class="fas fa-plus"></i> Agregar Establecimiento
+                    </button>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="tablaCatering">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Servicios</th>
+                                        <th>Aforo</th>
+                                        <th>Ubicación</th>
                                         <th>Estado</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -1273,6 +1310,180 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline" onclick="closeModal('video')">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Catering -->
+    <div class="modal" id="modalCatering">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3 id="modalCateringTitle">Agregar Establecimiento de Catering</h3>
+                <button class="modal-close" onclick="closeModal('catering')">&times;</button>
+            </div>
+            <form id="formCatering" enctype="multipart/form-data">
+                <input type="hidden" name="id" id="cateringId">
+                <div class="modal-body">
+                    <!-- Información Básica -->
+                    <h4 class="form-section-title">Información Básica</h4>
+                    <div class="form-row">
+                        <div class="form-group col-8">
+                            <label>Nombre del establecimiento *</label>
+                            <input type="text" name="nombre" class="form-control" required placeholder="Ej: Salón de Eventos Las Acacias">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Estado</label>
+                            <select name="activo" class="form-control">
+                                <option value="true">Activo</option>
+                                <option value="false">Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Tipos de servicio -->
+                    <h4 class="form-section-title">Tipo de Servicios</h4>
+                    <div class="services-checkboxes">
+                        <label class="checkbox-inline"><input type="checkbox" name="tipo_eventos" value="Eventos"> Eventos</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="tipo_catering" value="Catering"> Catering</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="tipo_seminarios" value="Seminarios"> Seminarios</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="tipo_celebraciones" value="Celebraciones"> Celebraciones</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="tipo_empresariales" value="Eventos empresariales"> Eventos empresariales</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="tipo_mobiliario" value="Alquiler de mobiliario"> Alquiler de mobiliario</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="tipo_logistica" value="Planificación logística"> Planificación logística y montaje</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="tipo_decoraciones" value="Decoraciones"> Decoraciones</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="tipo_personal" value="Servicio de personal"> Servicio de personal</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="tipo_equipamento" value="Equipamento"> Equipamento</label>
+                    </div>
+                    <div class="form-group" style="margin-top: 15px;">
+                        <label>Otros tipos de servicio</label>
+                        <input type="text" name="tipos_otros" class="form-control" placeholder="Separados por coma">
+                    </div>
+
+                    <!-- Ubicación -->
+                    <h4 class="form-section-title">Ubicación</h4>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label>Dirección</label>
+                            <input type="text" name="direccion" class="form-control" placeholder="Ej: Calle 5 # 4-20">
+                        </div>
+                        <div class="form-group col-6">
+                            <label>Ubicación / Sector</label>
+                            <input type="text" name="ubicacion" class="form-control" placeholder="Ej: Centro, Vereda San Onofre">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Link de Google Maps</label>
+                        <input type="url" name="maps_link" class="form-control" placeholder="https://maps.google.com/...">
+                        <small class="form-text">Opcional. Si lo dejas vacío, generamos el link automáticamente con el nombre y dirección.</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <textarea name="descripcion" class="form-control" rows="3" placeholder="Descripción del establecimiento, especialidades, servicios destacados..."></textarea>
+                    </div>
+
+                    <!-- Capacidades y Tarifas -->
+                    <h4 class="form-section-title">Capacidades y Tarifas</h4>
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label>Aforo total</label>
+                            <input type="number" name="aforo_total" class="form-control" min="0" placeholder="150">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Aforo del parqueadero</label>
+                            <input type="number" name="aforo_parqueadero" class="form-control" min="0" placeholder="20">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Precio Badge</label>
+                            <select name="precio_badge" class="form-control">
+                                <option value="Económico">Económico</option>
+                                <option value="Estándar" selected>Estándar</option>
+                                <option value="Premium">Premium</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Precio Badge (otro / detalle)</label>
+                        <input type="text" name="precio_badge_otro" class="form-control" placeholder="Ej: Por evento desde $500.000">
+                    </div>
+                    <div class="form-group">
+                        <label>Salones y descripción</label>
+                        <textarea name="salones_descripcion" class="form-control" rows="3" placeholder="Detalle de los salones disponibles, ambientes, capacidades por salón..."></textarea>
+                    </div>
+
+                    <!-- Servicios -->
+                    <h4 class="form-section-title">Servicios Disponibles</h4>
+                    <div class="services-checkboxes">
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_wifi" value="WiFi"> WiFi</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_parking" value="Parqueadero"> Parqueadero</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_cocina" value="Cocina"> Cocina</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_jardin" value="Jardín"> Jardín</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_chimenea" value="Chimenea"> Chimenea</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_proyector" value="Proyector de video"> Proyector de video</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="servicio_bbq" value="BBQ"> BBQ</label>
+                    </div>
+                    <div class="form-group" style="margin-top: 15px;">
+                        <label>Otros servicios</label>
+                        <input type="text" name="servicios_otros" class="form-control" placeholder="Separados por coma">
+                    </div>
+
+                    <!-- Contacto -->
+                    <h4 class="form-section-title">Información de Contacto</h4>
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label>Teléfono</label>
+                            <input type="text" name="telefono" class="form-control" placeholder="320 475 3479">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>WhatsApp</label>
+                            <input type="text" name="whatsapp" class="form-control" placeholder="320 475 3479">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Correo</label>
+                            <input type="email" name="correo" class="form-control" placeholder="email@ejemplo.com">
+                        </div>
+                    </div>
+
+                    <!-- Redes Sociales -->
+                    <h4 class="form-section-title">Redes Sociales</h4>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-facebook"></i> Facebook</label>
+                            <input type="text" name="facebook" class="form-control" placeholder="Nombre de página o URL">
+                        </div>
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-instagram"></i> Instagram</label>
+                            <input type="text" name="instagram" class="form-control" placeholder="@usuario">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-tiktok"></i> TikTok</label>
+                            <input type="text" name="tiktok" class="form-control" placeholder="@usuario">
+                        </div>
+                        <div class="form-group col-6">
+                            <label><i class="fab fa-youtube"></i> YouTube</label>
+                            <input type="text" name="youtube" class="form-control" placeholder="Canal o URL">
+                        </div>
+                    </div>
+
+                    <!-- Imagen -->
+                    <h4 class="form-section-title">Imagen</h4>
+                    <div class="form-group">
+                        <label>Imagen Actual</label>
+                        <div id="cateringImagenPreview" class="imagen-preview">
+                            <span class="no-imagen">Sin imagen</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Cambiar Imagen</label>
+                        <input type="file" name="imagen" class="form-control" accept="image/*" onchange="previewImage(this, 'cateringImagenPreview')">
+                        <small class="form-text">Formatos: JPG, PNG, WebP. Tamaño máximo: 5MB. Tamaño recomendado: 800x600px.</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('catering')">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
             </form>

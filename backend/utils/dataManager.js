@@ -53,6 +53,8 @@ function updateStats(data) {
         restaurantes_cafeterias: data.restaurantes.length,
         capacidad_gastronomica: data.restaurantes.reduce((sum, r) => sum + (r.aforo || 0), 0),
         eventos: data.eventos.length,
+        catering_total: (data.catering || []).length,
+        catering_aforo: (data.catering || []).reduce((sum, c) => sum + (c.aforo_total || 0), 0),
         lugares_turisticos: (data.lugares_turisticos?.reservas_naturales?.length || 0) +
                            (data.lugares_turisticos?.areas_arqueologicas?.length || 0) +
                            (data.lugares_turisticos?.patrimonio_urbano?.length || 0),
