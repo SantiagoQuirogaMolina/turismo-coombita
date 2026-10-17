@@ -88,6 +88,12 @@ router.get('/dashboard', verifyToken, (req, res) => {
                 valor: data.videos?.length || 0,
                 icono: 'video',
                 color: '#E53935'
+            },
+            {
+                titulo: 'Catering',
+                valor: data.catering?.length || 0,
+                icono: 'champagne-glasses',
+                color: '#9C27B0'
             }
         ],
         ultimosAgregados: {
@@ -101,6 +107,10 @@ router.get('/dashboard', verifyToken, (req, res) => {
                 .slice(0, 3),
             eventos: (data.eventos || [])
                 .filter(e => e.creado)
+                .sort((a, b) => new Date(b.creado) - new Date(a.creado))
+                .slice(0, 3),
+            catering: (data.catering || [])
+                .filter(c => c.creado)
                 .sort((a, b) => new Date(b.creado) - new Date(a.creado))
                 .slice(0, 3)
         },

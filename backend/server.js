@@ -89,6 +89,7 @@ app.use('/api/contacto', require('./routes/contacto'));
 app.use('/api/artesanos', require('./routes/artesanos'));
 app.use('/api/guias', require('./routes/guias'));
 app.use('/api/videos', require('./routes/videos'));
+app.use('/api/catering', require('./routes/catering'));
 
 // ===== PÁGINAS PÚBLICAS =====
 
