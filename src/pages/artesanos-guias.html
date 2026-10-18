@@ -503,7 +503,7 @@
                 <div class="ag-card">
                     <div class="ag-card-img">
                         ${item.imagen
-                            ? `<img src="${item.imagen}" alt="${item.nombre}" onerror="this.parentElement.innerHTML='<div class=\\'ag-placeholder\\' loading="lazy"><i class=\\'fas ${icon}\\'></i></div>'">`
+                            ? `<img src="${item.imagen}" alt="${item.nombre}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'ag-placeholder\\'><i class=\\'fas ${icon}\\'></i></div>'">`
                             : `<div class="ag-placeholder"><i class="fas ${icon}"></i></div>`
                         }
                         <span class="ag-badge"><i class="fas fa-star" style="margin-right:5px;font-size:11px;"></i> ${item.especialidad}</span>

@@ -48,7 +48,7 @@
     <link rel="stylesheet" href="../assets/css/vendor/content-box.css">
     <link rel="stylesheet" href="../assets/css/vendor/media-box.css">
     <link rel="stylesheet" href="../assets/css/vendor/contact-form.css">
-    <link rel="stylesheet" href="../assets/images/icons/icons/iconsmind/line-icons.min.css">
+    <link rel="stylesheet" href="../assets/images/icons/iconsmind/line-icons.min.css">
     <link rel="stylesheet" href="../assets/media/icons/fontawesome/all.css">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/frailejon-theme.css?v=3">
@@ -631,7 +631,7 @@
             const ytHref = redes.youtube ? (redes.youtube.startsWith('http') ? redes.youtube : `https://youtube.com/${redes.youtube.startsWith('@') ? redes.youtube : '@' + redes.youtube}`) : '#';
 
             const imagenHtml = item.imagen
-                ? `<img src="${item.imagen}" alt="${escHtml(item.nombre)}" onerror="this.parentElement.innerHTML='<div class=\\'catering-no-image\\' loading="lazy"><i class=\\'fas fa-champagne-glasses\\'></i></div>'">`
+                ? `<img src="${item.imagen}" alt="${escHtml(item.nombre)}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'catering-no-image\\'><i class=\\'fas fa-champagne-glasses\\'></i></div>'">`
                 : `<div class="catering-no-image"><i class="fas fa-champagne-glasses"></i></div>`;
 
             return `
