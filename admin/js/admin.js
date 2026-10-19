@@ -459,6 +459,8 @@ async function editRestaurante(id) {
         showCurrentImage('restauranteImagenPreview', restaurante.imagen);
 
         document.getElementById('modalRestauranteTitle').textContent = 'Editar Restaurante';
+        form.lat.value = restaurante.lat ?? '';
+        form.lng.value = restaurante.lng ?? '';
         openModal('restaurante');
     } catch (error) {
         showToast('Error cargando datos', 'error');
@@ -620,6 +622,8 @@ async function editHotel(id) {
         showCurrentImage('hotelImagenPreview', hotel.imagen);
 
         document.getElementById('modalHotelTitle').textContent = 'Editar Hospedaje';
+        form.lat.value = hotel.lat ?? '';
+        form.lng.value = hotel.lng ?? '';
         openModal('hotel');
     } catch (error) {
         showToast('Error cargando datos', 'error');
@@ -805,6 +809,98 @@ async function handlePasswordChange(e) {
 
 // ==================== MODALS ====================
 
+// ===== SELECTOR DE UBICACIÓN EN EL MAPA =====
+// Restaurantes, hospedajes y catering guardan lat/lng. Sin ubicación, el mapa público los muestra como "Ubicación por definir".
+const CENTRO_COMBITA = [5.6337, -73.3243];
+const mapasSelector = {};
+
+function coordenadasDesdeTexto(texto) {
+    // Acepta "5.634, -73.323", enlaces largos de Google Maps (@5.634,-73.323 o !3d5.634!4d-73.323)
+    const t = (texto || '').trim();
+    const m = t.match(/!3d(-?\d+(?:\.\d+)?)!4d(-?\d+(?:\.\d+)?)/) || t.match(/(-?\d{1,2}\.\d+)\s*,\s*(-?\d{1,3}\.\d+)/);
+    if (!m) return null;
+    const lat = parseFloat(m[1]), lng = parseFloat(m[2]);
+    return (lat > 4 && lat < 7 && lng > -75 && lng < -72) ? { lat, lng } : null;
+}
+
+function ponerUbicacion(form, lat, lng) {
+    const sel = mapasSelector[form.getAttribute('id')];
+    const estado = form.querySelector('.mapa-estado');
+    form.lat.value = lat ?? '';
+    form.lng.value = lng ?? '';
+    if (lat === null || lat === undefined) {
+        if (sel.marker) {
+            sel.map.removeLayer(sel.marker);
+            sel.marker = null;
+        }
+        estado.textContent = 'Ubicación por definir: haga clic en el mapa donde queda el establecimiento.';
+        estado.classList.remove('definida');
+        return;
+    }
+    if (!sel.marker) {
+        sel.marker = L.marker([lat, lng], { draggable: true }).addTo(sel.map);
+        sel.marker.on('dragend', () => {
+            const p = sel.marker.getLatLng();
+            ponerUbicacion(form, +p.lat.toFixed(6), +p.lng.toFixed(6));
+        });
+    } else {
+        sel.marker.setLatLng([lat, lng]);
+    }
+    estado.textContent = `Ubicación definida (${lat.toFixed(6)}, ${lng.toFixed(6)}). Puede arrastrar el punto para ajustarlo.`;
+    estado.classList.add('definida');
+}
+
+function sincronizarMapaSelector(form) {
+    const contenedor = form.querySelector('.mapa-selector');
+    if (!contenedor || typeof L === 'undefined') return;
+    const clave = form.getAttribute('id');
+
+    if (!mapasSelector[clave]) {
+        const map = L.map(contenedor).setView(CENTRO_COMBITA, 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; OpenStreetMap'
+        }).addTo(map);
+        mapasSelector[clave] = { map, marker: null };
+        map.on('click', e => ponerUbicacion(form, +e.latlng.lat.toFixed(6), +e.latlng.lng.toFixed(6)));
+
+        const pegar = form.querySelector('.mapa-pegar');
+        const usarTexto = () => {
+            if (!pegar.value.trim()) return;
+            const c = coordenadasDesdeTexto(pegar.value);
+            if (!c) {
+                showToast('No se encontraron coordenadas válidas. En Google Maps haga clic derecho sobre el lugar y copie los números que aparecen arriba.', 'error');
+                return;
+            }
+            ponerUbicacion(form, c.lat, c.lng);
+            map.setView([c.lat, c.lng], 17);
+            pegar.value = '';
+        };
+        pegar.addEventListener('change', usarTexto);
+        pegar.addEventListener('keydown', e => {
+            if (e.key === 'Enter') {
+                e.preventDefault(); // no enviar el formulario
+                usarTexto();
+            }
+        });
+        form.querySelector('.mapa-quitar').addEventListener('click', () => ponerUbicacion(form, null, null));
+    }
+
+    const sel = mapasSelector[clave];
+    const lat = parseFloat(form.lat.value), lng = parseFloat(form.lng.value);
+    // El mapa se dibuja cuando el formulario ya es visible
+    setTimeout(() => {
+        sel.map.invalidateSize();
+        if (Number.isFinite(lat) && Number.isFinite(lng)) {
+            ponerUbicacion(form, lat, lng);
+            sel.map.setView([lat, lng], 17);
+        } else {
+            ponerUbicacion(form, null, null);
+            sel.map.setView(CENTRO_COMBITA, 15);
+        }
+    }, 150);
+}
+
 function openModal(type) {
     // Map type names to modal IDs
     const modalMap = {
@@ -831,6 +927,7 @@ function openModal(type) {
 
         if (form && (!idField || !idField.value)) {
             form.reset();
+            if (form.lat) { form.lat.value = ''; form.lng.value = ''; }
             const title = modal.querySelector('.modal-header h3');
             if (title) {
                 const titles = {
@@ -874,6 +971,7 @@ function openModal(type) {
             }
         }
         modal.classList.add('active');
+        if (form) sincronizarMapaSelector(form);
     }
 }
 
@@ -2133,6 +2231,8 @@ async function editCatering(id) {
         showCurrentImage('cateringImagenPreview', item.imagen);
 
         document.getElementById('modalCateringTitle').textContent = 'Editar Establecimiento de Catering';
+        form.lat.value = item.lat ?? '';
+        form.lng.value = item.lng ?? '';
         openModal('catering');
     } catch (error) {
         showToast('Error cargando datos', 'error');

@@ -854,7 +854,8 @@
     "sidebar": {
       "title": "Puntos de interés",
       "loading": "Cargando puntos...",
-      "empty": "No hay puntos en esta categoría"
+      "empty": "No hay puntos en esta categoría",
+      "sin_ubicacion": "Ubicación por definir"
     },
     "filters": {
       "all": "Todos",
