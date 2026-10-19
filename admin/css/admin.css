@@ -1412,3 +1412,31 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* ===== Selector de ubicación en el mapa ===== */
+.mapa-selector {
+    height: 280px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    position: relative;
+    z-index: 0;
+}
+.mapa-selector-acciones {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.mapa-selector-acciones .mapa-pegar {
+    flex: 1;
+}
+.mapa-estado {
+    display: block;
+    margin-top: 6px;
+    font-weight: 600;
+    color: #BC6C25;
+}
+.mapa-estado.definida {
+    color: #699073;
+}

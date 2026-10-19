@@ -95,6 +95,9 @@
         }
         .map-poi-card:hover { border-color: #699073; transform: translateX(3px); }
         .map-poi-card.highlighted { border-color: #DDA15E; background: #fffdf8; }
+        .map-poi-card.sin-ubicacion { cursor: default; }
+        .map-poi-pendiente { display: inline-block; margin-top: 6px; font-size: 11px; font-weight: 600; color: #BC6C25; }
+        .map-poi-pendiente i { margin-right: 4px; }
         .map-poi-card h4 {
             font-size: 14px;
             color: #2d3e33;
@@ -526,51 +529,39 @@
             ];
             sitios.forEach(s => pois.push(s));
 
-            // Cargar restaurantes (distribuidos por Calle 2 y centro, según direcciones reales)
+            // Restaurantes y hospedajes se ubican con las coordenadas guardadas en cada registro (lat, lng).
+            // Los que aún no tienen ubicación aparecen en la lista como "Ubicación por definir", sin punto en el mapa.
+            const coordenadas = (item) => {
+                const lat = parseFloat(item.lat), lng = parseFloat(item.lng);
+                return (lat > 4 && lat < 7 && lng > -75 && lng < -72) ? { lat, lng } : null;
+            };
+
             try {
                 const res = await fetch(`${API_URL}/restaurantes`);
                 const restaurantes = await res.json();
-                // Posiciones basadas en direcciones reales sobre Calle 2, centro de Cómbita
-                const restPos = {
-                    'Calle 2A # 6-17': { lat: 5.6340, lng: -73.3250 },
-                    'Calle 2 # 6-08': { lat: 5.6339, lng: -73.3248 },
-                    'Calle 2 # 5-53': { lat: 5.6338, lng: -73.3244 },
-                    'Calle 2 # 3-35': { lat: 5.6336, lng: -73.3236 },
-                    'Calle 2 # 3-34': { lat: 5.6336, lng: -73.3235 },
-                    'Calle 2 # 4-61': { lat: 5.6337, lng: -73.3240 },
-                    'Calle 4 #4-25': { lat: 5.6333, lng: -73.3240 }
-                };
-                restaurantes.forEach((r, i) => {
-                    const pos = restPos[r.direccion] || { lat: 5.6335 + (i * 0.0002), lng: -73.3242 + (i * 0.0002) };
+                restaurantes.forEach(r => {
+                    const pos = coordenadas(r);
                     pois.push({
                         nombre: r.nombre,
                         tipo: 'restaurante',
-                        lat: pos.lat,
-                        lng: pos.lng,
+                        lat: pos ? pos.lat : null,
+                        lng: pos ? pos.lng : null,
                         desc: r.especialidad || r.tipo_cocina || _t('mapa.fallbacks.restaurante', 'Restaurante local'),
                         telefono: r.telefono
                     });
                 });
             } catch(e) {}
 
-            // Cargar hospedajes (posiciones basadas en direcciones reales)
             try {
                 const res = await fetch(`${API_URL}/hoteles`);
                 const hoteles = await res.json();
-                const hotelPos = {
-                    'Calle 5 No. 1-95': { lat: 5.6330, lng: -73.3228 },
-                    'Cra. 5 # 2-50': { lat: 5.6332, lng: -73.3232 },
-                    'Vereda San Francisco, Cómbita': { lat: 5.6580, lng: -73.3250 },
-                    'Calle 4 # 5-20, Cómbita Centro': { lat: 5.6334, lng: -73.3242 },
-                    'Km 3, Vía Tunja - Paipa': { lat: 5.6150, lng: -73.3180 }
-                };
-                hoteles.forEach((h, i) => {
-                    const pos = hotelPos[h.direccion] || { lat: 5.6340 + (i * 0.0003), lng: -73.3230 - (i * 0.0003) };
+                hoteles.forEach(h => {
+                    const pos = coordenadas(h);
                     pois.push({
                         nombre: h.nombre,
                         tipo: 'hospedaje',
-                        lat: pos.lat,
-                        lng: pos.lng,
+                        lat: pos ? pos.lat : null,
+                        lng: pos ? pos.lng : null,
                         desc: h.tipo || h.categoria || _t('mapa.fallbacks.hospedaje', 'Hospedaje'),
                         telefono: h.telefono
                     });
@@ -595,7 +586,7 @@
 
         function renderPois(pois) {
             // Limpiar marcadores existentes
-            markers.forEach(m => map.removeLayer(m));
+            markers.forEach(m => m && map.removeLayer(m));
             markers = [];
 
             // Renderizar lista
@@ -606,15 +597,21 @@
             }
 
             list.innerHTML = pois.map((p, i) => `
-                <div class="map-poi-card" onclick="focusPoi(${i})" id="poi-${i}">
+                <div class="map-poi-card${p.lat === null ? ' sin-ubicacion' : ''}" onclick="focusPoi(${i})" id="poi-${i}">
                     <span class="map-poi-type type-${p.tipo}">${typeLabels[p.tipo] || p.tipo}</span>
                     <h4>${p.nombre}</h4>
                     <p>${p.desc || ''}${p.telefono ? ' <br><i class="fas fa-phone-alt" style="font-size:10px;color:#699073;"></i> ' + p.telefono : ''}</p>
+                    ${p.lat === null ? `<span class="map-poi-pendiente"><i class="fas fa-map-marker-alt"></i> ${_t('mapa.sidebar.sin_ubicacion', 'Ubicación por definir')}</span>` : ''}
                 </div>
             `).join('');
 
             // Agregar marcadores al mapa
             pois.forEach((p, i) => {
+                if (p.lat === null) {
+                    markers.push(null); // sin ubicación definida: solo en la lista
+                    return;
+                }
+
                 const marker = L.marker([p.lat, p.lng], {
                     icon: createIcon(typeColors[p.tipo] || '#666')
                 }).addTo(map);
@@ -641,8 +638,9 @@
             });
 
             // Ajustar vista al contenido
-            if (markers.length > 1) {
-                const group = new L.featureGroup(markers);
+            const conPunto = markers.filter(Boolean);
+            if (conPunto.length > 1) {
+                const group = new L.featureGroup(conPunto);
                 map.fitBounds(group.getBounds().pad(0.1));
             }
         }
@@ -678,21 +676,22 @@
         function focusPoi(index) {
             const filtered = currentFilter === 'todos' ? allPois : allPois.filter(p => p.tipo === currentFilter);
             const poi = filtered[index];
-            if (poi && markers[index]) {
-                // En móvil, cambiar a vista mapa al tocar un POI
-                if (window.innerWidth <= 768) {
-                    mobileView('mapa');
-                    setTimeout(() => {
-                        map.setView([poi.lat, poi.lng], 16);
-                        markers[index].openPopup();
-                    }, 200);
-                } else {
+            if (!poi) return;
+
+            document.querySelectorAll('.map-poi-card').forEach(c => c.classList.remove('highlighted'));
+            document.getElementById(`poi-${index}`)?.classList.add('highlighted');
+
+            if (!markers[index]) return; // sin ubicación definida
+            // En móvil, cambiar a vista mapa al tocar un POI
+            if (window.innerWidth <= 768) {
+                mobileView('mapa');
+                setTimeout(() => {
                     map.setView([poi.lat, poi.lng], 16);
                     markers[index].openPopup();
-                }
-
-                document.querySelectorAll('.map-poi-card').forEach(c => c.classList.remove('highlighted'));
-                document.getElementById(`poi-${index}`)?.classList.add('highlighted');
+                }, 200);
+            } else {
+                map.setView([poi.lat, poi.lng], 16);
+                markers[index].openPopup();
             }
         }
     </script>

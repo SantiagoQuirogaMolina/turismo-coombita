@@ -854,7 +854,8 @@
     "sidebar": {
       "title": "Points of interest",
       "loading": "Loading points...",
-      "empty": "No points in this category"
+      "empty": "No points in this category",
+      "sin_ubicacion": "Location to be defined"
     },
     "filters": {
       "all": "All",

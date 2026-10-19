@@ -9,6 +9,7 @@ const fs = require('fs');
 const { verifyToken, requireAdmin } = require('../middleware/auth');
 const { readData, writeData, generateId, updateStats } = require('../utils/dataManager');
 const { validateCatering } = require('../utils/validation');
+const { leerCoordenadas } = require('../utils/coordenadas');
 const { deleteOldImage } = require('../utils/imageCleanup');
 
 const router = express.Router();
@@ -152,6 +153,8 @@ router.post('/', verifyToken, requireAdmin, upload.single('imagen'), (req, res) 
     if (!data.catering) data.catering = [];
 
     const errors = validateCatering(req.body);
+    const coords = leerCoordenadas(req.body);
+    if (coords.error) errors.push(coords.error);
     if (errors.length) {
         return res.status(400).json({ error: errors.join('. ') });
     }
@@ -180,6 +183,8 @@ router.post('/', verifyToken, requireAdmin, upload.single('imagen'), (req, res) 
             youtube: req.body.youtube || ''
         },
         imagen: req.file ? `/uploads/catering/${req.file.filename}` : '',
+        lat: coords.lat,
+        lng: coords.lng,
         activo: true,
         creado: new Date().toISOString()
     };
@@ -213,6 +218,11 @@ router.put('/:id', verifyToken, requireAdmin, upload.single('imagen'), (req, res
     }
 
     const actual = data.catering[index];
+
+    const coords = leerCoordenadas(req.body, actual);
+    if (coords.error) {
+        return res.status(400).json({ error: coords.error });
+    }
 
     // Reconstruir tipos_servicio solo si vinieron campos relacionados
     let tipos_servicio = actual.tipos_servicio || [];
@@ -255,6 +265,8 @@ router.put('/:id', verifyToken, requireAdmin, upload.single('imagen'), (req, res
         correo: req.body.correo ?? actual.correo ?? '',
         redes_sociales,
         imagen: req.file ? `/uploads/catering/${req.file.filename}` : actual.imagen,
+        lat: coords.lat,
+        lng: coords.lng,
         activo: req.body.activo !== undefined ? req.body.activo === 'true' : actual.activo,
         actualizado: new Date().toISOString()
     };

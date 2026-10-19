@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Admin | Turismo Cómbita</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
@@ -585,6 +586,20 @@
                         </div>
                     </div>
 
+                    <!-- Ubicación en el mapa -->
+                    <h4 class="form-section-title">Ubicación en el mapa</h4>
+                    <div class="form-group">
+                        <small class="form-text">Haga clic en el mapa donde queda el establecimiento. Puede acercar con los botones + y − y arrastrar el punto para ajustarlo. Si no sabe dónde queda, déjelo vacío: en el sitio aparecerá como "Ubicación por definir".</small>
+                        <div class="mapa-selector"></div>
+                        <div class="mapa-selector-acciones">
+                            <input type="text" class="form-control mapa-pegar" placeholder="O pegue coordenadas de Google Maps, ej: 5.634240, -73.323430">
+                            <button type="button" class="btn btn-outline mapa-quitar">Quitar ubicación</button>
+                        </div>
+                        <small class="mapa-estado">Ubicación por definir</small>
+                        <input type="hidden" name="lat">
+                        <input type="hidden" name="lng">
+                    </div>
+
                     <!-- Imagen -->
                     <h4 class="form-section-title">Imagen</h4>
                     <div class="form-group">
@@ -752,6 +767,20 @@
                             <option value="camping">Camping</option>
                         </select>
                         <small class="form-text">Esta categoría determina en qué pestaña aparece el hospedaje en el sitio público</small>
+                    </div>
+
+                    <!-- Ubicación en el mapa -->
+                    <h4 class="form-section-title">Ubicación en el mapa</h4>
+                    <div class="form-group">
+                        <small class="form-text">Haga clic en el mapa donde queda el establecimiento. Puede acercar con los botones + y − y arrastrar el punto para ajustarlo. Si no sabe dónde queda, déjelo vacío: en el sitio aparecerá como "Ubicación por definir".</small>
+                        <div class="mapa-selector"></div>
+                        <div class="mapa-selector-acciones">
+                            <input type="text" class="form-control mapa-pegar" placeholder="O pegue coordenadas de Google Maps, ej: 5.634240, -73.323430">
+                            <button type="button" class="btn btn-outline mapa-quitar">Quitar ubicación</button>
+                        </div>
+                        <small class="mapa-estado">Ubicación por definir</small>
+                        <input type="hidden" name="lat">
+                        <input type="hidden" name="lng">
                     </div>
 
                     <!-- Imagen -->
@@ -1468,6 +1497,20 @@
                         </div>
                     </div>
 
+                    <!-- Ubicación en el mapa -->
+                    <h4 class="form-section-title">Ubicación en el mapa</h4>
+                    <div class="form-group">
+                        <small class="form-text">Haga clic en el mapa donde queda el establecimiento. Puede acercar con los botones + y − y arrastrar el punto para ajustarlo. Si no sabe dónde queda, déjelo vacío: en el sitio aparecerá como "Ubicación por definir".</small>
+                        <div class="mapa-selector"></div>
+                        <div class="mapa-selector-acciones">
+                            <input type="text" class="form-control mapa-pegar" placeholder="O pegue coordenadas de Google Maps, ej: 5.634240, -73.323430">
+                            <button type="button" class="btn btn-outline mapa-quitar">Quitar ubicación</button>
+                        </div>
+                        <small class="mapa-estado">Ubicación por definir</small>
+                        <input type="hidden" name="lat">
+                        <input type="hidden" name="lng">
+                    </div>
+
                     <!-- Imagen -->
                     <h4 class="form-section-title">Imagen</h4>
                     <div class="form-group">
@@ -1539,6 +1582,7 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="js/admin.js"></script>
 </body>
 </html>
